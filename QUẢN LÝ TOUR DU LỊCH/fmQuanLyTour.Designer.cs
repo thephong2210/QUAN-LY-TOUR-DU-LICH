@@ -53,6 +53,7 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.maSoTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableTours)).BeginInit();
@@ -106,6 +107,8 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
             // dataTableTours
             // 
             this.dataTableTours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTableTours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maSoTour});
             this.dataTableTours.Location = new System.Drawing.Point(6, 35);
             this.dataTableTours.Name = "dataTableTours";
             this.dataTableTours.RowHeadersWidth = 51;
@@ -275,6 +278,13 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // maSoTour
+            // 
+            this.maSoTour.HeaderText = "Mã số tour";
+            this.maSoTour.MinimumWidth = 6;
+            this.maSoTour.Name = "maSoTour";
+            this.maSoTour.Width = 125;
+            // 
             // fmQuanLyTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -327,6 +337,7 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
     }
 }
 
