@@ -16,9 +16,9 @@ namespace DAO
         {
             connect.OpenConnect();
             DataTable dataTable = new DataTable();
-            string querySql = "SELECT * FROM tour";
+            string querySql = "SELECT * FROM [tourdulich].[dbo].[tour]";
 
-            SqlCommand command = new SqlCommand(querySql);
+            SqlCommand command = new SqlCommand(querySql, connect.conn );
 
             dataTable.Load(command.ExecuteReader());
 
