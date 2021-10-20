@@ -5,7 +5,7 @@ namespace DAO
 {
     public class DataConnection
     {
-        SqlConnection conn;
+        public SqlConnection conn;
         private string connString = @"Data Source=LAPTOP-8JSOGGPT;Initial Catalog=tourdulich;Integrated Security=True";
 
         public void OpenConnect()
