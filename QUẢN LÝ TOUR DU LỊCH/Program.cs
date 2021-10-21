@@ -17,7 +17,7 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new QuanLyTour());
         }
     }
 }
