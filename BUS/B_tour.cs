@@ -40,6 +40,11 @@ namespace BUS
             return dao_Tour.GetMaLoaiHinhDuLich(tenLoaiHinhDuLich);
         }
 
+        public DataTable GetListDetailsTour(int maSoTour)
+        {
+            return dao_Tour.GetListDetailsTour(maSoTour);
+        }
+
 
 
     }

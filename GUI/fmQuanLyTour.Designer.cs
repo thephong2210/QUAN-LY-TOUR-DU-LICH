@@ -69,12 +69,11 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonXemChiTiet = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.buttonXoa = new System.Windows.Forms.Button();
-            this.buttonSua = new System.Windows.Forms.Button();
             this.dataGridViewQuanLyTour = new System.Windows.Forms.DataGridView();
             this.maSoTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenGoiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -432,10 +431,9 @@ namespace GUI
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.buttonXemChiTiet);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.buttonXoa);
-            this.panel3.Controls.Add(this.buttonSua);
             this.panel3.Controls.Add(this.dataGridViewQuanLyTour);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(389, 68);
@@ -462,18 +460,18 @@ namespace GUI
             this.label9.TabIndex = 20;
             this.label9.Text = "Tìm kiếm";
             // 
-            // button1
+            // buttonXemChiTiet
             // 
-            this.button1.BackColor = System.Drawing.Color.SlateGray;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(14, 577);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 51);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Xem chi tiết";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonXemChiTiet.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonXemChiTiet.ForeColor = System.Drawing.Color.White;
+            this.buttonXemChiTiet.Location = new System.Drawing.Point(14, 577);
+            this.buttonXemChiTiet.Name = "buttonXemChiTiet";
+            this.buttonXemChiTiet.Size = new System.Drawing.Size(152, 51);
+            this.buttonXemChiTiet.TabIndex = 19;
+            this.buttonXemChiTiet.Text = "Xem chi tiết";
+            this.buttonXemChiTiet.UseVisualStyleBackColor = false;
+            this.buttonXemChiTiet.Click += new System.EventHandler(this.buttonXemChiTiet_Click);
             // 
             // panel7
             // 
@@ -511,24 +509,12 @@ namespace GUI
             this.buttonXoa.BackColor = System.Drawing.Color.Red;
             this.buttonXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonXoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoa.Location = new System.Drawing.Point(903, 578);
+            this.buttonXoa.Location = new System.Drawing.Point(875, 578);
             this.buttonXoa.Name = "buttonXoa";
-            this.buttonXoa.Size = new System.Drawing.Size(119, 51);
+            this.buttonXoa.Size = new System.Drawing.Size(147, 51);
             this.buttonXoa.TabIndex = 16;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = false;
-            // 
-            // buttonSua
-            // 
-            this.buttonSua.BackColor = System.Drawing.Color.Orange;
-            this.buttonSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonSua.ForeColor = System.Drawing.Color.White;
-            this.buttonSua.Location = new System.Drawing.Point(696, 578);
-            this.buttonSua.Name = "buttonSua";
-            this.buttonSua.Size = new System.Drawing.Size(128, 51);
-            this.buttonSua.TabIndex = 17;
-            this.buttonSua.Text = "Sửa";
-            this.buttonSua.UseVisualStyleBackColor = false;
             // 
             // dataGridViewQuanLyTour
             // 
@@ -670,7 +656,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView dataGridViewQuanLyTour;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonXoa;
-        private System.Windows.Forms.Button buttonSua;
 
         #endregion
 
@@ -705,7 +690,7 @@ namespace GUI
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonXemChiTiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;

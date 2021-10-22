@@ -31,6 +31,25 @@ namespace DAO
 
         }
 
+        //Hiển thị chi tiết tour
+        public DataTable GetListDetailsTour(int maSoTour)
+        {
+            connect.OpenConnect();
+            DataTable dataTable = new DataTable();
+            string querySql = "SELECT tenGoiTour, dacDiem, tenLoaiHinhDuLich, tenDiaDiem, maGiaTour, soLuongKhachHang, tongTien, thoiGianBatDau, thoiGianKetThuc " +
+                            "FROM tour T, diadiemthamquan DD,loaihinhdulich LH " +
+                            "WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich AND maSoTour=" + maSoTour;
+
+            SqlCommand command = new SqlCommand(querySql, connect.conn);
+
+            dataTable.Load(command.ExecuteReader());
+
+            connect.CloseConnect();
+
+            return dataTable;
+
+        }
+
         public void ThemTour(DTO_tour DTOtour)
         {
             connect.OpenConnect();
