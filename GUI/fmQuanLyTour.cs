@@ -101,18 +101,6 @@ namespace GUI
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         private void dataGridViewQuanLyTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -123,9 +111,24 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonXemChiTiet_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridViewQuanLyTour.SelectedRows)
+            {
+                if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
+                    {
+                    string maSoTour = row.Cells[0].Value.ToString();
 
+                    fmChiTietTour formChiTietTour = new fmChiTietTour(int.Parse(maSoTour));
+                    //System.Diagnostics.Debug.WriteLine(int.Parse(maSoTour));
+
+                    formChiTietTour.ShowDialog();
+                    
+                }
+                
+            }
+
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
