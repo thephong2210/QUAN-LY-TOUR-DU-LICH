@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QUẢN_LÝ_TOUR_DU_LỊCH
+namespace GUI
 {
     static class Program
     {
@@ -17,9 +17,7 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(new QuanLyTour());
-
+            Application.Run(new fmQuanLyTour());
         }
     }
 }
