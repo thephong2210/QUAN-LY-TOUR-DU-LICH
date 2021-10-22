@@ -16,7 +16,7 @@ namespace DAO
         {
             connect.OpenConnect();
             DataTable dataTable = new DataTable();
-            string querySql = "SELECT * FROM [tourdulich].[dbo].[tour]";
+            string querySql = "SELECT maSoTour, tenGoiTour, tenLoaiHinhDuLich , tenDiaDiem, thoiGianBatDau, thoiGianKetThuc tongTien,dacDiem FROM tour T, diadiemthamquan DD,loaihinhdulich LH WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich ";
 
             SqlCommand command = new SqlCommand(querySql, connect.conn );
 

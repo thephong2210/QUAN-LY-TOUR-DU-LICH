@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 
 namespace QUẢN_LÝ_TOUR_DU_LỊCH
 {
     public partial class QuanLyTour : Form
     {
+        B_tour b_Tour = new B_tour();
+        
         public QuanLyTour()
         {
             InitializeComponent();
+        }
+        private void QuanLyTour_Load(object sender, EventArgs e) 
+        {
+            dataGridViewQuanLyTour.DataSource = b_Tour.GetListTour();
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -68,6 +70,13 @@ namespace QUẢN_LÝ_TOUR_DU_LỊCH
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void dataGridViewQuanLyTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
