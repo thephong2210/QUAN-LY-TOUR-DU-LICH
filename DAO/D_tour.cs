@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,7 +17,9 @@ namespace DAO
         {
             connect.OpenConnect();
             DataTable dataTable = new DataTable();
-            string querySql = "SELECT maSoTour, tenGoiTour, tenLoaiHinhDuLich , tenDiaDiem, thoiGianBatDau, thoiGianKetThuc tongTien,dacDiem FROM tour T, diadiemthamquan DD,loaihinhdulich LH WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich ";
+            string querySql = "SELECT maSoTour, tenGoiTour, tenLoaiHinhDuLich, tenDiaDiem, thoiGianBatDau, thoiGianKetThuc " +
+                            "FROM tour T, diadiemthamquan DD,loaihinhdulich LH " +
+                            "WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich ";
 
             SqlCommand command = new SqlCommand(querySql, connect.conn );
 
@@ -26,6 +29,17 @@ namespace DAO
 
             return dataTable;
 
+        }
+
+        public void ThemListTour(DTO_tour DTOtour)
+        {
+            //connect.OpenConnect();
+            //string querySql = "INSERT INTO tour VALUES(@)";
+
+
+
+
+            //connect.CloseConnect();
         }
 
         

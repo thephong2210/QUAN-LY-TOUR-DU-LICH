@@ -3,7 +3,7 @@
 namespace DTO
 {
   
-    public class tour
+    public class DTO_tour
     {
         private int tenGoiTour;
         private string dacDiem;
@@ -25,7 +25,7 @@ namespace DTO
         public string ThoiGianBatDau { get => thoiGianBatDau; set => thoiGianBatDau = value; }
         public string ThoiGianKetThuc { get => thoiGianKetThuc; set => thoiGianKetThuc = value; }
 
-        public tour(int tenGoiTour, string dacDiem, int maDiaDiem, int maGiaTour, int maLoaiHinhDuLich, int soLuongKhachHang, double tongTien, string thoiGianBatDau, string thoiGianKetThuc)
+        public DTO_tour(int tenGoiTour, string dacDiem, int maDiaDiem, int maGiaTour, int maLoaiHinhDuLich, int soLuongKhachHang, double tongTien, string thoiGianBatDau, string thoiGianKetThuc)
         {
             this.TenGoiTour = tenGoiTour;
             this.DacDiem = dacDiem;
