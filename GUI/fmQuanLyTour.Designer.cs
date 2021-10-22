@@ -110,7 +110,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1344, 68);
+            this.panel1.Size = new System.Drawing.Size(1435, 68);
             this.panel1.TabIndex = 0;
             // 
             // panel5
@@ -120,13 +120,13 @@ namespace GUI
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(-1, -1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1344, 68);
+            this.panel5.Size = new System.Drawing.Size(1435, 68);
             this.panel5.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.touricon;
-            this.pictureBox1.Location = new System.Drawing.Point(545, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(591, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(57, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,7 +138,7 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(608, 9);
+            this.label1.Location = new System.Drawing.Point(654, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 50);
             this.label1.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(0, 68);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1344, 677);
+            this.panel2.Size = new System.Drawing.Size(1435, 695);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -172,7 +172,7 @@ namespace GUI
             this.panel4.Controls.Add(this.buttonTaoMoi);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 694);
+            this.panel4.Size = new System.Drawing.Size(389, 694);
             this.panel4.TabIndex = 16;
             // 
             // panel14
@@ -181,7 +181,7 @@ namespace GUI
             this.panel14.Controls.Add(this.textBoxDacDiem);
             this.panel14.Location = new System.Drawing.Point(11, 451);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(319, 105);
+            this.panel14.Size = new System.Drawing.Size(354, 105);
             this.panel14.TabIndex = 39;
             // 
             // label8
@@ -201,8 +201,9 @@ namespace GUI
             this.textBoxDacDiem.Location = new System.Drawing.Point(146, 11);
             this.textBoxDacDiem.Multiline = true;
             this.textBoxDacDiem.Name = "textBoxDacDiem";
+            this.textBoxDacDiem.PlaceholderText = "Nhập đặc điểm tour...";
             this.textBoxDacDiem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDacDiem.Size = new System.Drawing.Size(163, 80);
+            this.textBoxDacDiem.Size = new System.Drawing.Size(194, 80);
             this.textBoxDacDiem.TabIndex = 7;
             // 
             // panel13
@@ -211,7 +212,7 @@ namespace GUI
             this.panel13.Controls.Add(this.textBoxGia);
             this.panel13.Location = new System.Drawing.Point(11, 394);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(319, 51);
+            this.panel13.Size = new System.Drawing.Size(354, 51);
             this.panel13.TabIndex = 38;
             // 
             // label7
@@ -227,9 +228,11 @@ namespace GUI
             // 
             // textBoxGia
             // 
+            this.textBoxGia.Enabled = false;
             this.textBoxGia.Location = new System.Drawing.Point(146, 14);
             this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(163, 27);
+            this.textBoxGia.PlaceholderText = "Nhập giá tour...";
+            this.textBoxGia.Size = new System.Drawing.Size(194, 27);
             this.textBoxGia.TabIndex = 6;
             // 
             // panel12
@@ -238,7 +241,7 @@ namespace GUI
             this.panel12.Controls.Add(this.dateTimePickerNgayKetThuc);
             this.panel12.Location = new System.Drawing.Point(11, 337);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(319, 51);
+            this.panel12.Size = new System.Drawing.Size(354, 51);
             this.panel12.TabIndex = 37;
             // 
             // label6
@@ -254,9 +257,10 @@ namespace GUI
             // 
             // dateTimePickerNgayKetThuc
             // 
+            this.dateTimePickerNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayKetThuc.Location = new System.Drawing.Point(146, 11);
             this.dateTimePickerNgayKetThuc.Name = "dateTimePickerNgayKetThuc";
-            this.dateTimePickerNgayKetThuc.Size = new System.Drawing.Size(163, 27);
+            this.dateTimePickerNgayKetThuc.Size = new System.Drawing.Size(194, 27);
             this.dateTimePickerNgayKetThuc.TabIndex = 5;
             // 
             // panel11
@@ -265,7 +269,7 @@ namespace GUI
             this.panel11.Controls.Add(this.dateTimePickerNgayBatDau);
             this.panel11.Location = new System.Drawing.Point(11, 280);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(319, 51);
+            this.panel11.Size = new System.Drawing.Size(354, 51);
             this.panel11.TabIndex = 36;
             // 
             // label5
@@ -281,9 +285,11 @@ namespace GUI
             // 
             // dateTimePickerNgayBatDau
             // 
+            this.dateTimePickerNgayBatDau.CustomFormat = "";
+            this.dateTimePickerNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayBatDau.Location = new System.Drawing.Point(146, 13);
             this.dateTimePickerNgayBatDau.Name = "dateTimePickerNgayBatDau";
-            this.dateTimePickerNgayBatDau.Size = new System.Drawing.Size(163, 27);
+            this.dateTimePickerNgayBatDau.Size = new System.Drawing.Size(194, 27);
             this.dateTimePickerNgayBatDau.TabIndex = 4;
             // 
             // panel10
@@ -292,7 +298,7 @@ namespace GUI
             this.panel10.Controls.Add(this.comboBoxDiaDiem);
             this.panel10.Location = new System.Drawing.Point(11, 223);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(319, 51);
+            this.panel10.Size = new System.Drawing.Size(354, 51);
             this.panel10.TabIndex = 35;
             // 
             // label4
@@ -308,11 +314,13 @@ namespace GUI
             // 
             // comboBoxDiaDiem
             // 
+            this.comboBoxDiaDiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDiaDiem.FormattingEnabled = true;
             this.comboBoxDiaDiem.Location = new System.Drawing.Point(146, 13);
             this.comboBoxDiaDiem.Name = "comboBoxDiaDiem";
-            this.comboBoxDiaDiem.Size = new System.Drawing.Size(163, 28);
+            this.comboBoxDiaDiem.Size = new System.Drawing.Size(194, 28);
             this.comboBoxDiaDiem.TabIndex = 3;
+            this.comboBoxDiaDiem.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiaDiem_SelectedIndexChanged);
             // 
             // panel9
             // 
@@ -320,7 +328,7 @@ namespace GUI
             this.panel9.Controls.Add(this.comboBoxLoaiHinhDuLich);
             this.panel9.Location = new System.Drawing.Point(11, 167);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(319, 51);
+            this.panel9.Size = new System.Drawing.Size(354, 51);
             this.panel9.TabIndex = 34;
             // 
             // label11
@@ -336,10 +344,11 @@ namespace GUI
             // 
             // comboBoxLoaiHinhDuLich
             // 
+            this.comboBoxLoaiHinhDuLich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLoaiHinhDuLich.FormattingEnabled = true;
             this.comboBoxLoaiHinhDuLich.Location = new System.Drawing.Point(146, 10);
             this.comboBoxLoaiHinhDuLich.Name = "comboBoxLoaiHinhDuLich";
-            this.comboBoxLoaiHinhDuLich.Size = new System.Drawing.Size(163, 28);
+            this.comboBoxLoaiHinhDuLich.Size = new System.Drawing.Size(194, 28);
             this.comboBoxLoaiHinhDuLich.TabIndex = 2;
             // 
             // panel8
@@ -348,7 +357,7 @@ namespace GUI
             this.panel8.Controls.Add(this.textBoxTenTour);
             this.panel8.Location = new System.Drawing.Point(11, 110);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(319, 51);
+            this.panel8.Size = new System.Drawing.Size(354, 51);
             this.panel8.TabIndex = 33;
             // 
             // label3
@@ -366,7 +375,8 @@ namespace GUI
             // 
             this.textBoxTenTour.Location = new System.Drawing.Point(146, 14);
             this.textBoxTenTour.Name = "textBoxTenTour";
-            this.textBoxTenTour.Size = new System.Drawing.Size(163, 27);
+            this.textBoxTenTour.PlaceholderText = "Nhập tên tour...";
+            this.textBoxTenTour.Size = new System.Drawing.Size(194, 27);
             this.textBoxTenTour.TabIndex = 1;
             // 
             // panel6
@@ -377,13 +387,13 @@ namespace GUI
             this.panel6.ForeColor = System.Drawing.Color.Transparent;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(351, 59);
+            this.panel6.Size = new System.Drawing.Size(388, 59);
             this.panel6.TabIndex = 32;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.icons8_add_64;
-            this.pictureBox2.Location = new System.Drawing.Point(57, 14);
+            this.pictureBox2.Location = new System.Drawing.Point(101, 14);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -395,7 +405,7 @@ namespace GUI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(96, 14);
+            this.label2.Location = new System.Drawing.Point(140, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 31);
             this.label2.TabIndex = 0;
@@ -408,12 +418,13 @@ namespace GUI
             this.buttonTaoMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.buttonTaoMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonTaoMoi.ForeColor = System.Drawing.Color.White;
-            this.buttonTaoMoi.Location = new System.Drawing.Point(87, 577);
+            this.buttonTaoMoi.Location = new System.Drawing.Point(115, 578);
             this.buttonTaoMoi.Name = "buttonTaoMoi";
             this.buttonTaoMoi.Size = new System.Drawing.Size(149, 51);
             this.buttonTaoMoi.TabIndex = 8;
             this.buttonTaoMoi.Text = "Tạo mới";
             this.buttonTaoMoi.UseVisualStyleBackColor = false;
+            this.buttonTaoMoi.Click += new System.EventHandler(this.buttonTaoMoi_Click);
             // 
             // panel3
             // 
@@ -427,9 +438,9 @@ namespace GUI
             this.panel3.Controls.Add(this.buttonSua);
             this.panel3.Controls.Add(this.dataGridViewQuanLyTour);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(352, 68);
+            this.panel3.Location = new System.Drawing.Point(389, 68);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(992, 677);
+            this.panel3.Size = new System.Drawing.Size(1046, 695);
             this.panel3.TabIndex = 2;
             // 
             // textBox1
@@ -471,13 +482,13 @@ namespace GUI
             this.panel7.Controls.Add(this.label10);
             this.panel7.Location = new System.Drawing.Point(-1, -1);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(992, 60);
+            this.panel7.Size = new System.Drawing.Size(1046, 60);
             this.panel7.TabIndex = 18;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_list_50;
-            this.pictureBox3.Location = new System.Drawing.Point(348, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(391, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(42, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -489,7 +500,7 @@ namespace GUI
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(396, 10);
+            this.label10.Location = new System.Drawing.Point(439, 10);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(209, 38);
             this.label10.TabIndex = 1;
@@ -500,7 +511,7 @@ namespace GUI
             this.buttonXoa.BackColor = System.Drawing.Color.Red;
             this.buttonXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonXoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoa.Location = new System.Drawing.Point(848, 578);
+            this.buttonXoa.Location = new System.Drawing.Point(903, 578);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(119, 51);
             this.buttonXoa.TabIndex = 16;
@@ -512,7 +523,7 @@ namespace GUI
             this.buttonSua.BackColor = System.Drawing.Color.Orange;
             this.buttonSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSua.ForeColor = System.Drawing.Color.White;
-            this.buttonSua.Location = new System.Drawing.Point(653, 578);
+            this.buttonSua.Location = new System.Drawing.Point(696, 578);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(128, 51);
             this.buttonSua.TabIndex = 17;
@@ -523,7 +534,6 @@ namespace GUI
             // 
             this.dataGridViewQuanLyTour.AllowUserToAddRows = false;
             this.dataGridViewQuanLyTour.AllowUserToDeleteRows = false;
-            this.dataGridViewQuanLyTour.AllowUserToResizeColumns = false;
             this.dataGridViewQuanLyTour.AllowUserToResizeRows = false;
             this.dataGridViewQuanLyTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewQuanLyTour.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -536,6 +546,7 @@ namespace GUI
             this.thoiGianBatDau,
             this.thoiGianKetThuc});
             this.dataGridViewQuanLyTour.Location = new System.Drawing.Point(14, 110);
+            this.dataGridViewQuanLyTour.MultiSelect = false;
             this.dataGridViewQuanLyTour.Name = "dataGridViewQuanLyTour";
             this.dataGridViewQuanLyTour.ReadOnly = true;
             this.dataGridViewQuanLyTour.RowHeadersWidth = 51;
@@ -543,7 +554,7 @@ namespace GUI
             this.dataGridViewQuanLyTour.RowTemplate.Height = 30;
             this.dataGridViewQuanLyTour.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewQuanLyTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(953, 446);
+            this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 446);
             this.dataGridViewQuanLyTour.TabIndex = 2;
             this.dataGridViewQuanLyTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyTour_CellContentClick);
             // 
@@ -610,12 +621,10 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 745);
+            this.ClientSize = new System.Drawing.Size(1435, 763);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(1362, 792);
-            this.MinimumSize = new System.Drawing.Size(1362, 792);
             this.Name = "fmQuanLyTour";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý tour";

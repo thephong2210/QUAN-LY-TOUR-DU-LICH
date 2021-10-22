@@ -5,7 +5,7 @@ namespace DTO
   
     public class DTO_tour
     {
-        private int tenGoiTour;
+        private string tenGoiTour;
         private string dacDiem;
         private int maDiaDiem;
         private int maGiaTour;
@@ -14,8 +14,9 @@ namespace DTO
         private double tongTien;
         private string thoiGianBatDau;
         private string thoiGianKetThuc;
+      
 
-        public int TenGoiTour { get => tenGoiTour; set => tenGoiTour = value; }
+        public string TenGoiTour { get => tenGoiTour; set => tenGoiTour = value; }
         public string DacDiem { get => dacDiem; set => dacDiem = value; }
         public int MaDiaDiem { get => maDiaDiem; set => maDiaDiem = value; }
         public int MaGiaTour { get => maGiaTour; set => maGiaTour = value; }
@@ -25,7 +26,7 @@ namespace DTO
         public string ThoiGianBatDau { get => thoiGianBatDau; set => thoiGianBatDau = value; }
         public string ThoiGianKetThuc { get => thoiGianKetThuc; set => thoiGianKetThuc = value; }
 
-        public DTO_tour(int tenGoiTour, string dacDiem, int maDiaDiem, int maGiaTour, int maLoaiHinhDuLich, int soLuongKhachHang, double tongTien, string thoiGianBatDau, string thoiGianKetThuc)
+        public DTO_tour(string tenGoiTour, string dacDiem, int maDiaDiem, int maGiaTour, int maLoaiHinhDuLich, int soLuongKhachHang, double tongTien, string thoiGianBatDau, string thoiGianKetThuc)
         {
             this.TenGoiTour = tenGoiTour;
             this.DacDiem = dacDiem;
@@ -37,5 +38,7 @@ namespace DTO
             this.ThoiGianBatDau = thoiGianBatDau;
             this.ThoiGianKetThuc = thoiGianKetThuc;
         }
+
+        
     }
 }
