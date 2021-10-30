@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tourdulichModelStoreContainer" CdmEntityContainer="tourdulichEntities">
+    <EntitySetMapping Name="chiphis">
+      <EntityTypeMapping TypeName="tourdulichModel.chiphi">
+        <MappingFragment StoreEntitySet="chiphi">
+          <ScalarProperty Name="maChiPhi" ColumnName="maChiPhi" />
+          <ScalarProperty Name="tongChiPhi" ColumnName="tongChiPhi" />
+          <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
+          <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dangkies">
+      <EntityTypeMapping TypeName="tourdulichModel.dangky">
+        <MappingFragment StoreEntitySet="dangky">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
+          <ScalarProperty Name="maTour" ColumnName="maTour" />
+          <ScalarProperty Name="maLoaiKhachHang" ColumnName="maLoaiKhachHang" />
+          <ScalarProperty Name="ngayDangKy" ColumnName="ngayDangKy" />
+          <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diadiemdens">
+      <EntityTypeMapping TypeName="tourdulichModel.diadiemden">
+        <MappingFragment StoreEntitySet="diadiemden">
+          <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+          <ScalarProperty Name="tenDiaDiemDen" ColumnName="tenDiaDiemDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diadiemthamquans">
+      <EntityTypeMapping TypeName="tourdulichModel.diadiemthamquan">
+        <MappingFragment StoreEntitySet="diadiemthamquan">
+          <ScalarProperty Name="maDiaDiem" ColumnName="maDiaDiem" />
+          <ScalarProperty Name="tenDiaDiem" ColumnName="tenDiaDiem" />
+          <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diadiemtours">
+      <EntityTypeMapping TypeName="tourdulichModel.diadiemtour">
+        <MappingFragment StoreEntitySet="diadiemtour">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="maTour" ColumnName="maTour" />
+          <ScalarProperty Name="tenDiaDiemThamQuan" ColumnName="tenDiaDiemThamQuan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doanduliches">
+      <EntityTypeMapping TypeName="tourdulichModel.doandulich">
+        <MappingFragment StoreEntitySet="doandulich">
+          <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
+          <ScalarProperty Name="tenGoiDoan" ColumnName="tenGoiDoan" />
+          <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
+          <ScalarProperty Name="SoLuongNhanVien" ColumnName="SoLuongNhanVien" />
+          <ScalarProperty Name="thoiGianKhoiHanh" ColumnName="thoiGianKhoiHanh" />
+          <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
+          <ScalarProperty Name="chiTiet" ColumnName="chiTiet" />
+          <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giatours">
+      <EntityTypeMapping TypeName="tourdulichModel.giatour">
+        <MappingFragment StoreEntitySet="giatour">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="maGiaTour" ColumnName="maGiaTour" />
+          <ScalarProperty Name="gia" ColumnName="gia" />
+          <ScalarProperty Name="dieuKien" ColumnName="dieuKien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khachhangs">
+      <EntityTypeMapping TypeName="tourdulichModel.khachhang">
+        <MappingFragment StoreEntitySet="khachhang">
+          <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
+          <ScalarProperty Name="hoTenKhachHang" ColumnName="hoTenKhachHang" />
+          <ScalarProperty Name="soCMND" ColumnName="soCMND" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="quocTich" ColumnName="quocTich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loaichiphis">
+      <EntityTypeMapping TypeName="tourdulichModel.loaichiphi">
+        <MappingFragment StoreEntitySet="loaichiphi">
+          <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
+          <ScalarProperty Name="tenLoaiChiPhi" ColumnName="tenLoaiChiPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loaihinhduliches">
+      <EntityTypeMapping TypeName="tourdulichModel.loaihinhdulich">
+        <MappingFragment StoreEntitySet="loaihinhdulich">
+          <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
+          <ScalarProperty Name="tenLoaiHinhDuLich" ColumnName="tenLoaiHinhDuLich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loaikhachhangs">
+      <EntityTypeMapping TypeName="tourdulichModel.loaikhachhang">
+        <MappingFragment StoreEntitySet="loaikhachhang">
+          <ScalarProperty Name="maLoaiKhachHang" ColumnName="maLoaiKhachHang" />
+          <ScalarProperty Name="tenLoaiKhachHang" ColumnName="tenLoaiKhachHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nhanviens">
+      <EntityTypeMapping TypeName="tourdulichModel.nhanvien">
+        <MappingFragment StoreEntitySet="nhanvien">
+          <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
+          <ScalarProperty Name="tenNhanVien" ColumnName="tenNhanVien" />
+          <ScalarProperty Name="nhiemVu" ColumnName="nhiemVu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thamgiadoans">
+      <EntityTypeMapping TypeName="tourdulichModel.thamgiadoan">
+        <MappingFragment StoreEntitySet="thamgiadoan">
+          <ScalarProperty Name="maThamGia" ColumnName="maThamGia" />
+          <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
+          <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
+          <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
+          <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tours">
+      <EntityTypeMapping TypeName="tourdulichModel.tour">
+        <MappingFragment StoreEntitySet="tour">
+          <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
+          <ScalarProperty Name="tenGoiTour" ColumnName="tenGoiTour" />
+          <ScalarProperty Name="dacDiem" ColumnName="dacDiem" />
+          <ScalarProperty Name="maGiaTour" ColumnName="maGiaTour" />
+          <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
+          <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
+          <ScalarProperty Name="tongTien" ColumnName="tongTien" />
+          <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
+          <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
+          <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
