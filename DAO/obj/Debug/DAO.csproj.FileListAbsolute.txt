@@ -1,0 +1,12 @@
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\obj\Debug\DAO.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\obj\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\DAO\obj\Debug\DAO.pdb
