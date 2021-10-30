@@ -22,6 +22,11 @@ namespace BUS
             return dTour.GetListDetailsTour(maSoTour);
         }
 
+        public List<giatour> GetGiaTour()
+        {
+            return dTour.GetGiaTour();
+        }
+
 
     }
 }
