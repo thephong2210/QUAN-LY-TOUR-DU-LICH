@@ -56,11 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoanDuLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoanDuLich.Designer.cs">
+      <DependentUpon>DoanDuLich.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmChiTietTour.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fmChiTietTour.Designer.cs">
       <DependentUpon>fmChiTietTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmDiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDiaDiem.Designer.cs">
+      <DependentUpon>fmDiaDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="fmQuanLyTour.cs">
       <SubType>Form</SubType>
@@ -68,13 +80,37 @@
     <Compile Include="fmQuanLyTour.Designer.cs">
       <DependentUpon>fmQuanLyTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoaiChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiChiPhi.Designer.cs">
+      <DependentUpon>LoaiChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiHinhDuLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiHinhDuLich.Designer.cs">
+      <DependentUpon>LoaiHinhDuLich.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DoanDuLich.resx">
+      <DependentUpon>DoanDuLich.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmChiTietTour.resx">
       <DependentUpon>fmChiTietTour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmDiaDiem.resx">
+      <DependentUpon>fmDiaDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmQuanLyTour.resx">
       <DependentUpon>fmQuanLyTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaiChiPhi.resx">
+      <DependentUpon>LoaiChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoaiHinhDuLich.resx">
+      <DependentUpon>LoaiHinhDuLich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

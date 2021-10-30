@@ -152,7 +152,6 @@ namespace GUI
             // 
             this.textBoxTimKiem.Location = new System.Drawing.Point(183, 28);
             this.textBoxTimKiem.Name = "textBoxTimKiem";
-            this.textBoxTimKiem.PlaceholderText = "Nhập tên địa điểm ";
             this.textBoxTimKiem.Size = new System.Drawing.Size(271, 27);
             this.textBoxTimKiem.TabIndex = 7;
             // 

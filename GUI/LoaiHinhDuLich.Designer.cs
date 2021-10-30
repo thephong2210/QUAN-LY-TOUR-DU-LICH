@@ -195,7 +195,6 @@ namespace GUI
             // 
             this.textBoxTimKiém.Location = new System.Drawing.Point(167, 20);
             this.textBoxTimKiém.Name = "textBoxTimKiém";
-            this.textBoxTimKiém.PlaceholderText = "Nhập mã hoặc tên loại hình du lịch";
             this.textBoxTimKiém.Size = new System.Drawing.Size(285, 27);
             this.textBoxTimKiém.TabIndex = 5;
             // 
