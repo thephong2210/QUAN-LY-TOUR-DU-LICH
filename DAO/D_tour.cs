@@ -62,6 +62,19 @@ namespace DAO
 
         }
 
+        //tạm thời
+        public List<giatour> GetGiaTour()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsTour = from tbGiaTour in tourdulich.giatours select tbGiaTour;
+                                     
+                return getListDetailsTour.ToList<giatour>();
+
+            }
 
         }
+
+
+    }
 }

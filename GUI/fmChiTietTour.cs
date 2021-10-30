@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DAO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,40 +50,76 @@ namespace GUI
         {
             List<dynamic> listDetailsTour = bTour.GetListDetailsTour(maSoTour);
             
-            dataGridView1.DataSource = listDetailsTour;
+            //Convert List<dynamic> sang Datatable để dễ hiển thị chi tiết tour
+            var json = JsonConvert.SerializeObject(listDetailsTour);
+            DataTable dataTableDetailsTour = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
 
+            //Hiển thị
             textBoxMaSoTour.Text = maSoTour.ToString();
-            // textBoxTenGoiTour.Text =
-            //  dynamic d = new { Property1 = "Value1", Property2 = "Value2" };
+            textBoxTenGoiTour.Text = dataTableDetailsTour.Rows[0][1].ToString();
+            textBoxDacDiem.Text = dataTableDetailsTour.Rows[0][2].ToString();
 
-            //Type type = data.GetType().GetGenericArguments()[0];
-            //PropertyInfo property = type.GetProperty("tenGoiTour");
-
-            //object value = listDetailsTour.GetType().GetProperty("maSoTour").GetValue(listDetailsTour[0], null);
-
+            //textBoxGia.Text = dataTableDetailsTour.Rows[0][3].ToString();
+            int maGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][3]);
+            List<giatour> listGiaTour = bTour.GetGiaTour();
             
+            foreach (var item in listGiaTour)
+            {
+                if (item.maGiaTour == maGiaTour)
+                {
+                    textBoxGia.Text = item.gia.ToString();
+                }
+            }
 
-            var tenGoiTour = from p in listDetailsTour
-             
-                             select p;
-
-            MessageBox.Show(tenGoiTour.ToString());
-
-            //textBoxDacDiem.Text = b_tour.GetListDetailsTour(maSoTour).Rows[0][1].ToString();
-
-            //comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(b_tour.GetListDetailsTour(maSoTour).Rows[0][3].ToString());
-            //comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(b_tour.GetListDetailsTour(maSoTour).Rows[0][2].ToString());
-
-            //textBoxGia.Text = b_tour.GetListDetailsTour(maSoTour).Rows[0][4].ToString();
-            //textBoxSoLuongKhachHang.Text = b_tour.GetListDetailsTour(maSoTour).Rows[0][5].ToString();
-            //textBoxTongTien.Text = b_tour.GetListDetailsTour(maSoTour).Rows[0][6].ToString();
+            textBoxSoLuongKhachHang.Text = dataTableDetailsTour.Rows[0][4].ToString();
+            textBoxTongTien.Text = dataTableDetailsTour.Rows[0][5].ToString();
+            comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][9].ToString());
+            LoadDiaDiemThamQuan();
+            comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][8].ToString());
 
             //Chưa xử lý giá, thời gian bắt đầu, thời gian kết thúc
-            // dateTimePickerThoiGianBatDau.Value = b_tour.GetListDetailsTour(maSoTour).Rows[0][7].ToString();
+            dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][6]);
+            dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][7]);
 
         }
 
-        
+        private void LoadDiaDiemThamQuan()
+        {
+            List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
+            List<diadiemthamquan> listDDTQ = bDiaDiemDen.GetListDiaDiemThamQuan();
+            string tenDiaDiemDen = comboBoxDiaDiem.Text;
+
+            //gán khởi tạo tenDiaDiem = giá trị đầu tiên trong list nếu null
+            if (tenDiaDiemDen.Equals("DAO.diadiemden"))
+            {
+                tenDiaDiemDen = listDiaDiemDen.FirstOrDefault().tenDiaDiemDen;
+            }
+
+            //Clear listbox trước khi add
+            checkedListBoxDDThamQuan.Items.Clear();
+
+            //Lấy maDiaDiemDen từ tenDiaDiemDen lấy từ combobox
+            foreach (var itemDDD in listDiaDiemDen)
+            {
+                if (itemDDD.tenDiaDiemDen.Equals(tenDiaDiemDen))
+                {
+                    //lấy danh sách địa điểm tham quan trong địa điểm đến
+                    foreach (var itemDDTQ in listDDTQ)
+                    {
+                        if (itemDDTQ.maDiaDiemDen == itemDDD.maDiaDiemDen)
+                        {
+                            //Thêm vào checkedListbox
+                            checkedListBoxDDThamQuan.Items.Add(itemDDTQ.tenDiaDiem);
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -111,6 +148,16 @@ namespace GUI
         private void buttonSua_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkedListBoxDDThamQuan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void comboBoxDiaDiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDiaDiemThamQuan();
         }
     }
 }
