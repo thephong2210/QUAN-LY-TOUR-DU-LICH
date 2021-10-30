@@ -190,7 +190,7 @@ namespace GUI
             this.textBoxChiTiet.Location = new System.Drawing.Point(180, 13);
             this.textBoxChiTiet.Multiline = true;
             this.textBoxChiTiet.Name = "textBoxChiTiet";
-            this.textBoxChiTiet.PlaceholderText = "Nhập chi tiết đoàn";
+            
             this.textBoxChiTiet.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxChiTiet.Size = new System.Drawing.Size(194, 80);
             this.textBoxChiTiet.TabIndex = 7;
@@ -287,7 +287,6 @@ namespace GUI
             // 
             this.textBoxSLNV.Location = new System.Drawing.Point(182, 14);
             this.textBoxSLNV.Name = "textBoxSLNV";
-            this.textBoxSLNV.PlaceholderText = "Nhập số lượng nhân viên...";
             this.textBoxSLNV.Size = new System.Drawing.Size(194, 27);
             this.textBoxSLNV.TabIndex = 1;
             // 
@@ -315,7 +314,6 @@ namespace GUI
             // 
             this.textBoxSLKH.Location = new System.Drawing.Point(183, 14);
             this.textBoxSLKH.Name = "textBoxSLKH";
-            this.textBoxSLKH.PlaceholderText = "Nhập số lượng khách...";
             this.textBoxSLKH.Size = new System.Drawing.Size(194, 27);
             this.textBoxSLKH.TabIndex = 1;
             // 
@@ -343,7 +341,6 @@ namespace GUI
             // 
             this.textBoxTenDoan.Location = new System.Drawing.Point(182, 14);
             this.textBoxTenDoan.Name = "textBoxTenDoan";
-            this.textBoxTenDoan.PlaceholderText = "Nhập tên gọi đoàn...";
             this.textBoxTenDoan.Size = new System.Drawing.Size(194, 27);
             this.textBoxTenDoan.TabIndex = 1;
             this.textBoxTenDoan.TextChanged += new System.EventHandler(this.textBoxTenDoan_TextChanged);
@@ -372,7 +369,6 @@ namespace GUI
             // 
             this.textBoxMaDoan.Location = new System.Drawing.Point(182, 14);
             this.textBoxMaDoan.Name = "textBoxMaDoan";
-            this.textBoxMaDoan.PlaceholderText = "Nhập mã đoàn";
             this.textBoxMaDoan.Size = new System.Drawing.Size(194, 27);
             this.textBoxMaDoan.TabIndex = 1;
             // 
@@ -425,7 +421,6 @@ namespace GUI
             // 
             this.textBoxTimKiem.Location = new System.Drawing.Point(171, 21);
             this.textBoxTimKiem.Name = "textBoxTimKiem";
-            this.textBoxTimKiem.PlaceholderText = "Nhập từ khóa tìm kiếm...";
             this.textBoxTimKiem.Size = new System.Drawing.Size(277, 27);
             this.textBoxTimKiem.TabIndex = 18;
             // 
