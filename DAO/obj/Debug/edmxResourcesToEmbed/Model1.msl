@@ -142,6 +142,7 @@
           <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
           <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
           <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+          <ScalarProperty Name="idGiaTour" ColumnName="idGiaTour" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -48,6 +48,7 @@ namespace GUI
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDacDiem = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.textBoxGia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@ namespace GUI
             this.label10 = new System.Windows.Forms.Label();
             this.buttonXoa = new System.Windows.Forms.Button();
             this.dataGridViewQuanLyTour = new System.Windows.Forms.DataGridView();
-            this.textBoxGia = new System.Windows.Forms.TextBox();
             this.maSoTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenGoiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,6 +204,7 @@ namespace GUI
             this.checkedListBoxDDThamQuan.Name = "checkedListBoxDDThamQuan";
             this.checkedListBoxDDThamQuan.Size = new System.Drawing.Size(355, 109);
             this.checkedListBoxDDThamQuan.TabIndex = 18;
+            this.checkedListBoxDDThamQuan.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDDThamQuan_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -258,6 +259,16 @@ namespace GUI
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(371, 48);
             this.panel13.TabIndex = 38;
+            // 
+            // textBoxGia
+            // 
+            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
+            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxGia.Name = "textBoxGia";
+            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
+            this.textBoxGia.TabIndex = 18;
+            this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
             // 
             // label7
             // 
@@ -578,6 +589,7 @@ namespace GUI
             this.buttonXoa.TabIndex = 16;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = false;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // dataGridViewQuanLyTour
             // 
@@ -607,16 +619,6 @@ namespace GUI
             this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 542);
             this.dataGridViewQuanLyTour.TabIndex = 2;
             this.dataGridViewQuanLyTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyTour_CellContentClick);
-            // 
-            // textBoxGia
-            // 
-            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
-            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
-            this.textBoxGia.TabIndex = 18;
-            this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
             // 
             // maSoTour
             // 

@@ -62,7 +62,8 @@ namespace DAO
                                               thoiGianBatDau = tbTour.thoiGianBatDau,
                                               thoiGianKetThuc = tbTour.thoiGianKetThuc,
                                               tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich,
-                                              tenDiaDiem = tbDiaDiemDen.tenDiaDiemDen
+                                              tenDiaDiem = tbDiaDiemDen.tenDiaDiemDen,
+                                              idGiaTour = tbTour.idGiaTour
                                           });
 
                 return getListDetailsTour.ToList<dynamic>();

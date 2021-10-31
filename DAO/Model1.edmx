@@ -134,6 +134,7 @@
           <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="maDiaDiemDen" Type="int" />
+          <Property Name="idGiaTour" Type="int" />
         </EntityType>
         <EntityContainer Name="tourdulichModelStoreContainer">
           <EntitySet Name="chiphi" EntityType="Self.chiphi" Schema="dbo" store:Type="Tables" />
@@ -285,6 +286,7 @@
           <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="maDiaDiemDen" Type="Int32" />
+          <Property Name="idGiaTour" Type="Int32" />
         </EntityType>
         <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="chiphis" EntityType="Self.chiphi" />
@@ -449,6 +451,7 @@
                 <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
                 <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
                 <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+                <ScalarProperty Name="idGiaTour" ColumnName="idGiaTour" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

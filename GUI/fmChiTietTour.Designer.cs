@@ -51,7 +51,6 @@ namespace GUI
             this.label17 = new System.Windows.Forms.Label();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBoxGia = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.textBoxSoLuongKhachHang = new System.Windows.Forms.TextBox();
@@ -68,6 +67,8 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxMaSoTour = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxGia = new System.Windows.Forms.ComboBox();
+            this.buttonThemGia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -188,6 +189,7 @@ namespace GUI
             this.textBoxTongTien.Location = new System.Drawing.Point(270, 10);
             this.textBoxTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTongTien.Name = "textBoxTongTien";
+            this.textBoxTongTien.ReadOnly = true;
             this.textBoxTongTien.Size = new System.Drawing.Size(269, 26);
             this.textBoxTongTien.TabIndex = 3;
             // 
@@ -329,23 +331,14 @@ namespace GUI
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBoxGia);
+            this.panel8.Controls.Add(this.buttonThemGia);
+            this.panel8.Controls.Add(this.comboBoxGia);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Location = new System.Drawing.Point(0, 277);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(563, 42);
             this.panel8.TabIndex = 6;
-            // 
-            // textBoxGia
-            // 
-            this.textBoxGia.Enabled = false;
-            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxGia.Location = new System.Drawing.Point(270, 7);
-            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(269, 26);
-            this.textBoxGia.TabIndex = 2;
             // 
             // label13
             // 
@@ -512,6 +505,25 @@ namespace GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã số tour:";
             // 
+            // comboBoxGia
+            // 
+            this.comboBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBoxGia.FormattingEnabled = true;
+            this.comboBoxGia.Location = new System.Drawing.Point(270, 7);
+            this.comboBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxGia.Name = "comboBoxGia";
+            this.comboBoxGia.Size = new System.Drawing.Size(188, 28);
+            this.comboBoxGia.TabIndex = 2;
+            // 
+            // buttonThemGia
+            // 
+            this.buttonThemGia.Location = new System.Drawing.Point(464, 7);
+            this.buttonThemGia.Name = "buttonThemGia";
+            this.buttonThemGia.Size = new System.Drawing.Size(75, 28);
+            this.buttonThemGia.TabIndex = 3;
+            this.buttonThemGia.Text = "Thêm";
+            this.buttonThemGia.UseVisualStyleBackColor = true;
+            // 
             // fmChiTietTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -584,7 +596,6 @@ namespace GUI
         private System.Windows.Forms.DateTimePicker dateTimePickerThoiGianKetThuc;
         private System.Windows.Forms.DateTimePicker dateTimePickerThoiGianBatDau;
         private System.Windows.Forms.TextBox textBoxSoLuongKhachHang;
-        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.ComboBox comboBoxLoaiHinhDuLich;
         private System.Windows.Forms.ComboBox comboBoxDiaDiem;
         private System.Windows.Forms.TextBox textBoxDacDiem;
@@ -597,5 +608,7 @@ namespace GUI
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
+        private System.Windows.Forms.Button buttonThemGia;
+        private System.Windows.Forms.ComboBox comboBoxGia;
     }
 }

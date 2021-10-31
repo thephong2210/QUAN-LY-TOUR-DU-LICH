@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="624840eb7c7245ce9f349a58a0e3a644" Name="Diagram1">
+      <Diagram DiagramId="1213a0e4b00f4657b762d8292018e089" Name="Diagram1">
         <EntityTypeShape EntityType="tourdulichModel.chiphi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="tourdulichModel.dangky" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="tourdulichModel.diadiemden" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
