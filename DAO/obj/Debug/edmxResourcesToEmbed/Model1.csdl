@@ -129,6 +129,7 @@
     <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="maDiaDiemDen" Type="Int32" />
+    <Property Name="idGiaTour" Type="Int32" />
   </EntityType>
   <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="chiphis" EntityType="Self.chiphi" />

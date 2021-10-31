@@ -23,5 +23,6 @@ namespace DAO
         public System.DateTime thoiGianBatDau { get; set; }
         public System.DateTime thoiGianKetThuc { get; set; }
         public Nullable<int> maDiaDiemDen { get; set; }
+        public Nullable<int> idGiaTour { get; set; }
     }
 }

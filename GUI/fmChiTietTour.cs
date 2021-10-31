@@ -19,7 +19,7 @@ namespace GUI
         B_tour bTour = new B_tour();
         B_diadiemden bDiaDiemDen = new B_diadiemden();
         B_loaihinhdulich bLoaiHinhDuLich = new B_loaihinhdulich();
-        B_giatour BGiaTour = new B_giatour();
+        B_giatour bGiaTour = new B_giatour();
 
         public fmChiTietTour(int maSoTour)
         {
@@ -59,33 +59,37 @@ namespace GUI
             textBoxMaSoTour.Text = maSoTour.ToString();
             textBoxTenGoiTour.Text = dataTableDetailsTour.Rows[0][1].ToString();
             textBoxDacDiem.Text = dataTableDetailsTour.Rows[0][2].ToString();
-
-            //textBoxGia.Text = dataTableDetailsTour.Rows[0][3].ToString();
-            int maGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][3]);
-            List<giatour> listGiaTour = BGiaTour.GetGiaTour();
-            
-            foreach (var item in listGiaTour)
-            {
-                if (item.maGiaTour == maGiaTour)
-                {
-                    textBoxGia.Text = item.gia.ToString();
-                }
-            }
-
-            textBoxSoLuongKhachHang.Text = dataTableDetailsTour.Rows[0][4].ToString();
-            textBoxTongTien.Text = dataTableDetailsTour.Rows[0][5].ToString();
-            comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][9].ToString());
+            textBoxSoLuongKhachHang.Text = dataTableDetailsTour.Rows[0][3].ToString();
+            textBoxTongTien.Text = dataTableDetailsTour.Rows[0][4].ToString();
+            comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][8].ToString());
             LoadDiaDiemThamQuan();
             checkedDiaDiemThamQuan(maSoTour);
 
-            comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][8].ToString());
+            comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][7].ToString());
 
-            dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][6]);
-            dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][7]);
+            dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][5]);
+            dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][6]);
+
+            //Load combobox gia hien tai cua tour
+            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
+            int idGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][9]);
+
+            foreach (var item in listGiaTour)
+            {
+                if (item.maGiaTour == maSoTour)
+                {
+                    comboBoxGia.Items.Add(item.gia.ToString());
+                    if (idGiaTour == item.id)
+                    {
+                        comboBoxGia.SelectedIndex = comboBoxGia.FindStringExact(item.gia.ToString());
+                    }
+                }
+            }
 
 
-            
+
         }
+
 
         private void LoadDiaDiemThamQuan()
         {
