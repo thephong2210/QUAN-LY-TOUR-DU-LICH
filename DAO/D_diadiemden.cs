@@ -35,6 +35,18 @@ namespace DAO
 
         }
 
+        public List<diadiemtour> GetListDiaDiemTour()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDiaDiemTour = tourdulich.diadiemtours;
+
+                return getListDiaDiemTour.ToList<diadiemtour>();
+
+            }
+
+        }
+
 
 
 

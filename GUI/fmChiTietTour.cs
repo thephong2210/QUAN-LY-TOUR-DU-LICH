@@ -75,18 +75,22 @@ namespace GUI
             textBoxTongTien.Text = dataTableDetailsTour.Rows[0][5].ToString();
             comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][9].ToString());
             LoadDiaDiemThamQuan();
+            checkedDiaDiemThamQuan(maSoTour);
+
             comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][8].ToString());
 
-            //Chưa xử lý giá, thời gian bắt đầu, thời gian kết thúc
             dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][6]);
             dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][7]);
 
+
+            
         }
 
         private void LoadDiaDiemThamQuan()
         {
             List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
             List<diadiemthamquan> listDDTQ = bDiaDiemDen.GetListDiaDiemThamQuan();
+
             string tenDiaDiemDen = comboBoxDiaDiem.Text;
 
             //gán khởi tạo tenDiaDiem = giá trị đầu tiên trong list nếu null
@@ -110,6 +114,7 @@ namespace GUI
                         {
                             //Thêm vào checkedListbox
                             checkedListBoxDDThamQuan.Items.Add(itemDDTQ.tenDiaDiem);
+                           
                         }
                     }
 
@@ -117,6 +122,30 @@ namespace GUI
 
             }
 
+        }
+
+        private void checkedDiaDiemThamQuan(int maSoTour)
+        {
+            List<diadiemtour> listDDTour = bDiaDiemDen.GetListDiaDiemTour();
+            
+            //vòng for trong list diadiemtour
+            foreach (var itemDDTour in listDDTour)
+            {
+                //vòng for trong checkedListbox
+                for (int count= 0; count < checkedListBoxDDThamQuan.Items.Count; count++ )
+                {
+                    if (itemDDTour.maTour == maSoTour)
+                    {
+                        if (itemDDTour.tenDiaDiemThamQuan.Equals(checkedListBoxDDThamQuan.Items[count].ToString()))
+                        {
+                            //System.Diagnostics.Debug.WriteLine(count);
+                            checkedListBoxDDThamQuan.SetItemChecked(count, true);
+                        }
+                    }
+                    
+                }
+
+            }
         }
 
 
@@ -152,12 +181,13 @@ namespace GUI
 
         private void checkedListBoxDDThamQuan_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            
         }
 
         private void comboBoxDiaDiem_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDiaDiemThamQuan();
+            checkedDiaDiemThamQuan(maSoTour);
         }
     }
 }
