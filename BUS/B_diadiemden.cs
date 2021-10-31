@@ -31,6 +31,17 @@ namespace BUS
             return dDiaDiemDen.ThemDiaDiemTour(objDiaDiemTour);
         }
 
+        public bool XoaDiaDiemTour(diadiemtour objDiaDiemTour, int id)
+        {
+            return dDiaDiemDen.XoaDiaDiemTour(objDiaDiemTour, id);
+        }
+
+        //public bool SuaDiaDiemTour(diadiemtour objDiaDiemTour, int id)
+        //{
+        //    return dDiaDiemDen.SuaDiaDiemTour(objDiaDiemTour, id);
+        //}
+
+
 
     }
 

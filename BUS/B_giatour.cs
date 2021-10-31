@@ -21,6 +21,10 @@ namespace BUS
             return dGiaTour.ThemGiaTour(objGiaTour);
         }
 
+        public bool XoaGiaTour(giatour objGiaTour, int maSoTour)
+        {
+            return dGiaTour.XoaGiaTour(objGiaTour, maSoTour);
+        }
 
     }
 

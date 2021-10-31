@@ -45,6 +45,27 @@ namespace DAO
 
         }
 
+        public bool XoaGiaTour(giatour objGiaTour, int maSoTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    objGiaTour = tourdulich.giatours.Where(ddt => ddt.maGiaTour == maSoTour).SingleOrDefault();
+                    tourdulich.giatours.Remove(objGiaTour);
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+            }
+        }
+
 
 
     }

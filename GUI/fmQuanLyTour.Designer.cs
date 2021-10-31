@@ -516,7 +516,7 @@ namespace GUI
             this.textBox1.Location = new System.Drawing.Point(122, 88);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(338, 30);
+            this.textBox1.Size = new System.Drawing.Size(393, 30);
             this.textBox1.TabIndex = 21;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -619,6 +619,7 @@ namespace GUI
             this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 542);
             this.dataGridViewQuanLyTour.TabIndex = 2;
             this.dataGridViewQuanLyTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyTour_CellContentClick);
+            this.dataGridViewQuanLyTour.BindingContextChanged += new System.EventHandler(this.dataGridViewQuanLyTour_BindingContextChanged);
             // 
             // maSoTour
             // 
