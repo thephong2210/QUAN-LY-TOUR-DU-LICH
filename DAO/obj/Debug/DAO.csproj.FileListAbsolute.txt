@@ -22,3 +22,14 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CopyComplete
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll.config
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.xml
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.xml
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb

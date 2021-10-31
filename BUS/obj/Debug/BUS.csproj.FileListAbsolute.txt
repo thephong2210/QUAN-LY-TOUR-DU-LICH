@@ -22,3 +22,15 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll.config
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.xml
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
