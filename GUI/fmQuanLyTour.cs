@@ -31,7 +31,7 @@ namespace GUI
 
         }
 
-        private void LoadDanhSachTour()
+        public void LoadDanhSachTour()
         {
             dataGridViewQuanLyTour.DataSource = bTour.GetListTour();
         }
@@ -91,7 +91,7 @@ namespace GUI
                 {
                     string maSoTour = row.Cells[0].Value.ToString();
 
-                    fmChiTietTour formChiTietTour = new fmChiTietTour(int.Parse(maSoTour));
+                    fmChiTietTour formChiTietTour = new fmChiTietTour(int.Parse(maSoTour), this);
                     //System.Diagnostics.Debug.WriteLine(int.Parse(maSoTour));
 
                     formChiTietTour.ShowDialog();
@@ -278,6 +278,61 @@ namespace GUI
             return maxID;
         }
 
+        public void XoaTour()
+        {
+            List<diadiemtour> listDiaDiemTour = bDiaDiemDen.GetListDiaDiemTour();
+            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
+            tour objTour = new tour();
+            diadiemtour objDiaDiemTour = new diadiemtour();
+            giatour objGiaTour = new giatour();
+
+            if (dataGridViewQuanLyTour.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridViewQuanLyTour.SelectedRows)
+                {
+                    int maSoTour = Convert.ToInt32(row.Cells[0].Value.ToString());
+
+                    bTour.XoaTour(objTour, maSoTour);
+
+                    //Xoa dia diem tham quan trong tour này
+                    foreach (var items in listDiaDiemTour)
+                    {
+                        if (maSoTour == items.maTour)
+                        {
+                            if (bDiaDiemDen.XoaDiaDiemTour(objDiaDiemTour, items.id))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Xóa địa điểm tour thành công!");
+                            }
+                        }
+                    }
+
+                    //Xóa bảng giá của tour
+                    foreach (var itemGiaTour in listGiaTour)
+                    {
+                        if (maSoTour == itemGiaTour.maGiaTour)
+                        {
+                            if (bGiaTour.XoaGiaTour(objGiaTour, itemGiaTour.maGiaTour))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Xóa giá tour thành công!");
+                            }
+                        }
+                    }
+
+                    LoadDanhSachTour();
+                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
+            }
+            
+            
+
+
+        }
+
         private void buttonXemChiTiet_Click_1(object sender, EventArgs e)
         {
             XemChiTietTour();
@@ -332,7 +387,18 @@ namespace GUI
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            
+            var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa không ?? :D", "Xóa tour", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                XoaTour();
+            }
+
+        }
+
+        private void dataGridViewQuanLyTour_BindingContextChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 

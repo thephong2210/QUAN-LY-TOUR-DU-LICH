@@ -32,6 +32,15 @@ namespace BUS
             return dTour.ThemTour(objTour);
         }
 
+        public bool SuaTour(tour objTour, int maSoTour)
+        {
+            return dTour.SuaTour(objTour, maSoTour);
+        }
+
+        public bool XoaTour(tour objTour, int maSoTour)
+        {
+            return dTour.XoaTour(objTour, maSoTour);
+        }
 
 
 
