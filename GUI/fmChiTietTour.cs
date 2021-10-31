@@ -19,6 +19,7 @@ namespace GUI
         B_tour bTour = new B_tour();
         B_diadiemden bDiaDiemDen = new B_diadiemden();
         B_loaihinhdulich bLoaiHinhDuLich = new B_loaihinhdulich();
+        B_giatour BGiaTour = new B_giatour();
 
         public fmChiTietTour(int maSoTour)
         {
@@ -61,7 +62,7 @@ namespace GUI
 
             //textBoxGia.Text = dataTableDetailsTour.Rows[0][3].ToString();
             int maGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][3]);
-            List<giatour> listGiaTour = bTour.GetGiaTour();
+            List<giatour> listGiaTour = BGiaTour.GetGiaTour();
             
             foreach (var item in listGiaTour)
             {
