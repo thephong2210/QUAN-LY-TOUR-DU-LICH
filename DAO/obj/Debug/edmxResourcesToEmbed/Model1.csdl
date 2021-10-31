@@ -123,7 +123,6 @@
     <Property Name="maSoTour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenGoiTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="dacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="maGiaTour" Type="Int32" Nullable="false" />
     <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" />
     <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
     <Property Name="tongTien" Type="Double" Nullable="false" />

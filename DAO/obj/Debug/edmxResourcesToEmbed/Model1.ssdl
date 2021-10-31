@@ -123,7 +123,6 @@
     <Property Name="maSoTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tenGoiTour" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="dacDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="maGiaTour" Type="int" Nullable="false" />
     <Property Name="maLoaiHinhDuLich" Type="int" Nullable="false" />
     <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
     <Property Name="tongTien" Type="float" Nullable="false" />

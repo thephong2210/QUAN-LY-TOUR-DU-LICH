@@ -136,7 +136,6 @@
           <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
           <ScalarProperty Name="tenGoiTour" ColumnName="tenGoiTour" />
           <ScalarProperty Name="dacDiem" ColumnName="dacDiem" />
-          <ScalarProperty Name="maGiaTour" ColumnName="maGiaTour" />
           <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
           <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
           <ScalarProperty Name="tongTien" ColumnName="tongTien" />

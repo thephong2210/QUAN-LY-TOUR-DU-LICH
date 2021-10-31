@@ -11,6 +11,16 @@ namespace DAO
 
         tourdulichEntities tourdulich;
         
+        public List<tour> GetAllTour()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getAllTour = tourdulich.tours;
+                return getAllTour.ToList<tour>();
+            }
+        }
+
+        //Load on datagridview
         public List<dynamic> GetListTour()
         {
             using (tourdulich = new tourdulichEntities())
@@ -47,7 +57,6 @@ namespace DAO
                                               maSoTour = tbTour.maSoTour,
                                               tenGoiTour = tbTour.tenGoiTour,
                                               dacDiem = tbTour.dacDiem,
-                                              maGiaTour = tbTour.maGiaTour,
                                               soLuongKhachHang = tbTour.soLuongKhachHang,
                                               tongTien = tbTour.tongTien,
                                               thoiGianBatDau = tbTour.thoiGianBatDau,
@@ -62,18 +71,28 @@ namespace DAO
 
         }
 
-        //tạm thời
-        public List<giatour> GetGiaTour()
+        public bool ThemTour(tour objTour)
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListDetailsTour = from tbGiaTour in tourdulich.giatours select tbGiaTour;
-                                     
-                return getListDetailsTour.ToList<giatour>();
-
+                try
+                {
+                    tourdulich.tours.Add(objTour);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+                
+                
             }
 
         }
+
+
 
 
     }

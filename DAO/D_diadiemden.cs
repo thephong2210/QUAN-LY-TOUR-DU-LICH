@@ -47,6 +47,25 @@ namespace DAO
 
         }
 
+        public bool ThemDiaDiemTour(diadiemtour objDiaDiemTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tourdulich.diadiemtours.Add(objDiaDiemTour);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+                
+            }
+        }
+
 
 
 

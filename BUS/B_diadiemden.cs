@@ -26,6 +26,12 @@ namespace BUS
             return dDiaDiemDen.GetListDiaDiemTour();
         }
 
+        public bool ThemDiaDiemTour(diadiemtour objDiaDiemTour)
+        {
+            return dDiaDiemDen.ThemDiaDiemTour(objDiaDiemTour);
+        }
+
+
     }
 
 

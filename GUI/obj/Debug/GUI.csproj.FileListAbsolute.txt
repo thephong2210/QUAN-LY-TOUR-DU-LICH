@@ -69,3 +69,7 @@ E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
