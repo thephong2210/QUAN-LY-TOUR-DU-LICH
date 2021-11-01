@@ -128,13 +128,13 @@
           <Property Name="maSoTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenGoiTour" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="dacDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="maGiaTour" Type="int" Nullable="false" />
           <Property Name="maLoaiHinhDuLich" Type="int" Nullable="false" />
           <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
           <Property Name="tongTien" Type="float" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="maDiaDiemDen" Type="int" />
+          <Property Name="idGiaTour" Type="int" />
         </EntityType>
         <EntityContainer Name="tourdulichModelStoreContainer">
           <EntitySet Name="chiphi" EntityType="Self.chiphi" Schema="dbo" store:Type="Tables" />
@@ -280,13 +280,13 @@
           <Property Name="maSoTour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenGoiTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="dacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="maGiaTour" Type="Int32" Nullable="false" />
           <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" />
           <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
           <Property Name="tongTien" Type="Double" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="maDiaDiemDen" Type="Int32" />
+          <Property Name="idGiaTour" Type="Int32" />
         </EntityType>
         <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="chiphis" EntityType="Self.chiphi" />
@@ -445,13 +445,13 @@
                 <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
                 <ScalarProperty Name="tenGoiTour" ColumnName="tenGoiTour" />
                 <ScalarProperty Name="dacDiem" ColumnName="dacDiem" />
-                <ScalarProperty Name="maGiaTour" ColumnName="maGiaTour" />
                 <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
                 <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
                 <ScalarProperty Name="tongTien" ColumnName="tongTien" />
                 <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
                 <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
                 <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
+                <ScalarProperty Name="idGiaTour" ColumnName="idGiaTour" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

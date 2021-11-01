@@ -17,6 +17,7 @@ namespace GUI
     public partial class fmQuanLyTour : Form
     {
         B_tour bTour = new B_tour();
+        B_giatour bGiaTour = new B_giatour();
         B_diadiemden bDiaDiemDen = new B_diadiemden();
         B_loaihinhdulich bLoaiHinhDuLich = new B_loaihinhdulich();
 
@@ -30,7 +31,7 @@ namespace GUI
 
         }
 
-        private void LoadDanhSachTour()
+        public void LoadDanhSachTour()
         {
             dataGridViewQuanLyTour.DataSource = bTour.GetListTour();
         }
@@ -90,7 +91,7 @@ namespace GUI
                 {
                     string maSoTour = row.Cells[0].Value.ToString();
 
-                    fmChiTietTour formChiTietTour = new fmChiTietTour(int.Parse(maSoTour));
+                    fmChiTietTour formChiTietTour = new fmChiTietTour(int.Parse(maSoTour), this);
                     //System.Diagnostics.Debug.WriteLine(int.Parse(maSoTour));
 
                     formChiTietTour.ShowDialog();
@@ -101,60 +102,236 @@ namespace GUI
         }
 
 
-
-        private void XoaTextBox()
+        private void ClearFields()
         {
             textBoxTenTour.Text = "";
             textBoxDacDiem.Text = "";
+            textBoxGia.Text = "";
+            ChangeAllCheckBoxValues_DDThamQuan(false);
         }
 
-        //private void ThemTour()
-        //{
+        //hàm Check/uncheck các option checkbox, dùng clear listbox sau khi thêm
+        private void ChangeAllCheckBoxValues_DDThamQuan(bool value)
+        {
+            for (int i = 1; i < checkedListBoxDDThamQuan.Items.Count; i++)
+            {
+                checkedListBoxDDThamQuan.SetItemChecked(i, value);
+            }
+        }
 
-        //    if (!String.IsNullOrEmpty(textBoxTenTour.Text))
-        //    {
-        //        if (!String.IsNullOrEmpty(textBoxDacDiem.Text))
-        //        {
-        //            string tenGoi = textBoxTenTour.Text;
-        //            string dacDiem = textBoxDacDiem.Text;
-        //            int maDiaDiem = int.Parse(b_Tour.GetMaDiaDiem(comboBoxDiaDiem.Text).Rows[0][0].ToString());
-        //            int maGiaTour = 1;
-        //            int maLHDL = int.Parse(b_Tour.GetMaLoaiHinhDuLich(comboBoxLoaiHinhDuLich.Text).Rows[0][0].ToString());
-        //            int soLuongKH = 0;
-        //            int tongTien = 0;
-        //            string thoiGianBD = dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss");
-        //            string thoiGianKT = dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss");
+        
 
-        //            DTO_tour DTOtour = new DTO_tour(tenGoi, dacDiem, maDiaDiem, maGiaTour, maLHDL, soLuongKH, tongTien, thoiGianBD, thoiGianKT);
+        private void ThemTour()
+        {
+            List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
+            List<loaihinhdulich> listLHDL = bLoaiHinhDuLich.GetListLoaiHinhDL();
+            List<tour> listTour = bTour.GetAllTour();
+            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
 
-        //            try
-        //            {
-        //                b_Tour.ThemTour(DTOtour);
-        //                LoadDanhSachTour();
-        //                XoaTextBox();
+            if (!String.IsNullOrEmpty(textBoxTenTour.Text))
+            {
+                if (!String.IsNullOrEmpty(textBoxGia.Text))
+                {
+                    if (!String.IsNullOrEmpty(textBoxDacDiem.Text))
+                    {
+                        if (checkedListBoxDDThamQuan.CheckedItems.Count != 0)
+                        {
+                            //Khai báo object
+                            tour objTour = new tour();
+                            giatour objGiaTour = new giatour();
+                            diadiemtour objDiaDiemTour = new diadiemtour();
 
-        //                MessageBox.Show("Thêm thành công!", "Thông báo");
-        //            }
-        //            catch
-        //            {
-        //                MessageBox.Show("Thêm không thành công!", "Thông báo");
-        //            }
+                            objTour.tenGoiTour = textBoxTenTour.Text;
+                            objTour.dacDiem = textBoxDacDiem.Text;
 
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Vui lòng nhập đặc điểm tour!", "Thông báo");
-        //            textBoxDacDiem.Focus();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Vui lòng nhập tên tour!", "Thông báo");
-        //        textBoxTenTour.Focus();
-        //    }
+                            //Lấy maDiaDiem
+                            foreach (var itemDD in listDiaDiemDen)
+                            {
+                                if (itemDD.tenDiaDiemDen.Equals(comboBoxDiaDiem.Text))
+                                {
+                                    objTour.maDiaDiemDen = itemDD.maDiaDiemDen;
+                                }
+                            }
+
+                            //Lấy maLoaiHinhDuLich
+                            foreach (var itemLHDL in listLHDL)
+                            {
+                                if (itemLHDL.tenLoaiHinhDuLich.Equals(comboBoxLoaiHinhDuLich.Text))
+                                {
+                                    objTour.maLoaiHinhDuLich = itemLHDL.maLoaiHinhDuLich;
+                                }
+                            }
+
+                            objTour.soLuongKhachHang = 0;
+                            objTour.tongTien = 0;
+                            objTour.thoiGianBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
+                            objTour.thoiGianKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
+
+                            //Lấy thông tin giá tour để thêm vào giatour
+                            objGiaTour.gia = float.Parse(textBoxGia.Text);
+                            objGiaTour.maGiaTour = GetMaxMaSoTour(listTour) + 1; //Mã tour mới
+                            objGiaTour.dieuKien = "mới tạo";
+
+                            objTour.idGiaTour = GetMaxIDGiaTour(listGiaTour) + 1;
 
 
-        //}
+                            //Bắt đầu thêm các dữ liệu
+                            try
+                            {
+                                if (bTour.ThemTour(objTour))
+                                {
+                                    System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");
+
+                                    //Thêm thông tin địa điểm của tour
+                                    foreach (object itemChecked in checkedListBoxDDThamQuan.CheckedItems)
+                                    {
+                                        objDiaDiemTour.maTour = GetMaxMaSoTour(listTour) + 1;
+                                        objDiaDiemTour.tenDiaDiemThamQuan = itemChecked.ToString();
+
+                                        if (bDiaDiemDen.ThemDiaDiemTour(objDiaDiemTour))
+                                        {
+                                            System.Diagnostics.Debug.WriteLine("Thêm địa điểm tour thành công!");
+                                        }
+                                    }
+
+                                    if (bGiaTour.ThemGiaTour(objGiaTour))
+                                    {
+                                        LoadDanhSachTour();
+
+                                        System.Diagnostics.Debug.WriteLine("Thêm giá tour thành công!");
+                                        MessageBox.Show("Thêm tour thành công!", "Thông báo");
+
+                                        ClearFields();
+
+                                    }
+
+                                }
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Thêm không thành công!", "Thông báo");
+                                System.Diagnostics.Debug.WriteLine(ex);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng chọn địa điểm tham quan!", "Thông báo");
+                        }
+                        
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập đặc điểm tour!", "Thông báo");
+                        textBoxDacDiem.Focus();
+                    }
+                }   
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập giá tour!", "Thông báo");
+                    textBoxGia.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên tour!", "Thông báo");
+                textBoxTenTour.Focus();
+            }
+
+
+        }
+
+        //Dùng cho chức năng thêm, lấy mã số tour mới
+        public int GetMaxMaSoTour(List<tour> list)
+        {
+            if (list.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            int maxMaSoTour = 0;
+            foreach (tour type in list)
+            {
+                if (type.maSoTour > maxMaSoTour)
+                {
+                    maxMaSoTour = type.maSoTour;
+                }
+            }
+            return maxMaSoTour;
+        }
+
+        //Dùng cho chức năng thêm, cho thuộc tính idGiaTour
+        public int GetMaxIDGiaTour(List<giatour> list)
+        {
+            if (list.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            int maxID = 0;
+            foreach (giatour type in list)
+            {
+                if (type.id > maxID)
+                {
+                    maxID = type.id;
+                }
+            }
+            return maxID;
+        }
+
+        public void XoaTour()
+        {
+            List<diadiemtour> listDiaDiemTour = bDiaDiemDen.GetListDiaDiemTour();
+            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
+            tour objTour = new tour();
+            diadiemtour objDiaDiemTour = new diadiemtour();
+            giatour objGiaTour = new giatour();
+
+            if (dataGridViewQuanLyTour.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridViewQuanLyTour.SelectedRows)
+                {
+                    int maSoTour = Convert.ToInt32(row.Cells[0].Value.ToString());
+
+                    bTour.XoaTour(objTour, maSoTour);
+
+                    //Xoa dia diem tham quan trong tour này
+                    foreach (var items in listDiaDiemTour)
+                    {
+                        if (maSoTour == items.maTour)
+                        {
+                            if (bDiaDiemDen.XoaDiaDiemTour(objDiaDiemTour, items.id))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Xóa địa điểm tour thành công!");
+                            }
+                        }
+                    }
+
+                    //Xóa bảng giá của tour
+                    foreach (var itemGiaTour in listGiaTour)
+                    {
+                        if (maSoTour == itemGiaTour.maGiaTour)
+                        {
+                            if (bGiaTour.XoaGiaTour(objGiaTour, itemGiaTour.maGiaTour))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Xóa giá tour thành công!");
+                            }
+                        }
+                    }
+
+                    LoadDanhSachTour();
+                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
+            }
+            
+            
+
+
+        }
 
         private void buttonXemChiTiet_Click_1(object sender, EventArgs e)
         {
@@ -179,7 +356,7 @@ namespace GUI
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
-            //ThemTour();
+            ThemTour();
             
         }
 
@@ -198,7 +375,31 @@ namespace GUI
 
         }
 
-        
+        private void textBoxGia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBoxDDThamQuan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa không ?? :D", "Xóa tour", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                XoaTour();
+            }
+
+        }
+
+        private void dataGridViewQuanLyTour_BindingContextChanged(object sender, EventArgs e)
+        {
+          
+        }
     }
 
 

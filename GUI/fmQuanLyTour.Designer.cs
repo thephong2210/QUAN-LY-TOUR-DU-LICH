@@ -48,8 +48,8 @@ namespace GUI
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDacDiem = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxGia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayKetThuc = new System.Windows.Forms.DateTimePicker();
@@ -204,6 +204,7 @@ namespace GUI
             this.checkedListBoxDDThamQuan.Name = "checkedListBoxDDThamQuan";
             this.checkedListBoxDDThamQuan.Size = new System.Drawing.Size(355, 109);
             this.checkedListBoxDDThamQuan.TabIndex = 18;
+            this.checkedListBoxDDThamQuan.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDDThamQuan_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -251,13 +252,23 @@ namespace GUI
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.label7);
             this.panel13.Controls.Add(this.textBoxGia);
+            this.panel13.Controls.Add(this.label7);
             this.panel13.Location = new System.Drawing.Point(11, 323);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(371, 48);
             this.panel13.TabIndex = 38;
+            // 
+            // textBoxGia
+            // 
+            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
+            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxGia.Name = "textBoxGia";
+            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
+            this.textBoxGia.TabIndex = 18;
+            this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
             // 
             // label7
             // 
@@ -269,16 +280,6 @@ namespace GUI
             this.label7.Size = new System.Drawing.Size(41, 28);
             this.label7.TabIndex = 17;
             this.label7.Text = "Giá";
-            // 
-            // textBoxGia
-            // 
-            this.textBoxGia.Enabled = false;
-            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
-            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
-            this.textBoxGia.TabIndex = 6;
             // 
             // panel12
             // 
@@ -515,7 +516,7 @@ namespace GUI
             this.textBox1.Location = new System.Drawing.Point(122, 88);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(338, 30);
+            this.textBox1.Size = new System.Drawing.Size(393, 30);
             this.textBox1.TabIndex = 21;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -588,6 +589,7 @@ namespace GUI
             this.buttonXoa.TabIndex = 16;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = false;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // dataGridViewQuanLyTour
             // 
@@ -617,10 +619,12 @@ namespace GUI
             this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 542);
             this.dataGridViewQuanLyTour.TabIndex = 2;
             this.dataGridViewQuanLyTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyTour_CellContentClick);
+            this.dataGridViewQuanLyTour.BindingContextChanged += new System.EventHandler(this.dataGridViewQuanLyTour_BindingContextChanged);
             // 
             // maSoTour
             // 
             this.maSoTour.DataPropertyName = "maSoTour";
+            this.maSoTour.FillWeight = 64.17112F;
             this.maSoTour.HeaderText = "Mã số tour";
             this.maSoTour.MinimumWidth = 6;
             this.maSoTour.Name = "maSoTour";
@@ -630,6 +634,7 @@ namespace GUI
             // tenGoiTour
             // 
             this.tenGoiTour.DataPropertyName = "tenGoiTour";
+            this.tenGoiTour.FillWeight = 107.1658F;
             this.tenGoiTour.HeaderText = "Tên tour";
             this.tenGoiTour.MinimumWidth = 6;
             this.tenGoiTour.Name = "tenGoiTour";
@@ -640,6 +645,7 @@ namespace GUI
             // tenLoaiHinhDuLich
             // 
             this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
+            this.tenLoaiHinhDuLich.FillWeight = 107.1658F;
             this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
             this.tenLoaiHinhDuLich.MinimumWidth = 6;
             this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
@@ -650,7 +656,8 @@ namespace GUI
             // tenDiaDiem
             // 
             this.tenDiaDiem.DataPropertyName = "tenDiaDiem";
-            this.tenDiaDiem.HeaderText = "Tên địa điểm";
+            this.tenDiaDiem.FillWeight = 107.1658F;
+            this.tenDiaDiem.HeaderText = "Tên địa điểm đến";
             this.tenDiaDiem.MinimumWidth = 6;
             this.tenDiaDiem.Name = "tenDiaDiem";
             this.tenDiaDiem.ReadOnly = true;
@@ -660,6 +667,7 @@ namespace GUI
             // thoiGianBatDau
             // 
             this.thoiGianBatDau.DataPropertyName = "thoiGianBatDau";
+            this.thoiGianBatDau.FillWeight = 107.1658F;
             this.thoiGianBatDau.HeaderText = "Thời gian bắt đầu";
             this.thoiGianBatDau.MinimumWidth = 6;
             this.thoiGianBatDau.Name = "thoiGianBatDau";
@@ -670,6 +678,7 @@ namespace GUI
             // thoiGianKetThuc
             // 
             this.thoiGianKetThuc.DataPropertyName = "thoiGianKetThuc";
+            this.thoiGianKetThuc.FillWeight = 107.1658F;
             this.thoiGianKetThuc.HeaderText = "Thời gian kết thúc";
             this.thoiGianKetThuc.MinimumWidth = 6;
             this.thoiGianKetThuc.Name = "thoiGianKetThuc";
@@ -748,7 +757,6 @@ namespace GUI
         private System.Windows.Forms.ComboBox comboBoxDiaDiem;
         private System.Windows.Forms.ComboBox comboBoxLoaiHinhDuLich;
         private System.Windows.Forms.TextBox textBoxDacDiem;
-        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.TextBox textBoxTenTour;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
@@ -770,16 +778,17 @@ namespace GUI
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button buttonXemChiTiet;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
+        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDiaDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianKetThuc;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
     }
 }

@@ -123,13 +123,13 @@
     <Property Name="maSoTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tenGoiTour" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="dacDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="maGiaTour" Type="int" Nullable="false" />
     <Property Name="maLoaiHinhDuLich" Type="int" Nullable="false" />
     <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
     <Property Name="tongTien" Type="float" Nullable="false" />
     <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
     <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
     <Property Name="maDiaDiemDen" Type="int" />
+    <Property Name="idGiaTour" Type="int" />
   </EntityType>
   <EntityContainer Name="tourdulichModelStoreContainer">
     <EntitySet Name="chiphi" EntityType="Self.chiphi" Schema="dbo" store:Type="Tables" />

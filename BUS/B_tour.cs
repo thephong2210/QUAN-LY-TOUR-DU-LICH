@@ -12,6 +12,11 @@ namespace BUS
         D_tour dTour = new D_tour();
 
         //Get list tour tùy chỉnh
+        public List<tour> GetAllTour()
+        {
+            return dTour.GetAllTour();
+        }
+
         public List<dynamic> GetListTour()
         {
             return dTour.GetListTour();
@@ -22,10 +27,21 @@ namespace BUS
             return dTour.GetListDetailsTour(maSoTour);
         }
 
-        public List<giatour> GetGiaTour()
+        public bool ThemTour(tour objTour)
         {
-            return dTour.GetGiaTour();
+            return dTour.ThemTour(objTour);
         }
+
+        public bool SuaTour(tour objTour, int maSoTour)
+        {
+            return dTour.SuaTour(objTour, maSoTour);
+        }
+
+        public bool XoaTour(tour objTour, int maSoTour)
+        {
+            return dTour.XoaTour(objTour, maSoTour);
+        }
+
 
 
     }
