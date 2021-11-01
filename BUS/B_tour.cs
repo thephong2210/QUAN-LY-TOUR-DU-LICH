@@ -1,48 +1,45 @@
 ﻿using DAO;
-using DTO;
 using System;
-using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BUS
 {
     public class B_tour
     {
-        D_tour dao_Tour = new D_tour();
+        D_tour dTour = new D_tour();
 
-        public DataTable GetListTour()
+        //Get list tour tùy chỉnh
+        public List<tour> GetAllTour()
         {
-            return dao_Tour.GetListTour();
+            return dTour.GetAllTour();
         }
 
-        public void ThemTour(DTO_tour DTOtour)
+        public List<dynamic> GetListTour()
         {
-            dao_Tour.ThemTour(DTOtour);
+            return dTour.GetListTour();
         }
 
-        //ghi tạm
-        public DataSet GetListDiaDiem()
+        public List<dynamic> GetListDetailsTour(int maSoTour)
         {
-            return dao_Tour.GetListDiaDiem();
+            return dTour.GetListDetailsTour(maSoTour);
         }
 
-        public DataTable GetMaDiaDiem(String tenDiaDiem)
+        public bool ThemTour(tour objTour)
         {
-            return dao_Tour.GetMaDiaDiem(tenDiaDiem);
+            return dTour.ThemTour(objTour);
         }
 
-        public DataSet GetListLoaiHinhDuLich()
+        public bool SuaTour(tour objTour, int maSoTour)
         {
-            return dao_Tour.GetListLoaiHinhDuLich();
+            return dTour.SuaTour(objTour, maSoTour);
         }
 
-        public DataTable GetMaLoaiHinhDuLich(string tenLoaiHinhDuLich)
+        public bool XoaTour(tour objTour, int maSoTour)
         {
-            return dao_Tour.GetMaLoaiHinhDuLich(tenLoaiHinhDuLich);
-        }
-
-        public DataTable GetListDetailsTour(int maSoTour)
-        {
-            return dao_Tour.GetListDetailsTour(maSoTour);
+            return dTour.XoaTour(objTour, maSoTour);
         }
 
 

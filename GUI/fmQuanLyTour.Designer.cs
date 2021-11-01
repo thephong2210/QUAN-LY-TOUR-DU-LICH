@@ -41,12 +41,15 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.checkedListBoxDDThamQuan = new System.Windows.Forms.CheckedListBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDacDiem = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxGia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayKetThuc = new System.Windows.Forms.DateTimePicker();
@@ -86,6 +89,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -108,8 +112,9 @@ namespace GUI
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1435, 68);
+            this.panel1.Size = new System.Drawing.Size(1435, 55);
             this.panel1.TabIndex = 0;
             // 
             // panel5
@@ -118,16 +123,19 @@ namespace GUI
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(-1, -1);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1435, 68);
+            this.panel5.Size = new System.Drawing.Size(1435, 54);
             this.panel5.TabIndex = 0;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
             this.pictureBox1.Image = global::GUI.Properties.Resources.touricon;
-            this.pictureBox1.Location = new System.Drawing.Point(591, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(561, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(57, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -135,11 +143,11 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(654, 9);
+            this.label1.Location = new System.Drawing.Point(624, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 50);
+            this.label1.Size = new System.Drawing.Size(244, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý tour";
             // 
@@ -150,16 +158,17 @@ namespace GUI
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 68);
+            this.panel2.Location = new System.Drawing.Point(0, 55);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1435, 695);
+            this.panel2.Size = new System.Drawing.Size(1435, 802);
             this.panel2.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel15);
             this.panel4.Controls.Add(this.panel14);
             this.panel4.Controls.Add(this.panel13);
             this.panel4.Controls.Add(this.panel12);
@@ -170,25 +179,60 @@ namespace GUI
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.buttonTaoMoi);
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(389, 694);
+            this.panel4.Size = new System.Drawing.Size(389, 802);
             this.panel4.TabIndex = 16;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.checkedListBoxDDThamQuan);
+            this.panel15.Controls.Add(this.label12);
+            this.panel15.Location = new System.Drawing.Point(11, 514);
+            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(371, 165);
+            this.panel15.TabIndex = 40;
+            // 
+            // checkedListBoxDDThamQuan
+            // 
+            this.checkedListBoxDDThamQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkedListBoxDDThamQuan.FormattingEnabled = true;
+            this.checkedListBoxDDThamQuan.HorizontalScrollbar = true;
+            this.checkedListBoxDDThamQuan.Location = new System.Drawing.Point(3, 37);
+            this.checkedListBoxDDThamQuan.Margin = new System.Windows.Forms.Padding(2);
+            this.checkedListBoxDDThamQuan.Name = "checkedListBoxDDThamQuan";
+            this.checkedListBoxDDThamQuan.Size = new System.Drawing.Size(355, 109);
+            this.checkedListBoxDDThamQuan.TabIndex = 18;
+            this.checkedListBoxDDThamQuan.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDDThamQuan_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(4, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(188, 25);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Địa điểm tham quan";
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.label8);
             this.panel14.Controls.Add(this.textBoxDacDiem);
-            this.panel14.Location = new System.Drawing.Point(11, 451);
+            this.panel14.Location = new System.Drawing.Point(11, 375);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(354, 105);
+            this.panel14.Size = new System.Drawing.Size(371, 76);
             this.panel14.TabIndex = 39;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 13);
+            this.label8.Location = new System.Drawing.Point(3, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 25);
             this.label8.TabIndex = 17;
@@ -197,58 +241,62 @@ namespace GUI
             // textBoxDacDiem
             // 
             this.textBoxDacDiem.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxDacDiem.Location = new System.Drawing.Point(146, 11);
+            this.textBoxDacDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxDacDiem.Location = new System.Drawing.Point(146, 9);
+            this.textBoxDacDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDacDiem.Multiline = true;
             this.textBoxDacDiem.Name = "textBoxDacDiem";
-            this.textBoxDacDiem.PlaceholderText = "Nhập đặc điểm tour...";
             this.textBoxDacDiem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDacDiem.Size = new System.Drawing.Size(194, 80);
+            this.textBoxDacDiem.Size = new System.Drawing.Size(212, 55);
             this.textBoxDacDiem.TabIndex = 7;
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.label7);
             this.panel13.Controls.Add(this.textBoxGia);
-            this.panel13.Location = new System.Drawing.Point(11, 394);
+            this.panel13.Controls.Add(this.label7);
+            this.panel13.Location = new System.Drawing.Point(11, 323);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(354, 51);
+            this.panel13.Size = new System.Drawing.Size(371, 48);
             this.panel13.TabIndex = 38;
+            // 
+            // textBoxGia
+            // 
+            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
+            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxGia.Name = "textBoxGia";
+            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
+            this.textBoxGia.TabIndex = 18;
+            this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(3, 13);
+            this.label7.Location = new System.Drawing.Point(3, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 25);
+            this.label7.Size = new System.Drawing.Size(41, 28);
             this.label7.TabIndex = 17;
             this.label7.Text = "Giá";
-            // 
-            // textBoxGia
-            // 
-            this.textBoxGia.Enabled = false;
-            this.textBoxGia.Location = new System.Drawing.Point(146, 14);
-            this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.PlaceholderText = "Nhập giá tour...";
-            this.textBoxGia.Size = new System.Drawing.Size(194, 27);
-            this.textBoxGia.TabIndex = 6;
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label6);
             this.panel12.Controls.Add(this.dateTimePickerNgayKetThuc);
-            this.panel12.Location = new System.Drawing.Point(11, 337);
+            this.panel12.Location = new System.Drawing.Point(11, 267);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(354, 51);
+            this.panel12.Size = new System.Drawing.Size(371, 52);
             this.panel12.TabIndex = 37;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 13);
+            this.label6.Location = new System.Drawing.Point(3, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 25);
             this.label6.TabIndex = 17;
@@ -256,25 +304,28 @@ namespace GUI
             // 
             // dateTimePickerNgayKetThuc
             // 
+            this.dateTimePickerNgayKetThuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dateTimePickerNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerNgayKetThuc.Location = new System.Drawing.Point(146, 11);
+            this.dateTimePickerNgayKetThuc.Location = new System.Drawing.Point(146, 9);
+            this.dateTimePickerNgayKetThuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerNgayKetThuc.Name = "dateTimePickerNgayKetThuc";
-            this.dateTimePickerNgayKetThuc.Size = new System.Drawing.Size(194, 27);
+            this.dateTimePickerNgayKetThuc.Size = new System.Drawing.Size(212, 28);
             this.dateTimePickerNgayKetThuc.TabIndex = 5;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.dateTimePickerNgayBatDau);
-            this.panel11.Location = new System.Drawing.Point(11, 280);
+            this.panel11.Location = new System.Drawing.Point(11, 203);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(354, 51);
+            this.panel11.Size = new System.Drawing.Size(371, 51);
             this.panel11.TabIndex = 36;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 13);
             this.label5.Name = "label5";
@@ -285,39 +336,45 @@ namespace GUI
             // dateTimePickerNgayBatDau
             // 
             this.dateTimePickerNgayBatDau.CustomFormat = "";
+            this.dateTimePickerNgayBatDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dateTimePickerNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayBatDau.Location = new System.Drawing.Point(146, 13);
+            this.dateTimePickerNgayBatDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerNgayBatDau.Name = "dateTimePickerNgayBatDau";
-            this.dateTimePickerNgayBatDau.Size = new System.Drawing.Size(194, 27);
+            this.dateTimePickerNgayBatDau.Size = new System.Drawing.Size(212, 28);
             this.dateTimePickerNgayBatDau.TabIndex = 4;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.label4);
             this.panel10.Controls.Add(this.comboBoxDiaDiem);
-            this.panel10.Location = new System.Drawing.Point(11, 223);
+            this.panel10.Location = new System.Drawing.Point(11, 455);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(354, 51);
+            this.panel10.Size = new System.Drawing.Size(371, 55);
             this.panel10.TabIndex = 35;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 13);
+            this.label4.Location = new System.Drawing.Point(4, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 25);
+            this.label4.Size = new System.Drawing.Size(128, 25);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Địa điểm";
+            this.label4.Text = "Địa điểm đến";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBoxDiaDiem
             // 
             this.comboBoxDiaDiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDiaDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxDiaDiem.FormattingEnabled = true;
-            this.comboBoxDiaDiem.Location = new System.Drawing.Point(146, 13);
+            this.comboBoxDiaDiem.Location = new System.Drawing.Point(146, 14);
+            this.comboBoxDiaDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDiaDiem.Name = "comboBoxDiaDiem";
-            this.comboBoxDiaDiem.Size = new System.Drawing.Size(194, 28);
+            this.comboBoxDiaDiem.Size = new System.Drawing.Size(212, 28);
             this.comboBoxDiaDiem.TabIndex = 3;
             this.comboBoxDiaDiem.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiaDiem_SelectedIndexChanged);
             // 
@@ -325,15 +382,16 @@ namespace GUI
             // 
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.comboBoxLoaiHinhDuLich);
-            this.panel9.Location = new System.Drawing.Point(11, 167);
+            this.panel9.Location = new System.Drawing.Point(11, 149);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(354, 51);
+            this.panel9.Size = new System.Drawing.Size(371, 50);
             this.panel9.TabIndex = 34;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(3, 13);
             this.label11.Name = "label11";
@@ -344,38 +402,43 @@ namespace GUI
             // comboBoxLoaiHinhDuLich
             // 
             this.comboBoxLoaiHinhDuLich.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLoaiHinhDuLich.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxLoaiHinhDuLich.FormattingEnabled = true;
-            this.comboBoxLoaiHinhDuLich.Location = new System.Drawing.Point(146, 10);
+            this.comboBoxLoaiHinhDuLich.Location = new System.Drawing.Point(146, 12);
+            this.comboBoxLoaiHinhDuLich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxLoaiHinhDuLich.Name = "comboBoxLoaiHinhDuLich";
-            this.comboBoxLoaiHinhDuLich.Size = new System.Drawing.Size(194, 28);
+            this.comboBoxLoaiHinhDuLich.Size = new System.Drawing.Size(212, 28);
             this.comboBoxLoaiHinhDuLich.TabIndex = 2;
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.textBoxTenTour);
-            this.panel8.Location = new System.Drawing.Point(11, 110);
+            this.panel8.Location = new System.Drawing.Point(11, 88);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(354, 51);
+            this.panel8.Size = new System.Drawing.Size(371, 57);
             this.panel8.TabIndex = 33;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 13);
+            this.label3.Location = new System.Drawing.Point(3, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 25);
+            this.label3.Size = new System.Drawing.Size(88, 28);
             this.label3.TabIndex = 17;
             this.label3.Text = "Tên tour";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBoxTenTour
             // 
+            this.textBoxTenTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxTenTour.Location = new System.Drawing.Point(146, 14);
+            this.textBoxTenTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTenTour.Name = "textBoxTenTour";
-            this.textBoxTenTour.PlaceholderText = "Nhập tên tour...";
-            this.textBoxTenTour.Size = new System.Drawing.Size(194, 27);
+            this.textBoxTenTour.Size = new System.Drawing.Size(212, 30);
             this.textBoxTenTour.TabIndex = 1;
             // 
             // panel6
@@ -385,16 +448,18 @@ namespace GUI
             this.panel6.Controls.Add(this.label2);
             this.panel6.ForeColor = System.Drawing.Color.Transparent;
             this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(388, 59);
+            this.panel6.Size = new System.Drawing.Size(388, 54);
             this.panel6.TabIndex = 32;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.icons8_add_64;
-            this.pictureBox2.Location = new System.Drawing.Point(101, 14);
+            this.pictureBox2.Location = new System.Drawing.Point(66, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 31);
+            this.pictureBox2.Size = new System.Drawing.Size(42, 34);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -402,11 +467,11 @@ namespace GUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(140, 14);
+            this.label2.Location = new System.Drawing.Point(105, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 31);
+            this.label2.Size = new System.Drawing.Size(185, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thêm mới tour";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -415,11 +480,12 @@ namespace GUI
             // buttonTaoMoi
             // 
             this.buttonTaoMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
-            this.buttonTaoMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonTaoMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.buttonTaoMoi.ForeColor = System.Drawing.Color.White;
-            this.buttonTaoMoi.Location = new System.Drawing.Point(115, 578);
+            this.buttonTaoMoi.Location = new System.Drawing.Point(98, 691);
+            this.buttonTaoMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTaoMoi.Name = "buttonTaoMoi";
-            this.buttonTaoMoi.Size = new System.Drawing.Size(149, 51);
+            this.buttonTaoMoi.Size = new System.Drawing.Size(159, 62);
             this.buttonTaoMoi.TabIndex = 8;
             this.buttonTaoMoi.Text = "Tạo mới";
             this.buttonTaoMoi.UseVisualStyleBackColor = false;
@@ -436,25 +502,29 @@ namespace GUI
             this.panel3.Controls.Add(this.buttonXoa);
             this.panel3.Controls.Add(this.dataGridViewQuanLyTour);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(389, 68);
+            this.panel3.Location = new System.Drawing.Point(389, 55);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.MaximumSize = new System.Drawing.Size(1046, 802);
+            this.panel3.MinimumSize = new System.Drawing.Size(1046, 802);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1046, 695);
+            this.panel3.Size = new System.Drawing.Size(1046, 802);
             this.panel3.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 72);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(122, 88);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Nhập từ khóa tìm kiếm...";
-            this.textBox1.Size = new System.Drawing.Size(338, 27);
+            this.textBox1.Size = new System.Drawing.Size(393, 30);
             this.textBox1.TabIndex = 21;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(14, 71);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 11.5F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(19, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 28);
             this.label9.TabIndex = 20;
@@ -463,32 +533,35 @@ namespace GUI
             // buttonXemChiTiet
             // 
             this.buttonXemChiTiet.BackColor = System.Drawing.Color.SlateGray;
-            this.buttonXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonXemChiTiet.ForeColor = System.Drawing.Color.White;
-            this.buttonXemChiTiet.Location = new System.Drawing.Point(14, 577);
+            this.buttonXemChiTiet.Location = new System.Drawing.Point(14, 691);
+            this.buttonXemChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXemChiTiet.Name = "buttonXemChiTiet";
-            this.buttonXemChiTiet.Size = new System.Drawing.Size(152, 51);
+            this.buttonXemChiTiet.Size = new System.Drawing.Size(152, 62);
             this.buttonXemChiTiet.TabIndex = 19;
             this.buttonXemChiTiet.Text = "Xem chi tiết";
             this.buttonXemChiTiet.UseVisualStyleBackColor = false;
-            this.buttonXemChiTiet.Click += new System.EventHandler(this.buttonXemChiTiet_Click);
+            this.buttonXemChiTiet.Click += new System.EventHandler(this.buttonXemChiTiet_Click_1);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Controls.Add(this.label10);
-            this.panel7.Location = new System.Drawing.Point(-1, -1);
+            this.panel7.Location = new System.Drawing.Point(-1, -2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1046, 60);
+            this.panel7.Size = new System.Drawing.Size(1046, 56);
             this.panel7.TabIndex = 18;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_list_50;
-            this.pictureBox3.Location = new System.Drawing.Point(391, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(383, 12);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(42, 31);
+            this.pictureBox3.Size = new System.Drawing.Size(42, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
@@ -496,9 +569,9 @@ namespace GUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(439, 10);
+            this.label10.Location = new System.Drawing.Point(431, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(209, 38);
             this.label10.TabIndex = 1;
@@ -507,14 +580,16 @@ namespace GUI
             // buttonXoa
             // 
             this.buttonXoa.BackColor = System.Drawing.Color.Red;
-            this.buttonXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonXoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoa.Location = new System.Drawing.Point(875, 578);
+            this.buttonXoa.Location = new System.Drawing.Point(875, 691);
+            this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
-            this.buttonXoa.Size = new System.Drawing.Size(147, 51);
+            this.buttonXoa.Size = new System.Drawing.Size(147, 62);
             this.buttonXoa.TabIndex = 16;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = false;
+            this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // dataGridViewQuanLyTour
             // 
@@ -523,7 +598,7 @@ namespace GUI
             this.dataGridViewQuanLyTour.AllowUserToResizeRows = false;
             this.dataGridViewQuanLyTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewQuanLyTour.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuanLyTour.ColumnHeadersHeight = 35;
+            this.dataGridViewQuanLyTour.ColumnHeadersHeight = 40;
             this.dataGridViewQuanLyTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maSoTour,
             this.tenGoiTour,
@@ -531,22 +606,25 @@ namespace GUI
             this.tenDiaDiem,
             this.thoiGianBatDau,
             this.thoiGianKetThuc});
-            this.dataGridViewQuanLyTour.Location = new System.Drawing.Point(14, 110);
+            this.dataGridViewQuanLyTour.Location = new System.Drawing.Point(14, 137);
+            this.dataGridViewQuanLyTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewQuanLyTour.MultiSelect = false;
             this.dataGridViewQuanLyTour.Name = "dataGridViewQuanLyTour";
             this.dataGridViewQuanLyTour.ReadOnly = true;
-            this.dataGridViewQuanLyTour.RowHeadersWidth = 51;
+            this.dataGridViewQuanLyTour.RowHeadersWidth = 55;
             this.dataGridViewQuanLyTour.RowTemplate.DividerHeight = 1;
             this.dataGridViewQuanLyTour.RowTemplate.Height = 30;
             this.dataGridViewQuanLyTour.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewQuanLyTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 446);
+            this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(1008, 542);
             this.dataGridViewQuanLyTour.TabIndex = 2;
             this.dataGridViewQuanLyTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyTour_CellContentClick);
+            this.dataGridViewQuanLyTour.BindingContextChanged += new System.EventHandler(this.dataGridViewQuanLyTour_BindingContextChanged);
             // 
             // maSoTour
             // 
             this.maSoTour.DataPropertyName = "maSoTour";
+            this.maSoTour.FillWeight = 64.17112F;
             this.maSoTour.HeaderText = "Mã số tour";
             this.maSoTour.MinimumWidth = 6;
             this.maSoTour.Name = "maSoTour";
@@ -556,6 +634,7 @@ namespace GUI
             // tenGoiTour
             // 
             this.tenGoiTour.DataPropertyName = "tenGoiTour";
+            this.tenGoiTour.FillWeight = 107.1658F;
             this.tenGoiTour.HeaderText = "Tên tour";
             this.tenGoiTour.MinimumWidth = 6;
             this.tenGoiTour.Name = "tenGoiTour";
@@ -566,6 +645,7 @@ namespace GUI
             // tenLoaiHinhDuLich
             // 
             this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
+            this.tenLoaiHinhDuLich.FillWeight = 107.1658F;
             this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
             this.tenLoaiHinhDuLich.MinimumWidth = 6;
             this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
@@ -576,7 +656,8 @@ namespace GUI
             // tenDiaDiem
             // 
             this.tenDiaDiem.DataPropertyName = "tenDiaDiem";
-            this.tenDiaDiem.HeaderText = "Tên địa điểm";
+            this.tenDiaDiem.FillWeight = 107.1658F;
+            this.tenDiaDiem.HeaderText = "Tên địa điểm đến";
             this.tenDiaDiem.MinimumWidth = 6;
             this.tenDiaDiem.Name = "tenDiaDiem";
             this.tenDiaDiem.ReadOnly = true;
@@ -586,6 +667,7 @@ namespace GUI
             // thoiGianBatDau
             // 
             this.thoiGianBatDau.DataPropertyName = "thoiGianBatDau";
+            this.thoiGianBatDau.FillWeight = 107.1658F;
             this.thoiGianBatDau.HeaderText = "Thời gian bắt đầu";
             this.thoiGianBatDau.MinimumWidth = 6;
             this.thoiGianBatDau.Name = "thoiGianBatDau";
@@ -596,6 +678,7 @@ namespace GUI
             // thoiGianKetThuc
             // 
             this.thoiGianKetThuc.DataPropertyName = "thoiGianKetThuc";
+            this.thoiGianKetThuc.FillWeight = 107.1658F;
             this.thoiGianKetThuc.HeaderText = "Thời gian kết thúc";
             this.thoiGianKetThuc.MinimumWidth = 6;
             this.thoiGianKetThuc.Name = "thoiGianKetThuc";
@@ -605,12 +688,15 @@ namespace GUI
             // 
             // fmQuanLyTour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 763);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1435, 857);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1453, 904);
+            this.MinimumSize = new System.Drawing.Size(1453, 904);
             this.Name = "fmQuanLyTour";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý tour";
@@ -620,6 +706,8 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -669,7 +757,6 @@ namespace GUI
         private System.Windows.Forms.ComboBox comboBoxDiaDiem;
         private System.Windows.Forms.ComboBox comboBoxLoaiHinhDuLich;
         private System.Windows.Forms.TextBox textBoxDacDiem;
-        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.TextBox textBoxTenTour;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
@@ -691,13 +778,17 @@ namespace GUI
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button buttonXemChiTiet;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
+        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDiaDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianKetThuc;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

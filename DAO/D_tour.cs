@@ -1,8 +1,5 @@
-﻿using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,149 +8,141 @@ namespace DAO
 {
     public class D_tour
     {
-        DataConnection connect = new DataConnection();
 
-       public DataTable GetListTour()
+        tourdulichEntities tourdulich;
+        
+        public List<tour> GetAllTour()
         {
-            connect.OpenConnect();
-            DataTable dataTable = new DataTable();
-            string querySql = "SELECT maSoTour, tenGoiTour, tenLoaiHinhDuLich, tenDiaDiem, thoiGianBatDau, thoiGianKetThuc " +
-                            "FROM tour T, diadiemthamquan DD,loaihinhdulich LH " +
-                            "WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich ";
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getAllTour = tourdulich.tours;
+                return getAllTour.ToList<tour>();
+            }
+        }
 
-            SqlCommand command = new SqlCommand(querySql, connect.conn );
+        //Load on datagridview
+        public List<dynamic> GetListTour()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListTour = (from tbTour in tourdulich.tours
+                                   join tbDiaDiemDen in tourdulich.diadiemdens on tbTour.maDiaDiemDen equals tbDiaDiemDen.maDiaDiemDen
+                                   join tbLoaiHinhDuLich in tourdulich.loaihinhduliches on tbTour.maLoaiHinhDuLich equals tbLoaiHinhDuLich.maLoaiHinhDuLich
+                                   select new
+                                   {
+                                       maSoTour = tbTour.maSoTour,
+                                       tenGoiTour = tbTour.tenGoiTour,
+                                       tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich,
+                                       tenDiaDiem = tbDiaDiemDen.tenDiaDiemDen,
+                                       thoiGianBatDau = tbTour.thoiGianBatDau,
+                                       thoiGianKetThuc = tbTour.thoiGianKetThuc
+                                   });
 
-            dataTable.Load(command.ExecuteReader());
+                return getListTour.ToList<dynamic>();
 
-            connect.CloseConnect();
-
-            return dataTable;
+            }
 
         }
 
-        //Hiển thị chi tiết tour
-        public DataTable GetListDetailsTour(int maSoTour)
+        public List<dynamic> GetListDetailsTour(int maSoTour)
         {
-            connect.OpenConnect();
-            DataTable dataTable = new DataTable();
-            string querySql = "SELECT tenGoiTour, dacDiem, tenLoaiHinhDuLich, tenDiaDiem, maGiaTour, soLuongKhachHang, tongTien, thoiGianBatDau, thoiGianKetThuc " +
-                            "FROM tour T, diadiemthamquan DD,loaihinhdulich LH " +
-                            "WHERE T.maDiaDiem = DD.maDiaDiem AND LH.maLoaiHinhDuLich = T.maLoaiHinhDuLich AND maSoTour=" + maSoTour;
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsTour = (from tbTour in tourdulich.tours
+                                          join tbDiaDiemDen in tourdulich.diadiemdens on tbTour.maDiaDiemDen equals tbDiaDiemDen.maDiaDiemDen
+                                          join tbLoaiHinhDuLich in tourdulich.loaihinhduliches on tbTour.maLoaiHinhDuLich equals tbLoaiHinhDuLich.maLoaiHinhDuLich
+                                          where tbTour.maSoTour == maSoTour
+                                          select new
+                                          {
+                                              maSoTour = tbTour.maSoTour,
+                                              tenGoiTour = tbTour.tenGoiTour,
+                                              dacDiem = tbTour.dacDiem,
+                                              soLuongKhachHang = tbTour.soLuongKhachHang,
+                                              tongTien = tbTour.tongTien,
+                                              thoiGianBatDau = tbTour.thoiGianBatDau,
+                                              thoiGianKetThuc = tbTour.thoiGianKetThuc,
+                                              tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich,
+                                              tenDiaDiem = tbDiaDiemDen.tenDiaDiemDen,
+                                              idGiaTour = tbTour.idGiaTour
+                                          });
 
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
+                return getListDetailsTour.ToList<dynamic>();
 
-            dataTable.Load(command.ExecuteReader());
-
-            connect.CloseConnect();
-
-            return dataTable;
+            }
 
         }
 
-        public void ThemTour(DTO_tour DTOtour)
+        public bool ThemTour(tour objTour)
         {
-            connect.OpenConnect();
-            
-            string querySql = "INSERT INTO tour VALUES(@tenGoiTour, @dacDiem, @maDiaDiem, " +
-                               "@maGiaTour, @maLoaiHinhDuLich, @soLuongKhachHang," +
-                                "@tongTien, @thoiGianBatDau, @thoiGianKetThuc)";
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tourdulich.tours.Add(objTour);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+                
+                
+            }
 
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
-
-            command.Parameters.Add(new SqlParameter("@tenGoiTour", DTOtour.TenGoiTour ));
-            command.Parameters.Add(new SqlParameter("@dacDiem", DTOtour.DacDiem));
-            command.Parameters.Add(new SqlParameter("@maDiaDiem", DTOtour.MaDiaDiem));
-            command.Parameters.Add(new SqlParameter("@maGiaTour", DTOtour.MaGiaTour));
-            command.Parameters.Add(new SqlParameter("@maLoaiHinhDuLich", DTOtour.MaLoaiHinhDuLich));
-            command.Parameters.Add(new SqlParameter("@soLuongKhachHang", DTOtour.SoLuongKhachHang));
-            command.Parameters.Add(new SqlParameter("@tongTien", DTOtour.TongTien));
-            command.Parameters.Add(new SqlParameter("@thoiGianBatDau", DTOtour.ThoiGianBatDau));
-            command.Parameters.Add(new SqlParameter("@thoiGianKetThuc", DTOtour.ThoiGianKetThuc));
-
-            command.ExecuteNonQuery();
-
-            connect.CloseConnect();
         }
 
-        //ghi tạm ở DAO tour
-        public DataSet GetListDiaDiem()
+        public bool SuaTour(tour objTour, int maSoTour)
         {
-            connect.OpenConnect();
-            DataSet dataSet = new DataSet();
-            string querySql = "SELECT tenDiaDiem FROM diadiemthamquan";
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tour objTourOld = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    objTourOld.tenGoiTour = objTour.tenGoiTour;
+                    objTourOld.dacDiem = objTour.dacDiem;
+                    objTourOld.maLoaiHinhDuLich = objTour.maLoaiHinhDuLich;
+                    objTourOld.soLuongKhachHang = objTour.soLuongKhachHang;
+                    objTourOld.tongTien = objTour.tongTien;
+                    objTourOld.thoiGianBatDau = objTour.thoiGianBatDau;
+                    objTourOld.thoiGianKetThuc = objTour.thoiGianKetThuc;
+                    objTourOld.maDiaDiemDen = objTour.maDiaDiemDen;
+                    objTourOld.idGiaTour = objTour.idGiaTour;
 
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
 
-            SqlDataAdapter adapterData = new SqlDataAdapter();
 
-            adapterData.SelectCommand = command;
-            adapterData.Fill(dataSet);
+            }
 
-            connect.CloseConnect();
-
-            return dataSet;
         }
 
-        //tam thoi
-        public DataTable GetMaDiaDiem(string tenDiaDiem)
+        public bool XoaTour(tour objTour, int maSoTour)
         {
-            connect.OpenConnect();
-            DataTable dataSet = new DataTable();
-            string querySql = "SELECT maDiaDiem FROM diadiemthamquan WHERE tendiaDiem = N'" + tenDiaDiem + "'";
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    objTour = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    tourdulich.tours.Remove(objTour);
 
-       
-            System.Diagnostics.Debug.WriteLine(querySql); //viet ra console de test
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
 
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
-
-            SqlDataAdapter adapterData = new SqlDataAdapter();
-
-            adapterData.SelectCommand = command;
-            adapterData.Fill(dataSet);
-
-            connect.CloseConnect();
-
-            return dataSet;
-        }
-
-        public DataSet GetListLoaiHinhDuLich()
-        {
-            connect.OpenConnect();
-            DataSet dataSet = new DataSet();
-            string querySql = "SELECT tenLoaiHinhDuLich FROM loaihinhdulich";
-
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
-
-            SqlDataAdapter adapterData = new SqlDataAdapter();
-
-            adapterData.SelectCommand = command;
-            adapterData.Fill(dataSet);
-
-            connect.CloseConnect();
-
-            return dataSet;
-        }
-
-        //tam thoi
-        public DataTable GetMaLoaiHinhDuLich(string tenLoaiHinhDuLich)
-        {
-            connect.OpenConnect();
-            DataTable dataSet = new DataTable();
-            string querySql = "SELECT maLoaiHinhDuLich FROM loaihinhdulich WHERE tenLoaiHinhDuLich = N'" + tenLoaiHinhDuLich + "'";
-
-
-            System.Diagnostics.Debug.WriteLine(querySql); //viet ra console de test
-
-            SqlCommand command = new SqlCommand(querySql, connect.conn);
-
-            SqlDataAdapter adapterData = new SqlDataAdapter();
-
-            adapterData.SelectCommand = command;
-            adapterData.Fill(dataSet);
-
-            connect.CloseConnect();
-
-            return dataSet;
+            }
         }
 
 

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tourdulichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="chiphi">
+    <Key>
+      <PropertyRef Name="maChiPhi" />
+    </Key>
+    <Property Name="maChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tongChiPhi" Type="float" Nullable="false" />
+    <Property Name="maSoDoan" Type="int" Nullable="false" />
+    <Property Name="maLoaiChiPhi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dangky">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maSoKhachHang" Type="int" Nullable="false" />
+    <Property Name="maTour" Type="int" Nullable="false" />
+    <Property Name="maLoaiKhachHang" Type="int" Nullable="false" />
+    <Property Name="ngayDangKy" Type="date" Nullable="false" />
+    <Property Name="maSoDoan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="diadiemden">
+    <Key>
+      <PropertyRef Name="maDiaDiemDen" />
+    </Key>
+    <Property Name="maDiaDiemDen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenDiaDiemDen" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="diadiemthamquan">
+    <Key>
+      <PropertyRef Name="maDiaDiem" />
+    </Key>
+    <Property Name="maDiaDiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenDiaDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="maDiaDiemDen" Type="int" />
+  </EntityType>
+  <EntityType Name="diadiemtour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maTour" Type="int" Nullable="false" />
+    <Property Name="tenDiaDiemThamQuan" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="doandulich">
+    <Key>
+      <PropertyRef Name="maSoDoan" />
+    </Key>
+    <Property Name="maSoDoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenGoiDoan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
+    <Property Name="SoLuongNhanVien" Type="int" Nullable="false" />
+    <Property Name="thoiGianKhoiHanh" Type="datetime2" Precision="6" Nullable="false" />
+    <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
+    <Property Name="chiTiet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="maSoTour" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="giatour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maGiaTour" Type="int" Nullable="false" />
+    <Property Name="gia" Type="float" Nullable="false" />
+    <Property Name="dieuKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="khachhang">
+    <Key>
+      <PropertyRef Name="maSoKhachHang" />
+    </Key>
+    <Property Name="maSoKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hoTenKhachHang" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="soCMND" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="diaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="gioiTinh" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="quocTich" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaichiphi">
+    <Key>
+      <PropertyRef Name="maLoaiChiPhi" />
+    </Key>
+    <Property Name="maLoaiChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenLoaiChiPhi" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaihinhdulich">
+    <Key>
+      <PropertyRef Name="maLoaiHinhDuLich" />
+    </Key>
+    <Property Name="maLoaiHinhDuLich" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenLoaiHinhDuLich" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaikhachhang">
+    <Key>
+      <PropertyRef Name="maLoaiKhachHang" />
+    </Key>
+    <Property Name="maLoaiKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenLoaiKhachHang" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="nhanvien">
+    <Key>
+      <PropertyRef Name="maNhanVien" />
+    </Key>
+    <Property Name="maNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenNhanVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="nhiemVu" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="thamgiadoan">
+    <Key>
+      <PropertyRef Name="maThamGia" />
+    </Key>
+    <Property Name="maThamGia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maNhanVien" Type="int" Nullable="false" />
+    <Property Name="maSoDoan" Type="int" Nullable="false" />
+    <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
+    <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tour">
+    <Key>
+      <PropertyRef Name="maSoTour" />
+    </Key>
+    <Property Name="maSoTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenGoiTour" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="dacDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="maLoaiHinhDuLich" Type="int" Nullable="false" />
+    <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
+    <Property Name="tongTien" Type="float" Nullable="false" />
+    <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
+    <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
+    <Property Name="maDiaDiemDen" Type="int" />
+    <Property Name="idGiaTour" Type="int" />
+  </EntityType>
+  <EntityContainer Name="tourdulichModelStoreContainer">
+    <EntitySet Name="chiphi" EntityType="Self.chiphi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dangky" EntityType="Self.dangky" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="diadiemden" EntityType="Self.diadiemden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="diadiemthamquan" EntityType="Self.diadiemthamquan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="diadiemtour" EntityType="Self.diadiemtour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doandulich" EntityType="Self.doandulich" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="giatour" EntityType="Self.giatour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loaichiphi" EntityType="Self.loaichiphi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loaihinhdulich" EntityType="Self.loaihinhdulich" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loaikhachhang" EntityType="Self.loaikhachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="thamgiadoan" EntityType="Self.thamgiadoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tour" EntityType="Self.tour" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
