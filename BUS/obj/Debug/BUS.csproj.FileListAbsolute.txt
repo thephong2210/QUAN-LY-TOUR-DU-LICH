@@ -34,3 +34,15 @@ E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInp
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll.config
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.xml
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
