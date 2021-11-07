@@ -6,29 +6,32 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class D_loaihinhdulich
+   
+    public class D_KH
+
     {
         tourdulichEntities tourdulich;
 
-        //Dùng load combobox 
-        public List<loaihinhdulich> GetListLoaiHinhDL()
+        //Dùng load
+        public List<khachhang> GetKhachHang()
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListTenLHDL = tourdulich.loaihinhduliches;
-                                       
-                return getListTenLHDL.ToList<loaihinhdulich>();
+                var getKhachHang = tourdulich.khachhangs;
+
+                return getKhachHang.ToList<khachhang>();
 
             }
 
         }
-        public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
+
+        public bool ThemKhachHang(khachhang objKhachHang)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    tourdulich.loaihinhduliches.Add(objLoaiHinhDuLich);
+                    tourdulich.khachhangs.Add(objKhachHang);
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -43,15 +46,15 @@ namespace DAO
 
         }
 
-        public bool XoaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich,int maLoaiHinhDuLich)
+        public bool XoaKhachHang(khachhang objKhachHang, int maSoKhachHang)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    objLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
-                     tourdulich.loaihinhduliches.Remove(objLoaiHinhDuLich);
-                    
+                    objKhachHang = tourdulich.khachhangs.Where(kh => kh.maSoKhachHang == maSoKhachHang).SingleOrDefault();
+                    tourdulich.khachhangs.Remove(objKhachHang);
+
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -63,30 +66,29 @@ namespace DAO
 
             }
         }
-        public bool SuaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich, int maLoaiHinhDuLich)
+
+        public bool SuaKhachHang(khachhang objKhachHang, int maSoKhachHang)
         {
-            
             using (tourdulich = new tourdulichEntities())
-                
-            {
                 try
                 {
-                    loaihinhdulich objOldLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
-                    
-                    objOldLoaiHinhDuLich.tenLoaiHinhDuLich = objLoaiHinhDuLich.tenLoaiHinhDuLich;
-                    
+                    khachhang objOldKhachHang= tourdulich.khachhangs.Where(t => t.maSoKhachHang == maSoKhachHang).SingleOrDefault();
+                    objOldKhachHang.hoTenKhachHang = objKhachHang.hoTenKhachHang;
+                    objOldKhachHang.soCMND = objKhachHang.soCMND;
+                    objOldKhachHang.diaChi = objKhachHang.diaChi;
+                    objOldKhachHang.gioiTinh = objKhachHang.gioiTinh;
+                    objOldKhachHang.SDT = objKhachHang.SDT;
+                    objOldKhachHang.quocTich = objKhachHang.quocTich;
                     tourdulich.SaveChanges();
                     return true;
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    System.Diagnostics.Debug.WriteLine(ex);
+                    System.Diagnostics.Debug.WriteLine(e);
                     return false;
                 }
-            }
+
         }
-
-
 
 
 

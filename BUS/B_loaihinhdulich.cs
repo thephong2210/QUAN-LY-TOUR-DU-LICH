@@ -9,13 +9,27 @@ namespace BUS
 {
     public class B_loaihinhdulich
     {
-        D_loaihinhdulich dLoaiHinhDuLich = new D_loaihinhdulich();
+        D_loaihinhdulich d_LoaiHinhDuLich = new D_loaihinhdulich();
 
         public List<loaihinhdulich> GetListLoaiHinhDL()
         {
-            return dLoaiHinhDuLich.GetListLoaiHinhDL();
+            return d_LoaiHinhDuLich.GetListLoaiHinhDL();
         }
 
+        public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
+        {
+            return d_LoaiHinhDuLich.ThemLoaiHinhDuLich(objLoaiHinhDuLich);
+        }
+
+        public bool XoaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich, int maLoaiHinhDuLich)
+        {
+            return d_LoaiHinhDuLich.XoaLoaiHinhDuLich(objLoaiHinhDuLich, maLoaiHinhDuLich);
+        }
+
+        public bool SuaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich,int maLoaiHinhDuLich)
+        {
+            return d_LoaiHinhDuLich.SuaLoaiHinhDuLich(objLoaiHinhDuLich, maLoaiHinhDuLich);
+        }
 
     }
 }
