@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="B_doan.cs" />
     <Compile Include="B_giatour.cs" />
+    <Compile Include="B_nhanvien.cs" />
     <Compile Include="B_tour.cs" />
     <Compile Include="B_diadiemden.cs" />
     <Compile Include="B_loaihinhdulich.cs" />
