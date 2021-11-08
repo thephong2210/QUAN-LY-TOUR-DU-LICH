@@ -71,6 +71,7 @@
     <Compile Include="D_giatour.cs" />
     <Compile Include="D_diadiemden.cs" />
     <Compile Include="D_loaihinhdulich.cs" />
+    <Compile Include="D_nhanvien.cs" />
     <Compile Include="D_tour.cs" />
     <Compile Include="giatour.cs">
       <DependentUpon>Model1.tt</DependentUpon>

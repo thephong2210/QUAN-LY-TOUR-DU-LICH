@@ -33,3 +33,14 @@ E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.AssemblyRefere
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll.config
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.xml
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
