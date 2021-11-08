@@ -299,7 +299,7 @@ namespace GUI
                     {
                         if (maSoTour == items.maTour)
                         {
-                            if (bDiaDiemDen.XoaDiaDiemTour(objDiaDiemTour, items.id))
+                            if (bDiaDiemDen.XoaDiaDiemTour(objDiaDiemTour, items.id))   // ??
                             {
                                 System.Diagnostics.Debug.WriteLine("Xóa địa điểm tour thành công!");
                             }
@@ -399,6 +399,11 @@ namespace GUI
         private void dataGridViewQuanLyTour_BindingContextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void fmQuanLyTour_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
