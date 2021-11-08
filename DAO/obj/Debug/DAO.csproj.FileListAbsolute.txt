@@ -33,3 +33,14 @@ E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.AssemblyRefere
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll.config
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.xml
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
