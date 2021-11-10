@@ -1,0 +1,48 @@
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\bin\Debug\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\obj\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTour\QuanLyTourDuLich\BUS\obj\Debug\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.pdb
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll.config
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.xml
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\BUS.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\DAO.dll.config
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\bin\Debug\EntityFramework.xml
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb

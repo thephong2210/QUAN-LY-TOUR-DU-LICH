@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tourdulichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="chiphi">
+    <Key>
+      <PropertyRef Name="maChiPhi" />
+    </Key>
+    <Property Name="maChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tongChiPhi" Type="Double" Nullable="false" />
+    <Property Name="maSoDoan" Type="Int32" Nullable="false" />
+    <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dangky">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maSoKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="maTour" Type="Int32" Nullable="false" />
+    <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="ngayDangKy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="maSoDoan" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="diadiemden">
+    <Key>
+      <PropertyRef Name="maDiaDiemDen" />
+    </Key>
+    <Property Name="maDiaDiemDen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenDiaDiemDen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="diadiemthamquan">
+    <Key>
+      <PropertyRef Name="maDiaDiem" />
+    </Key>
+    <Property Name="maDiaDiem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenDiaDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="maDiaDiemDen" Type="Int32" />
+  </EntityType>
+  <EntityType Name="diadiemtour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maTour" Type="Int32" Nullable="false" />
+    <Property Name="tenDiaDiemThamQuan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="doandulich">
+    <Key>
+      <PropertyRef Name="maSoDoan" />
+    </Key>
+    <Property Name="maSoDoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenGoiDoan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="thoiGianKhoiHanh" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="chiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="maSoTour" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="giatour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maGiaTour" Type="Int32" Nullable="false" />
+    <Property Name="gia" Type="Double" Nullable="false" />
+    <Property Name="dieuKien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="khachhang">
+    <Key>
+      <PropertyRef Name="maSoKhachHang" />
+    </Key>
+    <Property Name="maSoKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoTenKhachHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soCMND" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="diaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gioiTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaichiphi">
+    <Key>
+      <PropertyRef Name="maLoaiChiPhi" />
+    </Key>
+    <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaihinhdulich">
+    <Key>
+      <PropertyRef Name="maLoaiHinhDuLich" />
+    </Key>
+    <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenLoaiHinhDuLich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loaikhachhang">
+    <Key>
+      <PropertyRef Name="maLoaiKhachHang" />
+    </Key>
+    <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenLoaiKhachHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="nhanvien">
+    <Key>
+      <PropertyRef Name="maNhanVien" />
+    </Key>
+    <Property Name="maNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenNhanVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nhiemVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="thamgiadoan">
+    <Key>
+      <PropertyRef Name="maThamGia" />
+    </Key>
+    <Property Name="maThamGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="maSoDoan" Type="Int32" Nullable="false" />
+    <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
+  </EntityType>
+  <EntityType Name="tour">
+    <Key>
+      <PropertyRef Name="maSoTour" />
+    </Key>
+    <Property Name="maSoTour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenGoiTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" />
+    <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="tongTien" Type="Double" Nullable="false" />
+    <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="maDiaDiemDen" Type="Int32" />
+    <Property Name="idGiaTour" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="chiphis" EntityType="Self.chiphi" />
+    <EntitySet Name="dangkies" EntityType="Self.dangky" />
+    <EntitySet Name="diadiemdens" EntityType="Self.diadiemden" />
+    <EntitySet Name="diadiemthamquans" EntityType="Self.diadiemthamquan" />
+    <EntitySet Name="diadiemtours" EntityType="Self.diadiemtour" />
+    <EntitySet Name="doanduliches" EntityType="Self.doandulich" />
+    <EntitySet Name="giatours" EntityType="Self.giatour" />
+    <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
+    <EntitySet Name="loaichiphis" EntityType="Self.loaichiphi" />
+    <EntitySet Name="loaihinhduliches" EntityType="Self.loaihinhdulich" />
+    <EntitySet Name="loaikhachhangs" EntityType="Self.loaikhachhang" />
+    <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
+    <EntitySet Name="thamgiadoans" EntityType="Self.thamgiadoan" />
+    <EntitySet Name="tours" EntityType="Self.tour" />
+  </EntityContainer>
+</Schema>
