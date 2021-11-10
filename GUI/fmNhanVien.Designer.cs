@@ -439,7 +439,6 @@ namespace GUI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "fmNhanVien";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmrNhanVien";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel6.ResumeLayout(false);
