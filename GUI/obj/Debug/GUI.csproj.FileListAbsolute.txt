@@ -100,3 +100,6 @@ D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Entity
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CopyComplete

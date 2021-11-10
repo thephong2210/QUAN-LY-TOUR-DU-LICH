@@ -8,7 +8,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,7 +29,7 @@ namespace GUI
         private fmNhanVien fmMain;
         public int maNhanVien { get; set; } //Set data sẽ lấy từ form quản lý tour
 
-        // Hiển thị chi tiết nhân viên
+        // Hiển thị chi tiết nhân viết
         private void HienThiChiTietNhanVien()
         {
             List<dynamic> listDetailsNhanVien = bNhanVien.GetListDetailsNhanVien(maNhanVien);
@@ -47,66 +46,51 @@ namespace GUI
 
         // Sửa nhân viên
         public void SuaNhanVien()
-        {           
-            if (KiemTraTextBoxNhanVien()==true)
-            {                    
-                //Khai báo object
-                nhanvien objNhanVien = new nhanvien();
-
-                objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
-                objNhanVien.nhiemVu = textBoxNhiemVu.Text;
-
-                //Bắt đầu sửa các dữ liệu
-                try
-                {
-                    if (bNhanVien.SuaNhanVien(objNhanVien, maNhanVien))
-                    {
-                        System.Diagnostics.Debug.WriteLine("Sửa nhân viên thành công!");
-
-                        fmMain.LoadDanhSachNhanVien();
-                        MessageBox.Show("Sửa nhân viên thành công!", "Thông báo");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Sửa không thành công!", "Thông báo");
-                    System.Diagnostics.Debug.WriteLine(ex);
-                }
-            }
-        }
-
-        //Kiểm tra textbox nhân viên
-        bool KiemTraTextBoxNhanVien()
         {
-            if (String.IsNullOrEmpty(textBoxTenNhanVien.Text))
+            if (!String.IsNullOrEmpty(textBoxTenNhanVien.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên nhân viên!", "Thông báo");
-                textBoxTenNhanVien.Focus();
-                return false;
-            }
-            if (String.IsNullOrEmpty(textBoxNhiemVu.Text))
-            {
-                MessageBox.Show("Vui lòng nhập nhiệm vụ!", "Thông báo");
-                textBoxNhiemVu.Focus();
-                return false;
-            }
+                if (!String.IsNullOrEmpty(textBoxNhiemVu.Text))
+                {
+                    
+                        //Khai báo object
+                        nhanvien objNhanVien = new nhanvien();
 
-            //Kiểm tra Kí tự đặc biệt và số
-            Regex regex = new Regex(@"[!@#$%&^*()-_+=\/|?0-9]");
-            if (regex.IsMatch(textBoxTenNhanVien.Text))
+                        objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
+                        objNhanVien.nhiemVu = textBoxNhiemVu.Text;
+
+                        //Bắt đầu sửa các dữ liệu
+                        try
+                        {
+                            if (bNhanVien.SuaNhanVien(objNhanVien, maNhanVien))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Sửa nhân viên thành công!");
+
+                                fmMain.LoadDanhSachNhanVien();
+                                MessageBox.Show("Sửa nhân viên thành công!", "Thông báo");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Sửa không thành công!", "Thông báo");
+                            System.Diagnostics.Debug.WriteLine(ex);
+                        }
+                    
+                   
+
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đặc điểm tour!", "Thông báo");
+                    textBoxNhiemVu.Focus();
+                }
+            }
+            else
             {
-                MessageBox.Show("Tên nhân viên không được có số hoặc kí tự đặc biệt!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tên tour!", "Thông báo");
                 textBoxTenNhanVien.Focus();
-                return false;
             }
-            if (regex.IsMatch(textBoxNhiemVu.Text))
-            {
-                MessageBox.Show("Nhiệm vụ không được có số hoặc kí tự đặc biệt!", "Thông báo");
-                textBoxNhiemVu.Focus();
-                return false;
-            }
-            return true;
         }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
