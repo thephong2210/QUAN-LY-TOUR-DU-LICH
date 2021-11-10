@@ -80,12 +80,6 @@
     <Compile Include="fmDiaDiem.Designer.cs">
       <DependentUpon>fmDiaDiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyDoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FmQuanLyDoan.Designer.cs">
-      <DependentUpon>FmQuanLyDoan.cs</DependentUpon>
-    </Compile>
     <Compile Include="fmQuanLyTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +106,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tourdulichDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>tourdulichDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DoanDuLich.resx">
       <DependentUpon>DoanDuLich.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmDiaDiem.resx">
       <DependentUpon>fmDiaDiem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyDoan.resx">
-      <DependentUpon>FmQuanLyDoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmQuanLyTour.resx">
       <DependentUpon>fmQuanLyTour.cs</DependentUpon>
@@ -164,17 +150,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="tourdulichDataSet.xsc">
-      <DependentUpon>tourdulichDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="tourdulichDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>tourdulichDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="tourdulichDataSet.xss">
-      <DependentUpon>tourdulichDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -197,12 +172,9 @@
       <Name>BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{6de6e075-97d4-49e2-93c9-1e0d0bf1f75b}</Project>
+      <Project>{6DE6E075-97D4-49E2-93C9-1E0D0BF1F75B}</Project>
       <Name>DAO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\tour-guide.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
