@@ -8,7 +8,7 @@ namespace DAO
 {
     public class D_tour
     {
-
+        
         tourdulichEntities tourdulich;
         
         public List<tour> GetAllTour()
@@ -130,7 +130,7 @@ namespace DAO
             {
                 try
                 {
-                    objTour = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    objTour = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();    // ??
                     tourdulich.tours.Remove(objTour);
 
                     tourdulich.SaveChanges();
