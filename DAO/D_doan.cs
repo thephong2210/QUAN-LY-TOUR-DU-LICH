@@ -22,12 +22,36 @@ namespace DAO
                                    join tbTour in tourdulich.tours on tbDoan.maSoTour equals tbTour.maSoTour
                                    select new
                                    {
-                                       Mã = tbDoan.maSoDoan,
-                                       TênGọiĐoàn = tbDoan.tenGoiDoan,
-                                       TênGọiTour = tbTour.tenGoiTour,
+                                       ID = tbDoan.maSoDoan,
+                                       TenDoan = tbDoan.tenGoiDoan,
+                                       TenTour = tbTour.tenGoiTour,
                                        thoiGianKhoiHanh = tbDoan.thoiGianKhoiHanh,
                                        thoiGianKetThuc = tbDoan.thoiGianKetThuc,
-                                       Chi_tiết = tbDoan.chiTiet
+                                       chitiet = tbDoan.chiTiet
+
+                                   });
+
+                return getListDoan.ToList<dynamic>();
+
+            }
+
+        }
+        public List<dynamic> GetDoan(int ma)
+        {
+
+            {
+                var getListDoan = (from tbDoan in tourdulich.doanduliches
+                                   join tbTour in tourdulich.tours on tbDoan.maSoTour equals tbTour.maSoTour
+                                   where tbDoan.maSoDoan == ma
+                                   select new
+                                   {
+
+                                       TenDoan = tbDoan.tenGoiDoan,
+                                       TenTour = tbTour.tenGoiTour,
+                                       thoiGianKhoiHanh = tbDoan.thoiGianKhoiHanh,
+                                       thoiGianKetThuc = tbDoan.thoiGianKetThuc,
+                                       chitiet = tbDoan.chiTiet
+
                                    });
 
                 return getListDoan.ToList<dynamic>();

@@ -1,21 +1,31 @@
-﻿using BUS;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BUS;
 using DAO;
 using System;
-using System.Windows.Forms;
+
 
 namespace GUI
 {
-    public partial class fmQuanLyDoan : Form
+    public partial class fmQLDoan : Form
     {
-        private B_doan b_Doan = new B_doan();
+        B_doan b_Doan = new B_doan();
+        B_tour bTour = new B_tour();
         D_doan d_Doan = new D_doan();
-
-        public fmQuanLyDoan()
+        public fmQLDoan()
         {
             InitializeComponent();
             LoadDanhSachDoan();
-
+            LoadComboBoxTour();
         }
+
 
         #region method
 
@@ -24,10 +34,11 @@ namespace GUI
             dataGridViewQuanLyDoan.DataSource = b_Doan.GetListDoan();
 
         }
-        private void LoadChiTietDoan(int madoan)
+        private void LoadComboBoxTour()
         {
-            _passengerDgv.DataSource = d_Doan.GetKhachHangOfDoan(madoan);
-            _employeeDgv.DataSource = d_Doan.GetNhanVienOfDoan(madoan);
+            comboBoxTour.DataSource = bTour.GetListTour();
+            comboBoxTour.DisplayMember = "tenGoiTour";
+            comboBoxTour.ValueMember = "maSoTour";
         }
 
         public doandulich createDoan()
@@ -92,63 +103,39 @@ namespace GUI
             }
 
         }
+        void XemChiTietDoan()
+        {
+            foreach (DataGridViewRow row in dataGridViewQuanLyDoan.SelectedRows)
+            {
+                String maDoan = row.Cells[0].Value.ToString();
+                //_tourGroupNameLb.Text = row.Cells[1].Value.ToString();
+                //_tourNameLb.Text = row.Cells[2].Value.ToString();
+                //_departDateLb.Text = row.Cells[3].Value.ToString();
+                //_returnDateLb.Text = row.Cells[4].Value.ToString();
 
+                fmChitietDoan fmChitietDoan = new fmChitietDoan(int.Parse(maDoan), this);
+                fmChitietDoan.ShowDialog();
 
-
+            }
+        }
         #endregion method
-
         #region event
+
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
             XoaDoan();
         }
 
-
-
-        private void buttonTaoMoi_Click(object sender, EventArgs e)
-        {
-            ThemDoan();
-        }
         private void buttonSua_Click(object sender, EventArgs e)
         {
             SuaDoan();
         }
 
-
-
-        private void fmQuanLyDoan_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'tourdulichDataSet.tour' table. You can move, or remove it, as needed.
-            this.tourTableAdapter.Fill(this.tourdulichDataSet.tour);
-            // TODO: This line of code loads data into the 'tourdulichDataSet.tour' table. You can move, or remove it, as needed.
-            this.tourTableAdapter.Fill(this.tourdulichDataSet.tour);
-        }
-
-
-
-
-
-
-
-
         private void buttonXemChiTiet_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridViewQuanLyDoan.SelectedRows)
-            {
-                String maDoan = row.Cells[0].Value.ToString();
-                _tourGroupNameLb.Text = row.Cells[1].Value.ToString();
-                _tourNameLb.Text = row.Cells[2].Value.ToString();
-                _departDateLb.Text = row.Cells[3].Value.ToString();
-                _returnDateLb.Text = row.Cells[4].Value.ToString();
-                LoadChiTietDoan(int.Parse(maDoan));
-
-            }
-            tabControl1.SelectedIndex = 1;
+            XemChiTietDoan();
         }
-
-
-
 
         private void dataGridViewQuanLyDoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -177,29 +164,12 @@ namespace GUI
 
             textBoxChiTiet.DataBindings.Add(
                 new Binding("Text", dataGridViewQuanLyDoan[5, e.RowIndex], "Value", true));
-
-
-        }
-        #endregion event
-
-        private void _customerDeleteBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Đợi from đăng ký khách hàng", "Thông báo");
         }
 
-        private void _customerDetail_Click(object sender, EventArgs e)
+        private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đợi from đăng ký khách hàng", "Thông báo");
-        }
-
-        private void _employeeDetailBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Đợi from tham gia đoàn của nhân viên", "Thông báo");
-        }
-
-        private void _employeeDeleteBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Đợi from tham gia đoàn của nhân viên", "Thông báo");
+            ThemDoan();
         }
     }
+    #endregion event
 }
