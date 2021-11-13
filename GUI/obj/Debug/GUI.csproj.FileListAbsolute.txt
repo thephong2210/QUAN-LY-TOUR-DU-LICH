@@ -76,7 +76,6 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietTour.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
-D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyDoan.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyTour.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
@@ -102,4 +101,6 @@ D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.ex
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQLDoan.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChitietDoan.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CopyComplete
