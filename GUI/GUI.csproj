@@ -98,6 +98,12 @@
     <Compile Include="fmNhanVien.Designer.cs">
       <DependentUpon>fmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmTrangChu.Designer.cs">
+      <DependentUpon>fmTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoaiChiPhi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="tourdulichDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -138,6 +149,9 @@
     <EmbeddedResource Include="fmNhanVien.resx">
       <DependentUpon>fmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmTrangChu.resx">
+      <DependentUpon>fmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoaiChiPhi.resx">
       <DependentUpon>LoaiChiPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,14 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,7 +211,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\travel-guide.png" />
+    <None Include="Resources\networking.png" />
+    <None Include="Resources\community.png" />
+    <None Include="Resources\tag.png" />
+    <None Include="Resources\baggage.png" />
+    <None Include="Resources\river.png" />
+    <None Include="Resources\analytics.png" />
+    <None Include="Resources\copyright %281%29.png" />
     <Content Include="Resources\tour-guide.png" />
+    <None Include="Resources\travel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
