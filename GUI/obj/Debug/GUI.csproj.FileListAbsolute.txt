@@ -100,3 +100,17 @@ D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Entity
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietTour.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyTour.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
+C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
