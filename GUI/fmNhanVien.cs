@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,50 +55,75 @@ namespace GUI
         }
 
         // Thêm nhân viên
-        private void buttonTaoMoi_Click(object sender, EventArgs e)
+        public void ThemNhanVien()
         {
             List<nhanvien> listNhanVien = bNhanVien.GetAllNhanVien();
 
-            if (!String.IsNullOrEmpty(textBoxTenNhanVien.Text))
+
+            if (KiemTraRangBuoc() == true)
             {
-                if (!String.IsNullOrEmpty(textBoxNhiemVu.Text))
-                {                   
-                    //Khai báo object
-                    nhanvien objNhanVien = new nhanvien();
+                //Khai báo object
+                nhanvien objNhanVien = new nhanvien();
 
-                    objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
-                    objNhanVien.nhiemVu = textBoxNhiemVu.Text;
+                objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
+                objNhanVien.nhiemVu = textBoxNhiemVu.Text;
 
-                    //Bắt đầu thêm các dữ liệu
-                    try
-                    {
-                        if (bNhanVien.ThemNhanVien(objNhanVien))    // ??
-                        {
-                            System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");    // ??
-                            MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
-
-                            ClearFields();
-                            LoadDanhSachNhanVien();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Thêm không thành công!", "Thông báo");
-                        System.Diagnostics.Debug.WriteLine(ex);
-                    } 
-                }
-                else
+                //Bắt đầu thêm các dữ liệu
+                try
                 {
-                    MessageBox.Show("Vui lòng nhập nhiệm vụ!", "Thông báo");
-                    textBoxNhiemVu.Focus();
+                    if (bNhanVien.ThemNhanVien(objNhanVien))    // ??
+                    {
+                        System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");    // ??
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
+
+                        ClearFields();
+                        LoadDanhSachNhanVien();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thêm không thành công!", "Thông báo");
+                    System.Diagnostics.Debug.WriteLine(ex);
                 }
             }
-            else
+
+        }
+
+        // Kiểm tra textbox nhập vào
+        bool KiemTraRangBuoc()
+        {
+            if (String.IsNullOrEmpty(textBoxTenNhanVien.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên nhân viên!", "Thông báo");
                 textBoxTenNhanVien.Focus();
+                return false;
             }
+            if (String.IsNullOrEmpty(textBoxNhiemVu.Text))
+            {
+                MessageBox.Show("Vui lòng nhập nhiệm vụ!", "Thông báo");
+                textBoxNhiemVu.Focus();
+                return false;
+            }
+
+            //Kiểm tra kí tự đặc biệt
+            Regex regex = new Regex(@"[!@#$%^&*()-_+=\|/?<>0-9]");
+            if (regex.IsMatch(textBoxTenNhanVien.Text))
+            {
+                MessageBox.Show("Tên nhân viên không được có số và kí tự đặc biệt!", "Thông báo");
+                textBoxTenNhanVien.Focus();
+                return false;
+            }
+            if (regex.IsMatch(textBoxNhiemVu.Text))
+            {
+                MessageBox.Show("Nhiệm vụ không được có số và kí tự đặc biệt!", "Thông báo");
+                textBoxTenNhanVien.Focus();
+                return false;
+            }
+
+            return true;
         }
+
+
 
         //Xóa nhân viên
         private void buttonXoa_Click(object sender, EventArgs e)
@@ -130,6 +156,11 @@ namespace GUI
             {
                 MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
             }
+        }
+
+        private void buttonTaoMoi_Click(object sender, EventArgs e)
+        {
+            ThemNhanVien();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
