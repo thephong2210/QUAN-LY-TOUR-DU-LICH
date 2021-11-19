@@ -56,22 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoanDuLich.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoanDuLich.Designer.cs">
-      <DependentUpon>DoanDuLich.cs</DependentUpon>
-    </Compile>
     <Compile Include="fmChitietDoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmChitietDoan.Designer.cs">
+    <Compile Include="fmChitietDoan.designer.cs">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>
     </Compile>
     <Compile Include="fmChiTietNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmChiTietNhanVien.Designer.cs">
+    <Compile Include="fmChiTietNhanVien.designer.cs">
       <DependentUpon>fmChiTietNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="fmChiTietTour.cs">
@@ -80,16 +74,34 @@
     <Compile Include="fmChiTietTour.Designer.cs">
       <DependentUpon>fmChiTietTour.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmDiaDiem.cs">
+    <Compile Include="fmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmDiaDiem.Designer.cs">
-      <DependentUpon>fmDiaDiem.cs</DependentUpon>
+    <Compile Include="fmKhachHang.designer.cs">
+      <DependentUpon>fmKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLoaiHinhDuLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLoaiHinhDuLich.designer.cs">
+      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLoaiKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLoaiKhachHang.designer.cs">
+      <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNhanVien.designer.cs">
+      <DependentUpon>fmNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="fmQLDoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmQLDoan.Designer.cs">
+    <Compile Include="fmQLDoan.designer.cs">
       <DependentUpon>fmQLDoan.cs</DependentUpon>
     </Compile>
     <Compile Include="fmQuanLyTour.cs">
@@ -98,29 +110,14 @@
     <Compile Include="fmQuanLyTour.Designer.cs">
       <DependentUpon>fmQuanLyTour.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmNhanVien.cs">
+    <Compile Include="fmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmNhanVien.Designer.cs">
-      <DependentUpon>fmNhanVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoaiChiPhi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoaiChiPhi.Designer.cs">
-      <DependentUpon>LoaiChiPhi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoaiHinhDuLich.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoaiHinhDuLich.Designer.cs">
-      <DependentUpon>LoaiHinhDuLich.cs</DependentUpon>
+    <Compile Include="fmTrangChu.designer.cs">
+      <DependentUpon>fmTrangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DoanDuLich.resx">
-      <DependentUpon>DoanDuLich.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fmChitietDoan.resx">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,8 +127,17 @@
     <EmbeddedResource Include="fmChiTietTour.resx">
       <DependentUpon>fmChiTietTour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmDiaDiem.resx">
-      <DependentUpon>fmDiaDiem.cs</DependentUpon>
+    <EmbeddedResource Include="fmKhachHang.resx">
+      <DependentUpon>fmKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
+      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLoaiKhachHang.resx">
+      <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNhanVien.resx">
+      <DependentUpon>fmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmQLDoan.resx">
       <DependentUpon>fmQLDoan.cs</DependentUpon>
@@ -139,14 +145,8 @@
     <EmbeddedResource Include="fmQuanLyTour.resx">
       <DependentUpon>fmQuanLyTour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmNhanVien.resx">
-      <DependentUpon>fmNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoaiChiPhi.resx">
-      <DependentUpon>LoaiChiPhi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoaiHinhDuLich.resx">
-      <DependentUpon>LoaiHinhDuLich.cs</DependentUpon>
+    <EmbeddedResource Include="fmTrangChu.resx">
+      <DependentUpon>fmTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,12 +190,36 @@
       <Name>BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{6de6e075-97d4-49e2-93c9-1e0d0bf1f75b}</Project>
+      <Project>{6DE6E075-97D4-49E2-93C9-1E0D0BF1F75B}</Project>
       <Name>DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\tour-guide.png" />
+    <None Include="Resources\analytics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baggage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\community.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\networking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\river.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tour-guide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travel-guide.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

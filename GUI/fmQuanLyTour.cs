@@ -2,7 +2,14 @@
 using DAO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -20,7 +27,7 @@ namespace GUI
             LoadDanhSachTour();
             LoadComboboxDiaDiem();
             LoadComboboxLoaiHinhDuLich();
-
+            
 
         }
 
@@ -48,8 +55,7 @@ namespace GUI
             string tenDiaDiemDen = comboBoxDiaDiem.Text;
 
             //gán khởi tạo tenDiaDiem = giá trị đầu tiên trong list nếu null
-            if (tenDiaDiemDen.Equals("DAO.diadiemden"))
-            {
+            if (tenDiaDiemDen.Equals("DAO.diadiemden")){
                 tenDiaDiemDen = listDiaDiemDen.FirstOrDefault().tenDiaDiemDen;
             }
 
@@ -72,7 +78,7 @@ namespace GUI
                     }
 
                 }
-
+                
             }
 
         }
@@ -113,7 +119,7 @@ namespace GUI
             }
         }
 
-
+        
 
         private void ThemTour()
         {
@@ -212,7 +218,7 @@ namespace GUI
                         {
                             MessageBox.Show("Vui lòng chọn địa điểm tham quan!", "Thông báo");
                         }
-
+                        
 
                     }
                     else
@@ -220,7 +226,7 @@ namespace GUI
                         MessageBox.Show("Vui lòng nhập đặc điểm tour!", "Thông báo");
                         textBoxDacDiem.Focus();
                     }
-                }
+                }   
                 else
                 {
                     MessageBox.Show("Vui lòng nhập giá tour!", "Thông báo");
@@ -314,15 +320,15 @@ namespace GUI
 
                     LoadDanhSachTour();
                     MessageBox.Show("Xóa thành công!", "Thông báo");
-
+                    
                 }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
             }
-
-
+            
+            
 
 
         }
@@ -351,12 +357,12 @@ namespace GUI
         private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
             ThemTour();
-
+            
         }
 
         private void comboBoxDiaDiem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadDiaDiemThamQuan();
+           LoadDiaDiemThamQuan();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -392,7 +398,7 @@ namespace GUI
 
         private void dataGridViewQuanLyTour_BindingContextChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void fmQuanLyTour_Load(object sender, EventArgs e)
@@ -400,7 +406,7 @@ namespace GUI
 
         }
 
-        private void fmQuanLyTour_Load(object sender, EventArgs e)
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

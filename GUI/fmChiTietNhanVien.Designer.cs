@@ -95,10 +95,10 @@ namespace GUI
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(0, 56);
+            this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(539, 390);
+            this.panel2.Size = new System.Drawing.Size(539, 398);
             this.panel2.TabIndex = 2;
             // 
             // buttonDong
@@ -230,9 +230,10 @@ namespace GUI
             this.ClientSize = new System.Drawing.Size(541, 446);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(559, 493);
             this.Name = "fmChiTietNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmChiTietNhanVien";
+            this.Text = "Chi tiết nhân viên | Tour App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

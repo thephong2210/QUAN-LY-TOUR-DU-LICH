@@ -271,7 +271,11 @@ namespace GUI
             SuaKhachHang();
         }
 
-        
+        private void btnLoaiKhachHang_Click(object sender, EventArgs e)
+        {
+            fmLoaiKhachHang fmLoaiKH = new fmLoaiKhachHang();
+            fmLoaiKH.ShowDialog();
+        }
     }
     }
 

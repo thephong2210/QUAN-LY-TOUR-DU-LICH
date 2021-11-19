@@ -71,7 +71,9 @@
     <Compile Include="D_doan.cs" />
     <Compile Include="D_giatour.cs" />
     <Compile Include="D_diadiemden.cs" />
+    <Compile Include="D_KH.cs" />
     <Compile Include="D_loaihinhdulich.cs" />
+    <Compile Include="D_LoaiKH.cs" />
     <Compile Include="D_nhanvien.cs" />
     <Compile Include="D_tour.cs" />
     <Compile Include="giatour.cs">

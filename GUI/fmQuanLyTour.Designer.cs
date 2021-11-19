@@ -114,7 +114,7 @@ namespace GUI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1434, 55);
+            this.panel1.Size = new System.Drawing.Size(1435, 55);
             this.panel1.TabIndex = 0;
             // 
             // panel5
@@ -131,7 +131,7 @@ namespace GUI
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.touricon;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.travel;
             this.pictureBox1.Location = new System.Drawing.Point(561, 6);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
@@ -161,7 +161,7 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(0, 55);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1434, 793);
+            this.panel2.Size = new System.Drawing.Size(1435, 802);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -202,7 +202,7 @@ namespace GUI
             this.checkedListBoxDDThamQuan.Location = new System.Drawing.Point(3, 37);
             this.checkedListBoxDDThamQuan.Margin = new System.Windows.Forms.Padding(2);
             this.checkedListBoxDDThamQuan.Name = "checkedListBoxDDThamQuan";
-            this.checkedListBoxDDThamQuan.Size = new System.Drawing.Size(355, 88);
+            this.checkedListBoxDDThamQuan.Size = new System.Drawing.Size(355, 109);
             this.checkedListBoxDDThamQuan.TabIndex = 18;
             this.checkedListBoxDDThamQuan.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDDThamQuan_SelectedIndexChanged);
             // 
@@ -502,13 +502,14 @@ namespace GUI
             this.panel3.Controls.Add(this.buttonXoa);
             this.panel3.Controls.Add(this.dataGridViewQuanLyTour);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(388, 55);
+            this.panel3.Location = new System.Drawing.Point(389, 55);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.MaximumSize = new System.Drawing.Size(1046, 802);
             this.panel3.MinimumSize = new System.Drawing.Size(1046, 802);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1046, 802);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // textBox1
             // 
@@ -690,13 +691,13 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1434, 848);
+            this.ClientSize = new System.Drawing.Size(1435, 857);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(1452, 903);
-            this.MinimumSize = new System.Drawing.Size(1452, 864);
+            this.MaximumSize = new System.Drawing.Size(1453, 904);
+            this.MinimumSize = new System.Drawing.Size(1453, 904);
             this.Name = "fmQuanLyTour";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý tour";

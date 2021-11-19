@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DAO;
-using System;
 
 
 namespace GUI
@@ -169,6 +168,16 @@ namespace GUI
         private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
             ThemDoan();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     #endregion event

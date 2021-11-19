@@ -15,7 +15,6 @@ namespace GUI
     public partial class fmChitietDoan : Form
     {
         D_doan d_Doan = new D_doan();
-        tourdulichEntities tourdulich;
         public fmChitietDoan(int maDoan, fmQLDoan fmQLD)
         {
             InitializeComponent();

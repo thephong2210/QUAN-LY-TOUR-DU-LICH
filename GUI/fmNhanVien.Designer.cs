@@ -58,6 +58,8 @@ namespace GUI
             this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nhiemVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -71,6 +73,8 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -134,7 +138,7 @@ namespace GUI
             this.buttonTaoMoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonTaoMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.buttonTaoMoi.ForeColor = System.Drawing.Color.White;
-            this.buttonTaoMoi.Location = new System.Drawing.Point(111, 520);
+            this.buttonTaoMoi.Location = new System.Drawing.Point(111, 500);
             this.buttonTaoMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTaoMoi.Name = "buttonTaoMoi";
             this.buttonTaoMoi.Size = new System.Drawing.Size(152, 62);
@@ -147,7 +151,7 @@ namespace GUI
             // 
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.textBoxTenNhanVien);
-            this.panel8.Location = new System.Drawing.Point(11, 192);
+            this.panel8.Location = new System.Drawing.Point(11, 184);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(371, 57);
@@ -167,6 +171,7 @@ namespace GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(-1, -1);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -180,7 +185,7 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(414, 3);
+            this.label1.Location = new System.Drawing.Point(428, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(343, 51);
             this.label1.TabIndex = 0;
@@ -196,7 +201,7 @@ namespace GUI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1151, 55);
+            this.panel1.Size = new System.Drawing.Size(1154, 55);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -209,7 +214,7 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1151, 604);
+            this.panel2.Size = new System.Drawing.Size(1154, 594);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -225,12 +230,13 @@ namespace GUI
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(389, 605);
+            this.panel4.Size = new System.Drawing.Size(389, 648);
             this.panel4.TabIndex = 16;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel10.Controls.Add(this.pictureBox4);
             this.panel10.Controls.Add(this.label4);
             this.panel10.Location = new System.Drawing.Point(0, 54);
             this.panel10.Name = "panel10";
@@ -253,10 +259,10 @@ namespace GUI
             // 
             this.panel9.Controls.Add(this.textBoxNhiemVu);
             this.panel9.Controls.Add(this.label11);
-            this.panel9.Location = new System.Drawing.Point(11, 291);
+            this.panel9.Location = new System.Drawing.Point(11, 273);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(371, 57);
+            this.panel9.Size = new System.Drawing.Size(371, 65);
             this.panel9.TabIndex = 34;
             // 
             // textBoxNhiemVu
@@ -274,7 +280,7 @@ namespace GUI
             this.buttonXoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonXoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoa.Location = new System.Drawing.Point(593, 465);
+            this.buttonXoa.Location = new System.Drawing.Point(593, 445);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(152, 62);
@@ -322,7 +328,7 @@ namespace GUI
             this.buttonXemChiTiet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonXemChiTiet.ForeColor = System.Drawing.Color.White;
-            this.buttonXemChiTiet.Location = new System.Drawing.Point(18, 465);
+            this.buttonXemChiTiet.Location = new System.Drawing.Point(18, 446);
             this.buttonXemChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXemChiTiet.Name = "buttonXemChiTiet";
             this.buttonXemChiTiet.Size = new System.Drawing.Size(152, 62);
@@ -347,7 +353,7 @@ namespace GUI
             this.textBox1.Location = new System.Drawing.Point(116, 85);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 30);
+            this.textBox1.Size = new System.Drawing.Size(322, 30);
             this.textBox1.TabIndex = 21;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -374,7 +380,7 @@ namespace GUI
             this.dataGridViewNhanVien.RowTemplate.Height = 30;
             this.dataGridViewNhanVien.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNhanVien.Size = new System.Drawing.Size(727, 315);
+            this.dataGridViewNhanVien.Size = new System.Drawing.Size(727, 278);
             this.dataGridViewNhanVien.TabIndex = 22;
             this.dataGridViewNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellContentClick_1);
             // 
@@ -420,27 +426,48 @@ namespace GUI
             this.panel3.Controls.Add(this.buttonXemChiTiet);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.buttonXoa);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(388, 55);
+            this.panel3.Location = new System.Drawing.Point(389, 55);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.MaximumSize = new System.Drawing.Size(800, 550);
-            this.panel3.MinimumSize = new System.Drawing.Size(700, 300);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(763, 549);
+            this.panel3.Size = new System.Drawing.Size(765, 593);
             this.panel3.TabIndex = 5;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.networking;
+            this.pictureBox1.Location = new System.Drawing.Point(365, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::GUI.Properties.Resources.icons8_add_64;
+            this.pictureBox4.Location = new System.Drawing.Point(88, 12);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(42, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 23;
+            this.pictureBox4.TabStop = false;
             // 
             // fmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 604);
+            this.ClientSize = new System.Drawing.Size(1154, 594);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.MaximumSize = new System.Drawing.Size(1172, 641);
             this.Name = "fmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmrNhanVien";
+            this.Text = "Quản lý nhân viên | Tour App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -461,6 +488,8 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,5 +526,7 @@ namespace GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

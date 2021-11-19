@@ -46,3 +46,15 @@ C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\De
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.csproj.CopyComplete
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.dll
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\BUS\obj\Debug\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\bin\Debug\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\obj\Debug\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\BUS\obj\Debug\BUS.pdb

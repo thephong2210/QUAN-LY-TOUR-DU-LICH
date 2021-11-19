@@ -40,7 +40,7 @@ namespace GUI
 
         private void btnDoanDuLich_Click(object sender, EventArgs e)
         {
-            fmQuanLyDoan fmQLD = new fmQuanLyDoan();
+            fmQLDoan fmQLD = new fmQLDoan();
             HienThiFormCon(fmQLD);
         }
 
@@ -52,7 +52,8 @@ namespace GUI
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            
+            fmKhachHang fmKH = new fmKhachHang();
+            HienThiFormCon(fmKH);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,6 +94,12 @@ namespace GUI
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fmLoaiHinhDuLich fmLHDL = new fmLoaiHinhDuLich();
+            HienThiFormCon(fmLHDL);
         }
     }
 }

@@ -44,3 +44,15 @@ C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\De
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.pdb
