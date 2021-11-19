@@ -7,7 +7,7 @@ namespace GUI
 {
     public partial class fmQuanLyDoan : Form
     {
-        private B_doan b_Doan = new B_doan();
+        B_doan b_Doan = new B_doan();
         D_doan d_Doan = new D_doan();
 
         public fmQuanLyDoan()

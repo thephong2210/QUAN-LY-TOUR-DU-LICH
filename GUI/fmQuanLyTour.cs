@@ -400,10 +400,7 @@ namespace GUI
 
         }
 
-        private void fmQuanLyTour_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 
