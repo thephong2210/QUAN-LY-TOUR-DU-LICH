@@ -17,6 +17,7 @@ namespace GUI
         B_LoaiKH b_loaiKH = new B_LoaiKH();
         public fmLoaiKhachHang()
         {
+            
             InitializeComponent();
             LoadDanhSachLoaiKH();
         }
@@ -28,38 +29,24 @@ namespace GUI
         }
         public void ClearFields()
         {
-            textBoxTenLoaiKH.Text = " ";
+            textBoxTenLoaiKH.Text = "";
+
         }
 
-        
-
-        public void ThemLoaiKH()
+        public bool KiemTraTT()
         {
-            
-            if (!String.IsNullOrEmpty(textBoxTenLoaiKH.Text))
+            if (String.IsNullOrEmpty(textBoxTenLoaiKH.Text))
             {
-                try
-                {
-                    loaikhachhang objLoaiKhachHang = new loaikhachhang();
-                    objLoaiKhachHang.tenLoaiKhachHang = textBoxTenLoaiKH.Text;
-                    if (b_loaiKH.ThemLoaiKH(objLoaiKhachHang))
-                    {
-                        MessageBox.Show("Thêm thành công", "Thông báo");
-                        LoadDanhSachLoaiKH();
-                        ClearFields();
-                    }
-                }catch(Exception e)
-                {
-                    MessageBox.Show("Thêm không thành công", "Thông báo");
-                    System.Diagnostics.Debug.WriteLine(e);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tên loại khách hàng", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tên khách hàng", "Thông báo");
                 textBoxTenLoaiKH.Focus();
+                return false;
             }
+            return true;
         }
+
+
+
+
 
         public void XoaLoaiKH()
         {
@@ -84,53 +71,57 @@ namespace GUI
         }
 
 
-        public void SuaLoaiKH()
-        {
 
-            if (!String.IsNullOrEmpty(textBoxTenLoaiKH.Text))
+
+        public void XemChiTiet()
+        {
+            foreach (DataGridViewRow row in dataGridViewLoaiKH.SelectedRows) // lấy row đã click
             {
-                loaikhachhang objLoaiKhachHang= new loaikhachhang();
-                objLoaiKhachHang.tenLoaiKhachHang = textBoxTenLoaiKH.Text;
+                if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
+                {
+                    string maLoaiKhachHang = row.Cells[0].Value.ToString();
+
+                    fmChiTietLoaiKhachHang formChiTietLoaiKhachHang = new fmChiTietLoaiKhachHang(int.Parse(maLoaiKhachHang), this);
+
+                    formChiTietLoaiKhachHang.ShowDialog();
+
+                }
+            }
+        }
+
+        public void ThemLoaiKH1()
+        {
+            if (KiemTraTT())
+            {
                 try
                 {
-                    if (dataGridViewLoaiKH.SelectedRows.Count > 0)
+                    loaikhachhang objLoaiKhachHang = new loaikhachhang();
+                    objLoaiKhachHang.tenLoaiKhachHang = textBoxTenLoaiKH.Text;
+                    if (b_loaiKH.ThemLoaiKH(objLoaiKhachHang))
                     {
-
-                        foreach (DataGridViewRow row in dataGridViewLoaiKH.SelectedRows)
-                        {
-                            int maLoaiKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
-
-                            if (b_loaiKH.SuaLoaiKH(objLoaiKhachHang, maLoaiKhachHang))
-                            {
-                                LoadDanhSachLoaiKH();
-                                MessageBox.Show("Sửa thành công", "Thông báo");
-                                ClearFields();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Vui lòng chọn loại khách hàng cần sửa", "Thông báo");
+                        MessageBox.Show("Thêm thành công", "Thông báo");
+                        LoadDanhSachLoaiKH();
+                        ClearFields();
                     }
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Sửa không thành công", "Thông báo");
+                    MessageBox.Show("Thêm loại khách hàng không thành công", "Thông báo");
                     System.Diagnostics.Debug.WriteLine(e);
                 }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tên loại khách hàng", "Thông báo");
-                textBoxTenLoaiKH.Focus();
-            }
+
         }
 
-        
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            ThemLoaiKH();
+            ThemLoaiKH1();
+        }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            XemChiTiet();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -141,43 +132,5 @@ namespace GUI
                 XoaLoaiKH();
             }
         }
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            SuaLoaiKH();
-        }
-
-       
-
-        private void dataGridViewLoaiKH_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                //Lưu lại dòng dữ liệu vừa kích chọn
-                DataGridViewRow row = this.dataGridViewLoaiKH.Rows[e.RowIndex];
-                //Đưa dữ liệu vào textbox
-             
-                textBoxTenLoaiKH.Text = row.Cells[1].Value.ToString();
-
-                //Không cho phép sửa trường STT
-                //textBoxMaLoaiKH.Enabled = false;
-            }
-        }
-
-        private void panelLeft_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
-
-    
-
-        
-       
-
-       
-
-       
-    }
-
-
-
+}

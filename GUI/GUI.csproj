@@ -62,6 +62,30 @@
     <Compile Include="fmChitietDoan.designer.cs">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmChiTietKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmChiTietKhachHang.Designer.cs">
+      <DependentUpon>fmChiTietKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmChiTietLoaiHinhDuLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmChiTietLoaiHinhDuLich.Designer.cs">
+      <DependentUpon>fmChiTietLoaiHinhDuLich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmChiTietLoaiKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmChiTietLoaiKhachHang.Designer.cs">
+      <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLoaiHinhDuLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLoaiHinhDuLich.Designer.cs">
+      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmChiTietNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,19 +101,13 @@
     <Compile Include="fmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmKhachHang.designer.cs">
+    <Compile Include="fmKhachHang.Designer.cs">
       <DependentUpon>fmKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fmLoaiHinhDuLich.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmLoaiHinhDuLich.designer.cs">
-      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
     </Compile>
     <Compile Include="fmLoaiKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmLoaiKhachHang.designer.cs">
+    <Compile Include="fmLoaiKhachHang.Designer.cs">
       <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="fmNhanVien.cs">
@@ -121,6 +139,18 @@
     <EmbeddedResource Include="fmChitietDoan.resx">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmChiTietKhachHang.resx">
+      <DependentUpon>fmChiTietKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmChiTietLoaiHinhDuLich.resx">
+      <DependentUpon>fmChiTietLoaiHinhDuLich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmChiTietLoaiKhachHang.resx">
+      <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
+      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmChiTietNhanVien.resx">
       <DependentUpon>fmChiTietNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmKhachHang.resx">
       <DependentUpon>fmKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
-      <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmLoaiKhachHang.resx">
       <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>

@@ -22,6 +22,22 @@ namespace DAO
             }
 
         }
+        public List<dynamic> GetListDetailsLoaiHinhDuLich(int maLoaiHinhDuLich)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsLoaiHinhDuLich = (from tbLoaiHinhDuLich in tourdulich.loaihinhduliches
+                                                   where tbLoaiHinhDuLich.maLoaiHinhDuLich == maLoaiHinhDuLich
+                                                   select new
+                                                   {
+                                                       maLoaiHinhDulich = tbLoaiHinhDuLich.maLoaiHinhDuLich,
+                                                       tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich
+
+                                                   });
+
+                return getListDetailsLoaiHinhDuLich.ToList<dynamic>();
+            }
+        }
         public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
         {
             using (tourdulich = new tourdulichEntities())

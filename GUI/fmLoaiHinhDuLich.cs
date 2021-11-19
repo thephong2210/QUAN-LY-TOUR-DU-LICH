@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BUS;
-using DAO;
 
 namespace GUI
 {
@@ -21,8 +21,6 @@ namespace GUI
             LoadLoaiHinhDuLich();
 
         }
-        
-
         public void LoadLoaiHinhDuLich()
         {
             dataGridViewLoaiHinhDuLich.DataSource = b_LoaiHinhDuLich.GetListLoaiHinhDL();
@@ -30,10 +28,42 @@ namespace GUI
 
         public void ClearFields()
         {
-           textBoxTenLoaiHinhDuLich.Text = "";
-           
-        }
+            textBoxTenLoaiHinhDuLich.Text = "";
 
+        }
+        public bool KiemTraTT()
+        {
+            if (String.IsNullOrEmpty(textBoxTenLoaiHinhDuLich.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên loại hình du lịch", "Thông báo");
+                textBoxTenLoaiHinhDuLich.Focus();
+                return false;
+            }
+            return true;
+        }
+        public void ThemLoaiHinhDuLich1()
+        {
+            if (KiemTraTT())
+            {
+                try
+                {
+                    loaihinhdulich objLoaiHinhDuLich = new loaihinhdulich();
+                    objLoaiHinhDuLich.tenLoaiHinhDuLich = textBoxTenLoaiHinhDuLich.Text;
+                    if (b_LoaiHinhDuLich.ThemLoaiHinhDuLich(objLoaiHinhDuLich))
+                    {
+                        MessageBox.Show("Thêm loại hình du lịch thành công", "Thông báo");
+                        LoadLoaiHinhDuLich();
+                        ClearFields();
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Thêm loại hình du lịch không thành công", "Thông báo");
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+            }
+        }
         public void ThemLoaiHinhDuLich()
         {
             if (!String.IsNullOrEmpty(textBoxTenLoaiHinhDuLich.Text))
@@ -49,7 +79,8 @@ namespace GUI
                         ClearFields();
 
                     }
-                }catch(Exception e)
+                }
+                catch (Exception e)
                 {
                     MessageBox.Show("Thêm loại hình du lịch không thành công", "Thông báo");
                     System.Diagnostics.Debug.WriteLine(e);
@@ -65,9 +96,9 @@ namespace GUI
         public void XoaLoaiHinhDuLich()
         {
             loaihinhdulich objLoaiHinhDuLich = new loaihinhdulich();
-            if(dataGridViewLoaiHinhDuLich.SelectedRows.Count > 0)
+            if (dataGridViewLoaiHinhDuLich.SelectedRows.Count > 0)
             {
-                foreach(DataGridViewRow row in dataGridViewLoaiHinhDuLich.SelectedRows)
+                foreach (DataGridViewRow row in dataGridViewLoaiHinhDuLich.SelectedRows)
                 {
                     int maLoaiHinhDuLich = Convert.ToInt32(row.Cells[0].Value.ToString());
                     b_LoaiHinhDuLich.XoaLoaiHinhDuLich(objLoaiHinhDuLich, maLoaiHinhDuLich);
@@ -81,74 +112,32 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn loại hình du lịch cần xóa", "Thông báo");
             }
         }
-
-        public void SuaLoaiHinhDuLich()
+        public void XemChiTiet()
         {
-            
-            if (!String.IsNullOrEmpty(textBoxTenLoaiHinhDuLich.Text))
+            foreach (DataGridViewRow row in dataGridViewLoaiHinhDuLich.SelectedRows) // lấy row đã click
             {
-                loaihinhdulich objLoaiHinhDuLich = new loaihinhdulich();
-                objLoaiHinhDuLich.tenLoaiHinhDuLich = textBoxTenLoaiHinhDuLich.Text;
-                try
+                if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
                 {
-                    if (dataGridViewLoaiHinhDuLich.SelectedRows.Count > 0)
-                    {
-                        foreach (DataGridViewRow row in dataGridViewLoaiHinhDuLich.SelectedRows)
-                        {
-                            int maLoaiHinhDuLich = Convert.ToInt32(row.Cells[0].Value.ToString());
-                            if (b_LoaiHinhDuLich.SuaLoaiHinhDuLich(objLoaiHinhDuLich, maLoaiHinhDuLich))
-                            {
-                                LoadLoaiHinhDuLich();
-                                MessageBox.Show("Sửa thành công", "Thông báo");
-                                ClearFields();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Vui lòng chọn loại hình du lịch cần sửa", "Thông báo");
-                    }
-                    
-                    
+                    string maLoaiHinhDuLich = row.Cells[0].Value.ToString();
+
+                    fmChiTietLoaiHinhDuLich formChiTietLoaiHinhDuLich = new fmChiTietLoaiHinhDuLich(int.Parse(maLoaiHinhDuLich), this);
+
+                    formChiTietLoaiHinhDuLich.ShowDialog();
 
                 }
-                catch(Exception e)
-                {
-                    MessageBox.Show("Sửa không thành công", "Thông báo");
-                    System.Diagnostics.Debug.WriteLine(e);
-                }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tên loại hình du lịch", "Thông báo");
-                textBoxTenLoaiHinhDuLich.Focus();
-            }
-
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            ThemLoaiHinhDuLich();
+            ThemLoaiHinhDuLich1();
         }
 
-        public void dataGridViewLoaiHinhDuLich_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                //Lưu lại dòng dữ liệu vừa kích chọn
-                DataGridViewRow row = this.dataGridViewLoaiHinhDuLich.Rows[e.RowIndex];
-                //Đưa dữ liệu vào textbox
-                
-                textBoxTenLoaiHinhDuLich.Text = row.Cells[1].Value.ToString();
-               
-                //Không cho phép sửa trường STT
-               // textBoxMaLoaiHinhDuLich.Enabled = false;
-            }
+            XemChiTiet();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -159,11 +148,6 @@ namespace GUI
             {
                 XoaLoaiHinhDuLich();
             }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            SuaLoaiHinhDuLich();
         }
     }
 }
