@@ -7,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +15,6 @@ namespace GUI
     public partial class fmNhanVien : Form
     {
         B_nhanvien bNhanVien = new BUS.B_nhanvien();
-
         public fmNhanVien()
         {
             InitializeComponent();
@@ -56,77 +54,50 @@ namespace GUI
         }
 
         // Thêm nhân viên
-        public void ThemNhanVien()
+        private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
             List<nhanvien> listNhanVien = bNhanVien.GetAllNhanVien();
 
-            //KiemTraTextBoxNhanVien();
-
-            if (KiemTraTextBoxNhanVien()==true)
+            if (!String.IsNullOrEmpty(textBoxTenNhanVien.Text))
             {
-                //Khai báo object
-                nhanvien objNhanVien = new nhanvien();
+                if (!String.IsNullOrEmpty(textBoxNhiemVu.Text))
+                {                   
+                    //Khai báo object
+                    nhanvien objNhanVien = new nhanvien();
 
-                objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
-                objNhanVien.nhiemVu = textBoxNhiemVu.Text;
+                    objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
+                    objNhanVien.nhiemVu = textBoxNhiemVu.Text;
 
-                //Bắt đầu thêm các dữ liệu
-                try
-                {
-                    if (bNhanVien.ThemNhanVien(objNhanVien))    // ??
+                    //Bắt đầu thêm các dữ liệu
+                    try
                     {
-                        System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");    // ??
-                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
+                        if (bNhanVien.ThemNhanVien(objNhanVien))    // ??
+                        {
+                            System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");    // ??
+                            MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
 
-                        ClearFields();
-                        LoadDanhSachNhanVien();
+                            ClearFields();
+                            LoadDanhSachNhanVien();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thêm không thành công!", "Thông báo");
+                        System.Diagnostics.Debug.WriteLine(ex);
+                    } 
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Thêm không thành công!", "Thông báo");
-                    System.Diagnostics.Debug.WriteLine(ex);
+                    MessageBox.Show("Vui lòng nhập nhiệm vụ!", "Thông báo");
+                    textBoxNhiemVu.Focus();
                 }
             }
-        }
-
-        //Kiểm tra textbox nhân viên
-        bool KiemTraTextBoxNhanVien()
-        {
-            if (String.IsNullOrEmpty(textBoxTenNhanVien.Text))
+            else
             {
                 MessageBox.Show("Vui lòng nhập tên nhân viên!", "Thông báo");
                 textBoxTenNhanVien.Focus();
-                return false;
-
-                //bool flag = true;     Cách#
-                //return flag;                    
             }
-            if (String.IsNullOrEmpty(textBoxNhiemVu.Text))
-            {
-                MessageBox.Show("Vui lòng nhập nhiệm vụ!", "Thông báo");
-                textBoxNhiemVu.Focus();
-                return false;
-            }
-
-            //Kiểm tra Kí tự đặc biệt và số
-            Regex regex = new Regex(@"[!@#$%&^*()-_+=\/|?0-9]");
-            if (regex.IsMatch(textBoxTenNhanVien.Text))
-            {
-                MessageBox.Show("Tên nhân viên không được có số hoặc kí tự đặc biệt!", "Thông báo");
-                textBoxTenNhanVien.Focus();
-                return false;
-            }
-            if (regex.IsMatch(textBoxNhiemVu.Text))
-            {
-                MessageBox.Show("Nhiệm vụ không được có số hoặc kí tự đặc biệt!", "Thông báo");
-                textBoxNhiemVu.Focus();
-                return false;
-            }
-            return true; //Phải return về true, k là lỗi
         }
-
-        
 
         //Xóa nhân viên
         private void buttonXoa_Click(object sender, EventArgs e)
@@ -160,10 +131,7 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
             }
         }
-        private void buttonTaoMoi_Click(object sender, EventArgs e)
-        {
-            ThemNhanVien();
-        }
+
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 

@@ -18,8 +18,7 @@ namespace GUI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fmNhanVien());
-         //   Application.Run(new fmQuanLyTour());
+            Application.Run(new fmQLDoan());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

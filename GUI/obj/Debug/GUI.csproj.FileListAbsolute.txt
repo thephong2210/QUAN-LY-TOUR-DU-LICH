@@ -73,10 +73,10 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
+
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietTour.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDiaDiem.resources
-D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyDoan.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyTour.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiChiPhi.resources
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.LoaiHinhDuLich.resources
@@ -100,6 +100,7 @@ D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Entity
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
 D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
+<<<<<<< HEAD
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.DoanDuLich.resources
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
@@ -114,3 +115,15 @@ C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\De
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
 C:\Users\ACER\Desktop\Mô hình phân lớp\DoAn\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
+=======
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQLDoan.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChitietDoan.resources
+D:\Projects\Visual Studio\source\repos\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyDoan.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmTrangChu.resources
+
+>>>>>>> master

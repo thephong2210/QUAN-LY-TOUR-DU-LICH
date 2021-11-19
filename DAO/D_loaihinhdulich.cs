@@ -22,6 +22,73 @@ namespace DAO
             }
 
         }
+        public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tourdulich.loaihinhduliches.Add(objLoaiHinhDuLich);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool XoaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich,int maLoaiHinhDuLich)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    objLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
+                     tourdulich.loaihinhduliches.Remove(objLoaiHinhDuLich);
+                    
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+            }
+        }
+        public bool SuaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich, int maLoaiHinhDuLich)
+        {
+            
+            using (tourdulich = new tourdulichEntities())
+                
+            {
+                try
+                {
+                    loaihinhdulich objOldLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
+                    
+                    objOldLoaiHinhDuLich.tenLoaiHinhDuLich = objLoaiHinhDuLich.tenLoaiHinhDuLich;
+                    
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+            }
+        }
+
+
+
+
 
     }
 }
