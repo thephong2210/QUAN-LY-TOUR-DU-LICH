@@ -107,7 +107,7 @@ namespace GUI
                 return false;
             }
            
-            if (Regex.IsMatch(textBoxQuocTich.Text,@"[!@#$%^&*()-_+=\|/?<>0-9]"))
+            if (!Regex.IsMatch(textBoxQuocTich.Text,@"[!@#$%^&*()-_+=\|/?<>0-9]"))
             {
                 MessageBox.Show("Quốc tịch không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxQuocTich.Focus();

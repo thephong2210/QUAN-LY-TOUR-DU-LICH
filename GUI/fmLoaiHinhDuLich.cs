@@ -40,7 +40,7 @@ namespace GUI
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }
-            if (Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"[!@#$%^&*()-_+=\|/?<>]"))
+            if (!Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"[!@#$%^&*()-_+=\|/?<>]"))
             {
                 MessageBox.Show("Tên loại hình du lịch không được có kí tự đặc biệt!", "Thông báo");
                 textBoxTenLoaiHinhDuLich.Focus();
