@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -49,6 +50,12 @@ namespace GUI
             if (String.IsNullOrEmpty(textBoxTenLoaiHinhDuLich.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên loại hình du lịch", "Thông báo");
+                textBoxTenLoaiHinhDuLich.Focus();
+                return false;
+            }
+            if (Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"[!@#$%^&*()-_+=\|/?<>]"))
+            {
+                MessageBox.Show("Tên loại hình du lịch không được có kí tự đặc biệt!", "Thông báo");
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }
