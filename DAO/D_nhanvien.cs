@@ -53,6 +53,22 @@ namespace DAO
                 return getListDetailsNhanVien.ToList<dynamic>();
             }
         }
+        public List<dynamic> TimKiemNhanVien(int maNhanVien)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsNhanVien = (from tbNhanVien in tourdulich.nhanviens
+                                              where tbNhanVien.maNhanVien == maNhanVien
+                                              select new
+                                              {
+                                                  maNhanVien = tbNhanVien.maNhanVien,
+                                                  tenNhanVien = tbNhanVien.tenNhanVien,
+                                                  nhiemVu = tbNhanVien.nhiemVu
+                                              });
+
+                return getListDetailsNhanVien.ToList<dynamic>();
+            }
+        }
 
         public bool ThemNhanVien(nhanvien objNhanVien)
         {

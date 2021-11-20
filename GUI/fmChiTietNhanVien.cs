@@ -93,8 +93,8 @@ namespace GUI
                 return false;
             }
 
-            //Kiểm tra kí tự đặc biệt
-            Regex regex = new Regex(@"[!@#$%^&*()-_+=\|/?<>0-9]");
+            //Kiểm tra kí tự đặc biệt và số
+            Regex regex = new Regex(@"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]");
             if (regex.IsMatch(textBoxTenNhanVien.Text))
             {
                 MessageBox.Show("Tên nhân viên không được có số và kí tự đặc biệt!", "Thông báo");
