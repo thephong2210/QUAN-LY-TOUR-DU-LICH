@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,6 +39,12 @@ namespace GUI
             if (String.IsNullOrEmpty(textBoxTenLoaiKH.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên khách hàng", "Thông báo");
+                textBoxTenLoaiKH.Focus();
+                return false;
+            }
+            if (!Regex.IsMatch(textBoxTenLoaiKH.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+            {
+                MessageBox.Show("Tên loại khách hàng không được có kí tự đặc biệt và số!", "Thông báo");
                 textBoxTenLoaiKH.Focus();
                 return false;
             }
