@@ -46,8 +46,8 @@ namespace GUI
                 textBoxTenKH.Focus();
                 return false;
             }
-            // \.[{(*+?^$|
-            if (!Regex.IsMatch(textBoxTenKH.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+        
+           if(Regex.IsMatch(textBoxTenKH.Text,@"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]"))
              {
                  MessageBox.Show("Tên khách hàng không có số và kí tự đặc biệt!", "Thông báo");
                  textBoxTenKH.Focus();
@@ -75,10 +75,10 @@ namespace GUI
                 textBoxDiaChi.Focus();
                 return false;
             }
-            //[A-Za-z0-9]+(?:\s[A-Za-z0-9'_-]+)
-            if (!Regex.IsMatch(textBoxDiaChi.Text, @"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+     
+            if (Regex.IsMatch(textBoxDiaChi.Text, @"[""!#$%&'()*+,-.:;<=>?@[\\\]^_`{|}~]"))
             {
-                MessageBox.Show("Vui lòng nhập địa chỉ theo định dang số nhà tên đường(123 Nguyen Trai) và không chứa kí tự đặc biệt", "Thông báo");
+                MessageBox.Show("Vui lòng nhập địa chỉ không chứa kí tự đặc biệt", "Thông báo");
                 textBoxDiaChi.Focus();
                 return false;
             }
@@ -108,8 +108,8 @@ namespace GUI
                 textBoxQuocTich.Focus();
                 return false;
             }
-           
-            if (!Regex.IsMatch(textBoxQuocTich.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+
+            if (Regex.IsMatch(textBoxQuocTich.Text, @"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]"))
             {
                 MessageBox.Show("Quốc tịch không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxQuocTich.Focus();

@@ -53,9 +53,9 @@ namespace GUI
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }
-            if (!Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+            if (Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]"))
             {
-                MessageBox.Show("Tên loại hình du lịch không được có kí tự đặc biệt và số!", "Thông báo");
+                MessageBox.Show("Tên loại hình du lịch không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }

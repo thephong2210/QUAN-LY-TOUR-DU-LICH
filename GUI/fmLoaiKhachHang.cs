@@ -42,9 +42,9 @@ namespace GUI
                 textBoxTenLoaiKH.Focus();
                 return false;
             }
-            if (!Regex.IsMatch(textBoxTenLoaiKH.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$"))
+            if (Regex.IsMatch(textBoxTenLoaiKH.Text, @"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]"))
             {
-                MessageBox.Show("Tên loại khách hàng không được có kí tự đặc biệt và số!", "Thông báo");
+                MessageBox.Show("Tên loại khách hàng không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxTenLoaiKH.Focus();
                 return false;
             }
