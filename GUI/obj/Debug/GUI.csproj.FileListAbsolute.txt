@@ -140,3 +140,5 @@ E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmTrangChu.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietKhachHang.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietLoaiHinhDuLich.resources
 E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietLoaiKhachHang.resources
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDangKy.resources
+E:\Documents\GitHub\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietDangKy.resources

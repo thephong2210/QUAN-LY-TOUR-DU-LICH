@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fmChiTietDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmChiTietDangKy.Designer.cs">
+      <DependentUpon>fmChiTietDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmChitietDoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="fmChiTietLoaiKhachHang.Designer.cs">
       <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDangKy.Designer.cs">
+      <DependentUpon>fmDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="fmLoaiHinhDuLich.cs">
       <SubType>Form</SubType>
@@ -136,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmChiTietDangKy.resx">
+      <DependentUpon>fmChiTietDangKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmChitietDoan.resx">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmChiTietLoaiKhachHang.resx">
       <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmDangKy.resx">
+      <DependentUpon>fmDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
       <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>

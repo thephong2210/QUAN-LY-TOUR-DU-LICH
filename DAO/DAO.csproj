@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D_DangKy.cs" />
     <Compile Include="chiphi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

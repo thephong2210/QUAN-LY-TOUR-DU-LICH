@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B_DangKy.cs" />
     <Compile Include="B_doan.cs" />
     <Compile Include="B_giatour.cs" />
     <Compile Include="B_KH.cs" />

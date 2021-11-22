@@ -46,7 +46,7 @@ namespace GUI
                 textBoxTenKH.Focus();
                 return false;
             }
-            if (!Regex.IsMatch(textBoxTenKH.Text, @"[!@#$%^&*()-_+=\|/?<>0-9]"))
+            if (!Regex.IsMatch(textBoxTenKH.Text, @"/^[a-zA-Z]{4}[\s]+$/"))
              {
                  MessageBox.Show("Tên khách hàng không có số và kí tự đặc biệt!", "Thông báo");
                  textBoxTenKH.Focus();
@@ -74,12 +74,12 @@ namespace GUI
                 textBoxDiaChi.Focus();
                 return false;
             }
-            if (!Regex.IsMatch(textBoxDiaChi.Text, @"[!@#$%^&*()-_+=\|/?<>]"))
+          /*  if (!Regex.IsMatch(textBoxDiaChi.Text, @"[[a-zA-Z_0-9]+[^\\x00-\\x7F]+[\\s]+]+"))
             {
                 MessageBox.Show("Địa chỉ không có kí tự đặc biệt!", "Thông báo");
                 textBoxDiaChi.Focus();
                 return false;
-            }
+            }*/
 
             if (radioButtonNam.Checked == false && radioButtonNu.Checked == false)
             {
@@ -107,12 +107,12 @@ namespace GUI
                 return false;
             }
            
-            if (!Regex.IsMatch(textBoxQuocTich.Text,@"[!@#$%^&*()-_+=\|/?<>0-9]"))
+           /* if (!Regex.IsMatch(textBoxQuocTich.Text, @"[[a-zA-Z]+[^\\x00-\\x7F]+[\\s]+]+"))
             {
                 MessageBox.Show("Quốc tịch không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxQuocTich.Focus();
                 return false;
-            }
+            }*/
             return true;
         }
 
