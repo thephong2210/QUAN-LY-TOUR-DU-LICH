@@ -15,6 +15,10 @@ namespace BUS
         {
             return d_LoaiHinhDuLich.GetListLoaiHinhDL();
         }
+        public List<dynamic> GetListDetailsLoaiHinhDuLich(int maLoaiHinhDuLich)
+        {
+            return d_LoaiHinhDuLich.GetListDetailsLoaiHinhDuLich(maLoaiHinhDuLich);
+        }
 
         public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
         {

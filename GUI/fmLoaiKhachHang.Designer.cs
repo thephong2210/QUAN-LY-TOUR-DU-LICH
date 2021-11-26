@@ -32,6 +32,9 @@ namespace GUI
             this.panelDiaDiem = new System.Windows.Forms.Panel();
             this.lbLoaiKH = new System.Windows.Forms.Label();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTenLoaiKH = new System.Windows.Forms.TextBox();
             this.dataGridViewLoaiKH = new System.Windows.Forms.DataGridView();
             this.maLoaiKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLoaiKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,11 +42,10 @@ namespace GUI
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.lbTimKiem = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.textBoxTenLoaiKH = new System.Windows.Forms.TextBox();
-            this.lbTenLoaiKH = new System.Windows.Forms.Label();
+            this.btnXemChiTiet = new System.Windows.Forms.Button();
             this.panelDiaDiem.SuspendLayout();
             this.panelLeft.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoaiKH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,15 +56,15 @@ namespace GUI
             this.panelDiaDiem.Location = new System.Drawing.Point(0, 0);
             this.panelDiaDiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDiaDiem.Name = "panelDiaDiem";
-            this.panelDiaDiem.Size = new System.Drawing.Size(537, 53);
-            this.panelDiaDiem.TabIndex = 3;
+            this.panelDiaDiem.Size = new System.Drawing.Size(540, 53);
+            this.panelDiaDiem.TabIndex = 4;
             // 
             // lbLoaiKH
             // 
             this.lbLoaiKH.AutoSize = true;
             this.lbLoaiKH.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.lbLoaiKH.ForeColor = System.Drawing.Color.White;
-            this.lbLoaiKH.Location = new System.Drawing.Point(117, 1);
+            this.lbLoaiKH.Location = new System.Drawing.Point(98, 0);
             this.lbLoaiKH.Name = "lbLoaiKH";
             this.lbLoaiKH.Size = new System.Drawing.Size(310, 51);
             this.lbLoaiKH.TabIndex = 0;
@@ -71,59 +73,92 @@ namespace GUI
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panelLeft.Controls.Add(this.panel2);
             this.panelLeft.Controls.Add(this.dataGridViewLoaiKH);
             this.panelLeft.Controls.Add(this.btnThem);
             this.panelLeft.Controls.Add(this.textBoxTimKiem);
             this.panelLeft.Controls.Add(this.lbTimKiem);
             this.panelLeft.Controls.Add(this.btnXoa);
-            this.panelLeft.Controls.Add(this.btnSua);
-            this.panelLeft.Controls.Add(this.textBoxTenLoaiKH);
-            this.panelLeft.Controls.Add(this.lbTenLoaiKH);
-            this.panelLeft.Location = new System.Drawing.Point(0, 54);
+            this.panelLeft.Controls.Add(this.btnXemChiTiet);
+            this.panelLeft.Location = new System.Drawing.Point(0, 53);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(537, 543);
-            this.panelLeft.TabIndex = 37;
-            this.panelLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeft_Paint);
+            this.panelLeft.Size = new System.Drawing.Size(540, 593);
+            this.panelLeft.TabIndex = 38;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.textBoxTenLoaiKH);
+            this.panel2.Location = new System.Drawing.Point(19, 56);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(454, 44);
+            this.panel2.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tên loại khách hàng";
+            // 
+            // textBoxTenLoaiKH
+            // 
+            this.textBoxTenLoaiKH.Location = new System.Drawing.Point(206, 8);
+            this.textBoxTenLoaiKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTenLoaiKH.Name = "textBoxTenLoaiKH";
+            this.textBoxTenLoaiKH.Size = new System.Drawing.Size(224, 22);
+            this.textBoxTenLoaiKH.TabIndex = 6;
             // 
             // dataGridViewLoaiKH
             // 
+            this.dataGridViewLoaiKH.AllowUserToAddRows = false;
+            this.dataGridViewLoaiKH.AllowUserToDeleteRows = false;
+            this.dataGridViewLoaiKH.AllowUserToResizeRows = false;
+            this.dataGridViewLoaiKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewLoaiKH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewLoaiKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLoaiKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maLoaiKhachHang,
             this.tenLoaiKhachHang});
-            this.dataGridViewLoaiKH.Location = new System.Drawing.Point(35, 294);
+            this.dataGridViewLoaiKH.Location = new System.Drawing.Point(19, 382);
             this.dataGridViewLoaiKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewLoaiKH.MultiSelect = false;
             this.dataGridViewLoaiKH.Name = "dataGridViewLoaiKH";
+            this.dataGridViewLoaiKH.ReadOnly = true;
             this.dataGridViewLoaiKH.RowHeadersWidth = 51;
             this.dataGridViewLoaiKH.RowTemplate.Height = 29;
-            this.dataGridViewLoaiKH.Size = new System.Drawing.Size(467, 140);
+            this.dataGridViewLoaiKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewLoaiKH.Size = new System.Drawing.Size(454, 140);
             this.dataGridViewLoaiKH.TabIndex = 12;
-            this.dataGridViewLoaiKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaiKH_CellClick_1);
             // 
             // maLoaiKhachHang
             // 
             this.maLoaiKhachHang.DataPropertyName = "maLoaiKhachHang";
+            this.maLoaiKhachHang.FillWeight = 100.2494F;
             this.maLoaiKhachHang.HeaderText = "Mã loại KH";
             this.maLoaiKhachHang.MinimumWidth = 6;
             this.maLoaiKhachHang.Name = "maLoaiKhachHang";
-            this.maLoaiKhachHang.Width = 200;
+            this.maLoaiKhachHang.ReadOnly = true;
             // 
             // tenLoaiKhachHang
             // 
             this.tenLoaiKhachHang.DataPropertyName = "tenLoaiKhachHang";
+            this.tenLoaiKhachHang.FillWeight = 99.75063F;
             this.tenLoaiKhachHang.HeaderText = "Tên loại KH";
             this.tenLoaiKhachHang.MinimumWidth = 6;
             this.tenLoaiKhachHang.Name = "tenLoaiKhachHang";
-            this.tenLoaiKhachHang.Width = 200;
+            this.tenLoaiKhachHang.ReadOnly = true;
             // 
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(53, 140);
+            this.btnThem.Location = new System.Drawing.Point(19, 175);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(88, 47);
@@ -134,17 +169,17 @@ namespace GUI
             // 
             // textBoxTimKiem
             // 
-            this.textBoxTimKiem.Location = new System.Drawing.Point(183, 246);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(145, 292);
             this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTimKiem.Name = "textBoxTimKiem";
-            this.textBoxTimKiem.Size = new System.Drawing.Size(271, 22);
+            this.textBoxTimKiem.Size = new System.Drawing.Size(328, 22);
             this.textBoxTimKiem.TabIndex = 11;
             // 
             // lbTimKiem
             // 
             this.lbTimKiem.AutoSize = true;
             this.lbTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.lbTimKiem.Location = new System.Drawing.Point(50, 243);
+            this.lbTimKiem.Location = new System.Drawing.Point(14, 292);
             this.lbTimKiem.Name = "lbTimKiem";
             this.lbTimKiem.Size = new System.Drawing.Size(91, 25);
             this.lbTimKiem.TabIndex = 10;
@@ -154,7 +189,7 @@ namespace GUI
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.Location = new System.Drawing.Point(366, 140);
+            this.btnXoa.Location = new System.Drawing.Point(385, 175);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 47);
@@ -163,52 +198,36 @@ namespace GUI
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnSua
+            // btnXemChiTiet
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Orange;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(206, 140);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(88, 47);
-            this.btnSua.TabIndex = 8;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // textBoxTenLoaiKH
-            // 
-            this.textBoxTenLoaiKH.Location = new System.Drawing.Point(235, 65);
-            this.textBoxTenLoaiKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTenLoaiKH.Name = "textBoxTenLoaiKH";
-            this.textBoxTenLoaiKH.Size = new System.Drawing.Size(173, 22);
-            this.textBoxTenLoaiKH.TabIndex = 6;
-            // 
-            // lbTenLoaiKH
-            // 
-            this.lbTenLoaiKH.AutoSize = true;
-            this.lbTenLoaiKH.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.lbTenLoaiKH.Location = new System.Drawing.Point(30, 62);
-            this.lbTenLoaiKH.Name = "lbTenLoaiKH";
-            this.lbTenLoaiKH.Size = new System.Drawing.Size(181, 25);
-            this.lbTenLoaiKH.TabIndex = 3;
-            this.lbTenLoaiKH.Text = "Tên loại khách hàng";
+            this.btnXemChiTiet.BackColor = System.Drawing.Color.SlateGray;
+            this.btnXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnXemChiTiet.ForeColor = System.Drawing.Color.White;
+            this.btnXemChiTiet.Location = new System.Drawing.Point(204, 175);
+            this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXemChiTiet.Name = "btnXemChiTiet";
+            this.btnXemChiTiet.Size = new System.Drawing.Size(88, 47);
+            this.btnXemChiTiet.TabIndex = 8;
+            this.btnXemChiTiet.Text = "Chi tiết";
+            this.btnXemChiTiet.UseVisualStyleBackColor = false;
+            this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
             // 
             // fmLoaiKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 593);
+            this.ClientSize = new System.Drawing.Size(539, 644);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelDiaDiem);
             this.Name = "fmLoaiKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Loại khách hàng | Tour App";
+            this.Text = "fmLoaiKhachHang";
             this.panelDiaDiem.ResumeLayout(false);
             this.panelDiaDiem.PerformLayout();
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoaiKH)).EndInit();
             this.ResumeLayout(false);
 
@@ -219,15 +238,16 @@ namespace GUI
         private System.Windows.Forms.Panel panelDiaDiem;
         private System.Windows.Forms.Label lbLoaiKH;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxTenLoaiKH;
-        private System.Windows.Forms.Label lbTenLoaiKH;
         private System.Windows.Forms.DataGridView dataGridViewLoaiKH;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Label lbTimKiem;
-        private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLoaiKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiKhachHang;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.TextBox textBoxTimKiem;
+        private System.Windows.Forms.Label lbTimKiem;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnXemChiTiet;
     }
 }

@@ -25,6 +25,52 @@ namespace DAO
 
         }
 
+        public List<dynamic> GetListKhachHang()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListKhachHang = (from tbKhachHang in tourdulich.khachhangs
+                                       select new
+                                       {
+                                           maSoKhachHang = tbKhachHang.maSoKhachHang,
+                                           hoTenKhachHang = tbKhachHang.hoTenKhachHang,
+                                           soCMND = tbKhachHang.soCMND,
+                                           diaChi = tbKhachHang.diaChi,
+                                           gioiTinh = tbKhachHang.gioiTinh,
+                                           SDT= tbKhachHang.SDT,
+                                           quocTich = tbKhachHang.quocTich
+                                       });
+
+                return getListKhachHang.ToList<dynamic>();
+
+            }
+
+        }
+
+        public List<dynamic> GetListDetailsKhachHang(int maSoKhachHang)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsKhachHang = (from tbKhachHang in tourdulich.khachhangs
+                                              where tbKhachHang.maSoKhachHang == maSoKhachHang
+                                              select new
+                                              {
+                                                  maSoKhachHang = tbKhachHang.maSoKhachHang,
+                                                  hoTenKhachHang = tbKhachHang.hoTenKhachHang,
+                                                  soCMND = tbKhachHang.soCMND,
+                                                  diaChi = tbKhachHang.diaChi,
+                                                  gioiTinh = tbKhachHang.gioiTinh,
+                                                  SDT = tbKhachHang.SDT,
+                                                  quocTich = tbKhachHang.quocTich
+                                              });
+
+                return getListDetailsKhachHang.ToList<dynamic>();
+            }
+        }
+
+        
+
+
         public bool ThemKhachHang(khachhang objKhachHang)
         {
             using (tourdulich = new tourdulichEntities())

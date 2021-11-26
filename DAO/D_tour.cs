@@ -73,7 +73,7 @@ namespace DAO
         }
 
         public bool ThemTour(tour objTour)
-        {
+        { 
             using (tourdulich = new tourdulichEntities())
             {
                 try
@@ -123,6 +123,7 @@ namespace DAO
             }
 
         }
+
 
         public bool XoaTour(tour objTour, int maSoTour)
         {

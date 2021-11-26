@@ -18,7 +18,43 @@ namespace DAO
                 return getListLoaiKH.ToList<loaikhachhang>();
             }    
         }
-        
+
+        public List<dynamic> GetListDetailsLoaiKhachHang(int maLoaiKhachHang)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsLoaiKhachHang = (from tbLoaiKhachHang in tourdulich.loaikhachhangs
+                                               where tbLoaiKhachHang.maLoaiKhachHang == maLoaiKhachHang
+                                               select new
+                                               {
+                                                   maLoaiKhachHang = tbLoaiKhachHang.maLoaiKhachHang,
+                                                   tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang
+                                                  
+                                               });
+
+                return getListDetailsLoaiKhachHang.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetListLoaiKhachHang()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListLoaiKhachHang = (from tbLoaiKhachHang in tourdulich.loaikhachhangs
+                                       select new
+                                       {
+                                           maLoaiKhachHang = tbLoaiKhachHang.maLoaiKhachHang,
+                                           tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang
+                                           
+                                       });
+
+                return getListLoaiKhachHang.ToList<dynamic>();
+
+            }
+
+        }
+
+
         public bool ThemLoaiKH(loaikhachhang objLoaiKH)
         {
             using (tourdulich = new tourdulichEntities())
