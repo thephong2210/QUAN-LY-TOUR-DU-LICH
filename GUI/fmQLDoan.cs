@@ -128,7 +128,7 @@ namespace GUI
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            SuaDoan();
+            LoadDanhSachDoan();
         }
 
         private void buttonXemChiTiet_Click(object sender, EventArgs e)
@@ -163,6 +163,7 @@ namespace GUI
 
             textBoxChiTiet.DataBindings.Add(
                 new Binding("Text", dataGridViewQuanLyDoan[5, e.RowIndex], "Value", true));
+            buttonLamMoi.Enabled = true;
         }
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)
