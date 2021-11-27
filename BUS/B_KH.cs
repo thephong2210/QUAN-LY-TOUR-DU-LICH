@@ -16,6 +16,12 @@ namespace BUS
             return d_KH.GetKhachHang();
         }
 
+        public List<dynamic> GetListDetailsKhachHang(int maSoKhachHang)
+        {
+            return d_KH.GetListDetailsKhachHang(maSoKhachHang);
+        }
+
+
         public bool ThemKhachHang(khachhang objKhachHang)
         {
             return d_KH.ThemKhachHang(objKhachHang);
