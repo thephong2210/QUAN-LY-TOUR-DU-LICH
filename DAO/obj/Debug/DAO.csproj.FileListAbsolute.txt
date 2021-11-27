@@ -56,3 +56,14 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-1
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.csproj.CopyComplete
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\BackupQLTDL-10-11 - Copy\DAO\obj\Debug\DAO.pdb
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll.config
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.dll
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\DAO.pdb
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.dll
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.xml
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.csproj.CopyComplete
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.dll
+D:\Projects\Visual Studio\Source\Repos\thephong2210\QUAN-LY-TOUR-DU-LICH\DAO\obj\Debug\DAO.pdb
