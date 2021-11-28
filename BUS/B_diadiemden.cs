@@ -16,6 +16,16 @@ namespace BUS
             return dDiaDiemDen.GetListDiaDiemDen();
         }
 
+        public bool ThemDiaDiemDen(diadiemden objDiaDiemDen)
+        {
+            return dDiaDiemDen.ThemDiaDiemDen(objDiaDiemDen);
+        }
+
+        public bool ThemDiaDiemThamQuan(diadiemthamquan objDiaDiemThamQuan)
+        {
+            return dDiaDiemDen.ThemDiaDiemThamQuan(objDiaDiemThamQuan);
+        }
+
         public List<diadiemthamquan> GetListDiaDiemThamQuan()
         {
             return dDiaDiemDen.GetListDiaDiemThamQuan();

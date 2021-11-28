@@ -23,6 +23,27 @@ namespace DAO
 
         }
 
+        public bool ThemDiaDiemDen(diadiemden objDiaDiemDen)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tourdulich.diadiemdens.Add(objDiaDiemDen);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
         public List<diadiemthamquan> GetListDiaDiemThamQuan()
         {
             using (tourdulich = new tourdulichEntities())
@@ -30,6 +51,27 @@ namespace DAO
                 var getListTenDDThamQuan = tourdulich.diadiemthamquans;
 
                 return getListTenDDThamQuan.ToList<diadiemthamquan>();
+
+            }
+
+        }
+
+        public bool ThemDiaDiemThamQuan(diadiemthamquan objDiaDiemThamQuan)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tourdulich.diadiemthamquans.Add(objDiaDiemThamQuan);
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
 
             }
 

@@ -146,6 +146,12 @@
     <Compile Include="fmTrangChu.designer.cs">
       <DependentUpon>fmTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmQuanLyDiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmQuanLyDiaDiem.Designer.cs">
+      <DependentUpon>fmQuanLyDiaDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmChiTietDangKy.resx">
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmTrangChu.resx">
       <DependentUpon>fmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmQuanLyDiaDiem.resx">
+      <DependentUpon>fmQuanLyDiaDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

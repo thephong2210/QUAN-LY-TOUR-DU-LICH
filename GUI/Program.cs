@@ -18,7 +18,7 @@ namespace GUI
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fmKhachHang());
+            Application.Run(new fmTrangChu());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
