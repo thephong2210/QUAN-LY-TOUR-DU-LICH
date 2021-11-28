@@ -101,5 +101,11 @@ namespace GUI
             fmLoaiHinhDuLich fmLHDL = new fmLoaiHinhDuLich();
             HienThiFormCon(fmLHDL);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            fmQuanLyDiaDiem fmQLDD = new fmQuanLyDiaDiem();
+            HienThiFormCon(fmQLDD);
+        }
     }
 }

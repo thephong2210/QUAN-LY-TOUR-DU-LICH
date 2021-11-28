@@ -56,11 +56,11 @@ namespace GUI
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxTiemKiem = new System.Windows.Forms.TextBox();
             this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
-            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nhiemVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.nhiemVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -408,38 +408,6 @@ namespace GUI
             this.dataGridViewNhanVien.TabIndex = 22;
             this.dataGridViewNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellContentClick_1);
             // 
-            // maNhanVien
-            // 
-            this.maNhanVien.DataPropertyName = "maNhanVien";
-            this.maNhanVien.FillWeight = 64.17112F;
-            this.maNhanVien.HeaderText = "Mã số nhân viên";
-            this.maNhanVien.MinimumWidth = 6;
-            this.maNhanVien.Name = "maNhanVien";
-            this.maNhanVien.ReadOnly = true;
-            this.maNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // tenNhanVien
-            // 
-            this.tenNhanVien.DataPropertyName = "tenNhanVien";
-            this.tenNhanVien.FillWeight = 107.1658F;
-            this.tenNhanVien.HeaderText = "Tên nhân viên";
-            this.tenNhanVien.MinimumWidth = 6;
-            this.tenNhanVien.Name = "tenNhanVien";
-            this.tenNhanVien.ReadOnly = true;
-            this.tenNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tenNhanVien.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nhiemVu
-            // 
-            this.nhiemVu.DataPropertyName = "nhiemVu";
-            this.nhiemVu.FillWeight = 107.1658F;
-            this.nhiemVu.HeaderText = "Nhiệm vụ";
-            this.nhiemVu.MinimumWidth = 6;
-            this.nhiemVu.Name = "nhiemVu";
-            this.nhiemVu.ReadOnly = true;
-            this.nhiemVu.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nhiemVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGoldenrod;
@@ -466,9 +434,41 @@ namespace GUI
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(80, 30);
             this.btnTimKiem.TabIndex = 23;
-            this.btnTimKiem.Text = "Tiềm kiếm";
+            this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // nhiemVu
+            // 
+            this.nhiemVu.DataPropertyName = "nhiemVu";
+            this.nhiemVu.FillWeight = 107.1658F;
+            this.nhiemVu.HeaderText = "Nhiệm vụ";
+            this.nhiemVu.MinimumWidth = 6;
+            this.nhiemVu.Name = "nhiemVu";
+            this.nhiemVu.ReadOnly = true;
+            this.nhiemVu.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nhiemVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // tenNhanVien
+            // 
+            this.tenNhanVien.DataPropertyName = "tenNhanVien";
+            this.tenNhanVien.FillWeight = 107.1658F;
+            this.tenNhanVien.HeaderText = "Tên nhân viên";
+            this.tenNhanVien.MinimumWidth = 6;
+            this.tenNhanVien.Name = "tenNhanVien";
+            this.tenNhanVien.ReadOnly = true;
+            this.tenNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.tenNhanVien.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // maNhanVien
+            // 
+            this.maNhanVien.DataPropertyName = "maNhanVien";
+            this.maNhanVien.FillWeight = 64.17112F;
+            this.maNhanVien.HeaderText = "Mã số nhân viên";
+            this.maNhanVien.MinimumWidth = 6;
+            this.maNhanVien.Name = "maNhanVien";
+            this.maNhanVien.ReadOnly = true;
+            this.maNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // fmNhanVien
             // 
@@ -536,12 +536,12 @@ namespace GUI
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTiemKiem;
         private System.Windows.Forms.DataGridView dataGridViewNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
     }
 }
