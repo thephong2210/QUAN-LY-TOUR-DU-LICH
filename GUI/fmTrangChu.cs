@@ -107,5 +107,11 @@ namespace GUI
             fmQuanLyDiaDiem fmQLDD = new fmQuanLyDiaDiem();
             HienThiFormCon(fmQLDD);
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            fmDangKy fmDangKyKhachHang = new fmDangKy();
+            HienThiFormCon(fmDangKyKhachHang);
+        }
     }
 }
