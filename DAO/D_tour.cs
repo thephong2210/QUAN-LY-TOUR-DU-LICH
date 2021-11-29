@@ -44,6 +44,17 @@ namespace DAO
 
         }
 
+        public List<tour> TimKiemTenTour(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getList = tourdulich.tours.Where(t => t.tenGoiTour.Contains(searchValue));
+
+                return getList.ToList<tour>();
+            }
+
+        }
+
         public List<dynamic> GetListDetailsTour(int maSoTour)
         {
             using (tourdulich = new tourdulichEntities())

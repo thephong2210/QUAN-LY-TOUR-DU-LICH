@@ -152,10 +152,19 @@
     <Compile Include="fmQuanLyDiaDiem.Designer.cs">
       <DependentUpon>fmQuanLyDiaDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmChiTietDiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmChiTietDiaDiem.Designer.cs">
+      <DependentUpon>fmChiTietDiaDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmChiTietDangKy.resx">
       <DependentUpon>fmChiTietDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmChiTietDiaDiem.resx">
+      <DependentUpon>fmChiTietDiaDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmChitietDoan.resx">
       <DependentUpon>fmChitietDoan.cs</DependentUpon>

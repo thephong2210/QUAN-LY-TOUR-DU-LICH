@@ -12,19 +12,40 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class fmQuanLyDiaDiem : Form
+    public partial class fmChiTietDiaDiem : Form
     {
         B_diadiemden b_DiaDiemDen = new B_diadiemden();
 
-        public fmQuanLyDiaDiem()
+        public fmChiTietDiaDiem(int maDiaDiemDen, string tenDiaDiemDen, fmQuanLyDiaDiem fmQuanLyDiaDiem)
         {
             InitializeComponent();
-            LoadDanhSachDiaDiem();
+            this.maDiaDiemDen = maDiaDiemDen;
+            this.tenDiaDiemDen = tenDiaDiemDen;
+            fmMain = fmQuanLyDiaDiem;
+
+            HienThiChiTietDiaDiem();
+
         }
 
-        public void LoadDanhSachDiaDiem()
+        private fmQuanLyDiaDiem fmMain;
+        public int maDiaDiemDen { get; set; } //Set data sẽ lấy từ form
+        public string tenDiaDiemDen { get; set; }
+
+        public void HienThiChiTietDiaDiem()
         {
-            dataGridViewDanhSachDiaDiem.DataSource = b_DiaDiemDen.GetListDiaDiemDen();
+            List<diadiemthamquan> listDetailsDDTQ = b_DiaDiemDen.GetListDetailsDiaDiemThamQuan(maDiaDiemDen);
+
+            textBoxMaDiaDiemDen.Text = maDiaDiemDen.ToString();
+            textBoxTenDiaDiemDen.Text = tenDiaDiemDen;
+
+            //Xóa trước khi add new
+            listBoxDiaDiemThamQuan.Items.Clear();
+
+            foreach (var itemDDTQ in listDetailsDDTQ)
+            {
+                listBoxDiaDiemThamQuan.Items.Add(itemDDTQ.tenDiaDiem);
+            }
+
         }
 
         public void ThemDiaDiemToListBox()
@@ -80,27 +101,40 @@ namespace GUI
             }
         }
 
-        public void ThemMoiDiaDiem()
+        public void SuaThongTinDiaDiem()
         {
+            List<diadiemthamquan> listDiaDiemThamQuan = b_DiaDiemDen.GetListDiaDiemThamQuan();
+
             if (!String.IsNullOrWhiteSpace(textBoxTenDiaDiemDen.Text))
             {
                 if (listBoxDiaDiemThamQuan.Items.Count != 0)
                 {
-                    List<diadiemden> listDiaDiemDen = b_DiaDiemDen.GetListDiaDiemDen();
                     diadiemden objDiaDiemDen = new diadiemden();
-                    
+                    diadiemthamquan objDiaDiemThamQuan = new diadiemthamquan();
+
                     objDiaDiemDen.tenDiaDiemDen = textBoxTenDiaDiemDen.Text;
-                    
-                    if (b_DiaDiemDen.ThemDiaDiemDen(objDiaDiemDen))
+
+                    if (b_DiaDiemDen.SuaDiaDiemDen(objDiaDiemDen, maDiaDiemDen)) //Hàm sửa địa điểm đến
                     {
-                        System.Diagnostics.Debug.WriteLine("Thêm địa điểm đến thành công!"); //debug write line
+                        System.Diagnostics.Debug.WriteLine("Sửa địa điểm đến thành công!"); //debug write line
+
+                        //Xóa địa điểm tham quan có mã địa điểm đến cũ trước khi sửa
+                        foreach (var items in listDiaDiemThamQuan)
+                        {
+                            if (maDiaDiemDen == items.maDiaDiemDen)
+                            {
+                                
+                                if (b_DiaDiemDen.XoaDiaDiemThamQuan(objDiaDiemThamQuan, items.maDiaDiem))
+                                {
+                                    System.Diagnostics.Debug.WriteLine("Xóa địa điểm tham quan cũ thành công!");
+                                }
+                            }
+                        }
 
                         foreach (string item in listBoxDiaDiemThamQuan.Items)
                         {
-                            diadiemthamquan objDiaDiemThamQuan = new diadiemthamquan();
-
                             objDiaDiemThamQuan.tenDiaDiem = item;
-                            objDiaDiemThamQuan.maDiaDiemDen = GetMaxMaDiaDiemDen(listDiaDiemDen) + 1; //mã địa điểm mới
+                            objDiaDiemThamQuan.maDiaDiemDen = maDiaDiemDen;
 
                             if (b_DiaDiemDen.ThemDiaDiemThamQuan(objDiaDiemThamQuan))
                             {
@@ -109,10 +143,9 @@ namespace GUI
                             }
                         }
 
-                        LoadDanhSachDiaDiem();
-                        ClearFields();
-                        MessageBox.Show("Thêm địa điểm thành công!", "Thông báo");
-                        
+                        fmMain.LoadDanhSachDiaDiem();
+                        MessageBox.Show("Sửa địa điểm thành công!", "Thông báo");
+
                     }
 
                 }
@@ -127,66 +160,6 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập tên địa điểm đến!", "Thông báo");
                 textBoxTenDiaDiemDen.Focus();
             }
-        }
-
-        public void ClearFields()
-        {
-            textBoxTenDiaDiemDen.Text = "";
-            textBoxDiaDiemThamQuan.Text = "";
-            listBoxDiaDiemThamQuan.Items.Clear();
-        }
-
-        //Dùng cho chức năng thêm
-        public int GetMaxMaDiaDiemDen(List<diadiemden> list)
-        {
-            if (list.Count == 0)
-            {
-                throw new InvalidOperationException("Empty list");
-            }
-            int maxMaDiaDiemDen = 0;
-            foreach (diadiemden type in list)
-            {
-                if (type.maDiaDiemDen > maxMaDiaDiemDen)
-                {
-                    maxMaDiaDiemDen = type.maDiaDiemDen;
-                }
-            }
-            return maxMaDiaDiemDen;
-        }
-
-        private void XemChiTietDiaDiem()
-        {
-            foreach (DataGridViewRow row in dataGridViewDanhSachDiaDiem.SelectedRows)
-            {
-                if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
-                {
-                    string maDiaDiemDen = row.Cells[0].Value.ToString();
-                    string tenDiaDiemDen = row.Cells[1].Value.ToString();
-
-                    fmChiTietDiaDiem formChiTietDiaDiem = new fmChiTietDiaDiem(int.Parse(maDiaDiemDen), tenDiaDiemDen, this);
-                    //System.Diagnostics.Debug.WriteLine(int.Parse(maSoTour));
-
-                    formChiTietDiaDiem.ShowDialog();
-
-                }
-
-            }
-        }
-
-        public void TimKiemTenDiaDiem()
-        {
-            
-            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
-            {
-                string searchValue = textBoxTimKiem.Text;
-
-                dataGridViewDanhSachDiaDiem.DataSource = b_DiaDiemDen.TimKiemTenDiaDiemDen(searchValue);
-                
-            }
-            else
-            {
-                LoadDanhSachDiaDiem();
-            }
 
         }
 
@@ -200,46 +173,20 @@ namespace GUI
             XoaItemListBox();
         }
 
-        //button xóa tất cả
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonXoaTatCa_Click(object sender, EventArgs e)
         {
             XoaTatCaItemListBox();
         }
 
-        //button Thêm
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDong_Click(object sender, EventArgs e)
         {
-            ThemMoiDiaDiem();
+            this.Hide();
         }
 
-        //button xem chi tiết
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSua_Click(object sender, EventArgs e)
         {
-            XemChiTietDiaDiem();
+            SuaThongTinDiaDiem();
         }
-
-        private void fmQuanLyDiaDiem_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxDiaDiemThamQuan_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxTenDiaDiemDen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            TimKiemTenDiaDiem();
-        }
-
-        
-
 
     }
 }

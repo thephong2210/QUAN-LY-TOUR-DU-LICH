@@ -348,10 +348,26 @@ namespace GUI
 
         }
 
+        public void TimKiemTen()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+
+                dataGridViewQuanLyTour.DataSource = bTour.TimKiemTenTour(searchValue);
+
+            }
+            else
+            {
+                LoadDanhSachTour();
+            }
+
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            TimKiemTen();
         }
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)

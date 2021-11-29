@@ -70,7 +70,7 @@ namespace GUI
             this.label2 = new System.Windows.Forms.Label();
             this.buttonTaoMoi = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonXemChiTiet = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -495,7 +495,7 @@ namespace GUI
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.textBoxTimKiem);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.buttonXemChiTiet);
             this.panel3.Controls.Add(this.panel7);
@@ -511,15 +511,15 @@ namespace GUI
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // textBox1
+            // textBoxTimKiem
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(122, 88);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(393, 30);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTimKiem.Location = new System.Drawing.Point(122, 88);
+            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTimKiem.Name = "textBoxTimKiem";
+            this.textBoxTimKiem.Size = new System.Drawing.Size(393, 30);
+            this.textBoxTimKiem.TabIndex = 21;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -780,7 +780,7 @@ namespace GUI
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button buttonXemChiTiet;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
