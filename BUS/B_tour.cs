@@ -22,6 +22,11 @@ namespace BUS
             return dTour.GetListTour();
         }
 
+        public List<tour> TimKiemTenTour(string searchValue)
+        {
+            return dTour.TimKiemTenTour(searchValue);
+        }
+
         public List<dynamic> GetListDetailsTour(int maSoTour)
         {
             return dTour.GetListDetailsTour(maSoTour);

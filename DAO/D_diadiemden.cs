@@ -11,7 +11,7 @@ namespace DAO
     {
         tourdulichEntities tourdulich;
 
-        //Dùng load combobox 
+        //Địa điểm đến
         public List<diadiemden> GetListDiaDiemDen()
         {
             using (tourdulich = new tourdulichEntities())
@@ -44,6 +44,41 @@ namespace DAO
 
         }
 
+        public bool SuaDiaDiemDen(diadiemden objDiaDiemDen, int maDiaDiemDen)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    diadiemden objOld = tourdulich.diadiemdens.Where(t => t.maDiaDiemDen == maDiaDiemDen).SingleOrDefault();
+                    objOld.tenDiaDiemDen = objDiaDiemDen.tenDiaDiemDen;
+                    
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public List<diadiemden> TimKiemTenDiaDiemDen(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDiaDiemDen = tourdulich.diadiemdens.Where(t => t.tenDiaDiemDen.Contains(searchValue));
+
+                return getListDiaDiemDen.ToList<diadiemden>();
+            }
+
+        }
+
+        //Địa điểm tham quan
         public List<diadiemthamquan> GetListDiaDiemThamQuan()
         {
             using (tourdulich = new tourdulichEntities())
@@ -51,6 +86,18 @@ namespace DAO
                 var getListTenDDThamQuan = tourdulich.diadiemthamquans;
 
                 return getListTenDDThamQuan.ToList<diadiemthamquan>();
+
+            }
+
+        }
+
+        public List<diadiemthamquan> GetListDetailsDiaDiemThamQuan(int maDiaDiemDenTemp)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsDDD = tourdulich.diadiemthamquans.Where(maDiaDiemDen => maDiaDiemDen.maDiaDiemDen == maDiaDiemDenTemp);
+
+                return getListDetailsDDD.ToList<diadiemthamquan>();
 
             }
 
@@ -77,6 +124,29 @@ namespace DAO
 
         }
 
+        public bool XoaDiaDiemThamQuan(diadiemthamquan objDiaDiemThamQuan, int maDiaDiem)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    objDiaDiemThamQuan = tourdulich.diadiemthamquans.Where(ddt => ddt.maDiaDiem == maDiaDiem).SingleOrDefault();
+                    tourdulich.diadiemthamquans.Remove(objDiaDiemThamQuan);
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+            }
+        }
+
+
+        //Địa điểm đã đăng ký trong tour
         public List<diadiemtour> GetListDiaDiemTour()
         {
             using (tourdulich = new tourdulichEntities())

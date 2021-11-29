@@ -11,6 +11,7 @@ namespace BUS
     {
         D_diadiemden dDiaDiemDen = new D_diadiemden();
 
+        //Địa điểm đến
         public List<diadiemden> GetListDiaDiemDen()
         {
             return dDiaDiemDen.GetListDiaDiemDen();
@@ -21,6 +22,18 @@ namespace BUS
             return dDiaDiemDen.ThemDiaDiemDen(objDiaDiemDen);
         }
 
+        public bool SuaDiaDiemDen(diadiemden objDiaDiemDen, int maDiaDiemDen)
+        {
+            return dDiaDiemDen.SuaDiaDiemDen(objDiaDiemDen, maDiaDiemDen);
+        }
+
+        public List<diadiemden> TimKiemTenDiaDiemDen(string searchValue)
+        {
+            return dDiaDiemDen.TimKiemTenDiaDiemDen(searchValue);
+        }
+
+
+        //Địa điểm tham quan
         public bool ThemDiaDiemThamQuan(diadiemthamquan objDiaDiemThamQuan)
         {
             return dDiaDiemDen.ThemDiaDiemThamQuan(objDiaDiemThamQuan);
@@ -31,6 +44,17 @@ namespace BUS
             return dDiaDiemDen.GetListDiaDiemThamQuan();
         }
 
+        public List<diadiemthamquan> GetListDetailsDiaDiemThamQuan(int maDiaDiemDenTemp)
+        {
+            return dDiaDiemDen.GetListDetailsDiaDiemThamQuan(maDiaDiemDenTemp);
+        }
+
+        public bool XoaDiaDiemThamQuan(diadiemthamquan objDiaDiemThamQuan, int maDiaDiem)
+        {
+            return dDiaDiemDen.XoaDiaDiemThamQuan(objDiaDiemThamQuan, maDiaDiem);
+        }
+
+        //Địa điểm đăng ký trong tour
         public List<diadiemtour> GetListDiaDiemTour()
         {
             return dDiaDiemDen.GetListDiaDiemTour();

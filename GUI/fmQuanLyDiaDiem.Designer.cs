@@ -30,8 +30,8 @@ namespace GUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,23 +40,22 @@ namespace GUI
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.textBoxTenDiaDiemDen = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxDiaDiemThamQuan = new System.Windows.Forms.TextBox();
-            this.buttonThemDDTQ = new System.Windows.Forms.Button();
-            this.listBoxDiaDiemThamQuan = new System.Windows.Forms.ListBox();
-            this.buttonXoaDDTQ = new System.Windows.Forms.Button();
-            this.buttonXoaTatCa = new System.Windows.Forms.Button();
             this.buttonThemMoi = new System.Windows.Forms.Button();
-            this.dataGridViewDanhSachDiaDiem = new System.Windows.Forms.DataGridView();
-            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonXoaTatCa = new System.Windows.Forms.Button();
+            this.buttonXoaDDTQ = new System.Windows.Forms.Button();
+            this.listBoxDiaDiemThamQuan = new System.Windows.Forms.ListBox();
+            this.buttonThemDDTQ = new System.Windows.Forms.Button();
+            this.textBoxDiaDiemThamQuan = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxTenDiaDiemDen = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
+            this.dataGridViewDanhSachDiaDiem = new System.Windows.Forms.DataGridView();
             this.maDiaDiemDen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDiaDiemDen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -66,9 +65,9 @@ namespace GUI
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhSachDiaDiem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,17 +81,6 @@ namespace GUI
             this.panel1.Size = new System.Drawing.Size(1252, 63);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(472, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 51);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Quản lý địa điểm";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
@@ -104,6 +92,17 @@ namespace GUI
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(472, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(324, 51);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Quản lý địa điểm";
             // 
             // panel10
             // 
@@ -189,49 +188,18 @@ namespace GUI
             this.panel4.Size = new System.Drawing.Size(391, 573);
             this.panel4.TabIndex = 38;
             // 
-            // panel5
+            // buttonThemMoi
             // 
-            this.panel5.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.textBoxTimKiem);
-            this.panel5.Controls.Add(this.dataGridViewDanhSachDiaDiem);
-            this.panel5.Location = new System.Drawing.Point(394, 111);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(857, 573);
-            this.panel5.TabIndex = 39;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 25);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Tên địa điểm đến";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label3);
-            this.panel8.Controls.Add(this.textBoxTenDiaDiemDen);
-            this.panel8.Location = new System.Drawing.Point(13, 31);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(361, 57);
-            this.panel8.TabIndex = 34;
-            // 
-            // textBoxTenDiaDiemDen
-            // 
-            this.textBoxTenDiaDiemDen.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.textBoxTenDiaDiemDen.Location = new System.Drawing.Point(163, 14);
-            this.textBoxTenDiaDiemDen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTenDiaDiemDen.Name = "textBoxTenDiaDiemDen";
-            this.textBoxTenDiaDiemDen.Size = new System.Drawing.Size(193, 32);
-            this.textBoxTenDiaDiemDen.TabIndex = 1;
-            this.textBoxTenDiaDiemDen.TextChanged += new System.EventHandler(this.textBoxTenDiaDiemDen_TextChanged);
+            this.buttonThemMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
+            this.buttonThemMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonThemMoi.ForeColor = System.Drawing.Color.White;
+            this.buttonThemMoi.Location = new System.Drawing.Point(129, 496);
+            this.buttonThemMoi.Name = "buttonThemMoi";
+            this.buttonThemMoi.Size = new System.Drawing.Size(138, 54);
+            this.buttonThemMoi.TabIndex = 23;
+            this.buttonThemMoi.Text = "Thêm mới";
+            this.buttonThemMoi.UseVisualStyleBackColor = false;
+            this.buttonThemMoi.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel6
             // 
@@ -246,49 +214,18 @@ namespace GUI
             this.panel6.Size = new System.Drawing.Size(361, 371);
             this.panel6.TabIndex = 35;
             // 
-            // label5
+            // buttonXoaTatCa
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 25);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Địa điểm tham quan";
-            // 
-            // textBoxDiaDiemThamQuan
-            // 
-            this.textBoxDiaDiemThamQuan.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.textBoxDiaDiemThamQuan.Location = new System.Drawing.Point(8, 47);
-            this.textBoxDiaDiemThamQuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDiaDiemThamQuan.Name = "textBoxDiaDiemThamQuan";
-            this.textBoxDiaDiemThamQuan.Size = new System.Drawing.Size(262, 32);
-            this.textBoxDiaDiemThamQuan.TabIndex = 18;
-            this.textBoxDiaDiemThamQuan.TextChanged += new System.EventHandler(this.textBoxDiaDiemThamQuan_TextChanged);
-            // 
-            // buttonThemDDTQ
-            // 
-            this.buttonThemDDTQ.BackColor = System.Drawing.Color.YellowGreen;
-            this.buttonThemDDTQ.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonThemDDTQ.ForeColor = System.Drawing.Color.White;
-            this.buttonThemDDTQ.Location = new System.Drawing.Point(276, 47);
-            this.buttonThemDDTQ.Name = "buttonThemDDTQ";
-            this.buttonThemDDTQ.Size = new System.Drawing.Size(80, 32);
-            this.buttonThemDDTQ.TabIndex = 19;
-            this.buttonThemDDTQ.Text = "Thêm";
-            this.buttonThemDDTQ.UseVisualStyleBackColor = false;
-            this.buttonThemDDTQ.Click += new System.EventHandler(this.buttonThemDDTQ_Click);
-            // 
-            // listBoxDiaDiemThamQuan
-            // 
-            this.listBoxDiaDiemThamQuan.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.listBoxDiaDiemThamQuan.FormattingEnabled = true;
-            this.listBoxDiaDiemThamQuan.ItemHeight = 23;
-            this.listBoxDiaDiemThamQuan.Location = new System.Drawing.Point(8, 91);
-            this.listBoxDiaDiemThamQuan.Name = "listBoxDiaDiemThamQuan";
-            this.listBoxDiaDiemThamQuan.Size = new System.Drawing.Size(347, 211);
-            this.listBoxDiaDiemThamQuan.TabIndex = 20;
+            this.buttonXoaTatCa.BackColor = System.Drawing.Color.Brown;
+            this.buttonXoaTatCa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaTatCa.ForeColor = System.Drawing.Color.White;
+            this.buttonXoaTatCa.Location = new System.Drawing.Point(252, 322);
+            this.buttonXoaTatCa.Name = "buttonXoaTatCa";
+            this.buttonXoaTatCa.Size = new System.Drawing.Size(104, 32);
+            this.buttonXoaTatCa.TabIndex = 22;
+            this.buttonXoaTatCa.Text = "Xóa tất cả";
+            this.buttonXoaTatCa.UseVisualStyleBackColor = false;
+            this.buttonXoaTatCa.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonXoaDDTQ
             // 
@@ -303,59 +240,105 @@ namespace GUI
             this.buttonXoaDDTQ.UseVisualStyleBackColor = false;
             this.buttonXoaDDTQ.Click += new System.EventHandler(this.buttonXoaDDTQ_Click);
             // 
-            // buttonXoaTatCa
+            // listBoxDiaDiemThamQuan
             // 
-            this.buttonXoaTatCa.BackColor = System.Drawing.Color.Brown;
-            this.buttonXoaTatCa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonXoaTatCa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoaTatCa.Location = new System.Drawing.Point(252, 322);
-            this.buttonXoaTatCa.Name = "buttonXoaTatCa";
-            this.buttonXoaTatCa.Size = new System.Drawing.Size(104, 32);
-            this.buttonXoaTatCa.TabIndex = 22;
-            this.buttonXoaTatCa.Text = "Xóa tất cả";
-            this.buttonXoaTatCa.UseVisualStyleBackColor = false;
-            this.buttonXoaTatCa.Click += new System.EventHandler(this.button1_Click);
+            this.listBoxDiaDiemThamQuan.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.listBoxDiaDiemThamQuan.FormattingEnabled = true;
+            this.listBoxDiaDiemThamQuan.ItemHeight = 23;
+            this.listBoxDiaDiemThamQuan.Location = new System.Drawing.Point(8, 91);
+            this.listBoxDiaDiemThamQuan.Name = "listBoxDiaDiemThamQuan";
+            this.listBoxDiaDiemThamQuan.Size = new System.Drawing.Size(347, 211);
+            this.listBoxDiaDiemThamQuan.TabIndex = 20;
             // 
-            // buttonThemMoi
+            // buttonThemDDTQ
             // 
-            this.buttonThemMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
-            this.buttonThemMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonThemMoi.ForeColor = System.Drawing.Color.White;
-            this.buttonThemMoi.Location = new System.Drawing.Point(129, 496);
-            this.buttonThemMoi.Name = "buttonThemMoi";
-            this.buttonThemMoi.Size = new System.Drawing.Size(138, 54);
-            this.buttonThemMoi.TabIndex = 23;
-            this.buttonThemMoi.Text = "Thêm mới";
-            this.buttonThemMoi.UseVisualStyleBackColor = false;
-            this.buttonThemMoi.Click += new System.EventHandler(this.button2_Click);
+            this.buttonThemDDTQ.BackColor = System.Drawing.Color.YellowGreen;
+            this.buttonThemDDTQ.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDDTQ.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDDTQ.Location = new System.Drawing.Point(276, 47);
+            this.buttonThemDDTQ.Name = "buttonThemDDTQ";
+            this.buttonThemDDTQ.Size = new System.Drawing.Size(80, 32);
+            this.buttonThemDDTQ.TabIndex = 19;
+            this.buttonThemDDTQ.Text = "Thêm";
+            this.buttonThemDDTQ.UseVisualStyleBackColor = false;
+            this.buttonThemDDTQ.Click += new System.EventHandler(this.buttonThemDDTQ_Click);
             // 
-            // dataGridViewDanhSachDiaDiem
+            // textBoxDiaDiemThamQuan
             // 
-            this.dataGridViewDanhSachDiaDiem.AllowUserToAddRows = false;
-            this.dataGridViewDanhSachDiaDiem.AllowUserToDeleteRows = false;
-            this.dataGridViewDanhSachDiaDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDanhSachDiaDiem.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewDanhSachDiaDiem.ColumnHeadersHeight = 40;
-            this.dataGridViewDanhSachDiaDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maDiaDiemDen,
-            this.tenDiaDiemDen});
-            this.dataGridViewDanhSachDiaDiem.Location = new System.Drawing.Point(23, 48);
-            this.dataGridViewDanhSachDiaDiem.Name = "dataGridViewDanhSachDiaDiem";
-            this.dataGridViewDanhSachDiaDiem.ReadOnly = true;
-            this.dataGridViewDanhSachDiaDiem.RowHeadersWidth = 51;
-            this.dataGridViewDanhSachDiaDiem.RowTemplate.Height = 24;
-            this.dataGridViewDanhSachDiaDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDanhSachDiaDiem.Size = new System.Drawing.Size(802, 427);
-            this.dataGridViewDanhSachDiaDiem.TabIndex = 0;
+            this.textBoxDiaDiemThamQuan.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.textBoxDiaDiemThamQuan.Location = new System.Drawing.Point(8, 47);
+            this.textBoxDiaDiemThamQuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDiaDiemThamQuan.Name = "textBoxDiaDiemThamQuan";
+            this.textBoxDiaDiemThamQuan.Size = new System.Drawing.Size(262, 32);
+            this.textBoxDiaDiemThamQuan.TabIndex = 18;
+            this.textBoxDiaDiemThamQuan.TextChanged += new System.EventHandler(this.textBoxDiaDiemThamQuan_TextChanged);
             // 
-            // textBoxTimKiem
+            // label5
             // 
-            this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.textBoxTimKiem.Location = new System.Drawing.Point(135, 11);
-            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTimKiem.Name = "textBoxTimKiem";
-            this.textBoxTimKiem.Size = new System.Drawing.Size(442, 32);
-            this.textBoxTimKiem.TabIndex = 18;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(188, 25);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Địa điểm tham quan";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.textBoxTenDiaDiemDen);
+            this.panel8.Location = new System.Drawing.Point(13, 31);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(361, 57);
+            this.panel8.TabIndex = 34;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(3, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 25);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Tên địa điểm đến";
+            // 
+            // textBoxTenDiaDiemDen
+            // 
+            this.textBoxTenDiaDiemDen.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.textBoxTenDiaDiemDen.Location = new System.Drawing.Point(163, 14);
+            this.textBoxTenDiaDiemDen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTenDiaDiemDen.Name = "textBoxTenDiaDiemDen";
+            this.textBoxTenDiaDiemDen.Size = new System.Drawing.Size(193, 32);
+            this.textBoxTenDiaDiemDen.TabIndex = 1;
+            this.textBoxTenDiaDiemDen.TextChanged += new System.EventHandler(this.textBoxTenDiaDiemDen_TextChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.textBoxTimKiem);
+            this.panel5.Controls.Add(this.dataGridViewDanhSachDiaDiem);
+            this.panel5.Location = new System.Drawing.Point(394, 111);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(857, 573);
+            this.panel5.TabIndex = 39;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.SlateGray;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(347, 496);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(160, 54);
+            this.button3.TabIndex = 36;
+            this.button3.Text = "Xem chi tiết";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label6
             // 
@@ -368,29 +351,35 @@ namespace GUI
             this.label6.TabIndex = 18;
             this.label6.Text = "Tìm kiếm";
             // 
-            // button3
+            // textBoxTimKiem
             // 
-            this.button3.BackColor = System.Drawing.Color.SlateGray;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(23, 496);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 54);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Xem chi tiết";
-            this.button3.UseVisualStyleBackColor = false;
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(135, 11);
+            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTimKiem.Name = "textBoxTimKiem";
+            this.textBoxTimKiem.Size = new System.Drawing.Size(442, 32);
+            this.textBoxTimKiem.TabIndex = 18;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBoxTimKiem_TextChanged);
             // 
-            // button4
+            // dataGridViewDanhSachDiaDiem
             // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(681, 496);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 54);
-            this.button4.TabIndex = 37;
-            this.button4.Text = "Xóa địa điểm";
-            this.button4.UseVisualStyleBackColor = false;
+            this.dataGridViewDanhSachDiaDiem.AllowUserToAddRows = false;
+            this.dataGridViewDanhSachDiaDiem.AllowUserToDeleteRows = false;
+            this.dataGridViewDanhSachDiaDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDanhSachDiaDiem.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewDanhSachDiaDiem.ColumnHeadersHeight = 40;
+            this.dataGridViewDanhSachDiaDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maDiaDiemDen,
+            this.tenDiaDiemDen});
+            this.dataGridViewDanhSachDiaDiem.Location = new System.Drawing.Point(23, 48);
+            this.dataGridViewDanhSachDiaDiem.MultiSelect = false;
+            this.dataGridViewDanhSachDiaDiem.Name = "dataGridViewDanhSachDiaDiem";
+            this.dataGridViewDanhSachDiaDiem.ReadOnly = true;
+            this.dataGridViewDanhSachDiaDiem.RowHeadersWidth = 51;
+            this.dataGridViewDanhSachDiaDiem.RowTemplate.Height = 24;
+            this.dataGridViewDanhSachDiaDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewDanhSachDiaDiem.Size = new System.Drawing.Size(802, 427);
+            this.dataGridViewDanhSachDiaDiem.TabIndex = 0;
             // 
             // maDiaDiemDen
             // 
@@ -433,12 +422,12 @@ namespace GUI
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhSachDiaDiem)).EndInit();
             this.ResumeLayout(false);
 
@@ -473,7 +462,6 @@ namespace GUI
         private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.DataGridView dataGridViewDanhSachDiaDiem;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn maDiaDiemDen;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDiaDiemDen;
     }
