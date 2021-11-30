@@ -57,7 +57,7 @@ namespace GUI
 
                 objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
                 objNhanVien.nhiemVu = textBoxNhiemVu.Text;
-
+                objNhanVien.trangThai = 1;
                 //Bắt đầu sửa các dữ liệu
                 try
                 {

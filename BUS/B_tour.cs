@@ -42,12 +42,12 @@ namespace BUS
             return dTour.SuaTour(objTour, maSoTour);
         }
 
-        public bool XoaTour(tour objTour, int maSoTour)
+        public bool XoaTour(int maSoTour)
         {
-            return dTour.XoaTour(objTour, maSoTour);
+            return dTour.XoaTour(maSoTour);
         }
 
 
-
+      
     }
 }

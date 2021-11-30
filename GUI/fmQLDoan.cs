@@ -18,6 +18,8 @@ namespace GUI
         B_doan b_Doan = new B_doan();
         B_tour bTour = new B_tour();
         D_doan d_Doan = new D_doan();
+        TextBox textBox11 = new TextBox();
+        TextBox textBox2 = new TextBox();
         public fmQLDoan()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace GUI
 
         #region method
 
-        private void LoadDanhSachDoan()
+        public void LoadDanhSachDoan()
         {
             dataGridViewQuanLyDoan.DataSource = b_Doan.GetListDoan();
 
@@ -52,9 +54,10 @@ namespace GUI
             objDoan.maSoTour = maTour;
             objDoan.thoiGianKhoiHanh = ngayBatDau;
             objDoan.thoiGianKetThuc = ngayKetThuc;
-            objDoan.soLuongKhachHang = 22;
-            objDoan.SoLuongNhanVien = 10;
+            objDoan.soLuongKhachHang = 0;
+            objDoan.SoLuongNhanVien = 0;
             objDoan.chiTiet = chiTiet;
+            objDoan.trangThai = 1;
             return objDoan;
         }
 
@@ -62,6 +65,7 @@ namespace GUI
         {
             b_Doan.ThemDoan(createDoan());
             LoadDanhSachDoan();
+            MessageBox.Show("Thêm thành công!", "Thông báo");
         }
 
         public void XoaDoan()
@@ -80,28 +84,10 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn tour muốn xóa!", "Thông báo");
+                MessageBox.Show("Vui lòng chọn đoàn muốn xóa!", "Thông báo");
             }
         }
-        private void SuaDoan()
-        {
-
-            if (dataGridViewQuanLyDoan.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dataGridViewQuanLyDoan.SelectedRows)
-                {
-                    int maSoDoan = Convert.ToInt32(row.Cells[0].Value.ToString());
-                    b_Doan.SuaDoan(createDoan(), maSoDoan);
-                    LoadDanhSachDoan();
-                    MessageBox.Show("Sửa thành công!", "Thông báo");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn tour muốn Sửa!", "Thông báo");
-            }
-
-        }
+        
         void XemChiTietDoan()
         {
             foreach (DataGridViewRow row in dataGridViewQuanLyDoan.SelectedRows)
@@ -123,7 +109,13 @@ namespace GUI
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            XoaDoan();
+            var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa không ?? :D", "Thông báo", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                XoaDoan();
+            }
+           
         }
 
         private void buttonSua_Click(object sender, EventArgs e)
@@ -138,32 +130,32 @@ namespace GUI
 
         private void dataGridViewQuanLyDoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (textBoxTenDoan.DataBindings.Count > 0)
-                textBoxTenDoan.DataBindings.RemoveAt(0);
+            //if (textBoxTenDoan.DataBindings.Count > 0)
+            //    textBoxTenDoan.DataBindings.RemoveAt(0);
 
-            textBoxTenDoan.DataBindings.Add(
-                new Binding("Text", dataGridViewQuanLyDoan[1, e.RowIndex], "Value", true));
-            if (comboBoxTour.DataBindings.Count > 0)
-                comboBoxTour.DataBindings.RemoveAt(0);
+            //textBoxTenDoan.DataBindings.Add(
+            //    new Binding("Text", dataGridViewQuanLyDoan[1, e.RowIndex], "Value", true));
+            //if (comboBoxTour.DataBindings.Count > 0)
+            //    comboBoxTour.DataBindings.RemoveAt(0);
 
-            comboBoxTour.DataBindings.Add(
-                new Binding("Text", dataGridViewQuanLyDoan[2, e.RowIndex], "Value", true));
-            if (dateTimePickerNgayBatDau.DataBindings.Count > 0)
-                dateTimePickerNgayBatDau.DataBindings.RemoveAt(0);
+            //comboBoxTour.DataBindings.Add(
+            //    new Binding("Text", dataGridViewQuanLyDoan[2, e.RowIndex], "Value", true));
+            //if (dateTimePickerNgayBatDau.DataBindings.Count > 0)
+            //    dateTimePickerNgayBatDau.DataBindings.RemoveAt(0);
 
-            dateTimePickerNgayBatDau.DataBindings.Add(
-                new Binding("Text", dataGridViewQuanLyDoan[3, e.RowIndex], "Value", true));
-            if (dateTimePickerNgayKetThuc.DataBindings.Count > 0)
-                dateTimePickerNgayKetThuc.DataBindings.RemoveAt(0);
+            //dateTimePickerNgayBatDau.DataBindings.Add(
+            //    new Binding("Text", dataGridViewQuanLyDoan[3, e.RowIndex], "Value", true));
+            //if (dateTimePickerNgayKetThuc.DataBindings.Count > 0)
+            //    dateTimePickerNgayKetThuc.DataBindings.RemoveAt(0);
 
-            dateTimePickerNgayKetThuc.DataBindings.Add(
-                new Binding("Text", dataGridViewQuanLyDoan[4, e.RowIndex], "Value", true));
-            if (textBoxChiTiet.DataBindings.Count > 0)
-                textBoxChiTiet.DataBindings.RemoveAt(0);
+            //dateTimePickerNgayKetThuc.DataBindings.Add(
+            //    new Binding("Text", dataGridViewQuanLyDoan[4, e.RowIndex], "Value", true));
+            //if (textBoxChiTiet.DataBindings.Count > 0)
+            //    textBoxChiTiet.DataBindings.RemoveAt(0);
 
-            textBoxChiTiet.DataBindings.Add(
-                new Binding("Text", dataGridViewQuanLyDoan[5, e.RowIndex], "Value", true));
-            buttonLamMoi.Enabled = true;
+            //textBoxChiTiet.DataBindings.Add(
+            //    new Binding("Text", dataGridViewQuanLyDoan[5, e.RowIndex], "Value", true));
+            //buttonLamMoi.Enabled = true;
         }
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)
@@ -177,6 +169,16 @@ namespace GUI
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBoxTenDoan_TextChanged(object sender, EventArgs e)
         {
 
         }

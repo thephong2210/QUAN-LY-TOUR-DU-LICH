@@ -408,6 +408,8 @@ namespace GUI
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(1269, 731);
+            this.MinimumSize = new System.Drawing.Size(1269, 731);
             this.Name = "fmQuanLyDiaDiem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý địa điểm | Tour App";

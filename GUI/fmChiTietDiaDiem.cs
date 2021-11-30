@@ -113,6 +113,7 @@ namespace GUI
                     diadiemthamquan objDiaDiemThamQuan = new diadiemthamquan();
 
                     objDiaDiemDen.tenDiaDiemDen = textBoxTenDiaDiemDen.Text;
+                    objDiaDiemDen.trangThai = 1;
 
                     if (b_DiaDiemDen.SuaDiaDiemDen(objDiaDiemDen, maDiaDiemDen)) //Hàm sửa địa điểm đến
                     {

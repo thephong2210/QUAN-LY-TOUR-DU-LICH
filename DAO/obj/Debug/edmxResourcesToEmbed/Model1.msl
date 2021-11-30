@@ -14,6 +14,9 @@
     <EntitySetMapping Name="dangkies">
       <EntityTypeMapping TypeName="tourdulichModel.dangky">
         <MappingFragment StoreEntitySet="dangky">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="giaTourDangKy" ColumnName="giaTourDangKy" />
+          <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
           <ScalarProperty Name="maTour" ColumnName="maTour" />
@@ -26,6 +29,7 @@
     <EntitySetMapping Name="diadiemdens">
       <EntityTypeMapping TypeName="tourdulichModel.diadiemden">
         <MappingFragment StoreEntitySet="diadiemden">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
           <ScalarProperty Name="tenDiaDiemDen" ColumnName="tenDiaDiemDen" />
         </MappingFragment>
@@ -52,6 +56,7 @@
     <EntitySetMapping Name="doanduliches">
       <EntityTypeMapping TypeName="tourdulichModel.doandulich">
         <MappingFragment StoreEntitySet="doandulich">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
           <ScalarProperty Name="tenGoiDoan" ColumnName="tenGoiDoan" />
           <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
@@ -76,6 +81,7 @@
     <EntitySetMapping Name="khachhangs">
       <EntityTypeMapping TypeName="tourdulichModel.khachhang">
         <MappingFragment StoreEntitySet="khachhang">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
           <ScalarProperty Name="hoTenKhachHang" ColumnName="hoTenKhachHang" />
           <ScalarProperty Name="soCMND" ColumnName="soCMND" />
@@ -89,6 +95,7 @@
     <EntitySetMapping Name="loaichiphis">
       <EntityTypeMapping TypeName="tourdulichModel.loaichiphi">
         <MappingFragment StoreEntitySet="loaichiphi">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
           <ScalarProperty Name="tenLoaiChiPhi" ColumnName="tenLoaiChiPhi" />
         </MappingFragment>
@@ -97,6 +104,7 @@
     <EntitySetMapping Name="loaihinhduliches">
       <EntityTypeMapping TypeName="tourdulichModel.loaihinhdulich">
         <MappingFragment StoreEntitySet="loaihinhdulich">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
           <ScalarProperty Name="tenLoaiHinhDuLich" ColumnName="tenLoaiHinhDuLich" />
         </MappingFragment>
@@ -105,6 +113,7 @@
     <EntitySetMapping Name="loaikhachhangs">
       <EntityTypeMapping TypeName="tourdulichModel.loaikhachhang">
         <MappingFragment StoreEntitySet="loaikhachhang">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maLoaiKhachHang" ColumnName="maLoaiKhachHang" />
           <ScalarProperty Name="tenLoaiKhachHang" ColumnName="tenLoaiKhachHang" />
         </MappingFragment>
@@ -113,6 +122,7 @@
     <EntitySetMapping Name="nhanviens">
       <EntityTypeMapping TypeName="tourdulichModel.nhanvien">
         <MappingFragment StoreEntitySet="nhanvien">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
           <ScalarProperty Name="tenNhanVien" ColumnName="tenNhanVien" />
           <ScalarProperty Name="nhiemVu" ColumnName="nhiemVu" />
@@ -122,6 +132,7 @@
     <EntitySetMapping Name="thamgiadoans">
       <EntityTypeMapping TypeName="tourdulichModel.thamgiadoan">
         <MappingFragment StoreEntitySet="thamgiadoan">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maThamGia" ColumnName="maThamGia" />
           <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
           <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
@@ -133,12 +144,11 @@
     <EntitySetMapping Name="tours">
       <EntityTypeMapping TypeName="tourdulichModel.tour">
         <MappingFragment StoreEntitySet="tour">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
           <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
           <ScalarProperty Name="tenGoiTour" ColumnName="tenGoiTour" />
           <ScalarProperty Name="dacDiem" ColumnName="dacDiem" />
           <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
-          <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
-          <ScalarProperty Name="tongTien" ColumnName="tongTien" />
           <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
           <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
           <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />

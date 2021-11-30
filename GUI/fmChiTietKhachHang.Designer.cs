@@ -85,7 +85,7 @@ namespace GUI
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_view_details_50;
-            this.pictureBox1.Location = new System.Drawing.Point(72, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 8);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 28);
@@ -98,7 +98,7 @@ namespace GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(132, 1);
+            this.label1.Location = new System.Drawing.Point(187, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 35);
             this.label1.TabIndex = 0;
@@ -126,7 +126,7 @@ namespace GUI
             // 
             this.panel9.Controls.Add(this.textBoxQuocTich);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(12, 474);
+            this.panel9.Location = new System.Drawing.Point(30, 359);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(512, 42);
@@ -156,7 +156,7 @@ namespace GUI
             // 
             this.panel8.Controls.Add(this.textBoxSDT);
             this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(12, 396);
+            this.panel8.Location = new System.Drawing.Point(30, 304);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(512, 42);
@@ -178,15 +178,15 @@ namespace GUI
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(3, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 28);
+            this.label4.Size = new System.Drawing.Size(138, 28);
             this.label4.TabIndex = 0;
-            this.label4.Text = "SĐT";
+            this.label4.Text = "Số điện thoại";
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.groupBox1);
             this.panel7.Controls.Add(this.lbGioiTinh);
-            this.panel7.Location = new System.Drawing.Point(12, 317);
+            this.panel7.Location = new System.Drawing.Point(30, 250);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(512, 40);
@@ -231,15 +231,15 @@ namespace GUI
             this.lbGioiTinh.ForeColor = System.Drawing.Color.Black;
             this.lbGioiTinh.Location = new System.Drawing.Point(3, 5);
             this.lbGioiTinh.Name = "lbGioiTinh";
-            this.lbGioiTinh.Size = new System.Drawing.Size(94, 28);
+            this.lbGioiTinh.Size = new System.Drawing.Size(95, 28);
             this.lbGioiTinh.TabIndex = 19;
-            this.lbGioiTinh.Text = "Gioi tính";
+            this.lbGioiTinh.Text = "Giới tính";
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.textBoxDiaChi);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(12, 245);
+            this.panel6.Location = new System.Drawing.Point(30, 193);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(512, 42);
@@ -271,7 +271,7 @@ namespace GUI
             this.buttonDong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonDong.ForeColor = System.Drawing.Color.White;
-            this.buttonDong.Location = new System.Drawing.Point(405, 597);
+            this.buttonDong.Location = new System.Drawing.Point(370, 452);
             this.buttonDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDong.Name = "buttonDong";
             this.buttonDong.Size = new System.Drawing.Size(119, 49);
@@ -286,7 +286,7 @@ namespace GUI
             this.buttonSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSua.ForeColor = System.Drawing.Color.White;
-            this.buttonSua.Location = new System.Drawing.Point(12, 597);
+            this.buttonSua.Location = new System.Drawing.Point(71, 452);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(119, 49);
@@ -299,7 +299,7 @@ namespace GUI
             // 
             this.panel5.Controls.Add(this.textBoxCMND);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(12, 174);
+            this.panel5.Location = new System.Drawing.Point(30, 138);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(512, 42);
@@ -329,7 +329,7 @@ namespace GUI
             // 
             this.panel4.Controls.Add(this.textBoxTenKhachHang);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(12, 98);
+            this.panel4.Location = new System.Drawing.Point(30, 82);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(512, 42);
@@ -359,7 +359,7 @@ namespace GUI
             // 
             this.panel3.Controls.Add(this.textBoxMaKhachHang);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(12, 24);
+            this.panel3.Location = new System.Drawing.Point(30, 25);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(512, 42);
@@ -390,12 +390,14 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 776);
+            this.ClientSize = new System.Drawing.Size(567, 599);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(585, 646);
+            this.MinimumSize = new System.Drawing.Size(585, 646);
             this.Name = "fmChiTietKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmChiTietKhachHang";
+            this.Text = "Chi tiết khách hàng | Tour app";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -21,5 +21,6 @@ namespace DAO
         public string gioiTinh { get; set; }
         public string SDT { get; set; }
         public string quocTich { get; set; }
+        public int trangThai { get; set; }
     }
 }

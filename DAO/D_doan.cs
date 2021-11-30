@@ -10,7 +10,7 @@ namespace DAO
         public List<doandulich> GetAllDoan()
         {
             {
-                var getAllTour = tourdulich.doanduliches;
+                var getAllTour = tourdulich.doanduliches.Where(t => t.trangThai == 1);
                 return getAllTour.ToList<doandulich>();
             }
         }
@@ -20,6 +20,7 @@ namespace DAO
             {
                 var getListDoan = (from tbDoan in tourdulich.doanduliches
                                    join tbTour in tourdulich.tours on tbDoan.maSoTour equals tbTour.maSoTour
+                                   where tbDoan.trangThai == 1
                                    select new
                                    {
                                        ID = tbDoan.maSoDoan,
@@ -36,21 +37,41 @@ namespace DAO
             }
 
         }
+
+        //Get list đoàn qua mã số tour
+        public List<doandulich> GetListDoanWithMaTour(int maSoTour)
+        {
+            try{
+                var getList = tourdulich.doanduliches.Where(t => t.maSoTour == maSoTour).Where(t => t.trangThai == 1);
+
+                return getList.ToList();
+
+            }catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                return null;
+            }
+        }
+
+
+        //Get list đoàn qua mã số đoàn
         public List<dynamic> GetDoan(int ma)
         {
 
             {
                 var getListDoan = (from tbDoan in tourdulich.doanduliches
                                    join tbTour in tourdulich.tours on tbDoan.maSoTour equals tbTour.maSoTour
-                                   where tbDoan.maSoDoan == ma
+                                   where (tbDoan.maSoDoan == ma) && (tbDoan.trangThai == 1)
                                    select new
                                    {
-
                                        TenDoan = tbDoan.tenGoiDoan,
                                        TenTour = tbTour.tenGoiTour,
                                        thoiGianKhoiHanh = tbDoan.thoiGianKhoiHanh,
                                        thoiGianKetThuc = tbDoan.thoiGianKetThuc,
-                                       chitiet = tbDoan.chiTiet
+                                       chitiet = tbDoan.chiTiet,
+                                       soLuongKhachHang = tbDoan.soLuongKhachHang,
+                                       soLuongNhanVien = tbDoan.SoLuongNhanVien,
+                                       maSoDoan = tbDoan.maSoDoan
 
                                    });
 
@@ -73,8 +94,8 @@ namespace DAO
                                  select new
                                  {
                                      id = tbKH.maSoKhachHang,
-                                     ten = tbKH.hoTenKhachHang
-
+                                     ten = tbKH.hoTenKhachHang,
+                                     soLuong = tbDangKy.soLuongKhachHang
 
 
                                  });
@@ -137,7 +158,51 @@ namespace DAO
                     objDoanOld.thoiGianKetThuc = objDoan.thoiGianKetThuc;
                     objDoanOld.chiTiet = objDoan.chiTiet;
                     objDoanOld.maSoTour = objDoan.maSoTour;
+                    objDoanOld.trangThai = objDoan.trangThai;
 
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool ThemSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
+        {
+            {
+                try
+                {
+                    doandulich objDoanOld = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
+                    objDoanOld.soLuongKhachHang += objDoan.soLuongKhachHang;
+                    
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool GiamSoLuongKhachHangDoan(int soLuongKhachHang, int maSoDoan)
+        {
+            {
+                try
+                {
+                    doandulich objDoanOld = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
+                    objDoanOld.soLuongKhachHang -= soLuongKhachHang;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -159,9 +224,8 @@ namespace DAO
             {
                 try
                 {
-                    doandulich objDoan = new doandulich();
-                    objDoan = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
-                    tourdulich.doanduliches.Remove(objDoan);
+                    doandulich objDoan = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
+                    objDoan.trangThai = 0;
 
                     tourdulich.SaveChanges();
                     return true;

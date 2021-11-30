@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="tourdulichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="tourdulichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="chiphi">
           <Key>
             <PropertyRef Name="maChiPhi" />
@@ -24,6 +24,9 @@
           <Property Name="maLoaiKhachHang" Type="int" Nullable="false" />
           <Property Name="ngayDangKy" Type="date" Nullable="false" />
           <Property Name="maSoDoan" Type="int" Nullable="false" />
+          <Property Name="soLuongKhachHang" Type="int" />
+          <Property Name="giaTourDangKy" Type="float" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="diadiemden">
           <Key>
@@ -31,6 +34,7 @@
           </Key>
           <Property Name="maDiaDiemDen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenDiaDiemDen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="diadiemthamquan">
           <Key>
@@ -60,6 +64,7 @@
           <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="chiTiet" Type="nvarchar(max)" Nullable="false" />
           <Property Name="maSoTour" Type="int" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="giatour">
           <Key>
@@ -81,6 +86,7 @@
           <Property Name="gioiTinh" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="SDT" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="quocTich" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="loaichiphi">
           <Key>
@@ -88,6 +94,7 @@
           </Key>
           <Property Name="maLoaiChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenLoaiChiPhi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="loaihinhdulich">
           <Key>
@@ -95,6 +102,7 @@
           </Key>
           <Property Name="maLoaiHinhDuLich" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenLoaiHinhDuLich" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="loaikhachhang">
           <Key>
@@ -102,6 +110,7 @@
           </Key>
           <Property Name="maLoaiKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenLoaiKhachHang" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="nhanvien">
           <Key>
@@ -110,6 +119,7 @@
           <Property Name="maNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenNhanVien" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="nhiemVu" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="thamgiadoan">
           <Key>
@@ -120,6 +130,7 @@
           <Property Name="maSoDoan" Type="int" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tour">
           <Key>
@@ -129,12 +140,11 @@
           <Property Name="tenGoiTour" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="dacDiem" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="maLoaiHinhDuLich" Type="int" Nullable="false" />
-          <Property Name="soLuongKhachHang" Type="int" Nullable="false" />
-          <Property Name="tongTien" Type="float" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="thoiGianKetThuc" Type="datetime2" Precision="6" Nullable="false" />
           <Property Name="maDiaDiemDen" Type="int" />
           <Property Name="idGiaTour" Type="int" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="tourdulichModelStoreContainer">
           <EntitySet Name="chiphi" EntityType="Self.chiphi" Schema="dbo" store:Type="Tables" />
@@ -152,8 +162,7 @@
           <EntitySet Name="thamgiadoan" EntityType="Self.thamgiadoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tour" EntityType="Self.tour" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tourdulichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -176,6 +185,9 @@
           <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" />
           <Property Name="ngayDangKy" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="maSoDoan" Type="Int32" Nullable="false" />
+          <Property Name="soLuongKhachHang" Type="Int32" />
+          <Property Name="giaTourDangKy" Type="Double" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="diadiemden">
           <Key>
@@ -183,6 +195,7 @@
           </Key>
           <Property Name="maDiaDiemDen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenDiaDiemDen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="diadiemthamquan">
           <Key>
@@ -212,6 +225,7 @@
           <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="chiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="maSoTour" Type="Int32" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="giatour">
           <Key>
@@ -233,6 +247,7 @@
           <Property Name="gioiTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SDT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="loaichiphi">
           <Key>
@@ -240,6 +255,7 @@
           </Key>
           <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="loaihinhdulich">
           <Key>
@@ -247,6 +263,7 @@
           </Key>
           <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenLoaiHinhDuLich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="loaikhachhang">
           <Key>
@@ -254,6 +271,7 @@
           </Key>
           <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenLoaiKhachHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="nhanvien">
           <Key>
@@ -262,6 +280,7 @@
           <Property Name="maNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenNhanVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="nhiemVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="thamgiadoan">
           <Key>
@@ -272,6 +291,7 @@
           <Property Name="maSoDoan" Type="Int32" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tour">
           <Key>
@@ -281,12 +301,11 @@
           <Property Name="tenGoiTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="dacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" />
-          <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
-          <Property Name="tongTien" Type="Double" Nullable="false" />
           <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="maDiaDiemDen" Type="Int32" />
           <Property Name="idGiaTour" Type="Int32" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="chiphis" EntityType="Self.chiphi" />
@@ -323,6 +342,9 @@
           <EntitySetMapping Name="dangkies">
             <EntityTypeMapping TypeName="tourdulichModel.dangky">
               <MappingFragment StoreEntitySet="dangky">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+                <ScalarProperty Name="giaTourDangKy" ColumnName="giaTourDangKy" />
+                <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
                 <ScalarProperty Name="maTour" ColumnName="maTour" />
@@ -335,6 +357,7 @@
           <EntitySetMapping Name="diadiemdens">
             <EntityTypeMapping TypeName="tourdulichModel.diadiemden">
               <MappingFragment StoreEntitySet="diadiemden">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />
                 <ScalarProperty Name="tenDiaDiemDen" ColumnName="tenDiaDiemDen" />
               </MappingFragment>
@@ -361,6 +384,7 @@
           <EntitySetMapping Name="doanduliches">
             <EntityTypeMapping TypeName="tourdulichModel.doandulich">
               <MappingFragment StoreEntitySet="doandulich">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
                 <ScalarProperty Name="tenGoiDoan" ColumnName="tenGoiDoan" />
                 <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
@@ -385,6 +409,7 @@
           <EntitySetMapping Name="khachhangs">
             <EntityTypeMapping TypeName="tourdulichModel.khachhang">
               <MappingFragment StoreEntitySet="khachhang">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maSoKhachHang" ColumnName="maSoKhachHang" />
                 <ScalarProperty Name="hoTenKhachHang" ColumnName="hoTenKhachHang" />
                 <ScalarProperty Name="soCMND" ColumnName="soCMND" />
@@ -398,6 +423,7 @@
           <EntitySetMapping Name="loaichiphis">
             <EntityTypeMapping TypeName="tourdulichModel.loaichiphi">
               <MappingFragment StoreEntitySet="loaichiphi">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
                 <ScalarProperty Name="tenLoaiChiPhi" ColumnName="tenLoaiChiPhi" />
               </MappingFragment>
@@ -406,6 +432,7 @@
           <EntitySetMapping Name="loaihinhduliches">
             <EntityTypeMapping TypeName="tourdulichModel.loaihinhdulich">
               <MappingFragment StoreEntitySet="loaihinhdulich">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
                 <ScalarProperty Name="tenLoaiHinhDuLich" ColumnName="tenLoaiHinhDuLich" />
               </MappingFragment>
@@ -414,6 +441,7 @@
           <EntitySetMapping Name="loaikhachhangs">
             <EntityTypeMapping TypeName="tourdulichModel.loaikhachhang">
               <MappingFragment StoreEntitySet="loaikhachhang">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maLoaiKhachHang" ColumnName="maLoaiKhachHang" />
                 <ScalarProperty Name="tenLoaiKhachHang" ColumnName="tenLoaiKhachHang" />
               </MappingFragment>
@@ -422,6 +450,7 @@
           <EntitySetMapping Name="nhanviens">
             <EntityTypeMapping TypeName="tourdulichModel.nhanvien">
               <MappingFragment StoreEntitySet="nhanvien">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
                 <ScalarProperty Name="tenNhanVien" ColumnName="tenNhanVien" />
                 <ScalarProperty Name="nhiemVu" ColumnName="nhiemVu" />
@@ -431,6 +460,7 @@
           <EntitySetMapping Name="thamgiadoans">
             <EntityTypeMapping TypeName="tourdulichModel.thamgiadoan">
               <MappingFragment StoreEntitySet="thamgiadoan">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maThamGia" ColumnName="maThamGia" />
                 <ScalarProperty Name="maNhanVien" ColumnName="maNhanVien" />
                 <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
@@ -442,12 +472,11 @@
           <EntitySetMapping Name="tours">
             <EntityTypeMapping TypeName="tourdulichModel.tour">
               <MappingFragment StoreEntitySet="tour">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
                 <ScalarProperty Name="maSoTour" ColumnName="maSoTour" />
                 <ScalarProperty Name="tenGoiTour" ColumnName="tenGoiTour" />
                 <ScalarProperty Name="dacDiem" ColumnName="dacDiem" />
                 <ScalarProperty Name="maLoaiHinhDuLich" ColumnName="maLoaiHinhDuLich" />
-                <ScalarProperty Name="soLuongKhachHang" ColumnName="soLuongKhachHang" />
-                <ScalarProperty Name="tongTien" ColumnName="tongTien" />
                 <ScalarProperty Name="thoiGianBatDau" ColumnName="thoiGianBatDau" />
                 <ScalarProperty Name="thoiGianKetThuc" ColumnName="thoiGianKetThuc" />
                 <ScalarProperty Name="maDiaDiemDen" ColumnName="maDiaDiemDen" />

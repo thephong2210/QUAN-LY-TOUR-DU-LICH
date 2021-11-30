@@ -14,7 +14,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getAllNhanVien = tourdulich.nhanviens;
+                var getAllNhanVien = tourdulich.nhanviens.Where(t => t.trangThai == 1);
                 return getAllNhanVien.ToList<nhanvien>();
             }
         }
@@ -23,7 +23,8 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListNhanVien = (from tbNhanVien in tourdulich.nhanviens        
+                var getListNhanVien = (from tbNhanVien in tourdulich.nhanviens
+                                       where tbNhanVien.trangThai == 1
                                    select new
                                    {
                                        maNhanVien = tbNhanVien.maNhanVien,
@@ -59,6 +60,7 @@ namespace DAO
             {
                 var getListDetailsNhanVien = (from tbNhanVien in tourdulich.nhanviens
                                               where tbNhanVien.maNhanVien == maNhanVien
+                                              where tbNhanVien.trangThai == 1
                                               select new
                                               {
                                                   maNhanVien = tbNhanVien.maNhanVien,
@@ -88,14 +90,14 @@ namespace DAO
             }
         }
 
-        public bool XoaNhanVien(nhanvien objNhanVien, int maNhanVien)
+        public bool XoaNhanVien(int maNhanVien)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    objNhanVien = tourdulich.nhanviens.Where(t => t.maNhanVien == maNhanVien).SingleOrDefault();    // ??
-                    tourdulich.nhanviens.Remove(objNhanVien);
+                    nhanvien objNhanVien = tourdulich.nhanviens.Where(t => t.maNhanVien == maNhanVien).SingleOrDefault();    // ??
+                    objNhanVien.trangThai = 0;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -118,7 +120,8 @@ namespace DAO
                     nhanvien objNhanVienOld = tourdulich.nhanviens.Where(t => t.maNhanVien == maNhanVien).SingleOrDefault();
                     objNhanVienOld.tenNhanVien = objNhanVien.tenNhanVien;
                     objNhanVienOld.nhiemVu = objNhanVien.nhiemVu;
-                    
+                    objNhanVienOld.trangThai = objNhanVien.trangThai;
+
                     tourdulich.SaveChanges();
                     return true;
                 }

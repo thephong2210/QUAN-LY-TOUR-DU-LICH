@@ -57,14 +57,13 @@ namespace GUI
 
         public void XoaLoaiKH()
         {
-            loaikhachhang objLoaiKhachHang = new loaikhachhang();
-
+            
             if (dataGridViewLoaiKH.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridViewLoaiKH.SelectedRows)
                 {
                     int maLoaiKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
-                    b_loaiKH.XoaLoaiKH(objLoaiKhachHang, maLoaiKhachHang);
+                    b_loaiKH.XoaLoaiKH(maLoaiKhachHang);
                     LoadDanhSachLoaiKH();
                     MessageBox.Show("Xóa thành công", "Thông báo");
                     ClearFields();
@@ -80,21 +79,7 @@ namespace GUI
 
 
 
-        public void XemChiTiet()
-        {
-            foreach (DataGridViewRow row in dataGridViewLoaiKH.SelectedRows) // lấy row đã click
-            {
-                if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
-                {
-                    string maLoaiKhachHang = row.Cells[0].Value.ToString();
-
-                    fmChiTietLoaiKhachHang formChiTietLoaiKhachHang = new fmChiTietLoaiKhachHang(int.Parse(maLoaiKhachHang), this);
-
-                    formChiTietLoaiKhachHang.ShowDialog();
-
-                }
-            }
-        }
+       
 
         public void ThemLoaiKH1()
         {
@@ -104,6 +89,7 @@ namespace GUI
                 {
                     loaikhachhang objLoaiKhachHang = new loaikhachhang();
                     objLoaiKhachHang.tenLoaiKhachHang = textBoxTenLoaiKH.Text;
+                    objLoaiKhachHang.trangThai = 1;
                     if (b_loaiKH.ThemLoaiKH(objLoaiKhachHang))
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo");
@@ -128,7 +114,7 @@ namespace GUI
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
-            XemChiTiet();
+      
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

@@ -16,5 +16,6 @@ namespace DAO
     {
         public int maLoaiHinhDuLich { get; set; }
         public string tenLoaiHinhDuLich { get; set; }
+        public int trangThai { get; set; }
     }
 }

@@ -22,5 +22,6 @@ namespace DAO
         public System.DateTime thoiGianKetThuc { get; set; }
         public string chiTiet { get; set; }
         public int maSoTour { get; set; }
+        public int trangThai { get; set; }
     }
 }

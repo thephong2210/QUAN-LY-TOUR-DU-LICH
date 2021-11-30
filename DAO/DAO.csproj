@@ -73,6 +73,7 @@
     <Compile Include="D_giatour.cs" />
     <Compile Include="D_diadiemden.cs" />
     <Compile Include="D_KH.cs" />
+    <Compile Include="D_loaichiphi.cs" />
     <Compile Include="D_loaihinhdulich.cs" />
     <Compile Include="D_LoaiKH.cs" />
     <Compile Include="D_nhanvien.cs" />

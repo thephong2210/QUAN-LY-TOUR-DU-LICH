@@ -162,8 +162,6 @@ namespace GUI
                                 }
                             }
 
-                            objTour.soLuongKhachHang = 0;
-                            objTour.tongTien = 0;
                             objTour.thoiGianBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
                             objTour.thoiGianKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
 
@@ -174,6 +172,7 @@ namespace GUI
 
                             objTour.idGiaTour = GetMaxIDGiaTour(listGiaTour) + 1;
 
+                            objTour.trangThai = 1;
 
                             //Bắt đầu thêm các dữ liệu
                             try
@@ -282,7 +281,6 @@ namespace GUI
         {
             List<diadiemtour> listDiaDiemTour = bDiaDiemDen.GetListDiaDiemTour();
             List<giatour> listGiaTour = bGiaTour.GetGiaTour();
-            tour objTour = new tour();
             diadiemtour objDiaDiemTour = new diadiemtour();
             giatour objGiaTour = new giatour();
 
@@ -292,7 +290,7 @@ namespace GUI
                 {
                     int maSoTour = Convert.ToInt32(row.Cells[0].Value.ToString());
 
-                    bTour.XoaTour(objTour, maSoTour);
+                    bTour.XoaTour(maSoTour);
 
                     //Xoa dia diem tham quan trong tour này
                     foreach (var items in listDiaDiemTour)

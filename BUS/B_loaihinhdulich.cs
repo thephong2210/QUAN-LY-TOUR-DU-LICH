@@ -15,19 +15,16 @@ namespace BUS
         {
             return d_LoaiHinhDuLich.GetListLoaiHinhDL();
         }
-        public List<dynamic> GetListDetailsLoaiHinhDuLich(int maLoaiHinhDuLich)
-        {
-            return d_LoaiHinhDuLich.GetListDetailsLoaiHinhDuLich(maLoaiHinhDuLich);
-        }
+        
 
         public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
         {
             return d_LoaiHinhDuLich.ThemLoaiHinhDuLich(objLoaiHinhDuLich);
         }
 
-        public bool XoaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich, int maLoaiHinhDuLich)
+        public bool XoaLoaiHinhDuLich(int maLoaiHinhDuLich)
         {
-            return d_LoaiHinhDuLich.XoaLoaiHinhDuLich(objLoaiHinhDuLich, maLoaiHinhDuLich);
+            return d_LoaiHinhDuLich.XoaLoaiHinhDuLich(maLoaiHinhDuLich);
         }
 
         public bool SuaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich,int maLoaiHinhDuLich)

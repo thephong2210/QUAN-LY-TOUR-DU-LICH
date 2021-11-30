@@ -37,9 +37,9 @@ namespace BUS
             return dNhanVien.SuaNhanVien(objNhanVien, maNhanVien);
         }
 
-        public bool XoaNhanVien(nhanvien objNhanVien, int maNhanVien)
+        public bool XoaNhanVien(int maNhanVien)
         {
-            return dNhanVien.XoaNhanVien(objNhanVien, maNhanVien);
+            return dNhanVien.XoaNhanVien(maNhanVien);
         }
 
 

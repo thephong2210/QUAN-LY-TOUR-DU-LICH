@@ -20,5 +20,8 @@ namespace DAO
         public int maLoaiKhachHang { get; set; }
         public System.DateTime ngayDangKy { get; set; }
         public int maSoDoan { get; set; }
+        public Nullable<int> soLuongKhachHang { get; set; }
+        public Nullable<double> giaTourDangKy { get; set; }
+        public int trangThai { get; set; }
     }
 }

@@ -60,7 +60,6 @@ namespace GUI
             this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nhiemVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -377,7 +376,7 @@ namespace GUI
             this.textBoxTiemKiem.Location = new System.Drawing.Point(116, 85);
             this.textBoxTiemKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTiemKiem.Name = "textBoxTiemKiem";
-            this.textBoxTiemKiem.Size = new System.Drawing.Size(322, 30);
+            this.textBoxTiemKiem.Size = new System.Drawing.Size(373, 30);
             this.textBoxTiemKiem.TabIndex = 21;
             this.textBoxTiemKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -444,7 +443,6 @@ namespace GUI
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.btnTimKiem);
             this.panel3.Controls.Add(this.dataGridViewNhanVien);
             this.panel3.Controls.Add(this.textBoxTiemKiem);
             this.panel3.Controls.Add(this.label9);
@@ -457,18 +455,6 @@ namespace GUI
             this.panel3.Size = new System.Drawing.Size(765, 593);
             this.panel3.TabIndex = 5;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnTimKiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTimKiem.Location = new System.Drawing.Point(472, 85);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(80, 30);
-            this.btnTimKiem.TabIndex = 23;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.button1_Click);
             // 
             // fmNhanVien
             // 
@@ -542,6 +528,5 @@ namespace GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
-        private System.Windows.Forms.Button btnTimKiem;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class fmLoaiHinhDuLich
+    partial class fmLoaiChiPhi
     {
         /// <summary>
         /// Required designer variable.
@@ -37,12 +37,12 @@ namespace GUI
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.lbTimKiem = new System.Windows.Forms.Label();
             this.dataGridViewLoaiHinhDuLich = new System.Windows.Forms.DataGridView();
+            this.maLoaiChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLoaiChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.textBoxTenLoaiHinhDuLich = new System.Windows.Forms.TextBox();
             this.lbTenLoaiHinhDuLich = new System.Windows.Forms.Label();
-            this.maLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDiaDiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -63,8 +63,8 @@ namespace GUI
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.travel_guide;
-            this.pictureBox1.Location = new System.Drawing.Point(93, 7);
+            this.pictureBox1.Image = global::GUI.Properties.Resources.tag;
+            this.pictureBox1.Location = new System.Drawing.Point(110, 7);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(57, 44);
@@ -77,11 +77,11 @@ namespace GUI
             this.lbLoaiHinhDuLich.AutoSize = true;
             this.lbLoaiHinhDuLich.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbLoaiHinhDuLich.ForeColor = System.Drawing.Color.White;
-            this.lbLoaiHinhDuLich.Location = new System.Drawing.Point(156, 5);
+            this.lbLoaiHinhDuLich.Location = new System.Drawing.Point(173, 5);
             this.lbLoaiHinhDuLich.Name = "lbLoaiHinhDuLich";
-            this.lbLoaiHinhDuLich.Size = new System.Drawing.Size(282, 46);
+            this.lbLoaiHinhDuLich.Size = new System.Drawing.Size(201, 46);
             this.lbLoaiHinhDuLich.TabIndex = 0;
-            this.lbLoaiHinhDuLich.Text = "Loại hình du lịch";
+            this.lbLoaiHinhDuLich.Text = "Loại chi phí";
             // 
             // panelLeft
             // 
@@ -136,8 +136,8 @@ namespace GUI
             this.dataGridViewLoaiHinhDuLich.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewLoaiHinhDuLich.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLoaiHinhDuLich.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maLoaiHinhDuLich,
-            this.tenLoaiHinhDuLich});
+            this.maLoaiChiPhi,
+            this.tenLoaiChiPhi});
             this.dataGridViewLoaiHinhDuLich.Location = new System.Drawing.Point(17, 286);
             this.dataGridViewLoaiHinhDuLich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewLoaiHinhDuLich.MultiSelect = false;
@@ -148,6 +148,22 @@ namespace GUI
             this.dataGridViewLoaiHinhDuLich.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewLoaiHinhDuLich.Size = new System.Drawing.Size(454, 140);
             this.dataGridViewLoaiHinhDuLich.TabIndex = 12;
+            // 
+            // maLoaiChiPhi
+            // 
+            this.maLoaiChiPhi.DataPropertyName = "maLoaiChiPhi";
+            this.maLoaiChiPhi.HeaderText = "Mã loại chi phí";
+            this.maLoaiChiPhi.MinimumWidth = 6;
+            this.maLoaiChiPhi.Name = "maLoaiChiPhi";
+            this.maLoaiChiPhi.ReadOnly = true;
+            // 
+            // tenLoaiChiPhi
+            // 
+            this.tenLoaiChiPhi.DataPropertyName = "tenLoaiChiPhi";
+            this.tenLoaiChiPhi.HeaderText = "Tên loại chi phí";
+            this.tenLoaiChiPhi.MinimumWidth = 6;
+            this.tenLoaiChiPhi.Name = "tenLoaiChiPhi";
+            this.tenLoaiChiPhi.ReadOnly = true;
             // 
             // btnThem
             // 
@@ -180,39 +196,23 @@ namespace GUI
             // textBoxTenLoaiHinhDuLich
             // 
             this.textBoxTenLoaiHinhDuLich.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.textBoxTenLoaiHinhDuLich.Location = new System.Drawing.Point(241, 69);
+            this.textBoxTenLoaiHinhDuLich.Location = new System.Drawing.Point(223, 69);
             this.textBoxTenLoaiHinhDuLich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTenLoaiHinhDuLich.Name = "textBoxTenLoaiHinhDuLich";
-            this.textBoxTenLoaiHinhDuLich.Size = new System.Drawing.Size(197, 31);
+            this.textBoxTenLoaiHinhDuLich.Size = new System.Drawing.Size(198, 31);
             this.textBoxTenLoaiHinhDuLich.TabIndex = 6;
             // 
             // lbTenLoaiHinhDuLich
             // 
             this.lbTenLoaiHinhDuLich.AutoSize = true;
             this.lbTenLoaiHinhDuLich.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.lbTenLoaiHinhDuLich.Location = new System.Drawing.Point(49, 72);
+            this.lbTenLoaiHinhDuLich.Location = new System.Drawing.Point(67, 72);
             this.lbTenLoaiHinhDuLich.Name = "lbTenLoaiHinhDuLich";
-            this.lbTenLoaiHinhDuLich.Size = new System.Drawing.Size(182, 25);
+            this.lbTenLoaiHinhDuLich.Size = new System.Drawing.Size(139, 25);
             this.lbTenLoaiHinhDuLich.TabIndex = 3;
-            this.lbTenLoaiHinhDuLich.Text = "Tên loại hình du lịch";
+            this.lbTenLoaiHinhDuLich.Text = "Tên loại chi phí";
             // 
-            // maLoaiHinhDuLich
-            // 
-            this.maLoaiHinhDuLich.DataPropertyName = "maLoaiHinhDuLich";
-            this.maLoaiHinhDuLich.HeaderText = "Mã loại hình du lịch";
-            this.maLoaiHinhDuLich.MinimumWidth = 6;
-            this.maLoaiHinhDuLich.Name = "maLoaiHinhDuLich";
-            this.maLoaiHinhDuLich.ReadOnly = true;
-            // 
-            // tenLoaiHinhDuLich
-            // 
-            this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
-            this.tenLoaiHinhDuLich.MinimumWidth = 6;
-            this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.ReadOnly = true;
-            // 
-            // fmLoaiHinhDuLich
+            // fmLoaiChiPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -221,10 +221,10 @@ namespace GUI
             this.Controls.Add(this.panelDiaDiem);
             this.MaximumSize = new System.Drawing.Size(514, 615);
             this.MinimumSize = new System.Drawing.Size(514, 615);
-            this.Name = "fmLoaiHinhDuLich";
+            this.Name = "fmLoaiChiPhi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loại chi phí | Tour App";
-            this.Load += new System.EventHandler(this.fmLoaiHinhDuLich_Load);
+            this.Load += new System.EventHandler(this.fmLoaiChiPhi_Load);
             this.panelDiaDiem.ResumeLayout(false);
             this.panelDiaDiem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -249,7 +249,7 @@ namespace GUI
         private System.Windows.Forms.Label lbTenLoaiHinhDuLich;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maLoaiHinhDuLich;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maLoaiChiPhi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiChiPhi;
     }
 }
