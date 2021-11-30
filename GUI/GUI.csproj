@@ -74,23 +74,17 @@
     <Compile Include="fmChiTietKhachHang.Designer.cs">
       <DependentUpon>fmChiTietKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmChiTietLoaiHinhDuLich.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmChiTietLoaiHinhDuLich.Designer.cs">
-      <DependentUpon>fmChiTietLoaiHinhDuLich.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fmChiTietLoaiKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmChiTietLoaiKhachHang.Designer.cs">
-      <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="fmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fmDangKy.Designer.cs">
       <DependentUpon>fmDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLoaiChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLoaiChiPhi.Designer.cs">
+      <DependentUpon>fmLoaiChiPhi.cs</DependentUpon>
     </Compile>
     <Compile Include="fmLoaiHinhDuLich.cs">
       <SubType>Form</SubType>
@@ -172,14 +166,11 @@
     <EmbeddedResource Include="fmChiTietKhachHang.resx">
       <DependentUpon>fmChiTietKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmChiTietLoaiHinhDuLich.resx">
-      <DependentUpon>fmChiTietLoaiHinhDuLich.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmChiTietLoaiKhachHang.resx">
-      <DependentUpon>fmChiTietLoaiKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fmDangKy.resx">
       <DependentUpon>fmDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLoaiChiPhi.resx">
+      <DependentUpon>fmLoaiChiPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
       <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>

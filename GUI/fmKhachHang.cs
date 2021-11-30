@@ -132,7 +132,7 @@ namespace GUI
                     objKhachHang.gioiTinh = radioButtonNu.Text;
                     objKhachHang.SDT = textBoxSDT.Text;
                     objKhachHang.quocTich = textBoxQuocTich.Text;
-
+                    objKhachHang.trangThai = 1;
 
                     if (b_KH.ThemKhachHang(objKhachHang))
                     {
@@ -152,13 +152,13 @@ namespace GUI
 
         public void XoaKhachHang()
         {
-            khachhang objKhachHang = new khachhang();
+          
             if (dataGridViewQuanLyKH.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridViewQuanLyKH.SelectedRows)
                 {
                     int maKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
-                    b_KH.XoaKhachHang(objKhachHang, maKhachHang);
+                    b_KH.XoaKhachHang(maKhachHang);
                     LoadDSKH();
                     MessageBox.Show("Xóa thành công", "Thông báo");
 

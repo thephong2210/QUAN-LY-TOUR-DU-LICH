@@ -16,7 +16,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListDiaDiemDen = tourdulich.diadiemdens;
+                var getListDiaDiemDen = tourdulich.diadiemdens.Where(t => t.trangThai == 1);
 
                 return getListDiaDiemDen.ToList<diadiemden>();
             }
@@ -52,7 +52,8 @@ namespace DAO
                 {
                     diadiemden objOld = tourdulich.diadiemdens.Where(t => t.maDiaDiemDen == maDiaDiemDen).SingleOrDefault();
                     objOld.tenDiaDiemDen = objDiaDiemDen.tenDiaDiemDen;
-                    
+                    objOld.trangThai = objDiaDiemDen.trangThai;
+
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -71,7 +72,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListDiaDiemDen = tourdulich.diadiemdens.Where(t => t.tenDiaDiemDen.Contains(searchValue));
+                var getListDiaDiemDen = tourdulich.diadiemdens.Where(t => t.tenDiaDiemDen.Contains(searchValue)).Where(t => t.trangThai == 1);
 
                 return getListDiaDiemDen.ToList<diadiemden>();
             }

@@ -17,5 +17,6 @@ namespace DAO
         public int maNhanVien { get; set; }
         public string tenNhanVien { get; set; }
         public string nhiemVu { get; set; }
+        public int trangThai { get; set; }
     }
 }

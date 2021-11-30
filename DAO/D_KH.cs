@@ -17,7 +17,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getKhachHang = tourdulich.khachhangs;
+                var getKhachHang = tourdulich.khachhangs.Where(t => t.trangThai == 1);
 
                 return getKhachHang.ToList<khachhang>();
 
@@ -30,6 +30,7 @@ namespace DAO
             using (tourdulich = new tourdulichEntities())
             {
                 var getListKhachHang = (from tbKhachHang in tourdulich.khachhangs
+                                        where tbKhachHang.trangThai == 1
                                        select new
                                        {
                                            maSoKhachHang = tbKhachHang.maSoKhachHang,
@@ -92,14 +93,14 @@ namespace DAO
 
         }
 
-        public bool XoaKhachHang(khachhang objKhachHang, int maSoKhachHang)
+        public bool XoaKhachHang(int maSoKhachHang)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    objKhachHang = tourdulich.khachhangs.Where(kh => kh.maSoKhachHang == maSoKhachHang).SingleOrDefault();
-                    tourdulich.khachhangs.Remove(objKhachHang);
+                    khachhang objKhachHang = tourdulich.khachhangs.Where(kh => kh.maSoKhachHang == maSoKhachHang).SingleOrDefault();
+                    objKhachHang.trangThai = 0;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -125,6 +126,8 @@ namespace DAO
                     objOldKhachHang.gioiTinh = objKhachHang.gioiTinh;
                     objOldKhachHang.SDT = objKhachHang.SDT;
                     objOldKhachHang.quocTich = objKhachHang.quocTich;
+                    objOldKhachHang.trangThai = objKhachHang.trangThai;
+
                     tourdulich.SaveChanges();
                     return true;
                 }

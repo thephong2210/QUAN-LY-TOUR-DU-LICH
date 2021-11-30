@@ -32,6 +32,7 @@ namespace GUI
             this.panelDiaDiem = new System.Windows.Forms.Panel();
             this.lbLoaiKH = new System.Windows.Forms.Label();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxTenLoaiKH = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@ namespace GUI
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.lbTimKiem = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnXemChiTiet = new System.Windows.Forms.Button();
             this.panelDiaDiem.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,44 +62,52 @@ namespace GUI
             // lbLoaiKH
             // 
             this.lbLoaiKH.AutoSize = true;
-            this.lbLoaiKH.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.lbLoaiKH.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lbLoaiKH.ForeColor = System.Drawing.Color.White;
-            this.lbLoaiKH.Location = new System.Drawing.Point(98, 0);
+            this.lbLoaiKH.Location = new System.Drawing.Point(139, 5);
             this.lbLoaiKH.Name = "lbLoaiKH";
-            this.lbLoaiKH.Size = new System.Drawing.Size(310, 51);
+            this.lbLoaiKH.Size = new System.Drawing.Size(277, 46);
             this.lbLoaiKH.TabIndex = 0;
             this.lbLoaiKH.Text = "Loại khách hàng";
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panelLeft.Controls.Add(this.panel1);
             this.panelLeft.Controls.Add(this.panel2);
             this.panelLeft.Controls.Add(this.dataGridViewLoaiKH);
             this.panelLeft.Controls.Add(this.btnThem);
             this.panelLeft.Controls.Add(this.textBoxTimKiem);
             this.panelLeft.Controls.Add(this.lbTimKiem);
             this.panelLeft.Controls.Add(this.btnXoa);
-            this.panelLeft.Controls.Add(this.btnXemChiTiet);
             this.panelLeft.Location = new System.Drawing.Point(0, 53);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(540, 593);
+            this.panelLeft.Size = new System.Drawing.Size(540, 553);
             this.panelLeft.TabIndex = 38;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(0, 233);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(547, 2);
+            this.panel1.TabIndex = 15;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textBoxTenLoaiKH);
-            this.panel2.Location = new System.Drawing.Point(19, 56);
+            this.panel2.Location = new System.Drawing.Point(36, 68);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(454, 44);
+            this.panel2.Size = new System.Drawing.Size(478, 44);
             this.panel2.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(14, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 25);
             this.label1.TabIndex = 3;
@@ -107,10 +115,11 @@ namespace GUI
             // 
             // textBoxTenLoaiKH
             // 
-            this.textBoxTenLoaiKH.Location = new System.Drawing.Point(206, 8);
+            this.textBoxTenLoaiKH.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.textBoxTenLoaiKH.Location = new System.Drawing.Point(213, 8);
             this.textBoxTenLoaiKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTenLoaiKH.Name = "textBoxTenLoaiKH";
-            this.textBoxTenLoaiKH.Size = new System.Drawing.Size(224, 22);
+            this.textBoxTenLoaiKH.Size = new System.Drawing.Size(241, 31);
             this.textBoxTenLoaiKH.TabIndex = 6;
             // 
             // dataGridViewLoaiKH
@@ -120,11 +129,11 @@ namespace GUI
             this.dataGridViewLoaiKH.AllowUserToResizeRows = false;
             this.dataGridViewLoaiKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewLoaiKH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewLoaiKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLoaiKH.ColumnHeadersHeight = 30;
             this.dataGridViewLoaiKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maLoaiKhachHang,
             this.tenLoaiKhachHang});
-            this.dataGridViewLoaiKH.Location = new System.Drawing.Point(19, 382);
+            this.dataGridViewLoaiKH.Location = new System.Drawing.Point(28, 300);
             this.dataGridViewLoaiKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewLoaiKH.MultiSelect = false;
             this.dataGridViewLoaiKH.Name = "dataGridViewLoaiKH";
@@ -132,7 +141,7 @@ namespace GUI
             this.dataGridViewLoaiKH.RowHeadersWidth = 51;
             this.dataGridViewLoaiKH.RowTemplate.Height = 29;
             this.dataGridViewLoaiKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewLoaiKH.Size = new System.Drawing.Size(454, 140);
+            this.dataGridViewLoaiKH.Size = new System.Drawing.Size(486, 143);
             this.dataGridViewLoaiKH.TabIndex = 12;
             // 
             // maLoaiKhachHang
@@ -158,10 +167,10 @@ namespace GUI
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(19, 175);
+            this.btnThem.Location = new System.Drawing.Point(204, 146);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(88, 47);
+            this.btnThem.Size = new System.Drawing.Size(123, 47);
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -169,17 +178,18 @@ namespace GUI
             // 
             // textBoxTimKiem
             // 
-            this.textBoxTimKiem.Location = new System.Drawing.Point(145, 292);
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(138, 258);
             this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTimKiem.Name = "textBoxTimKiem";
-            this.textBoxTimKiem.Size = new System.Drawing.Size(328, 22);
+            this.textBoxTimKiem.Size = new System.Drawing.Size(376, 31);
             this.textBoxTimKiem.TabIndex = 11;
             // 
             // lbTimKiem
             // 
             this.lbTimKiem.AutoSize = true;
             this.lbTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.lbTimKiem.Location = new System.Drawing.Point(14, 292);
+            this.lbTimKiem.Location = new System.Drawing.Point(31, 261);
             this.lbTimKiem.Name = "lbTimKiem";
             this.lbTimKiem.Size = new System.Drawing.Size(91, 25);
             this.lbTimKiem.TabIndex = 10;
@@ -189,39 +199,28 @@ namespace GUI
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.Location = new System.Drawing.Point(385, 175);
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(426, 456);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(88, 47);
+            this.btnXoa.Size = new System.Drawing.Size(88, 40);
             this.btnXoa.TabIndex = 9;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnXemChiTiet
-            // 
-            this.btnXemChiTiet.BackColor = System.Drawing.Color.SlateGray;
-            this.btnXemChiTiet.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnXemChiTiet.ForeColor = System.Drawing.Color.White;
-            this.btnXemChiTiet.Location = new System.Drawing.Point(204, 175);
-            this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXemChiTiet.Name = "btnXemChiTiet";
-            this.btnXemChiTiet.Size = new System.Drawing.Size(88, 47);
-            this.btnXemChiTiet.TabIndex = 8;
-            this.btnXemChiTiet.Text = "Chi tiết";
-            this.btnXemChiTiet.UseVisualStyleBackColor = false;
-            this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
-            // 
             // fmLoaiKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 644);
+            this.ClientSize = new System.Drawing.Size(539, 594);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelDiaDiem);
+            this.MaximumSize = new System.Drawing.Size(557, 641);
+            this.MinimumSize = new System.Drawing.Size(557, 641);
             this.Name = "fmLoaiKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmLoaiKhachHang";
+            this.Text = "Loại khách hàng | Tour App";
             this.panelDiaDiem.ResumeLayout(false);
             this.panelDiaDiem.PerformLayout();
             this.panelLeft.ResumeLayout(false);
@@ -247,7 +246,7 @@ namespace GUI
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.Label lbTimKiem;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnXemChiTiet;
     }
 }

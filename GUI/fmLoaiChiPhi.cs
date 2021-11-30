@@ -13,18 +13,18 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class fmLoaiHinhDuLich : Form
+    public partial class fmLoaiChiPhi : Form
     {
-        B_loaihinhdulich b_LoaiHinhDuLich = new B_loaihinhdulich();
-        public fmLoaiHinhDuLich()
+        B_loaichiphi b_LoaiChiPhi = new B_loaichiphi();
+        public fmLoaiChiPhi()
         {
             InitializeComponent();
-            LoadLoaiHinhDuLich();
+            LoadLoaiChiPhi();
 
         }
-        public void LoadLoaiHinhDuLich()
+        public void LoadLoaiChiPhi()
         {
-            dataGridViewLoaiHinhDuLich.DataSource = b_LoaiHinhDuLich.GetListLoaiHinhDL();
+            dataGridViewLoaiHinhDuLich.DataSource = b_LoaiChiPhi.GetListLoaiChiPhi();
         }
 
         public void ClearFields()
@@ -36,61 +36,61 @@ namespace GUI
         {
             if (String.IsNullOrEmpty(textBoxTenLoaiHinhDuLich.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên loại hình du lịch", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tên loại", "Thông báo");
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }
             if (Regex.IsMatch(textBoxTenLoaiHinhDuLich.Text, @"[""!#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~0-9]"))
             {
-                MessageBox.Show("Tên loại hình du lịch không được có số và kí tự đặc biệt!", "Thông báo");
+                MessageBox.Show("Tên loại không được có số và kí tự đặc biệt!", "Thông báo");
                 textBoxTenLoaiHinhDuLich.Focus();
                 return false;
             }
             return true;
         }
-        public void ThemLoaiHinhDuLich1()
+        public void ThemLoaiChiPhi()
         {
             if (KiemTraTT())
             {
                 try
                 {
-                    loaihinhdulich objLoaiHinhDuLich = new loaihinhdulich();
-                    objLoaiHinhDuLich.tenLoaiHinhDuLich = textBoxTenLoaiHinhDuLich.Text;
-                    objLoaiHinhDuLich.trangThai = 1;
-                    if (b_LoaiHinhDuLich.ThemLoaiHinhDuLich(objLoaiHinhDuLich))
+                    loaichiphi objLoai = new loaichiphi();
+                    objLoai.tenLoaiChiPhi = textBoxTenLoaiHinhDuLich.Text;
+                    objLoai.trangThai = 1;
+                    if (b_LoaiChiPhi.ThemLoaiChiPhi(objLoai))
                     {
-                        MessageBox.Show("Thêm loại hình du lịch thành công", "Thông báo");
-                        LoadLoaiHinhDuLich();
+                        MessageBox.Show("Thêm loại chi phí thành công", "Thông báo");
+                        LoadLoaiChiPhi();
                         ClearFields();
 
                     }
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Thêm loại hình du lịch không thành công", "Thông báo");
+                    MessageBox.Show("Thêm loại chi phí không thành công", "Thông báo");
                     System.Diagnostics.Debug.WriteLine(e);
                 }
             }
         }
        
 
-        public void XoaLoaiHinhDuLich()
+        public void XoaLoaiChiPhi()
         {
             
             if (dataGridViewLoaiHinhDuLich.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridViewLoaiHinhDuLich.SelectedRows)
                 {
-                    int maLoaiHinhDuLich = Convert.ToInt32(row.Cells[0].Value.ToString());
-                    b_LoaiHinhDuLich.XoaLoaiHinhDuLich(maLoaiHinhDuLich);
-                    LoadLoaiHinhDuLich();
+                    int maLoai = Convert.ToInt32(row.Cells[0].Value.ToString());
+                    b_LoaiChiPhi.XoaLoaiChiPhi(maLoai);
+                    LoadLoaiChiPhi();
                     MessageBox.Show("Xóa thành công", "Thông báo");
                     ClearFields();
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn loại hình du lịch cần xóa", "Thông báo");
+                MessageBox.Show("Vui lòng chọn loại chi phí cần xóa", "Thông báo");
             }
         }
         
@@ -99,7 +99,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            ThemLoaiHinhDuLich1();
+            ThemLoaiChiPhi();
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
@@ -113,11 +113,21 @@ namespace GUI
 
             if (confirmResult == DialogResult.Yes)
             {
-                XoaLoaiHinhDuLich();
+                XoaLoaiChiPhi();
             }
         }
 
-        private void fmLoaiHinhDuLich_Load(object sender, EventArgs e)
+        private void fmLoaiChiPhi_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewLoaiHinhDuLich_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewLoaiHinhDuLich_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
 
         }

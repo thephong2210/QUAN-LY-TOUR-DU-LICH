@@ -14,47 +14,12 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListLoaiKH = tourdulich.loaikhachhangs;
+                var getListLoaiKH = tourdulich.loaikhachhangs.Where(t => t.trangThai == 1);
                 return getListLoaiKH.ToList<loaikhachhang>();
             }    
         }
 
-        public List<dynamic> GetListDetailsLoaiKhachHang(int maLoaiKhachHang)
-        {
-            using (tourdulich = new tourdulichEntities())
-            {
-                var getListDetailsLoaiKhachHang = (from tbLoaiKhachHang in tourdulich.loaikhachhangs
-                                               where tbLoaiKhachHang.maLoaiKhachHang == maLoaiKhachHang
-                                               select new
-                                               {
-                                                   maLoaiKhachHang = tbLoaiKhachHang.maLoaiKhachHang,
-                                                   tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang
-                                                  
-                                               });
-
-                return getListDetailsLoaiKhachHang.ToList<dynamic>();
-            }
-        }
-
-        public List<dynamic> GetListLoaiKhachHang()
-        {
-            using (tourdulich = new tourdulichEntities())
-            {
-                var getListLoaiKhachHang = (from tbLoaiKhachHang in tourdulich.loaikhachhangs
-                                       select new
-                                       {
-                                           maLoaiKhachHang = tbLoaiKhachHang.maLoaiKhachHang,
-                                           tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang
-                                           
-                                       });
-
-                return getListLoaiKhachHang.ToList<dynamic>();
-
-            }
-
-        }
-
-
+        
         public bool ThemLoaiKH(loaikhachhang objLoaiKH)
         {
             using (tourdulich = new tourdulichEntities())
@@ -72,14 +37,15 @@ namespace DAO
 
         }
 
-        public bool XoaLoaiKH(loaikhachhang objLoaiKH, int maLoaiKH)
+        public bool XoaLoaiKH(int maLoaiKH)
         {
             using (tourdulich= new tourdulichEntities())
                 try
                 {
-                    objLoaiKH = tourdulich.loaikhachhangs.Where(t => t.maLoaiKhachHang == maLoaiKH).SingleOrDefault();
-                    tourdulich.loaikhachhangs.Remove(objLoaiKH);
-                    
+                    loaikhachhang objLoaiKH = tourdulich.loaikhachhangs.Where(t => t.maLoaiKhachHang == maLoaiKH).SingleOrDefault();
+                    objLoaiKH.trangThai = 0;
+
+
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -97,6 +63,8 @@ namespace DAO
                 {
                     loaikhachhang objOldLoaiKH = tourdulich.loaikhachhangs.Where(t => t.maLoaiKhachHang == maLoaiKH).SingleOrDefault();
                     objOldLoaiKH.tenLoaiKhachHang = objLoaiKH.tenLoaiKhachHang;
+                    objOldLoaiKH.trangThai = objLoaiKH.trangThai;
+
                     tourdulich.SaveChanges();
                     return true;
                 }

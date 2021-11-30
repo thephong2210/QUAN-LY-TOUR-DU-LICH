@@ -18,15 +18,26 @@ namespace BUS
             return dDoan.GetAllDoan();
         }
 
+        public List<doandulich> GetListDoanWithMaTour(int maSoTour)
+        {
+            return dDoan.GetListDoanWithMaTour(maSoTour);
+        }
+        
+        public bool ThemSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
+        {
+            return dDoan.ThemSoLuongKhachHangDoan(objDoan, maSoDoan);
+        }
+
+        public bool GiamSoLuongKhachHangDoan(int soLuongKhachHang, int maSoDoan)
+        {
+            return dDoan.GiamSoLuongKhachHangDoan(soLuongKhachHang, maSoDoan);
+        }
+
         public List<dynamic> GetListDoan()
         {
             return dDoan.GetListDoan();
         }
 
-        //public list<dynamic> getlistdetailsdoan(int masodoan)
-        //{
-        //    return ddoan.getlistdetailsdoan(masodoan);
-        //}
 
         public bool ThemDoan(doandulich objDoan)
         {

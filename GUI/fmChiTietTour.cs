@@ -61,20 +61,19 @@ namespace GUI
             textBoxMaSoTour.Text = maSoTour.ToString();
             textBoxTenGoiTour.Text = dataTableDetailsTour.Rows[0][1].ToString();
             textBoxDacDiem.Text = dataTableDetailsTour.Rows[0][2].ToString();
-            textBoxSoLuongKhachHang.Text = dataTableDetailsTour.Rows[0][3].ToString();
-            textBoxTongTien.Text = dataTableDetailsTour.Rows[0][4].ToString();
-            comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][8].ToString());
+         
+            comboBoxDiaDiem.SelectedIndex = comboBoxDiaDiem.FindString(dataTableDetailsTour.Rows[0][6].ToString());
             LoadDiaDiemThamQuan();
             checkedDiaDiemThamQuan(maSoTour);
 
-            comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][7].ToString());
+            comboBoxLoaiHinhDuLich.SelectedIndex = comboBoxLoaiHinhDuLich.FindString(dataTableDetailsTour.Rows[0][5].ToString());
 
-            dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][5]);
-            dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][6]);
+            dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][3]);
+            dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][4]);
 
             //Load combobox gia hien tai cua tour
             List<giatour> listGiaTour = bGiaTour.GetGiaTour();
-            int idGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][9]);
+            int idGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][7]);
 
             foreach (var item in listGiaTour)
             {
@@ -91,17 +90,7 @@ namespace GUI
            
         }
 
-        private void TinhTongTien()
-        {
-            if (!String.IsNullOrEmpty(comboBoxGia.Text))
-            {
-                int soLuongKhach = Convert.ToInt32(textBoxSoLuongKhachHang.Text);
-                float giaHienTai = float.Parse(comboBoxGia.SelectedItem.ToString());
-                textBoxTongTien.Text = (soLuongKhach * giaHienTai).ToString();
-            }
-            
-        }
-
+      
         private void LoadDiaDiemThamQuan()
         {
             List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
@@ -172,9 +161,9 @@ namespace GUI
             List<giatour> listGiaTour = bGiaTour.GetGiaTour();
             List<diadiemtour> listDiaDiemTour = bDiaDiemDen.GetListDiaDiemTour();
 
-            if (!String.IsNullOrEmpty(textBoxTenGoiTour.Text))
+            if (!String.IsNullOrWhiteSpace(textBoxTenGoiTour.Text))
             {
-                if (!String.IsNullOrEmpty(textBoxDacDiem.Text))
+                if (!String.IsNullOrWhiteSpace(textBoxDacDiem.Text))
                 {
                     if (checkedListBoxDDThamQuan.CheckedItems.Count != 0)
                         {
@@ -203,8 +192,6 @@ namespace GUI
                             }
                          }
 
-                         objTour.soLuongKhachHang = Convert.ToInt32(textBoxSoLuongKhachHang.Text);
-                         objTour.tongTien = float.Parse(textBoxTongTien.Text);
                          objTour.thoiGianBatDau = DateTime.Parse(dateTimePickerThoiGianBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
                          objTour.thoiGianKetThuc = DateTime.Parse(dateTimePickerThoiGianKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
 
@@ -218,7 +205,10 @@ namespace GUI
                                     objTour.idGiaTour = itemGiaTour.id;
                                 }
                             }
-                        }
+                         }
+
+                        objTour.trangThai = 1;
+                       
 
                         //Bắt đầu sửa các dữ liệu
                         try
@@ -332,12 +322,37 @@ namespace GUI
 
         private void textBoxSoLuongKhachHang_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+   
         }
 
         private void comboBoxGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+       
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

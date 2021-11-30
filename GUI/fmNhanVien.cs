@@ -67,7 +67,7 @@ namespace GUI
 
                 objNhanVien.tenNhanVien = textBoxTenNhanVien.Text;
                 objNhanVien.nhiemVu = textBoxNhiemVu.Text;
-
+                objNhanVien.trangThai = 1;
                 //Bắt đầu thêm các dữ liệu
                 try
                 {
@@ -139,15 +139,14 @@ namespace GUI
 
         public void XoaNhanVien()
         {
-            nhanvien objNhanVien = new nhanvien();
-
+       
             if (dataGridViewNhanVien.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridViewNhanVien.SelectedRows) // lấy row đã click
                 {
                     int maNhanVien = Convert.ToInt32(row.Cells[0].Value.ToString());
 
-                    bNhanVien.XoaNhanVien(objNhanVien, maNhanVien);
+                    bNhanVien.XoaNhanVien(maNhanVien);
 
                     LoadDanhSachNhanVien();
                     MessageBox.Show("Xóa thành công!", "Thông báo");

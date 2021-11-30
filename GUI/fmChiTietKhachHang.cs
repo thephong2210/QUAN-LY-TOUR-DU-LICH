@@ -157,6 +157,7 @@ namespace GUI
                     }
                     objKhachHang.SDT = textBoxSDT.Text;
                     objKhachHang.quocTich = textBoxQuocTich.Text;
+                    objKhachHang.trangThai = 1;
                     if (b_KhachHang.SuaKhachHang(objKhachHang, maSoKhachHang))
                     {
                         fmMain.LoadDSKH();

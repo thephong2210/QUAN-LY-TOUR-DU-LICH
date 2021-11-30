@@ -90,7 +90,8 @@ namespace GUI
                     diadiemden objDiaDiemDen = new diadiemden();
                     
                     objDiaDiemDen.tenDiaDiemDen = textBoxTenDiaDiemDen.Text;
-                    
+                    objDiaDiemDen.trangThai = 1;
+
                     if (b_DiaDiemDen.ThemDiaDiemDen(objDiaDiemDen))
                     {
                         System.Diagnostics.Debug.WriteLine("Thêm địa điểm đến thành công!"); //debug write line

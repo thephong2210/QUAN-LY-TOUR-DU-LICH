@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class D_loaihinhdulich
+    public class D_loaichiphi
     {
         tourdulichEntities tourdulich;
 
         //Dùng load combobox 
-        public List<loaihinhdulich> GetListLoaiHinhDL()
+        public List<loaichiphi> GetListLoaiChiPhi()
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getListTenLHDL = tourdulich.loaihinhduliches.Where(t => t.trangThai == 1);
+                var getList = tourdulich.loaichiphis.Where(t => t.trangThai == 1);
                                        
-                return getListTenLHDL.ToList<loaihinhdulich>();
+                return getList.ToList<loaichiphi>();
 
             }
 
         }
         
-        public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
+        public bool ThemLoaiChiPhi(loaichiphi objName)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    tourdulich.loaihinhduliches.Add(objLoaiHinhDuLich);
+                    tourdulich.loaichiphis.Add(objName);
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -44,14 +44,14 @@ namespace DAO
 
         }
 
-        public bool XoaLoaiHinhDuLich(int maLoaiHinhDuLich)
+        public bool XoaLoaiChiPhi(int maLoai)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                     loaihinhdulich objLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
-                     objLoaiHinhDuLich.trangThai = 0;
+                    loaichiphi objLoai = tourdulich.loaichiphis.Where(t => t.maLoaiChiPhi == maLoai).SingleOrDefault();
+                    objLoai.trangThai = 0;
                     
                     tourdulich.SaveChanges();
                     return true;
@@ -64,18 +64,19 @@ namespace DAO
 
             }
         }
-        public bool SuaLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich, int maLoaiHinhDuLich)
+
+        public bool SuaLoaiChiPhi(loaichiphi objLoai, int maLoai)
         {
-            
+
             using (tourdulich = new tourdulichEntities())
-                
+
             {
                 try
                 {
-                    loaihinhdulich objOldLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
-                    
-                    objOldLoaiHinhDuLich.tenLoaiHinhDuLich = objLoaiHinhDuLich.tenLoaiHinhDuLich;
-                    objOldLoaiHinhDuLich.trangThai = objLoaiHinhDuLich.trangThai;
+                    loaichiphi objOldLoai = tourdulich.loaichiphis.Where(t => t.maLoaiChiPhi == maLoai).SingleOrDefault();
+
+                    objOldLoai.tenLoaiChiPhi = objLoai.tenLoaiChiPhi;
+                    objOldLoai.trangThai = objLoai.trangThai;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -87,9 +88,6 @@ namespace DAO
                 }
             }
         }
-
-
-
 
 
     }

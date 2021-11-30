@@ -27,9 +27,9 @@ namespace BUS
             return d_KH.ThemKhachHang(objKhachHang);
         }
 
-        public bool XoaKhachHang(khachhang objKhachHang, int maSoKhachHang)
+        public bool XoaKhachHang(int maSoKhachHang)
         {
-            return d_KH.XoaKhachHang(objKhachHang, maSoKhachHang);
+            return d_KH.XoaKhachHang(maSoKhachHang);
         }
 
         public bool SuaKhachHang(khachhang objKhachHang, int maSoKhachHang)

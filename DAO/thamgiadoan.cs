@@ -19,5 +19,6 @@ namespace DAO
         public int maSoDoan { get; set; }
         public System.DateTime thoiGianBatDau { get; set; }
         public System.DateTime thoiGianKetThuc { get; set; }
+        public int trangThai { get; set; }
     }
 }

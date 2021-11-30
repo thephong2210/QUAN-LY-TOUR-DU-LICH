@@ -19,6 +19,9 @@
     <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" />
     <Property Name="ngayDangKy" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="maSoDoan" Type="Int32" Nullable="false" />
+    <Property Name="soLuongKhachHang" Type="Int32" />
+    <Property Name="giaTourDangKy" Type="Double" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="diadiemden">
     <Key>
@@ -26,6 +29,7 @@
     </Key>
     <Property Name="maDiaDiemDen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenDiaDiemDen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="diadiemthamquan">
     <Key>
@@ -55,6 +59,7 @@
     <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="chiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="maSoTour" Type="Int32" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="giatour">
     <Key>
@@ -76,6 +81,7 @@
     <Property Name="gioiTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SDT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="loaichiphi">
     <Key>
@@ -83,6 +89,7 @@
     </Key>
     <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="loaihinhdulich">
     <Key>
@@ -90,6 +97,7 @@
     </Key>
     <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenLoaiHinhDuLich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="loaikhachhang">
     <Key>
@@ -97,6 +105,7 @@
     </Key>
     <Property Name="maLoaiKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenLoaiKhachHang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="nhanvien">
     <Key>
@@ -105,6 +114,7 @@
     <Property Name="maNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenNhanVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="nhiemVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="thamgiadoan">
     <Key>
@@ -115,6 +125,7 @@
     <Property Name="maSoDoan" Type="Int32" Nullable="false" />
     <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="tour">
     <Key>
@@ -124,12 +135,11 @@
     <Property Name="tenGoiTour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="dacDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="maLoaiHinhDuLich" Type="Int32" Nullable="false" />
-    <Property Name="soLuongKhachHang" Type="Int32" Nullable="false" />
-    <Property Name="tongTien" Type="Double" Nullable="false" />
     <Property Name="thoiGianBatDau" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="thoiGianKetThuc" Type="DateTime" Nullable="false" Precision="6" />
     <Property Name="maDiaDiemDen" Type="Int32" />
     <Property Name="idGiaTour" Type="Int32" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityContainer Name="tourdulichEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="chiphis" EntityType="Self.chiphi" />

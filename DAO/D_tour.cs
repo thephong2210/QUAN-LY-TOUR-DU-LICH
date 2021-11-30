@@ -15,7 +15,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getAllTour = tourdulich.tours;
+                var getAllTour = tourdulich.tours.Where(t => t.trangThai == 1);
                 return getAllTour.ToList<tour>();
             }
         }
@@ -28,6 +28,7 @@ namespace DAO
                 var getListTour = (from tbTour in tourdulich.tours
                                    join tbDiaDiemDen in tourdulich.diadiemdens on tbTour.maDiaDiemDen equals tbDiaDiemDen.maDiaDiemDen
                                    join tbLoaiHinhDuLich in tourdulich.loaihinhduliches on tbTour.maLoaiHinhDuLich equals tbLoaiHinhDuLich.maLoaiHinhDuLich
+                                   where tbTour.trangThai == 1
                                    select new
                                    {
                                        maSoTour = tbTour.maSoTour,
@@ -55,6 +56,7 @@ namespace DAO
 
         }
 
+
         public List<dynamic> GetListDetailsTour(int maSoTour)
         {
             using (tourdulich = new tourdulichEntities())
@@ -68,8 +70,6 @@ namespace DAO
                                               maSoTour = tbTour.maSoTour,
                                               tenGoiTour = tbTour.tenGoiTour,
                                               dacDiem = tbTour.dacDiem,
-                                              soLuongKhachHang = tbTour.soLuongKhachHang,
-                                              tongTien = tbTour.tongTien,
                                               thoiGianBatDau = tbTour.thoiGianBatDau,
                                               thoiGianKetThuc = tbTour.thoiGianKetThuc,
                                               tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich,
@@ -114,12 +114,11 @@ namespace DAO
                     objTourOld.tenGoiTour = objTour.tenGoiTour;
                     objTourOld.dacDiem = objTour.dacDiem;
                     objTourOld.maLoaiHinhDuLich = objTour.maLoaiHinhDuLich;
-                    objTourOld.soLuongKhachHang = objTour.soLuongKhachHang;
-                    objTourOld.tongTien = objTour.tongTien;
                     objTourOld.thoiGianBatDau = objTour.thoiGianBatDau;
                     objTourOld.thoiGianKetThuc = objTour.thoiGianKetThuc;
                     objTourOld.maDiaDiemDen = objTour.maDiaDiemDen;
                     objTourOld.idGiaTour = objTour.idGiaTour;
+                    objTourOld.trangThai = objTour.trangThai;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -136,14 +135,14 @@ namespace DAO
         }
 
 
-        public bool XoaTour(tour objTour, int maSoTour)
+        public bool XoaTour(int maSoTour)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    objTour = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
-                    tourdulich.tours.Remove(objTour);
+                    tour objTour = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    objTour.trangThai = 0;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -157,6 +156,8 @@ namespace DAO
             }
         }
 
+
+        
 
 
 

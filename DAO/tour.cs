@@ -18,11 +18,10 @@ namespace DAO
         public string tenGoiTour { get; set; }
         public string dacDiem { get; set; }
         public int maLoaiHinhDuLich { get; set; }
-        public int soLuongKhachHang { get; set; }
-        public double tongTien { get; set; }
         public System.DateTime thoiGianBatDau { get; set; }
         public System.DateTime thoiGianKetThuc { get; set; }
         public Nullable<int> maDiaDiemDen { get; set; }
         public Nullable<int> idGiaTour { get; set; }
+        public int trangThai { get; set; }
     }
 }

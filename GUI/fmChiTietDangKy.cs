@@ -26,12 +26,11 @@ namespace GUI
             fmMain = fmDK;
             this.id = id;
             HienThiChiTietDangKy();
-            LoadComboboxMaDoan();
             LoadComboboxMaLoaiKhachHang();
             LoadComboboxMaSoKhachHang();
             LoadComboboxMaTour();
-
-            
+            LoadDoanTheoTour();
+            TinhTongTien();
         }
         private fmDangKy fmMain;
         public int id { get; set; }
@@ -54,11 +53,20 @@ namespace GUI
             comboBoxMaLoaiKhachHang.DisplayMember = "tenLoaiKhachHang";
         }
 
-        public void LoadComboboxMaDoan()
+        public void LoadDoanTheoTour()
         {
-            comboBox3MaSoDoan.DataSource = b_doan.GetAllDoan();
-            comboBox3MaSoDoan.DisplayMember = "tenGoiDoan";
+            List<tour> listTour = b_tour.GetAllTour();
+
+            foreach (var itemmaTour in listTour)
+            {
+                if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
+                {
+                    comboBox3MaSoDoan.DataSource = b_doan.GetListDoanWithMaTour(itemmaTour.maSoTour);
+                    comboBox3MaSoDoan.DisplayMember = "tenGoiDoan";
+                }
+            }
         }
+
         public void HienThiChiTietDangKy()
         {
             List<dynamic> listDetailsDangKy = b_dangky.GetListDetailsDangKy(id);
@@ -69,74 +77,33 @@ namespace GUI
 
             //Hiển thị
             textBoxId.Text = id.ToString();
-            comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindString(dataTableDetailsDangKy.Rows[0][1].ToString());
+            comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][1].ToString());
             comboBoxMaTour.SelectedIndex = comboBoxMaTour.FindString(dataTableDetailsDangKy.Rows[0][2].ToString());
             comboBoxMaLoaiKhachHang.SelectedIndex = comboBoxMaLoaiKhachHang.FindString(dataTableDetailsDangKy.Rows[0][3].ToString());
             dateTimePickerNgayDangKy.Value = Convert.ToDateTime(dataTableDetailsDangKy.Rows[0][4]);
             comboBox3MaSoDoan.SelectedIndex = comboBox3MaSoDoan.FindString(dataTableDetailsDangKy.Rows[0][5].ToString());
-            
+            textBoxSoLuongKhachHang.Text = dataTableDetailsDangKy.Rows[0][6].ToString();
+            textBoxGia.Text = dataTableDetailsDangKy.Rows[0][7].ToString();
+
         }
-        
 
-
-
-        public void SuaDangKy()
+        private void TinhTongTien()
         {
-            List<khachhang> listKhachHang = b_khachhang.GetKhachHang();
-            List<loaikhachhang> listLoaiKhachHang = b_loaikhachhang.GetLoaikhachhangs();
-            List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
-            List<tour> listTour = b_tour.GetAllTour();
-            try
+            int giaTour = 0;
+            int soLuongKH = 0;
+            if (!String.IsNullOrWhiteSpace(textBoxSoLuongKhachHang.Text) && !String.IsNullOrWhiteSpace(textBoxGia.Text))
             {
-                dangky objDangKy = new dangky();
-                foreach (var itemmaSoKhachHang in listKhachHang)
-                {
-                    if (itemmaSoKhachHang.hoTenKhachHang.Equals(comboBoxMaSoKhachHang.Text))
-                    {
-                        objDangKy.maSoKhachHang = itemmaSoKhachHang.maSoKhachHang;
-                    }
-                }
-
-                foreach (var itemmaTour in listTour)
-                {
-                    if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
-                    {
-                        objDangKy.maTour = itemmaTour.maSoTour;
-                    }
-                }
-
-                foreach (var itemmaLoaiKhachHang in listLoaiKhachHang)
-                {
-                    if (itemmaLoaiKhachHang.tenLoaiKhachHang.Equals(comboBoxMaLoaiKhachHang.Text))
-                    {
-                        objDangKy.maLoaiKhachHang = itemmaLoaiKhachHang.maLoaiKhachHang;
-                    }
-                }
-                objDangKy.ngayDangKy = DateTime.Parse(dateTimePickerNgayDangKy.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
-
-                foreach (var itemmaSoDoan in listDoanDuLich)
-                {
-                    if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
-                    {
-                        objDangKy.maSoDoan = itemmaSoDoan.maSoDoan;
-                    }
-                }
-
-                if (b_dangky.SuaDangKy(objDangKy,id))
-                {
-                    System.Diagnostics.Debug.WriteLine("Sửa đăng ký thành công!");
-                    fmMain.LoadDanhSachDangKyTour();
-                    MessageBox.Show("Sửa đăng ký thành công!", "Thông báo");
-                    
-                }
+                giaTour = Int32.Parse(textBoxGia.Text);
+                soLuongKH = Int32.Parse(textBoxSoLuongKhachHang.Text);
+                textBoxTongTien.Text = (giaTour * soLuongKH).ToString();
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("Sửa không thành công!", "Thông báo");
-                System.Diagnostics.Debug.WriteLine(e);
+                textBoxTongTien.Text = "";
             }
 
         }
+
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -145,7 +112,7 @@ namespace GUI
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            SuaDangKy();
+    
         }
 
         private void buttonDong_Click(object sender, EventArgs e)
@@ -161,6 +128,32 @@ namespace GUI
         private void comboBoxMaSoKhachHang_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void fmChiTietDangKy_Load(object sender, EventArgs e)
+        {
+            HienThiChiTietDangKy();
+            LoadDoanTheoTour();
+        }
+
+        private void comboBoxMaTour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDoanTheoTour();
+        }
+
+        private void comboBoxMaLoaiKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBoxSoLuongKhachHang_TextChanged(object sender, EventArgs e)
+        {
+            TinhTongTien();
+        }
+
+        private void textBoxGia_TextChanged(object sender, EventArgs e)
+        {
+            TinhTongTien();
         }
     }
 }

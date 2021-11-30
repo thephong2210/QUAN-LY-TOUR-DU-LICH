@@ -45,6 +45,7 @@
     <Compile Include="B_doan.cs" />
     <Compile Include="B_giatour.cs" />
     <Compile Include="B_KH.cs" />
+    <Compile Include="B_loaichiphi.cs" />
     <Compile Include="B_loaihinhdulich.cs" />
     <Compile Include="B_LoaiKH.cs" />
     <Compile Include="B_nhanvien.cs" />

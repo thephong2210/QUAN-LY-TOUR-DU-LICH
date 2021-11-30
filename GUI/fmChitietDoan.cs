@@ -19,9 +19,11 @@ namespace GUI
         B_tour bTour = new B_tour();
         B_doan b_Doan = new B_doan();
         public static int madoan;
+        public fmQLDoan fmMain;
         public fmChitietDoan(int maDoan, fmQLDoan fmQLD)
         {
             madoan = maDoan;
+            fmMain = fmQLD;
             InitializeComponent();
             LoadChiTietDoan(maDoan);
             LoadComboBoxTour();
@@ -40,16 +42,21 @@ namespace GUI
             var json = JsonConvert.SerializeObject(d_Doan.GetDoan(madoan));
             DataTable dataTableDetailsDoan = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
             textBoxTenDoan.Text = dataTableDetailsDoan.Rows[0][0].ToString();
-            comboBoxTour.Text = dataTableDetailsDoan.Rows[0][1].ToString();
+            comboBoxTour.SelectedIndex = comboBoxTour.FindString(dataTableDetailsDoan.Rows[0][1].ToString());
             dateTimePickerNgayBatDau.Text = dataTableDetailsDoan.Rows[0][2].ToString();
             dateTimePickerNgayKetThuc.Text = dataTableDetailsDoan.Rows[0][3].ToString();
             textBoxChiTiet.Text = dataTableDetailsDoan.Rows[0][4].ToString();
+            textBoxTongSLKH.Text = dataTableDetailsDoan.Rows[0][5].ToString();
+            textBoxSLNV.Text = dataTableDetailsDoan.Rows[0][6].ToString();
+            textBoxMaSoDoan.Text = dataTableDetailsDoan.Rows[0][7].ToString();
+
             _passengerDgv.DataSource = d_Doan.GetKhachHangOfDoan(madoan);
             _employeeDgv.DataSource = d_Doan.GetNhanVienOfDoan(madoan);
         }
         private void SuaDoan()
         {
             b_Doan.SuaDoan(createDoan(), madoan);
+            fmMain.LoadDanhSachDoan();
             MessageBox.Show("Sửa thành công!", "Thông báo");
         }
         public doandulich createDoan()
@@ -59,42 +66,52 @@ namespace GUI
             DateTime ngayBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
             DateTime ngayKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
             String chiTiet = textBoxChiTiet.Text;
+            
             doandulich objDoan = new doandulich();
             objDoan.tenGoiDoan = tenDoan;
             objDoan.maSoTour = maTour;
             objDoan.thoiGianKhoiHanh = ngayBatDau;
             objDoan.thoiGianKetThuc = ngayKetThuc;
-            objDoan.soLuongKhachHang = 22;
-            objDoan.SoLuongNhanVien = 10;
             objDoan.chiTiet = chiTiet;
+            objDoan.trangThai = 1;
             return objDoan;
         }
 
         private void _customerDetail_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đợi from đăng ký khách hàng", "Thông báo");
+          
 
         }
 
         private void _customerDeleteBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đợi from đăng ký khách hàng", "Thông báo");
+           
 
         }
 
         private void _employeeDetailBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đợi from tham gia đoàn của nhân viên", "Thông báo");
+  
         }
 
         private void _employeeDeleteBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đợi from tham gia đoàn của nhân viên", "Thông báo");
+            
         }
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
             SuaDoan();
+        }
+
+        private void textBoxTongSLKH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fmChitietDoan_Load(object sender, EventArgs e)
+        {
+            LoadChiTietDoan(madoan);
         }
     }
 }

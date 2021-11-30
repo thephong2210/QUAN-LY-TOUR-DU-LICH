@@ -36,9 +36,6 @@ namespace GUI
             this.panel13 = new System.Windows.Forms.Panel();
             this.checkedListBoxDDThamQuan = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.textBoxTongTien = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonDong = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.comboBoxDiaDiem = new System.Windows.Forms.ComboBox();
@@ -54,9 +51,6 @@ namespace GUI
             this.buttonThemGia = new System.Windows.Forms.Button();
             this.comboBoxGia = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.textBoxSoLuongKhachHang = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBoxLoaiHinhDuLich = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -73,12 +67,10 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -122,14 +114,12 @@ namespace GUI
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.panel2.Controls.Add(this.panel13);
-            this.panel2.Controls.Add(this.panel12);
             this.panel2.Controls.Add(this.buttonDong);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.buttonSua);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
@@ -137,18 +127,19 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(25, 66);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 648);
+            this.panel2.Size = new System.Drawing.Size(587, 593);
             this.panel2.TabIndex = 1;
             // 
             // panel13
             // 
             this.panel13.Controls.Add(this.checkedListBoxDDThamQuan);
             this.panel13.Controls.Add(this.label4);
-            this.panel13.Location = new System.Drawing.Point(0, 463);
+            this.panel13.Location = new System.Drawing.Point(0, 373);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(563, 106);
             this.panel13.TabIndex = 5;
+            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
             // checkedListBoxDDThamQuan
             // 
@@ -172,46 +163,12 @@ namespace GUI
             this.label4.TabIndex = 0;
             this.label4.Text = "Địa điểm tham quan:";
             // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.textBoxTongTien);
-            this.panel12.Controls.Add(this.label3);
-            this.panel12.Location = new System.Drawing.Point(0, 233);
-            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(563, 42);
-            this.panel12.TabIndex = 8;
-            // 
-            // textBoxTongTien
-            // 
-            this.textBoxTongTien.Enabled = false;
-            this.textBoxTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxTongTien.Location = new System.Drawing.Point(270, 10);
-            this.textBoxTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTongTien.Name = "textBoxTongTien";
-            this.textBoxTongTien.ReadOnly = true;
-            this.textBoxTongTien.Size = new System.Drawing.Size(269, 26);
-            this.textBoxTongTien.TabIndex = 3;
-            this.textBoxTongTien.TextChanged += new System.EventHandler(this.textBoxTongTien_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(3, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 28);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tổng tiền:";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
             // buttonDong
             // 
             this.buttonDong.BackColor = System.Drawing.Color.Gray;
             this.buttonDong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonDong.ForeColor = System.Drawing.Color.White;
-            this.buttonDong.Location = new System.Drawing.Point(367, 573);
+            this.buttonDong.Location = new System.Drawing.Point(372, 516);
             this.buttonDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDong.Name = "buttonDong";
             this.buttonDong.Size = new System.Drawing.Size(123, 49);
@@ -224,11 +181,12 @@ namespace GUI
             // 
             this.panel6.Controls.Add(this.comboBoxDiaDiem);
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Location = new System.Drawing.Point(0, 417);
+            this.panel6.Location = new System.Drawing.Point(0, 327);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(563, 42);
             this.panel6.TabIndex = 4;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // comboBoxDiaDiem
             // 
@@ -258,11 +216,12 @@ namespace GUI
             // 
             this.panel11.Controls.Add(this.dateTimePickerThoiGianKetThuc);
             this.panel11.Controls.Add(this.label19);
-            this.panel11.Location = new System.Drawing.Point(0, 371);
+            this.panel11.Location = new System.Drawing.Point(0, 281);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(563, 42);
             this.panel11.TabIndex = 9;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // dateTimePickerThoiGianKetThuc
             // 
@@ -289,11 +248,12 @@ namespace GUI
             // 
             this.panel10.Controls.Add(this.dateTimePickerThoiGianBatDau);
             this.panel10.Controls.Add(this.label17);
-            this.panel10.Location = new System.Drawing.Point(0, 325);
+            this.panel10.Location = new System.Drawing.Point(0, 235);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(563, 42);
             this.panel10.TabIndex = 8;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // dateTimePickerThoiGianBatDau
             // 
@@ -322,8 +282,10 @@ namespace GUI
             this.buttonSua.BackColor = System.Drawing.Color.Orange;
             this.buttonSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSua.ForeColor = System.Drawing.Color.White;
-            this.buttonSua.Location = new System.Drawing.Point(75, 573);
+            this.buttonSua.Location = new System.Drawing.Point(75, 516);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSua.MaximumSize = new System.Drawing.Size(119, 49);
+            this.buttonSua.MinimumSize = new System.Drawing.Size(119, 49);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(119, 49);
             this.buttonSua.TabIndex = 10;
@@ -336,11 +298,12 @@ namespace GUI
             this.panel8.Controls.Add(this.buttonThemGia);
             this.panel8.Controls.Add(this.comboBoxGia);
             this.panel8.Controls.Add(this.label13);
-            this.panel8.Location = new System.Drawing.Point(0, 277);
+            this.panel8.Location = new System.Drawing.Point(0, 187);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(563, 42);
             this.panel8.TabIndex = 6;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // buttonThemGia
             // 
@@ -370,41 +333,9 @@ namespace GUI
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label13.Location = new System.Drawing.Point(3, 7);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 28);
+            this.label13.Size = new System.Drawing.Size(126, 28);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Giá:";
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.textBoxSoLuongKhachHang);
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Location = new System.Drawing.Point(0, 187);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(563, 42);
-            this.panel9.TabIndex = 7;
-            // 
-            // textBoxSoLuongKhachHang
-            // 
-            this.textBoxSoLuongKhachHang.Enabled = false;
-            this.textBoxSoLuongKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxSoLuongKhachHang.Location = new System.Drawing.Point(270, 10);
-            this.textBoxSoLuongKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxSoLuongKhachHang.Name = "textBoxSoLuongKhachHang";
-            this.textBoxSoLuongKhachHang.Size = new System.Drawing.Size(269, 26);
-            this.textBoxSoLuongKhachHang.TabIndex = 3;
-            this.textBoxSoLuongKhachHang.TextChanged += new System.EventHandler(this.textBoxSoLuongKhachHang_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(3, 7);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(217, 28);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Số lượng khách hàng:";
+            this.label13.Text = "Giá hiện tại:";
             // 
             // panel7
             // 
@@ -535,23 +466,19 @@ namespace GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.ClientSize = new System.Drawing.Size(626, 725);
+            this.ClientSize = new System.Drawing.Size(626, 670);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(644, 772);
-            this.MinimumSize = new System.Drawing.Size(644, 772);
             this.Name = "fmChiTietTour";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chi tiết tour";
+            this.Text = "Chi tiết tour | Tour App";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -560,8 +487,6 @@ namespace GUI
             this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -595,22 +520,16 @@ namespace GUI
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonDong;
         private System.Windows.Forms.Button buttonSua;
         private System.Windows.Forms.DateTimePicker dateTimePickerThoiGianKetThuc;
         private System.Windows.Forms.DateTimePicker dateTimePickerThoiGianBatDau;
-        private System.Windows.Forms.TextBox textBoxSoLuongKhachHang;
         private System.Windows.Forms.ComboBox comboBoxLoaiHinhDuLich;
         private System.Windows.Forms.ComboBox comboBoxDiaDiem;
         private System.Windows.Forms.TextBox textBoxDacDiem;
         private System.Windows.Forms.TextBox textBoxTenGoiTour;
         private System.Windows.Forms.TextBox textBoxMaSoTour;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBoxTongTien;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
