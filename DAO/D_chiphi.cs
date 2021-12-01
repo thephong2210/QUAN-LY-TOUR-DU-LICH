@@ -6,30 +6,42 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class D_loaichiphi
+    public class D_chiphi
     {
         tourdulichEntities tourdulich;
 
         //Dùng load combobox 
-        public List<loaichiphi> GetListLoaiChiPhi()
+        public List<chiphi> GetListLoaiChiPhi()
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getList = tourdulich.loaichiphis.Where(t => t.trangThai == 1);
+                var getList = tourdulich.chiphis.Where(t => t.trangThai == 1);
                                        
-                return getList.ToList<loaichiphi>();
+                return getList.ToList<chiphi>();
 
             }
 
         }
-        
-        public bool ThemLoaiChiPhi(loaichiphi objName)
+
+        public List<chiphi> GetListLoaiChiPhiWithMaDoan(int maSoDoan)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getList = tourdulich.chiphis.Where(t => t.trangThai == 1).Where(t => t.maSoDoan == maSoDoan);
+
+                return getList.ToList<chiphi>();
+
+            }
+
+        }
+
+        public bool ThemLoaiChiPhi(chiphi objName)
         {
             using (tourdulich = new tourdulichEntities())
             {
                 try
                 {
-                    tourdulich.loaichiphis.Add(objName);
+                    tourdulich.chiphis.Add(objName);
                     tourdulich.SaveChanges();
                     return true;
                 }
@@ -50,7 +62,7 @@ namespace DAO
             {
                 try
                 {
-                    loaichiphi objLoai = tourdulich.loaichiphis.Where(t => t.maLoaiChiPhi == maLoai).SingleOrDefault();
+                    chiphi objLoai = tourdulich.chiphis.Where(t => t.maChiPhi == maLoai).SingleOrDefault();
                     objLoai.trangThai = 0;
                     
                     tourdulich.SaveChanges();
@@ -65,7 +77,7 @@ namespace DAO
             }
         }
 
-        public bool SuaLoaiChiPhi(loaichiphi objLoai, int maLoai)
+        public bool SuaLoaiChiPhi(chiphi objLoai, int maLoai)
         {
 
             using (tourdulich = new tourdulichEntities())
@@ -73,9 +85,11 @@ namespace DAO
             {
                 try
                 {
-                    loaichiphi objOldLoai = tourdulich.loaichiphis.Where(t => t.maLoaiChiPhi == maLoai).SingleOrDefault();
+                    chiphi objOldLoai = tourdulich.chiphis.Where(t => t.maChiPhi == maLoai).SingleOrDefault();
 
-                    objOldLoai.tenLoaiChiPhi = objLoai.tenLoaiChiPhi;
+                    objOldLoai.tenChiPhi = objLoai.tenChiPhi;
+                    objOldLoai.maSoDoan = objLoai.maSoDoan;
+                    objOldLoai.tongChiPhi = objLoai.tongChiPhi;
                     objOldLoai.trangThai = objLoai.trangThai;
 
                     tourdulich.SaveChanges();

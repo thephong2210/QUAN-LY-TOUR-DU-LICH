@@ -18,6 +18,7 @@ namespace GUI
         D_doan d_Doan = new D_doan();
         B_tour bTour = new B_tour();
         B_doan b_Doan = new B_doan();
+        B_chiphi b_chiphi = new B_chiphi();
         public static int madoan;
         public fmQLDoan fmMain;
         public fmChitietDoan(int maDoan, fmQLDoan fmQLD)
@@ -37,8 +38,11 @@ namespace GUI
             comboBoxTour.ValueMember = "maSoTour";
         }
 
-        private void LoadChiTietDoan(int madoan)
+        public void LoadChiTietDoan(int madoan)
         {
+            List<chiphi> listChiPhi = b_chiphi.GetListLoaiChiPhi();
+            double tongChiPhi = 0;
+
             var json = JsonConvert.SerializeObject(d_Doan.GetDoan(madoan));
             DataTable dataTableDetailsDoan = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
             textBoxTenDoan.Text = dataTableDetailsDoan.Rows[0][0].ToString();
@@ -49,6 +53,16 @@ namespace GUI
             textBoxTongSLKH.Text = dataTableDetailsDoan.Rows[0][5].ToString();
             textBoxSLNV.Text = dataTableDetailsDoan.Rows[0][6].ToString();
             textBoxMaSoDoan.Text = dataTableDetailsDoan.Rows[0][7].ToString();
+
+            foreach (var item in listChiPhi)
+            {
+                if (item.maSoDoan == madoan)
+                {
+                    tongChiPhi += item.tongChiPhi;
+                }
+            }
+
+            textBoxTongChiPhi.Text = tongChiPhi.ToString();
 
             _passengerDgv.DataSource = d_Doan.GetKhachHangOfDoan(madoan);
             _employeeDgv.DataSource = d_Doan.GetNhanVienOfDoan(madoan);
@@ -113,5 +127,17 @@ namespace GUI
         {
             LoadChiTietDoan(madoan);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            fmChiTietChiPhi fmChiTietChiPhi = new fmChiTietChiPhi(madoan, this);
+            fmChiTietChiPhi.ShowDialog();
+
+           
+        }
+
+
     }
 }

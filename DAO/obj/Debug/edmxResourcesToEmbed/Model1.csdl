@@ -7,7 +7,8 @@
     <Property Name="maChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tongChiPhi" Type="Double" Nullable="false" />
     <Property Name="maSoDoan" Type="Int32" Nullable="false" />
-    <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" />
+    <Property Name="tenChiPhi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="dangky">
     <Key>
@@ -83,14 +84,6 @@
     <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="trangThai" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="loaichiphi">
-    <Key>
-      <PropertyRef Name="maLoaiChiPhi" />
-    </Key>
-    <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="trangThai" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="loaihinhdulich">
     <Key>
       <PropertyRef Name="maLoaiHinhDuLich" />
@@ -150,7 +143,6 @@
     <EntitySet Name="doanduliches" EntityType="Self.doandulich" />
     <EntitySet Name="giatours" EntityType="Self.giatour" />
     <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
-    <EntitySet Name="loaichiphis" EntityType="Self.loaichiphi" />
     <EntitySet Name="loaihinhduliches" EntityType="Self.loaihinhdulich" />
     <EntitySet Name="loaikhachhangs" EntityType="Self.loaikhachhang" />
     <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
