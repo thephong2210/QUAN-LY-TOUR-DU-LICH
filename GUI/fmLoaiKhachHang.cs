@@ -16,10 +16,12 @@ namespace GUI
     public partial class fmLoaiKhachHang : Form
     {
         B_LoaiKH b_loaiKH = new B_LoaiKH();
-        public fmLoaiKhachHang()
+        private fmDangKy fmDK;
+        public fmLoaiKhachHang(fmDangKy fmDK)
         {
             
             InitializeComponent();
+            this.fmDK = fmDK;
             LoadDanhSachLoaiKH();
         }
         public void LoadDanhSachLoaiKH()
@@ -92,9 +94,11 @@ namespace GUI
                     objLoaiKhachHang.trangThai = 1;
                     if (b_loaiKH.ThemLoaiKH(objLoaiKhachHang))
                     {
-                        MessageBox.Show("Thêm thành công", "Thông báo");
                         LoadDanhSachLoaiKH();
                         ClearFields();
+                        fmDK.LoadDanhSachDangKyTour();
+                        MessageBox.Show("Thêm thành công", "Thông báo");
+                       
                     }
                 }
                 catch (Exception e)
@@ -123,6 +127,7 @@ namespace GUI
             if (confirmResult == DialogResult.Yes)
             {
                 XoaLoaiKH();
+                fmDK.LoadDanhSachDangKyTour();
             }
         }
     }

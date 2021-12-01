@@ -200,3 +200,4 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyDiaDiem.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietDiaDiem.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietChiPhi.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmGiaTour.resources

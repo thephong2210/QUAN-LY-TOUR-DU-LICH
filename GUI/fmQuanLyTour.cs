@@ -246,7 +246,7 @@ namespace GUI
         {
             if (list.Count == 0)
             {
-                throw new InvalidOperationException("Empty list");
+                return 1;
             }
             int maxMaSoTour = 0;
             foreach (tour type in list)
@@ -264,7 +264,7 @@ namespace GUI
         {
             if (list.Count == 0)
             {
-                throw new InvalidOperationException("Empty list");
+                return 1;
             }
             int maxID = 0;
             foreach (giatour type in list)

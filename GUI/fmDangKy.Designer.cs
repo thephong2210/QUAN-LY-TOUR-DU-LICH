@@ -78,6 +78,7 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
@@ -345,6 +346,7 @@ namespace GUI
             this.comboBox3MaSoDoan.Name = "comboBox3MaSoDoan";
             this.comboBox3MaSoDoan.Size = new System.Drawing.Size(212, 28);
             this.comboBox3MaSoDoan.TabIndex = 2;
+            this.comboBox3MaSoDoan.SelectedIndexChanged += new System.EventHandler(this.comboBox3MaSoDoan_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -490,6 +492,7 @@ namespace GUI
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel10.Controls.Add(this.button1);
             this.panel10.Controls.Add(this.buttonXoa);
             this.panel10.Controls.Add(this.buttonXemChiTiet);
             this.panel10.Controls.Add(this.dataGridViewDangKy);
@@ -655,6 +658,20 @@ namespace GUI
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(244, 601);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 62);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // fmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -754,5 +771,6 @@ namespace GUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonThemLoaiKhachHang;
         private System.Windows.Forms.Button buttonThemKhachHang;
+        private System.Windows.Forms.Button button1;
     }
 }

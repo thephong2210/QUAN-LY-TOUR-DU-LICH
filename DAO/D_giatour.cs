@@ -24,21 +24,18 @@ namespace DAO
 
         }
 
+
+
         //Get giá tour qua mã số tour
         public List<giatour> GetGiaTourWithMaTour(int maSoTour)
         {
-            try
+            using (tourdulich = new tourdulichEntities())
             {
                 var getList = tourdulich.giatours.Where(t => t.maGiaTour == maSoTour);
 
-                return getList.ToList();
-
+                return getList.ToList<giatour>();
             }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-                return null;
-            }
+              
         }
 
         public bool ThemGiaTour(giatour objGiaTour)

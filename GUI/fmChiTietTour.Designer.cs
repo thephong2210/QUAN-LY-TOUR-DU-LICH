@@ -30,7 +30,6 @@ namespace GUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -63,8 +62,8 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxMaSoTour = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -75,6 +74,7 @@ namespace GUI
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,17 +87,6 @@ namespace GUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(629, 50);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_view_details_50;
-            this.pictureBox1.Location = new System.Drawing.Point(226, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -307,12 +296,15 @@ namespace GUI
             // 
             // buttonThemGia
             // 
+            this.buttonThemGia.BackColor = System.Drawing.Color.OliveDrab;
+            this.buttonThemGia.ForeColor = System.Drawing.Color.White;
             this.buttonThemGia.Location = new System.Drawing.Point(464, 7);
             this.buttonThemGia.Name = "buttonThemGia";
             this.buttonThemGia.Size = new System.Drawing.Size(75, 28);
             this.buttonThemGia.TabIndex = 3;
             this.buttonThemGia.Text = "Thêm";
-            this.buttonThemGia.UseVisualStyleBackColor = true;
+            this.buttonThemGia.UseVisualStyleBackColor = false;
+            this.buttonThemGia.Click += new System.EventHandler(this.buttonThemGia_Click);
             // 
             // comboBoxGia
             // 
@@ -461,6 +453,17 @@ namespace GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã số tour:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_view_details_50;
+            this.pictureBox1.Location = new System.Drawing.Point(226, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // fmChiTietTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,7 +478,6 @@ namespace GUI
             this.Text = "Chi tiết tour | Tour App";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -495,6 +497,7 @@ namespace GUI
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
