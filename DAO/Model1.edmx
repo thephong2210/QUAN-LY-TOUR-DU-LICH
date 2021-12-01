@@ -12,7 +12,8 @@
           <Property Name="maChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tongChiPhi" Type="float" Nullable="false" />
           <Property Name="maSoDoan" Type="int" Nullable="false" />
-          <Property Name="maLoaiChiPhi" Type="int" Nullable="false" />
+          <Property Name="tenChiPhi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="dangky">
           <Key>
@@ -88,14 +89,6 @@
           <Property Name="quocTich" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="trangThai" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="loaichiphi">
-          <Key>
-            <PropertyRef Name="maLoaiChiPhi" />
-          </Key>
-          <Property Name="maLoaiChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tenLoaiChiPhi" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="trangThai" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="loaihinhdulich">
           <Key>
             <PropertyRef Name="maLoaiHinhDuLich" />
@@ -155,7 +148,6 @@
           <EntitySet Name="doandulich" EntityType="Self.doandulich" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="giatour" EntityType="Self.giatour" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="loaichiphi" EntityType="Self.loaichiphi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="loaihinhdulich" EntityType="Self.loaihinhdulich" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="loaikhachhang" EntityType="Self.loaikhachhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
@@ -173,7 +165,8 @@
           <Property Name="maChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tongChiPhi" Type="Double" Nullable="false" />
           <Property Name="maSoDoan" Type="Int32" Nullable="false" />
-          <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" />
+          <Property Name="tenChiPhi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="dangky">
           <Key>
@@ -249,14 +242,6 @@
           <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="trangThai" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="loaichiphi">
-          <Key>
-            <PropertyRef Name="maLoaiChiPhi" />
-          </Key>
-          <Property Name="maLoaiChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tenLoaiChiPhi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="trangThai" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="loaihinhdulich">
           <Key>
             <PropertyRef Name="maLoaiHinhDuLich" />
@@ -316,7 +301,6 @@
           <EntitySet Name="doanduliches" EntityType="Self.doandulich" />
           <EntitySet Name="giatours" EntityType="Self.giatour" />
           <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
-          <EntitySet Name="loaichiphis" EntityType="Self.loaichiphi" />
           <EntitySet Name="loaihinhduliches" EntityType="Self.loaihinhdulich" />
           <EntitySet Name="loaikhachhangs" EntityType="Self.loaikhachhang" />
           <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
@@ -332,10 +316,11 @@
           <EntitySetMapping Name="chiphis">
             <EntityTypeMapping TypeName="tourdulichModel.chiphi">
               <MappingFragment StoreEntitySet="chiphi">
+                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+                <ScalarProperty Name="tenChiPhi" ColumnName="tenChiPhi" />
                 <ScalarProperty Name="maChiPhi" ColumnName="maChiPhi" />
                 <ScalarProperty Name="tongChiPhi" ColumnName="tongChiPhi" />
                 <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
-                <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -417,15 +402,6 @@
                 <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="quocTich" ColumnName="quocTich" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="loaichiphis">
-            <EntityTypeMapping TypeName="tourdulichModel.loaichiphi">
-              <MappingFragment StoreEntitySet="loaichiphi">
-                <ScalarProperty Name="trangThai" ColumnName="trangThai" />
-                <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
-                <ScalarProperty Name="tenLoaiChiPhi" ColumnName="tenLoaiChiPhi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

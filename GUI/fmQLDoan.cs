@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
@@ -18,8 +19,9 @@ namespace GUI
         B_doan b_Doan = new B_doan();
         B_tour bTour = new B_tour();
         D_doan d_Doan = new D_doan();
-        TextBox textBox11 = new TextBox();
-        TextBox textBox2 = new TextBox();
+        B_chiphi b_chiphi = new B_chiphi();
+
+
         public fmQLDoan()
         {
             InitializeComponent();
@@ -63,9 +65,75 @@ namespace GUI
 
         public void ThemDoan()
         {
-            b_Doan.ThemDoan(createDoan());
-            LoadDanhSachDoan();
-            MessageBox.Show("Thêm thành công!", "Thông báo");
+            if (!String.IsNullOrWhiteSpace(textBoxTenDoan.Text))
+            {
+                if (listBoxChiPhi.Items.Count != 0)
+                {
+                    List<doandulich> listDoanAll = b_Doan.GetAllDoan();
+                    b_Doan.ThemDoan(createDoan());
+
+                    foreach (string item in listBoxChiPhi.Items)
+                    {
+                        chiphi objChiPhi = new chiphi();
+                        string[] words = item.Split(';');
+
+                        objChiPhi.tenChiPhi = words[0];
+                        objChiPhi.tongChiPhi = Convert.ToDouble(words[1]);
+                        objChiPhi.maSoDoan = GetMaxMaSoDoan(listDoanAll) + 1; //get maSoDoan new
+                        objChiPhi.trangThai = 1;
+
+                        if (b_chiphi.ThemLoaiChiPhi(objChiPhi))
+                        {
+                            System.Diagnostics.Debug.WriteLine("Thêm chi phí thành công!"); //debug write line
+
+                        }
+                    }
+
+
+                    LoadDanhSachDoan();
+                    MessageBox.Show("Thêm thành công!", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng thêm ít nhất 1 chi phí!", "Thông báo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên đoàn!", "Thông báo");
+                textBoxTenDoan.Focus();
+            }
+
+        }
+
+        public bool CheckTextChiPhi()
+        {
+            Regex regex = new Regex(@"[a-zA-Z][;][0-9]");
+
+            if (regex.IsMatch(textBoxChiPhi.Text))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        //Dùng cho chức năng thêm chi phí
+        public int GetMaxMaSoDoan(List<doandulich> list)
+        {
+            if (list.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            int maxMaSoDoann = 0;
+            foreach (doandulich type in list)
+            {
+                if (type.maSoDoan > maxMaSoDoann)
+                {
+                    maxMaSoDoann = type.maSoDoan;
+                }
+            }
+            return maxMaSoDoann;
         }
 
         public void XoaDoan()
@@ -130,32 +198,7 @@ namespace GUI
 
         private void dataGridViewQuanLyDoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (textBoxTenDoan.DataBindings.Count > 0)
-            //    textBoxTenDoan.DataBindings.RemoveAt(0);
-
-            //textBoxTenDoan.DataBindings.Add(
-            //    new Binding("Text", dataGridViewQuanLyDoan[1, e.RowIndex], "Value", true));
-            //if (comboBoxTour.DataBindings.Count > 0)
-            //    comboBoxTour.DataBindings.RemoveAt(0);
-
-            //comboBoxTour.DataBindings.Add(
-            //    new Binding("Text", dataGridViewQuanLyDoan[2, e.RowIndex], "Value", true));
-            //if (dateTimePickerNgayBatDau.DataBindings.Count > 0)
-            //    dateTimePickerNgayBatDau.DataBindings.RemoveAt(0);
-
-            //dateTimePickerNgayBatDau.DataBindings.Add(
-            //    new Binding("Text", dataGridViewQuanLyDoan[3, e.RowIndex], "Value", true));
-            //if (dateTimePickerNgayKetThuc.DataBindings.Count > 0)
-            //    dateTimePickerNgayKetThuc.DataBindings.RemoveAt(0);
-
-            //dateTimePickerNgayKetThuc.DataBindings.Add(
-            //    new Binding("Text", dataGridViewQuanLyDoan[4, e.RowIndex], "Value", true));
-            //if (textBoxChiTiet.DataBindings.Count > 0)
-            //    textBoxChiTiet.DataBindings.RemoveAt(0);
-
-            //textBoxChiTiet.DataBindings.Add(
-            //    new Binding("Text", dataGridViewQuanLyDoan[5, e.RowIndex], "Value", true));
-            //buttonLamMoi.Enabled = true;
+            
         }
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)
@@ -173,12 +216,91 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void textBoxTenDoan_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
-        private void textBoxTenDoan_TextChanged(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+          
+        }
+        public void ThemChiPhiToListBox()
+        {
+            string tenChiPhi = textBoxChiPhi.Text;
+
+            if (!String.IsNullOrWhiteSpace(tenChiPhi))
+            {
+                if (CheckTextChiPhi())
+                {
+                    if (listBoxChiPhi.Items.Contains(tenChiPhi))
+                    {
+                        MessageBox.Show("Chi phí này đã có trong danh sách! Mời nhập chi phí khác!", "Thông báo");
+                    }
+                    else
+                    {
+                        listBoxChiPhi.Items.Add(textBoxChiPhi.Text);
+                        textBoxChiPhi.Text = "";
+                        textBoxChiPhi.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Chi phí không đúng định dạng!\nĐịnh dạng đúng: (tên chi phí);(tổng chi phí)", "Thông báo");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên địa điểm tham quan!", "Thông báo");
+            }
+        }
+
+        public void XoaItemListBox()
+        {
+            if (listBoxChiPhi.SelectedIndex != -1)
+            {
+                string removeItem = listBoxChiPhi.SelectedItem.ToString();
+                listBoxChiPhi.Items.Remove(removeItem);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn địa điểm muốn xóa!", "Thông báo");
+            }
+        }
+
+        public void XoaTatCaItemListBox()
+        {
+            if (listBoxChiPhi.Items.Count != 0)
+            {
+                var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa tất cả không ?? :D", "Thông báo", MessageBoxButtons.YesNo);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    listBoxChiPhi.Items.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Danh sách trống!", "Thông báo");
+            }
+        }
+        private void buttonThemDDTQ_Click(object sender, EventArgs e)
+        {
+            ThemChiPhiToListBox();
+        }
+
+        private void buttonXoaOne_Click(object sender, EventArgs e)
+        {
+            XoaItemListBox();
+        }
+
+        private void buttonXoaTatCa_Click(object sender, EventArgs e)
+        {
+            XoaTatCaItemListBox();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

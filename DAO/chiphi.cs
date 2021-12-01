@@ -17,6 +17,7 @@ namespace DAO
         public int maChiPhi { get; set; }
         public double tongChiPhi { get; set; }
         public int maSoDoan { get; set; }
-        public int maLoaiChiPhi { get; set; }
+        public string tenChiPhi { get; set; }
+        public int trangThai { get; set; }
     }
 }

@@ -4,10 +4,11 @@
     <EntitySetMapping Name="chiphis">
       <EntityTypeMapping TypeName="tourdulichModel.chiphi">
         <MappingFragment StoreEntitySet="chiphi">
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="tenChiPhi" ColumnName="tenChiPhi" />
           <ScalarProperty Name="maChiPhi" ColumnName="maChiPhi" />
           <ScalarProperty Name="tongChiPhi" ColumnName="tongChiPhi" />
           <ScalarProperty Name="maSoDoan" ColumnName="maSoDoan" />
-          <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -89,15 +90,6 @@
           <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="quocTich" ColumnName="quocTich" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="loaichiphis">
-      <EntityTypeMapping TypeName="tourdulichModel.loaichiphi">
-        <MappingFragment StoreEntitySet="loaichiphi">
-          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
-          <ScalarProperty Name="maLoaiChiPhi" ColumnName="maLoaiChiPhi" />
-          <ScalarProperty Name="tenLoaiChiPhi" ColumnName="tenLoaiChiPhi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

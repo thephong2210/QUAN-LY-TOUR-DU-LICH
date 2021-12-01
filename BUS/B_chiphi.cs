@@ -7,17 +7,17 @@ using DAO;
 
 namespace BUS
 {
-    public class B_loaichiphi
+    public class B_chiphi
     {
-        D_loaichiphi d_LoaiChiPhi = new D_loaichiphi();
+        D_chiphi d_LoaiChiPhi = new D_chiphi();
 
-        public List<loaichiphi> GetListLoaiChiPhi()
+        public List<chiphi> GetListLoaiChiPhi()
         {
             return d_LoaiChiPhi.GetListLoaiChiPhi();
         }
         
 
-        public bool ThemLoaiChiPhi(loaichiphi objLoai)
+        public bool ThemLoaiChiPhi(chiphi objLoai)
         {
             return d_LoaiChiPhi.ThemLoaiChiPhi(objLoai);
         }
@@ -27,7 +27,7 @@ namespace BUS
             return d_LoaiChiPhi.XoaLoaiChiPhi(maLoai);
         }
 
-        public bool SuaLoaiChiPhi(loaichiphi objLoai,int maLoai)
+        public bool SuaLoaiChiPhi(chiphi objLoai,int maLoai)
         {
             return d_LoaiChiPhi.SuaLoaiChiPhi(objLoai, maLoai);
         }

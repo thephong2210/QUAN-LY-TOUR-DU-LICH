@@ -33,7 +33,6 @@ namespace DAO
         public virtual DbSet<doandulich> doanduliches { get; set; }
         public virtual DbSet<giatour> giatours { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
-        public virtual DbSet<loaichiphi> loaichiphis { get; set; }
         public virtual DbSet<loaihinhdulich> loaihinhduliches { get; set; }
         public virtual DbSet<loaikhachhang> loaikhachhangs { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }

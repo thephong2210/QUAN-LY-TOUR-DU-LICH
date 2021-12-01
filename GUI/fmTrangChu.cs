@@ -116,8 +116,7 @@ namespace GUI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            fmLoaiChiPhi fmLoaiChiPhi = new fmLoaiChiPhi();
-            HienThiFormCon(fmLoaiChiPhi);
+          
         }
     }
 }
