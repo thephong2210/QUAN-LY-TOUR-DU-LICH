@@ -52,7 +52,8 @@ namespace GUI
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            fmKhachHang fmKH = new fmKhachHang();
+            fmDangKy fmDangKyKhachHang = new fmDangKy();
+            fmKhachHang fmKH = new fmKhachHang(fmDangKyKhachHang);
             HienThiFormCon(fmKH);
         }
 

@@ -27,6 +27,7 @@ namespace GUI
             LoadComboboxMaSoKhachHang();
             LoadComboboxMaTour();
             LoadDanhSachDangKyTour();
+            LoadGiaTheoTour();
         }
 
         private void fmDangKy_Load(object sender, EventArgs e)
@@ -243,16 +244,18 @@ namespace GUI
 
             foreach (var itemmaTour in listTour)
             {
-                if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
-                {
-                    foreach (var itemGiaTour in listGiaTour)
+                
+                    if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
                     {
-                        if (itemGiaTour.maGiaTour.Equals(itemmaTour.idGiaTour))
+                        foreach (var itemGiaTour in listGiaTour)
                         {
-                            textBoxGiaTour.Text = itemGiaTour.gia.ToString();
+                            if (itemGiaTour.id.Equals(itemmaTour.idGiaTour))
+                            {
+                                textBoxGiaTour.Text = itemGiaTour.gia.ToString();
+                            }
                         }
                     }
-                }
+                
             }
         }
 
@@ -357,14 +360,28 @@ namespace GUI
 
         private void buttonThemKhachHang_Click(object sender, EventArgs e)
         {
-            fmKhachHang fmKH = new fmKhachHang();
+            fmKhachHang fmKH = new fmKhachHang(this);
             fmKH.ShowDialog();
         }
 
         private void buttonThemLoaiKhachHang_Click(object sender, EventArgs e)
         {
-            fmLoaiKhachHang fmLoaiKH = new fmLoaiKhachHang();
+            fmLoaiKhachHang fmLoaiKH = new fmLoaiKhachHang(this);
             fmLoaiKH.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadDanhSachDangKyTour();
+            LoadComboboxMaLoaiKhachHang();
+            LoadComboboxMaSoKhachHang();
+            LoadComboboxMaTour();
+            LoadGiaTheoTour();
+        }
+
+        private void comboBox3MaSoDoan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadGiaTheoTour();
         }
     }
 }

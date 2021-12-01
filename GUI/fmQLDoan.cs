@@ -91,6 +91,7 @@ namespace GUI
 
 
                     LoadDanhSachDoan();
+                    ClearFields();
                     MessageBox.Show("Thêm thành công!", "Thông báo");
                 }
                 else
@@ -104,6 +105,14 @@ namespace GUI
                 textBoxTenDoan.Focus();
             }
 
+        }
+
+        public void ClearFields()
+        {
+            textBoxTenDoan.Text = "";
+            textBoxChiTiet.Text = "";
+            textBoxChiPhi.Text = "";
+            listBoxChiPhi.Items.Clear();
         }
 
         public bool CheckTextChiPhi()
@@ -123,7 +132,7 @@ namespace GUI
         {
             if (list.Count == 0)
             {
-                throw new InvalidOperationException("Empty list");
+                return 1;
             }
             int maxMaSoDoann = 0;
             foreach (doandulich type in list)

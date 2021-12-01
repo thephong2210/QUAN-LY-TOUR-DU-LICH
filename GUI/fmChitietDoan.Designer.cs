@@ -32,8 +32,12 @@ namespace GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxTongChiPhi = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBoxSLNV = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTongSLKH = new System.Windows.Forms.TextBox();
@@ -63,18 +67,14 @@ namespace GUI
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tên = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxTongChiPhi = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this._tableCell_Three.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._employeeDgv)).BeginInit();
             this._tableCell_One.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -88,6 +88,17 @@ namespace GUI
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1215, 54);
             this.panel7.TabIndex = 20;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
+            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
             // 
             // label10
             // 
@@ -132,6 +143,44 @@ namespace GUI
             this.panel13.Padding = new System.Windows.Forms.Padding(21, 19, 21, 19);
             this.panel13.Size = new System.Drawing.Size(1215, 242);
             this.panel13.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1049, 156);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 34);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Chi tiết chi phí";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBoxTongChiPhi
+            // 
+            this.textBoxTongChiPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTongChiPhi.Enabled = false;
+            this.textBoxTongChiPhi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxTongChiPhi.Location = new System.Drawing.Point(958, 113);
+            this.textBoxTongChiPhi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textBoxTongChiPhi.Name = "textBoxTongChiPhi";
+            this.textBoxTongChiPhi.Size = new System.Drawing.Size(232, 30);
+            this.textBoxTongChiPhi.TabIndex = 35;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(741, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 28);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Tổng các chi phí:";
             // 
             // textBoxSLNV
             // 
@@ -509,61 +558,12 @@ namespace GUI
             // 
             // soLuong
             // 
-            this.soLuong.DataPropertyName = "soLuongKhachHang";
+            this.soLuong.DataPropertyName = "soLuong";
             this.soLuong.FillWeight = 71.66747F;
             this.soLuong.HeaderText = "Số lượng";
             this.soLuong.MinimumWidth = 6;
             this.soLuong.Name = "soLuong";
             this.soLuong.ReadOnly = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(741, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 28);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Tổng các chi phí:";
-            // 
-            // textBoxTongChiPhi
-            // 
-            this.textBoxTongChiPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTongChiPhi.Enabled = false;
-            this.textBoxTongChiPhi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxTongChiPhi.Location = new System.Drawing.Point(958, 113);
-            this.textBoxTongChiPhi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.textBoxTongChiPhi.Name = "textBoxTongChiPhi";
-            this.textBoxTongChiPhi.Size = new System.Drawing.Size(232, 30);
-            this.textBoxTongChiPhi.TabIndex = 35;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1049, 156);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 34);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Chi tiết chi phí";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
-            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
             // 
             // fmChitietDoan
             // 
@@ -580,6 +580,7 @@ namespace GUI
             this.Load += new System.EventHandler(this.fmChitietDoan_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -587,7 +588,6 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this._employeeDgv)).EndInit();
             this._tableCell_One.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -622,13 +622,13 @@ namespace GUI
         private System.Windows.Forms.TextBox textBoxMaSoDoan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tên;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNV;
         private System.Windows.Forms.TextBox textBoxTongChiPhi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tên;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
     }
 }

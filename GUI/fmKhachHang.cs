@@ -17,9 +17,11 @@ namespace GUI
     public partial class fmKhachHang : Form
     {
         B_KH b_KH = new B_KH();
-        public fmKhachHang()
+        private fmDangKy fmDK;
+        public fmKhachHang(fmDangKy fmDK)
         {
             InitializeComponent();
+            this.fmDK = fmDK;
             LoadDSKH();
         }
         public void LoadDSKH()
@@ -136,9 +138,11 @@ namespace GUI
 
                     if (b_KH.ThemKhachHang(objKhachHang))
                     {
-                        MessageBox.Show("Thêm khách hàng thành công", "Thông báo");
                         LoadDSKH();
                         ClearField();
+                        fmDK.LoadDanhSachDangKyTour();
+                        MessageBox.Show("Thêm khách hàng thành công", "Thông báo");
+                        
                     }
                 }
                 catch (Exception e)
@@ -160,6 +164,7 @@ namespace GUI
                     int maKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
                     b_KH.XoaKhachHang(maKhachHang);
                     LoadDSKH();
+                    fmDK.LoadDanhSachDangKyTour();
                     MessageBox.Show("Xóa thành công", "Thông báo");
 
                 }

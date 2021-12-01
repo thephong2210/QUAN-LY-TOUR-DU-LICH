@@ -140,9 +140,10 @@ namespace GUI
         //Dùng cho chức năng thêm
         public int GetMaxMaDiaDiemDen(List<diadiemden> list)
         {
+           
             if (list.Count == 0)
             {
-                throw new InvalidOperationException("Empty list");
+                return 1;
             }
             int maxMaDiaDiemDen = 0;
             foreach (diadiemden type in list)

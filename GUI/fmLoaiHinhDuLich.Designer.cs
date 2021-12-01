@@ -37,12 +37,12 @@ namespace GUI
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.lbTimKiem = new System.Windows.Forms.Label();
             this.dataGridViewLoaiHinhDuLich = new System.Windows.Forms.DataGridView();
+            this.maLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.textBoxTenLoaiHinhDuLich = new System.Windows.Forms.TextBox();
             this.lbTenLoaiHinhDuLich = new System.Windows.Forms.Label();
-            this.maLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDiaDiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -97,7 +97,7 @@ namespace GUI
             this.panelLeft.Location = new System.Drawing.Point(0, 55);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(495, 577);
+            this.panelLeft.Size = new System.Drawing.Size(495, 528);
             this.panelLeft.TabIndex = 37;
             // 
             // panel1
@@ -149,6 +149,22 @@ namespace GUI
             this.dataGridViewLoaiHinhDuLich.Size = new System.Drawing.Size(454, 140);
             this.dataGridViewLoaiHinhDuLich.TabIndex = 12;
             // 
+            // maLoaiHinhDuLich
+            // 
+            this.maLoaiHinhDuLich.DataPropertyName = "maLoaiHinhDuLich";
+            this.maLoaiHinhDuLich.HeaderText = "Mã loại hình du lịch";
+            this.maLoaiHinhDuLich.MinimumWidth = 6;
+            this.maLoaiHinhDuLich.Name = "maLoaiHinhDuLich";
+            this.maLoaiHinhDuLich.ReadOnly = true;
+            // 
+            // tenLoaiHinhDuLich
+            // 
+            this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
+            this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
+            this.tenLoaiHinhDuLich.MinimumWidth = 6;
+            this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
+            this.tenLoaiHinhDuLich.ReadOnly = true;
+            // 
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
@@ -195,22 +211,6 @@ namespace GUI
             this.lbTenLoaiHinhDuLich.Size = new System.Drawing.Size(182, 25);
             this.lbTenLoaiHinhDuLich.TabIndex = 3;
             this.lbTenLoaiHinhDuLich.Text = "Tên loại hình du lịch";
-            // 
-            // maLoaiHinhDuLich
-            // 
-            this.maLoaiHinhDuLich.DataPropertyName = "maLoaiHinhDuLich";
-            this.maLoaiHinhDuLich.HeaderText = "Mã loại hình du lịch";
-            this.maLoaiHinhDuLich.MinimumWidth = 6;
-            this.maLoaiHinhDuLich.Name = "maLoaiHinhDuLich";
-            this.maLoaiHinhDuLich.ReadOnly = true;
-            // 
-            // tenLoaiHinhDuLich
-            // 
-            this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
-            this.tenLoaiHinhDuLich.MinimumWidth = 6;
-            this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.ReadOnly = true;
             // 
             // fmLoaiHinhDuLich
             // 

@@ -49,7 +49,7 @@ namespace GUI
         private fmQuanLyTour fmMain;
         public int maSoTour { get; set; } //Set data sẽ lấy từ form quản lý tour
 
-        private void HienThiChiTietTour()
+        public void HienThiChiTietTour()
         {
             List<dynamic> listDetailsTour = bTour.GetListDetailsTour(maSoTour);
             
@@ -353,6 +353,12 @@ namespace GUI
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonThemGia_Click(object sender, EventArgs e)
+        {
+            fmGiaTour fmGiaTour = new fmGiaTour(maSoTour, this);
+            fmGiaTour.ShowDialog();
         }
     }
 }
