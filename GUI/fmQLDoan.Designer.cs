@@ -35,6 +35,7 @@ namespace GUI
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonXemChiTiet = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewQuanLyDoan = new System.Windows.Forms.DataGridView();
             this.maDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +44,11 @@ namespace GUI
             this.thoiGianBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thoiGianKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.listBoxChiPhi = new System.Windows.Forms.ListBox();
             this.buttonXoaTatCa = new System.Windows.Forms.Button();
             this.buttonXoaOne = new System.Windows.Forms.Button();
@@ -54,6 +56,7 @@ namespace GUI
             this.buttonThemDDTQ = new System.Windows.Forms.Button();
             this.textBoxChiPhi = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonTaoMoi = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -73,26 +76,23 @@ namespace GUI
             this.textBoxTenDoan = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +120,7 @@ namespace GUI
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dataGridViewQuanLyDoan);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBoxTimKiem);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(423, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -178,6 +178,17 @@ namespace GUI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(976, 53);
             this.panel3.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_list_50;
+            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -270,14 +281,15 @@ namespace GUI
             this.chiTiet.Name = "chiTiet";
             this.chiTiet.ReadOnly = true;
             // 
-            // textBox1
+            // textBoxTimKiem
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(138, 63);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(419, 30);
-            this.textBox1.TabIndex = 23;
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(138, 63);
+            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textBoxTimKiem.Name = "textBoxTimKiem";
+            this.textBoxTimKiem.Size = new System.Drawing.Size(419, 30);
+            this.textBoxTimKiem.TabIndex = 23;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -323,6 +335,18 @@ namespace GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(385, 254);
             this.panel5.TabIndex = 45;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 7.5F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(89, 15);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(234, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Định dạng: (tên chi phí);(tổng chi phí)";
             // 
             // listBoxChiPhi
             // 
@@ -405,6 +429,17 @@ namespace GUI
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(424, 53);
             this.panel6.TabIndex = 33;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GUI.Properties.Resources.icons8_add_64;
+            this.pictureBox2.Location = new System.Drawing.Point(74, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(51, 37);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // label2
             // 
@@ -583,6 +618,7 @@ namespace GUI
             this.comboBoxTour.Size = new System.Drawing.Size(216, 28);
             this.comboBoxTour.TabIndex = 2;
             this.comboBoxTour.ValueMember = "maSoTour";
+            this.comboBoxTour.SelectedIndexChanged += new System.EventHandler(this.comboBoxTour_SelectedIndexChanged);
             // 
             // panel8
             // 
@@ -644,40 +680,6 @@ namespace GUI
             this.panel7.Size = new System.Drawing.Size(1381, 68);
             this.panel7.TabIndex = 19;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 7.5F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(89, 15);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(234, 17);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Định dạng: (tên chi phí);(tổng chi phí)";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_list_50;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GUI.Properties.Resources.icons8_add_64;
-            this.pictureBox2.Location = new System.Drawing.Point(74, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 37);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.baggage;
@@ -700,18 +702,21 @@ namespace GUI
             this.Name = "fmQLDoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý đoàn du lịch | Tour App";
+            this.Load += new System.EventHandler(this.fmQLDoan_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -724,8 +729,6 @@ namespace GUI
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -747,7 +750,7 @@ namespace GUI
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxTour;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridViewQuanLyDoan;
         private System.Windows.Forms.Panel panel8;

@@ -25,15 +25,24 @@ namespace GUI
             InitializeComponent();
             fmMain = fmDK;
             this.id = id;
-            HienThiChiTietDangKy();
-            LoadComboboxMaLoaiKhachHang();
-            LoadComboboxMaSoKhachHang();
-            LoadComboboxMaTour();
-            LoadDoanTheoTour();
-            TinhTongTien();
+            RefreshData();
         }
         private fmDangKy fmMain;
         public int id { get; set; }
+
+        public void RefreshData()
+        {
+            LoadDoanTheoTour();
+            LoadComboboxMaLoaiKhachHang();
+            LoadComboboxMaSoKhachHang();
+            LoadComboboxMaTour();
+            HienThiChiTietDangKy();
+            TinhTongTien();
+        }
+        private void fmChiTietDangKy_Load(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
 
         public void LoadComboboxMaSoKhachHang()
         {
@@ -77,13 +86,15 @@ namespace GUI
 
             //Hiển thị
             textBoxId.Text = id.ToString();
+            //comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][1].ToString());
             comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][1].ToString());
-            comboBoxMaTour.SelectedIndex = comboBoxMaTour.FindString(dataTableDetailsDangKy.Rows[0][2].ToString());
-            comboBoxMaLoaiKhachHang.SelectedIndex = comboBoxMaLoaiKhachHang.FindString(dataTableDetailsDangKy.Rows[0][3].ToString());
+            comboBoxMaTour.SelectedIndex = comboBoxMaTour.FindStringExact(dataTableDetailsDangKy.Rows[0][2].ToString());
+            comboBoxMaLoaiKhachHang.SelectedIndex = comboBoxMaLoaiKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][3].ToString());
             dateTimePickerNgayDangKy.Value = Convert.ToDateTime(dataTableDetailsDangKy.Rows[0][4]);
-            comboBox3MaSoDoan.SelectedIndex = comboBox3MaSoDoan.FindString(dataTableDetailsDangKy.Rows[0][5].ToString());
+            comboBox3MaSoDoan.SelectedIndex = comboBox3MaSoDoan.FindStringExact(dataTableDetailsDangKy.Rows[0][5].ToString());
             textBoxSoLuongKhachHang.Text = dataTableDetailsDangKy.Rows[0][6].ToString();
             textBoxGia.Text = dataTableDetailsDangKy.Rows[0][7].ToString();
+
 
         }
 
@@ -127,14 +138,10 @@ namespace GUI
 
         private void comboBoxMaSoKhachHang_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Debug.WriteLine("index khach hang: " +comboBoxMaSoKhachHang.SelectedIndex);
         }
 
-        private void fmChiTietDangKy_Load(object sender, EventArgs e)
-        {
-            HienThiChiTietDangKy();
-            LoadDoanTheoTour();
-        }
+       
 
         private void comboBoxMaTour_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -24,19 +24,19 @@ namespace GUI
             fmMain = fmCTTour;
             this.maSoTour = maSoTour;
 
-            HienThiChiTietNhanVien();
+            HienThiChiTiet();
         }
 
         private fmChiTietTour fmMain;
         public int maSoTour { get; set; } //Set data sẽ lấy từ form quản lý tour
 
         // Hiển thị chi tiết 
-        private void HienThiChiTietNhanVien()
+        private void HienThiChiTiet()
         {
             textBoxMaTour.Text = maSoTour.ToString();
 
             dataGridViewGiaTour.DataSource = bGiaTour.GetGiaTourWithMaTour(maSoTour);
-
+            dataGridViewGiaTour.AutoGenerateColumns = false;
         }
 
         public void ThemGiaTour()
@@ -53,6 +53,8 @@ namespace GUI
                     if (bGiaTour.ThemGiaTour(objGiaTour))
                     {
                         fmMain.HienThiChiTietTour();
+                        HienThiChiTiet();
+                        ClearFields();
                         MessageBox.Show("Thêm thành công!", "Thông báo");
                     }
                     
@@ -68,6 +70,12 @@ namespace GUI
             }
 
 
+        }
+
+        public void ClearFields()
+        {
+            textBoxGia.Text = "";
+            textBoxNoiDungGia.Text = "";
         }
 
 
@@ -104,6 +112,24 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             ThemGiaTour();
+        }
+        public void TimKiemGiaTour()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewGiaTour.DataSource = bGiaTour.TimKiemGiaTour(searchValue);//tim theo dieu kien
+            }
+            else
+            {
+                HienThiChiTiet();
+            }
+
+        }
+        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemGiaTour();
         }
     }
 }

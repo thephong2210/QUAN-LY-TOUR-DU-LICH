@@ -27,6 +27,7 @@ namespace GUI
         public void LoadDSKH()
         {
             dataGridViewQuanLyKH.DataSource = b_KH.GetKhachHang();
+            dataGridViewQuanLyKH.AutoGenerateColumns = false;
         }
         public void ClearField()
         {
@@ -140,7 +141,7 @@ namespace GUI
                     {
                         LoadDSKH();
                         ClearField();
-                        fmDK.LoadDanhSachDangKyTour();
+                        fmDK.LoadComboboxMaLoaiKhachHang();
                         MessageBox.Show("Thêm khách hàng thành công", "Thông báo");
                         
                     }
@@ -164,7 +165,7 @@ namespace GUI
                     int maKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
                     b_KH.XoaKhachHang(maKhachHang);
                     LoadDSKH();
-                    fmDK.LoadDanhSachDangKyTour();
+                    fmDK.LoadComboboxMaLoaiKhachHang();
                     MessageBox.Show("Xóa thành công", "Thông báo");
 
                 }
@@ -186,7 +187,7 @@ namespace GUI
                 {
                     string maSoKhachHang = row.Cells[0].Value.ToString();
 
-                    fmChiTietKhachHang formChiTietKhachHang = new fmChiTietKhachHang(int.Parse(maSoKhachHang), this);
+                    fmChiTietKhachHang formChiTietKhachHang = new fmChiTietKhachHang(int.Parse(maSoKhachHang), this, fmDK);
 
                     formChiTietKhachHang.ShowDialog();
 
@@ -211,6 +212,24 @@ namespace GUI
             {
                 XoaKhachHang();
             }
+        }
+        public void TimKiemTenKhachHang()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewQuanLyKH.DataSource = b_KH.TimKiemTenKhachHang(searchValue);
+            }
+            else
+            {
+                LoadDSKH();
+            }
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemTenKhachHang();
         }
     }
 }

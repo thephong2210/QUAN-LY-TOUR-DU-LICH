@@ -16,15 +16,18 @@ namespace GUI
     public partial class fmNhanVien : Form
     {
         B_nhanvien bNhanVien = new BUS.B_nhanvien();
-        public fmNhanVien()
+        private fmDangKyNhanVien fmDKNV;
+        public fmNhanVien(fmDangKyNhanVien formDKNV)
         {
             InitializeComponent();
+            fmDKNV = formDKNV;
             LoadDanhSachNhanVien();
         }
 
         public void LoadDanhSachNhanVien()
         {
             dataGridViewNhanVien.DataSource = bNhanVien.GetListNhanVien();
+            dataGridViewNhanVien.AutoGenerateColumns = false;
         }
 
         private void ClearFields()
@@ -73,11 +76,12 @@ namespace GUI
                 {
                     if (bNhanVien.ThemNhanVien(objNhanVien))    // ??
                     {
-                        System.Diagnostics.Debug.WriteLine("Thêm tour thành công!");    // ??
-                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
-
                         ClearFields();
                         LoadDanhSachNhanVien();
+                        fmDKNV.RefreshData();
+                        System.Diagnostics.Debug.WriteLine("Thêm nhân viên thành công!");    // ??
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
+
                     }
                 }
                 catch (Exception ex)
@@ -158,10 +162,7 @@ namespace GUI
             }
         }
 
-        public void TimKiem()
-        {
-
-        }
+      
 
         private void buttonTaoMoi_Click(object sender, EventArgs e)
         {
@@ -202,15 +203,28 @@ namespace GUI
         {
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void TimKiemTenNhanVien()
         {
 
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewNhanVien.DataSource = bNhanVien.TimKiemTenNhanVien(searchValue);
+            }
+            else
+            {
+                LoadDanhSachNhanVien();
+            }
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemTenNhanVien();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           TimKiem();
+      
         }
     }
 }

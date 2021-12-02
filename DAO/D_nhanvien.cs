@@ -38,6 +38,25 @@ namespace DAO
 
         }
 
+        public List<dynamic> TimKiemTenNhanVien(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListNhanVien = (from tbNhanVien in tourdulich.nhanviens
+                                       where tbNhanVien.trangThai == 1
+                                       select new
+                                       {
+                                           maNhanVien = tbNhanVien.maNhanVien,
+                                           tenNhanVien = tbNhanVien.tenNhanVien,
+                                           nhiemVu = tbNhanVien.nhiemVu
+                                       }).Where(t=>t.tenNhanVien.Contains(searchValue));
+
+                return getListNhanVien.ToList<dynamic>();
+
+            }
+
+        }
+
         public List<dynamic> GetListDetailsNhanVien(int maNhanVien)
         {
             using (tourdulich = new tourdulichEntities())

@@ -13,7 +13,7 @@ namespace DAO
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getAllDangKy = tourdulich.dangkies;
+                var getAllDangKy = tourdulich.dangkies.Where(t => t.trangThai == 1);
                 return getAllDangKy.ToList<dangky>();
             }
         }
@@ -39,6 +39,32 @@ namespace DAO
                                        ngayDangKy = tbDangKy.ngayDangKy,
                                        tenGoiDoan = tbDoan.tenGoiDoan
                                    });
+
+                return getListDangKy.ToList<dynamic>();
+
+            }
+
+        }
+
+        public List<dynamic> TimKiemTheoTenKH(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDangKy = (from tbDangKy in tourdulich.dangkies
+                                     join tbKhachHang in tourdulich.khachhangs on tbDangKy.maSoKhachHang equals tbKhachHang.maSoKhachHang
+                                     join tbTour in tourdulich.tours on tbDangKy.maTour equals tbTour.maSoTour
+                                     join tbLoaiKhachHang in tourdulich.loaikhachhangs on tbDangKy.maLoaiKhachHang equals tbLoaiKhachHang.maLoaiKhachHang
+                                     join tbDoan in tourdulich.doanduliches on tbDangKy.maSoDoan equals tbDoan.maSoDoan
+                                     where tbDangKy.trangThai == 1
+                                     select new
+                                     {
+                                         id = tbDangKy.id,
+                                         tenKhachHang = tbKhachHang.hoTenKhachHang,
+                                         tenGoiTour = tbTour.tenGoiTour,
+                                         tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang,
+                                         ngayDangKy = tbDangKy.ngayDangKy,
+                                         tenGoiDoan = tbDoan.tenGoiDoan
+                                     }).Where(t=>t.tenKhachHang.Contains(searchValue));
 
                 return getListDangKy.ToList<dynamic>();
 

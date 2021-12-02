@@ -42,7 +42,10 @@ namespace BUS
             return dNhanVien.XoaNhanVien(maNhanVien);
         }
 
-
+        public List<dynamic> TimKiemTenNhanVien(string searchValue)
+        {
+            return dNhanVien.TimKiemTenNhanVien(searchValue);
+        }
 
     }
 }

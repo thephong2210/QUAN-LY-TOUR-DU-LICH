@@ -326,6 +326,7 @@ namespace GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(857, 573);
             this.panel5.TabIndex = 39;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // button3
             // 

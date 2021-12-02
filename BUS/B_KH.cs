@@ -16,6 +16,11 @@ namespace BUS
             return d_KH.GetKhachHang();
         }
 
+        public List<khachhang> TimKiemTenKhachHang(string searchValue)
+        {
+            return d_KH.TimKiemTenKhachHang(searchValue);
+        }
+
         public List<dynamic> GetListDetailsKhachHang(int maSoKhachHang)
         {
             return d_KH.GetListDetailsKhachHang(maSoKhachHang);

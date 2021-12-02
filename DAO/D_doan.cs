@@ -38,6 +38,30 @@ namespace DAO
 
         }
 
+        public List<dynamic> TimKiemTenDoan(string searchValue)
+        {
+
+            {
+                var getListDoan = (from tbDoan in tourdulich.doanduliches
+                                   join tbTour in tourdulich.tours on tbDoan.maSoTour equals tbTour.maSoTour
+                                   where tbDoan.trangThai == 1
+                                   select new
+                                   {
+                                       ID = tbDoan.maSoDoan,
+                                       TenDoan = tbDoan.tenGoiDoan,
+                                       TenTour = tbTour.tenGoiTour,
+                                       thoiGianKhoiHanh = tbDoan.thoiGianKhoiHanh,
+                                       thoiGianKetThuc = tbDoan.thoiGianKetThuc,
+                                       chitiet = tbDoan.chiTiet
+
+                                   }).Where(t=>t.TenDoan.Contains(searchValue));
+
+                return getListDoan.ToList<dynamic>();
+
+            }
+
+        }
+
         //Get list đoàn qua mã số tour
         public List<doandulich> GetListDoanWithMaTour(int maSoTour)
         {
@@ -88,7 +112,7 @@ namespace DAO
                                  where tbDangKy.maSoDoan == maDoan
                                  join tbKH in tourdulich.khachhangs on tbDangKy.maSoKhachHang equals tbKH.maSoKhachHang
                                  join tbDoan in tourdulich.doanduliches on tbDangKy.maSoDoan equals tbDoan.maSoDoan
-
+                                 where tbDangKy.trangThai == 1
 
 
                                  select new
@@ -114,6 +138,7 @@ namespace DAO
                                  where tbThamGia.maSoDoan == maDoan
                                  join tbNV in tourdulich.nhanviens on tbThamGia.maNhanVien equals tbNV.maNhanVien
                                  join tbDoan in tourdulich.doanduliches on tbThamGia.maSoDoan equals tbDoan.maSoDoan
+                                 where tbThamGia.trangThai == 1
                                  select new
                                  {
                                      id = tbNV.maNhanVien,
@@ -196,13 +221,57 @@ namespace DAO
 
         }
 
-        public bool GiamSoLuongKhachHangDoan(int soLuongKhachHang, int maSoDoan)
+        public bool ThemSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
         {
             {
                 try
                 {
                     doandulich objDoanOld = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
-                    objDoanOld.soLuongKhachHang -= soLuongKhachHang;
+                    objDoanOld.SoLuongNhanVien += objDoan.SoLuongNhanVien;
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool GiamSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
+        {
+            {
+                try
+                {
+                    doandulich objDoanOld = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
+                    objDoanOld.soLuongKhachHang -= objDoan.soLuongKhachHang;
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool GiamSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
+        {
+            {
+                try
+                {
+                    doandulich objDoanOld = tourdulich.doanduliches.Where(t => t.maSoDoan == maSoDoan).SingleOrDefault();
+                    objDoanOld.SoLuongNhanVien -= objDoan.SoLuongNhanVien;
 
                     tourdulich.SaveChanges();
                     return true;

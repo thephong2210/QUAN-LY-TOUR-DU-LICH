@@ -116,6 +116,7 @@ namespace GUI
             this.textBoxTimKiem.Name = "textBoxTimKiem";
             this.textBoxTimKiem.Size = new System.Drawing.Size(271, 31);
             this.textBoxTimKiem.TabIndex = 11;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBoxTimKiem_TextChanged);
             // 
             // lbTimKiem
             // 

@@ -315,6 +315,7 @@ namespace GUI
             this.dateTimePickerNgayKetThuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerNgayKetThuc.Enabled = false;
             this.dateTimePickerNgayKetThuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dateTimePickerNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayKetThuc.Location = new System.Drawing.Point(515, 69);
@@ -329,6 +330,7 @@ namespace GUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePickerNgayBatDau.CustomFormat = "";
+            this.dateTimePickerNgayBatDau.Enabled = false;
             this.dateTimePickerNgayBatDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dateTimePickerNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerNgayBatDau.Location = new System.Drawing.Point(515, 20);

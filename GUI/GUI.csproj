@@ -80,6 +80,12 @@
     <Compile Include="fmChiTietChiPhi.designer.cs">
       <DependentUpon>fmChiTietChiPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmDangKyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDangKyNhanVien.Designer.cs">
+      <DependentUpon>fmDangKyNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmGiaTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmChiTietChiPhi.resx">
       <DependentUpon>fmChiTietChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmDangKyNhanVien.resx">
+      <DependentUpon>fmDangKyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmGiaTour.resx">
       <DependentUpon>fmGiaTour.cs</DependentUpon>

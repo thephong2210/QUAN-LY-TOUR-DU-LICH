@@ -54,7 +54,7 @@ namespace GUI
             this.label10 = new System.Windows.Forms.Label();
             this.buttonXemChiTiet = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTiemKiem = new System.Windows.Forms.TextBox();
+            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
             this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -370,15 +370,15 @@ namespace GUI
             this.label9.TabIndex = 20;
             this.label9.Text = "Tìm kiếm";
             // 
-            // textBoxTiemKiem
+            // textBoxTimKiem
             // 
-            this.textBoxTiemKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxTiemKiem.Location = new System.Drawing.Point(116, 85);
-            this.textBoxTiemKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTiemKiem.Name = "textBoxTiemKiem";
-            this.textBoxTiemKiem.Size = new System.Drawing.Size(373, 30);
-            this.textBoxTiemKiem.TabIndex = 21;
-            this.textBoxTiemKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(116, 85);
+            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTimKiem.Name = "textBoxTimKiem";
+            this.textBoxTimKiem.Size = new System.Drawing.Size(373, 30);
+            this.textBoxTimKiem.TabIndex = 21;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dataGridViewNhanVien
             // 
@@ -444,7 +444,7 @@ namespace GUI
             this.panel3.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.dataGridViewNhanVien);
-            this.panel3.Controls.Add(this.textBoxTiemKiem);
+            this.panel3.Controls.Add(this.textBoxTimKiem);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.buttonXemChiTiet);
             this.panel3.Controls.Add(this.panel7);
@@ -520,7 +520,7 @@ namespace GUI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonXemChiTiet;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxTiemKiem;
+        private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.DataGridView dataGridViewNhanVien;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;

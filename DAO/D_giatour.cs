@@ -24,6 +24,17 @@ namespace DAO
 
         }
 
+        public List<giatour> TimKiemGiaTour(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDetailsTour = tourdulich.giatours.Where(t=>t.dieuKien.Contains(searchValue));
+
+                return getListDetailsTour.ToList<giatour>();
+
+            }
+
+        }
 
 
         //Get giá tour qua mã số tour
