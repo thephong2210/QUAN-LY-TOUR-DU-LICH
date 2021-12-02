@@ -200,27 +200,7 @@ namespace DAO
             }
         }
 
-        //public bool SuaDiaDiemTour(diadiemtour objDiaDiemTour, int id)
-        //{
-        //    using (tourdulich = new tourdulichEntities())
-        //    {
-        //        try
-        //        {
-        //            diadiemtour objDiaDiemTourOld = tourdulich.diadiemtours.Where(ddt => ddt.id == id).SingleOrDefault();
-        //            objDiaDiemTourOld.maTour = objDiaDiemTour.maTour;
-        //            objDiaDiemTourOld.tenDiaDiemThamQuan = objDiaDiemTour.tenDiaDiemThamQuan;
-
-        //            tourdulich.SaveChanges();
-        //            return true;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            System.Diagnostics.Debug.WriteLine(ex);
-        //            return false;
-        //        }
-
-        //    }
-        //}
+ 
 
 
 

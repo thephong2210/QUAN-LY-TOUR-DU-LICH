@@ -30,6 +30,7 @@ namespace GUI
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -70,10 +71,10 @@ namespace GUI
             this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quocTich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
@@ -88,7 +89,6 @@ namespace GUI
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -101,6 +101,18 @@ namespace GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1293, 54);
             this.panel5.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.community;
+            this.pictureBox1.Location = new System.Drawing.Point(388, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -421,7 +433,7 @@ namespace GUI
             this.panel10.Controls.Add(this.buttonXoa);
             this.panel10.Controls.Add(this.buttonXemChiTiet);
             this.panel10.Controls.Add(this.dataGridViewQuanLyKH);
-            this.panel10.Controls.Add(this.textBox1);
+            this.panel10.Controls.Add(this.textBoxTimKiem);
             this.panel10.Controls.Add(this.label9);
             this.panel10.Location = new System.Drawing.Point(461, 117);
             this.panel10.Name = "panel10";
@@ -538,14 +550,15 @@ namespace GUI
             this.quocTich.Name = "quocTich";
             this.quocTich.ReadOnly = true;
             // 
-            // textBox1
+            // textBoxTimKiem
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(156, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(393, 30);
-            this.textBox1.TabIndex = 22;
+            this.textBoxTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(156, 13);
+            this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTimKiem.Name = "textBoxTimKiem";
+            this.textBoxTimKiem.Size = new System.Drawing.Size(393, 30);
+            this.textBoxTimKiem.TabIndex = 22;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -556,18 +569,6 @@ namespace GUI
             this.label9.Size = new System.Drawing.Size(97, 28);
             this.label9.TabIndex = 21;
             this.label9.Text = "Tìm kiếm";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = global::GUI.Properties.Resources.touricon;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.community;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 38;
-            this.pictureBox1.TabStop = false;
             // 
             // fmKhachHang
             // 
@@ -586,6 +587,7 @@ namespace GUI
             this.Text = "Khách hàng | Tour App";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -610,7 +612,6 @@ namespace GUI
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyKH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -658,7 +659,7 @@ namespace GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn gioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn quocTich;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

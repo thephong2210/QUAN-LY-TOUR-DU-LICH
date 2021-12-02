@@ -19,7 +19,16 @@ namespace DAO
             }    
         }
 
-        
+        public List<loaikhachhang> TimKiemTenLoaiKH(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListLoaiKH = tourdulich.loaikhachhangs.Where(t => t.trangThai == 1).Where(t=>t.tenLoaiKhachHang.Contains(searchValue));
+                return getListLoaiKH.ToList<loaikhachhang>();
+            }
+        }
+
+
         public bool ThemLoaiKH(loaikhachhang objLoaiKH)
         {
             using (tourdulich = new tourdulichEntities())

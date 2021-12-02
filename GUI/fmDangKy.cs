@@ -23,10 +23,15 @@ namespace GUI
         public fmDangKy()
         {
             InitializeComponent();
+            RefreshData();
+        }
+
+        public void RefreshData()
+        {
+            LoadDanhSachDangKyTour();
             LoadComboboxMaLoaiKhachHang();
             LoadComboboxMaSoKhachHang();
             LoadComboboxMaTour();
-            LoadDanhSachDangKyTour();
             LoadGiaTheoTour();
         }
 
@@ -34,12 +39,15 @@ namespace GUI
         {
             LoadGiaTheoTour();
             LoadDoanTheoTour();
+            LoadNgayDangKyTheoDoan();
+            GetSoLuongConLaiCuaDoan();
             TinhTongTien();
         }
 
         public void LoadDanhSachDangKyTour()
         {
             dataGridViewDangKy.DataSource = b_dangky.GetListDangKy();
+            dataGridViewDangKy.AutoGenerateColumns = false;
         }
 
         public void LoadComboboxMaSoKhachHang()
@@ -60,6 +68,20 @@ namespace GUI
             comboBoxMaLoaiKhachHang.DisplayMember = "tenLoaiKhachHang";
         }
 
+        public void LoadNgayDangKyTheoDoan() 
+        {
+            List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
+
+            foreach (var itemmaSoDoan in listDoanDuLich)
+            {
+                if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
+                {
+                    dateTimePickerNgayDangKy.MinDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKhoiHanh);
+                    dateTimePickerNgayDangKy.MaxDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKetThuc);
+                }
+            }
+        }
+
         public void DangKyTour()
         {
             List<khachhang> listKhachHang = b_khachhang.GetKhachHang();
@@ -71,7 +93,7 @@ namespace GUI
            
             try
             {
-                if (Int32.Parse(textBoxSoLuongKhachHang.Text) <= 50)
+                if (CheckSoLuongToiDaDoan(comboBox3MaSoDoan.Text))
                 {
                     if (!String.IsNullOrWhiteSpace(comboBox3MaSoDoan.Text))
                     {
@@ -98,7 +120,7 @@ namespace GUI
 
                                     foreach (var itemGiaTour in listGiaTour)
                                     {
-                                        if (itemGiaTour.maGiaTour.Equals(itemmaTour.idGiaTour))
+                                        if (itemGiaTour.id.Equals(itemmaTour.idGiaTour))
                                         {
                                             objDangKy.giaTourDangKy = itemGiaTour.gia;
                                         }
@@ -147,8 +169,8 @@ namespace GUI
                                 {
                                     System.Diagnostics.Debug.WriteLine("Thêm số lượng bên đoàn du lịch thành công!");
                                 }
-                                
-                                LoadDanhSachDangKyTour();
+
+                                RefreshData();
                                 MessageBox.Show("Đăng ký thành công!", "Thông báo");
                             }
                         }
@@ -165,7 +187,7 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("Số lượng khách hàng phải nhỏ hơn 50!", "Thông báo");
+                    MessageBox.Show("Số lượng khách hàng VƯỢT QUÁ số lượng còn lại của đoàn!", "Thông báo");
                 }
             }
             catch (FormatException fmex)
@@ -176,6 +198,22 @@ namespace GUI
 
         }
 
+        public bool CheckSoLuongToiDaDoan(string comboBoxDoanString) //check soLuongKhachHang cua doan <= 45
+        {
+            List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
+            int soLuongKHDangKy = Convert.ToInt32(textBoxSoLuongKhachHang.Text);
+
+            foreach (var itemmaSoDoan in listDoanDuLich)
+            {
+                if (itemmaSoDoan.tenGoiDoan.Equals(comboBoxDoanString))
+                {
+                    if ((itemmaSoDoan.soLuongKhachHang + soLuongKHDangKy) <= 45) return true;
+                }
+            }
+            return false;
+
+        }
+
         public void XoaDangKy()
         {
             if (dataGridViewDangKy.SelectedRows.Count > 0)
@@ -183,7 +221,6 @@ namespace GUI
                 foreach (DataGridViewRow row in dataGridViewDangKy.SelectedRows)
                 {
                     int id = Convert.ToInt32(row.Cells[0].Value.ToString());
-                    b_dangky.XoaDangKy(id); //Update trangThai = 0
 
                     //Giảm số lượng trong đoàn và tour
                     List<dangky> listDangKy = b_dangky.GetAllDangKy();
@@ -191,11 +228,17 @@ namespace GUI
                     {
                         if (itemDK.id == id)
                         {
-                            b_doan.GiamSoLuongKhachHangDoan((int)itemDK.soLuongKhachHang, itemDK.maSoDoan);
+                            doandulich objDoan = new doandulich();
+                            objDoan.soLuongKhachHang = (int)itemDK.soLuongKhachHang;
+                            b_doan.GiamSoLuongKhachHangDoan(objDoan, itemDK.maSoDoan);
                         }
                     }
 
+                    
+                    b_dangky.XoaDangKy(id); //Update trangThai = 0
+
                     LoadDanhSachDangKyTour();
+                    RefreshData();
                     MessageBox.Show("Xóa thành công!", "Thông báo");
                 }
             }
@@ -235,6 +278,30 @@ namespace GUI
                     comboBox3MaSoDoan.DisplayMember = "tenGoiDoan";
                 }
             }
+        }
+
+        public void GetSoLuongConLaiCuaDoan()
+        {
+            List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
+
+            if (!String.IsNullOrEmpty(comboBox3MaSoDoan.Text))
+            {
+                foreach (var itemmaSoDoan in listDoanDuLich)
+                {
+
+                    if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
+                    {
+                        labelSoLuongConLai.Text = (45 - Convert.ToInt32(itemmaSoDoan.soLuongKhachHang)).ToString();
+                    }
+
+
+                }
+            }
+            else
+            {
+                labelSoLuongConLai.Text = "0";
+            }
+            
         }
 
         public void LoadGiaTheoTour()
@@ -321,6 +388,7 @@ namespace GUI
         {
             LoadGiaTheoTour();
             LoadDoanTheoTour();
+            GetSoLuongConLaiCuaDoan();
             
         }
 
@@ -350,11 +418,24 @@ namespace GUI
         {
             TinhTongTien();
         }
+        public void TimKiemTheoTenNV()
+        {
 
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewDangKy.DataSource = b_dangky.TimKiemTheoTenKH(searchValue);
+            }
+            else
+            {
+                LoadDanhSachDangKyTour();
+            }
+
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-          
+            TimKiemTheoTenNV();
 
         }
 
@@ -372,16 +453,16 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadDanhSachDangKyTour();
-            LoadComboboxMaLoaiKhachHang();
-            LoadComboboxMaSoKhachHang();
-            LoadComboboxMaTour();
-            LoadGiaTheoTour();
+           
         }
+
+        
 
         private void comboBox3MaSoDoan_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadGiaTheoTour();
+            GetSoLuongConLaiCuaDoan();
+            LoadNgayDangKyTheoDoan();
         }
     }
 }

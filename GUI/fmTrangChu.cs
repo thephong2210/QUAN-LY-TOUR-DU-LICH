@@ -46,7 +46,8 @@ namespace GUI
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            fmNhanVien fmNV = new fmNhanVien();
+            fmDangKyNhanVien fmDangKyNV = new fmDangKyNhanVien();
+            fmNhanVien fmNV = new fmNhanVien(fmDangKyNV);
             HienThiFormCon(fmNV);
         }
 
@@ -118,6 +119,17 @@ namespace GUI
         private void button4_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            fmDangKyNhanVien fmDangKyNV = new fmDangKyNhanVien();
+            HienThiFormCon(fmDangKyNV);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng đang phát triển!", "Thông báo!");
         }
     }
 }

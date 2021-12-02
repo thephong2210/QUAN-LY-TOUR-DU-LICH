@@ -17,15 +17,17 @@ namespace GUI
     public partial class fmChiTietKhachHang : Form
     {
         B_KH b_KhachHang = new B_KH();
-        public fmChiTietKhachHang(int maSoKhachHang, fmKhachHang fmKH)
+        public fmChiTietKhachHang(int maSoKhachHang, fmKhachHang fmKH, fmDangKy fmDangKyKH)
         {
             InitializeComponent();
             fmMain = fmKH;
+            fmDK = fmDangKyKH;
             this.maSoKhachHang = maSoKhachHang;
 
             HienThiChiTietNhanVien();
         }
         private fmKhachHang fmMain;
+        private fmDangKy fmDK;
         public int maSoKhachHang { get; set; }
         public void HienThiChiTietNhanVien()
         {
@@ -161,6 +163,7 @@ namespace GUI
                     if (b_KhachHang.SuaKhachHang(objKhachHang, maSoKhachHang))
                     {
                         fmMain.LoadDSKH();
+                        fmDK.LoadComboboxMaSoKhachHang();
                         MessageBox.Show("Sửa thông tin khách hàng thành công", "Thông báo");
 
                     }

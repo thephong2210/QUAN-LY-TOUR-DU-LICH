@@ -27,6 +27,7 @@ namespace GUI
             InitializeComponent();
             LoadDanhSachDoan();
             LoadComboBoxTour();
+            LoadNgayBatDauNgayKetThucTour();
         }
 
 
@@ -35,6 +36,7 @@ namespace GUI
         public void LoadDanhSachDoan()
         {
             dataGridViewQuanLyDoan.DataSource = b_Doan.GetListDoan();
+            dataGridViewQuanLyDoan.AutoGenerateColumns = false;
 
         }
         private void LoadComboBoxTour()
@@ -42,6 +44,23 @@ namespace GUI
             comboBoxTour.DataSource = bTour.GetListTour();
             comboBoxTour.DisplayMember = "tenGoiTour";
             comboBoxTour.ValueMember = "maSoTour";
+        }
+
+        public void LoadNgayBatDauNgayKetThucTour()
+        {
+            List<tour> listTour = bTour.GetAllTour();
+
+            foreach (var items in listTour)
+            {
+                if (items.tenGoiTour.Equals(comboBoxTour.Text))
+                {
+                    dateTimePickerNgayBatDau.MinDate = Convert.ToDateTime(items.thoiGianBatDau);
+                    dateTimePickerNgayBatDau.MaxDate = Convert.ToDateTime(items.thoiGianKetThuc);
+
+                    dateTimePickerNgayKetThuc.MaxDate = Convert.ToDateTime(items.thoiGianKetThuc);
+                    dateTimePickerNgayKetThuc.MinDate = Convert.ToDateTime(items.thoiGianBatDau);
+                }
+            }
         }
 
         public doandulich createDoan()
@@ -67,37 +86,45 @@ namespace GUI
         {
             if (!String.IsNullOrWhiteSpace(textBoxTenDoan.Text))
             {
-                if (listBoxChiPhi.Items.Count != 0)
+                if (CheckThoiGianDangKy())
                 {
-                    List<doandulich> listDoanAll = b_Doan.GetAllDoan();
-                    b_Doan.ThemDoan(createDoan());
-
-                    foreach (string item in listBoxChiPhi.Items)
+                    if (listBoxChiPhi.Items.Count != 0)
                     {
-                        chiphi objChiPhi = new chiphi();
-                        string[] words = item.Split(';');
+                        List<doandulich> listDoanAll = b_Doan.GetAllDoan();
+                        b_Doan.ThemDoan(createDoan());
 
-                        objChiPhi.tenChiPhi = words[0];
-                        objChiPhi.tongChiPhi = Convert.ToDouble(words[1]);
-                        objChiPhi.maSoDoan = GetMaxMaSoDoan(listDoanAll) + 1; //get maSoDoan new
-                        objChiPhi.trangThai = 1;
-
-                        if (b_chiphi.ThemLoaiChiPhi(objChiPhi))
+                        foreach (string item in listBoxChiPhi.Items)
                         {
-                            System.Diagnostics.Debug.WriteLine("Thêm chi phí thành công!"); //debug write line
+                            chiphi objChiPhi = new chiphi();
+                            string[] words = item.Split(';');
 
+                            objChiPhi.tenChiPhi = words[0];
+                            objChiPhi.tongChiPhi = Convert.ToDouble(words[1]);
+                            objChiPhi.maSoDoan = GetMaxMaSoDoan(listDoanAll) + 1; //get maSoDoan new
+                            objChiPhi.trangThai = 1;
+
+                            if (b_chiphi.ThemLoaiChiPhi(objChiPhi))
+                            {
+                                System.Diagnostics.Debug.WriteLine("Thêm chi phí thành công!"); //debug write line
+
+                            }
                         }
+
+
+                        LoadDanhSachDoan();
+                        ClearFields();
+                        MessageBox.Show("Thêm thành công!", "Thông báo");
                     }
-
-
-                    LoadDanhSachDoan();
-                    ClearFields();
-                    MessageBox.Show("Thêm thành công!", "Thông báo");
+                    else
+                    {
+                        MessageBox.Show("Vui lòng thêm ít nhất 1 chi phí!", "Thông báo");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng thêm ít nhất 1 chi phí!", "Thông báo");
+                    MessageBox.Show("Ngày bắt đầu phải NHỎ HƠN ngày kết thúc!", "Thông báo");
                 }
+                
             }
             else
             {
@@ -113,6 +140,16 @@ namespace GUI
             textBoxChiTiet.Text = "";
             textBoxChiPhi.Text = "";
             listBoxChiPhi.Items.Clear();
+        }
+
+        public bool CheckThoiGianDangKy() //ngày bắt đầu < ngày kết thúc
+        {   
+            if (dateTimePickerNgayBatDau.Value <= dateTimePickerNgayKetThuc.Value)
+            {
+                return true;
+            }
+            return false;
+
         }
 
         public bool CheckTextChiPhi()
@@ -312,6 +349,35 @@ namespace GUI
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxTour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadNgayBatDauNgayKetThucTour();
+        }
+
+        private void fmQLDoan_Load(object sender, EventArgs e)
+        {
+            LoadNgayBatDauNgayKetThucTour();
+        }
+
+        public void TimKiemTenDoan()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewQuanLyDoan.DataSource = b_Doan.TimKiemTenDoan(searchValue);
+            }
+            else
+            {
+                LoadDanhSachDoan();
+            }
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemTenDoan();
         }
     }
     #endregion event

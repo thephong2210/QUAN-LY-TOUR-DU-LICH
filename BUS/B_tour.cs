@@ -22,7 +22,7 @@ namespace BUS
             return dTour.GetListTour();
         }
 
-        public List<tour> TimKiemTenTour(string searchValue)
+        public List<dynamic> TimKiemTenTour(string searchValue)
         {
             return dTour.TimKiemTenTour(searchValue);
         }

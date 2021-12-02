@@ -28,7 +28,7 @@ namespace GUI
 
         {
             dataGridViewLoaiKH.DataSource = b_loaiKH.GetLoaikhachhangs();
-
+            dataGridViewLoaiKH.AutoGenerateColumns = false;
         }
         public void ClearFields()
         {
@@ -129,6 +129,24 @@ namespace GUI
                 XoaLoaiKH();
                 fmDK.LoadDanhSachDangKyTour();
             }
+        }
+        public void TimKiemTenLoaiKhachHang()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewLoaiKH.DataSource = b_loaiKH.TimKiemTenLoaiKH(searchValue);
+            }
+            else
+            {
+                LoadDanhSachLoaiKH();
+            }
+
+        }
+        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemTenLoaiKhachHang();
         }
     }
 }

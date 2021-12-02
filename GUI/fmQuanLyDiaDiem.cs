@@ -25,6 +25,7 @@ namespace GUI
         public void LoadDanhSachDiaDiem()
         {
             dataGridViewDanhSachDiaDiem.DataSource = b_DiaDiemDen.GetListDiaDiemDen();
+            dataGridViewDanhSachDiaDiem.AutoGenerateColumns = false;
         }
 
         public void ThemDiaDiemToListBox()
@@ -240,8 +241,9 @@ namespace GUI
             TimKiemTenDiaDiem();
         }
 
-        
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

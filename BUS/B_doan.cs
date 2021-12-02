@@ -28,10 +28,21 @@ namespace BUS
             return dDoan.ThemSoLuongKhachHangDoan(objDoan, maSoDoan);
         }
 
-        public bool GiamSoLuongKhachHangDoan(int soLuongKhachHang, int maSoDoan)
+        public bool GiamSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
         {
-            return dDoan.GiamSoLuongKhachHangDoan(soLuongKhachHang, maSoDoan);
+            return dDoan.GiamSoLuongKhachHangDoan(objDoan, maSoDoan);
         }
+
+        public bool ThemSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
+        {
+            return dDoan.ThemSoLuongNhanVienDoan(objDoan, maSoDoan);
+        }
+
+        public bool GiamSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
+        {
+            return dDoan.GiamSoLuongNhanVienDoan(objDoan, maSoDoan);
+        }
+
 
         public List<dynamic> GetListDoan()
         {
@@ -52,6 +63,11 @@ namespace BUS
         public bool XoaDoan(int maSoDoan)
         {
             return dDoan.XoaDoan(maSoDoan);
+        }
+
+        public List<dynamic> TimKiemTenDoan(string searchValue)
+        {
+            return dDoan.TimKiemTenDoan(searchValue);
         }
 
 

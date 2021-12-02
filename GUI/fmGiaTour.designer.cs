@@ -33,6 +33,9 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBoxNoiDungGia = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbTimKiem = new System.Windows.Forms.Label();
@@ -47,16 +50,13 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxMaTour = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBoxNoiDungGia = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGiaTour)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -112,6 +112,36 @@ namespace GUI
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.textBoxNoiDungGia);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Location = new System.Drawing.Point(12, 148);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(512, 42);
+            this.panel6.TabIndex = 3;
+            // 
+            // textBoxNoiDungGia
+            // 
+            this.textBoxNoiDungGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxNoiDungGia.Location = new System.Drawing.Point(228, 9);
+            this.textBoxNoiDungGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNoiDungGia.Name = "textBoxNoiDungGia";
+            this.textBoxNoiDungGia.Size = new System.Drawing.Size(269, 26);
+            this.textBoxNoiDungGia.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(63, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 28);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Nội dung giá:";
+            // 
             // textBoxTimKiem
             // 
             this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
@@ -120,6 +150,7 @@ namespace GUI
             this.textBoxTimKiem.Name = "textBoxTimKiem";
             this.textBoxTimKiem.Size = new System.Drawing.Size(271, 31);
             this.textBoxTimKiem.TabIndex = 15;
+            this.textBoxTimKiem.TextChanged += new System.EventHandler(this.textBoxTimKiem_TextChanged);
             // 
             // panel5
             // 
@@ -151,7 +182,6 @@ namespace GUI
             // 
             // textBoxGia
             // 
-            this.textBoxGia.Enabled = false;
             this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.textBoxGia.Location = new System.Drawing.Point(228, 9);
             this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -262,37 +292,6 @@ namespace GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã tour";
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.textBoxNoiDungGia);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(12, 148);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(512, 42);
-            this.panel6.TabIndex = 3;
-            // 
-            // textBoxNoiDungGia
-            // 
-            this.textBoxNoiDungGia.Enabled = false;
-            this.textBoxNoiDungGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxNoiDungGia.Location = new System.Drawing.Point(228, 9);
-            this.textBoxNoiDungGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxNoiDungGia.Name = "textBoxNoiDungGia";
-            this.textBoxNoiDungGia.Size = new System.Drawing.Size(269, 26);
-            this.textBoxNoiDungGia.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(63, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 28);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Nội dung giá:";
-            // 
             // fmGiaTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,13 +307,13 @@ namespace GUI
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGiaTour)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }

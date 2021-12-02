@@ -45,13 +45,27 @@ namespace DAO
 
         }
 
-        public List<tour> TimKiemTenTour(string searchValue)
+        public List<dynamic> TimKiemTenTour(string searchValue)
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getList = tourdulich.tours.Where(t => t.tenGoiTour.Contains(searchValue));
+         
 
-                return getList.ToList<tour>();
+                var getList = (from tbTour in tourdulich.tours
+                                   join tbDiaDiemDen in tourdulich.diadiemdens on tbTour.maDiaDiemDen equals tbDiaDiemDen.maDiaDiemDen
+                                   join tbLoaiHinhDuLich in tourdulich.loaihinhduliches on tbTour.maLoaiHinhDuLich equals tbLoaiHinhDuLich.maLoaiHinhDuLich
+                                   where tbTour.trangThai == 1
+                                   select new
+                                   {
+                                       maSoTour = tbTour.maSoTour,
+                                       tenGoiTour = tbTour.tenGoiTour,
+                                       tenLoaiHinhDuLich = tbLoaiHinhDuLich.tenLoaiHinhDuLich,
+                                       tenDiaDiem = tbDiaDiemDen.tenDiaDiemDen,
+                                       thoiGianBatDau = tbTour.thoiGianBatDau,
+                                       thoiGianKetThuc = tbTour.thoiGianKetThuc
+                                   }).Where(t => t.tenGoiTour.Contains(searchValue));
+
+                return getList.ToList<dynamic>();
             }
 
         }

@@ -25,6 +25,18 @@ namespace DAO
 
         }
 
+        public List<khachhang> TimKiemTenKhachHang(string searchValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getKhachHang = tourdulich.khachhangs.Where(t => t.trangThai == 1).Where(t=>t.hoTenKhachHang.Contains(searchValue));
+
+                return getKhachHang.ToList<khachhang>();
+
+            }
+
+        }
+
         public List<dynamic> GetListKhachHang()
         {
             using (tourdulich = new tourdulichEntities())

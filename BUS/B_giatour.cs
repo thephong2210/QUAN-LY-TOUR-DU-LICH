@@ -16,6 +16,11 @@ namespace BUS
             return dGiaTour.GetGiaTour();
         }
 
+        public List<giatour> TimKiemGiaTour(string searchValue)
+        {
+            return dGiaTour.TimKiemGiaTour(searchValue);
+        }
+
         public List<giatour> GetGiaTourWithMaTour(int maSoTour)
         {
             return dGiaTour.GetGiaTourWithMaTour(maSoTour);

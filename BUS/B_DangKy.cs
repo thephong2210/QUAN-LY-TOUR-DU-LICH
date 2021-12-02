@@ -16,6 +16,11 @@ namespace BUS
             return d_dangky.GetAllDangKy();
         }
 
+        public List<dynamic> TimKiemTheoTenKH(string searchValue)
+        {
+            return d_dangky.TimKiemTheoTenKH(searchValue);
+        }
+
         public List<dynamic> GetListDangKy()
         {
             return d_dangky.GetListDangKy();

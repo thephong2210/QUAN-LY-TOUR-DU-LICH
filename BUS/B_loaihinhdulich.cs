@@ -15,7 +15,12 @@ namespace BUS
         {
             return d_LoaiHinhDuLich.GetListLoaiHinhDL();
         }
-        
+        public List<loaihinhdulich> TimKiemTenLoaiHinhDuLich(string searchValue)
+        {
+            return d_LoaiHinhDuLich.TimKiemTenLoaiHinhDuLich(searchValue);
+        }
+
+
 
         public bool ThemLoaiHinhDuLich(loaihinhdulich objLoaiHinhDuLich)
         {

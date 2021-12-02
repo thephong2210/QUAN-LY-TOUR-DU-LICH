@@ -25,6 +25,7 @@ namespace GUI
         public void LoadLoaiHinhDuLich()
         {
             dataGridViewLoaiHinhDuLich.DataSource = b_LoaiHinhDuLich.GetListLoaiHinhDL();
+            dataGridViewLoaiHinhDuLich.AutoGenerateColumns = false;
         }
 
         public void ClearFields()
@@ -120,6 +121,24 @@ namespace GUI
         private void fmLoaiHinhDuLich_Load(object sender, EventArgs e)
         {
 
+        }
+        public void TimKiemTenLoaiHinhDuLich()
+        {
+
+            if (!String.IsNullOrWhiteSpace(textBoxTimKiem.Text))
+            {
+                string searchValue = textBoxTimKiem.Text;
+                dataGridViewLoaiHinhDuLich.DataSource = b_LoaiHinhDuLich.TimKiemTenLoaiHinhDuLich(searchValue);
+            }
+            else
+            {
+                LoadLoaiHinhDuLich();
+            }
+
+        }
+        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemTenLoaiHinhDuLich();
         }
     }
 }

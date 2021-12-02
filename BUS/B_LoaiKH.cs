@@ -31,5 +31,12 @@ namespace BUS
         {
             return d_LoaiKH.SuaLoaiKH(objLoaiKH, maLoaiKH);
         }
+
+
+        public List<loaikhachhang> TimKiemTenLoaiKH(string searchValue)
+        {
+            return d_LoaiKH.TimKiemTenLoaiKH(searchValue);
+        }
+
     }
 }
