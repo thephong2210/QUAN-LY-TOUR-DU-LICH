@@ -80,6 +80,18 @@
     <Compile Include="fmChiTietChiPhi.designer.cs">
       <DependentUpon>fmChiTietChiPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmDangKyMini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDangKyMini.Designer.cs">
+      <DependentUpon>fmDangKyMini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmDangKyNhanVienMini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmDangKyNhanVienMini.Designer.cs">
+      <DependentUpon>fmDangKyNhanVienMini.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmDangKyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,18 @@
     </Compile>
     <Compile Include="fmDangKy.Designer.cs">
       <DependentUpon>fmDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmThemNhanVien.designer.cs">
+      <DependentUpon>fmThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmThemKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmThemKhachHang.Designer.cs">
+      <DependentUpon>fmThemKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="fmLoaiHinhDuLich.cs">
       <SubType>Form</SubType>
@@ -122,11 +146,11 @@
     <Compile Include="fmKhachHang.Designer.cs">
       <DependentUpon>fmKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmLoaiKhachHang.cs">
+    <Compile Include="fmLoaiChiPhi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmLoaiKhachHang.Designer.cs">
-      <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>
+    <Compile Include="fmLoaiChiPhi.Designer.cs">
+      <DependentUpon>fmLoaiChiPhi.cs</DependentUpon>
     </Compile>
     <Compile Include="fmNhanVien.cs">
       <SubType>Form</SubType>
@@ -164,6 +188,12 @@
     <Compile Include="fmChiTietDiaDiem.Designer.cs">
       <DependentUpon>fmChiTietDiaDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmSuaChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmSuaChiPhi.Designer.cs">
+      <DependentUpon>fmSuaChiPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmChiTietDangKy.resx">
@@ -181,6 +211,12 @@
     <EmbeddedResource Include="fmChiTietChiPhi.resx">
       <DependentUpon>fmChiTietChiPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmDangKyMini.resx">
+      <DependentUpon>fmDangKyMini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmDangKyNhanVienMini.resx">
+      <DependentUpon>fmDangKyNhanVienMini.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmDangKyNhanVien.resx">
       <DependentUpon>fmDangKyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmDangKy.resx">
       <DependentUpon>fmDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmThemNhanVien.resx">
+      <DependentUpon>fmThemNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmThemKhachHang.resx">
+      <DependentUpon>fmThemKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmLoaiHinhDuLich.resx">
       <DependentUpon>fmLoaiHinhDuLich.cs</DependentUpon>
@@ -202,8 +244,8 @@
     <EmbeddedResource Include="fmKhachHang.resx">
       <DependentUpon>fmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmLoaiKhachHang.resx">
-      <DependentUpon>fmLoaiKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="fmLoaiChiPhi.resx">
+      <DependentUpon>fmLoaiChiPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmNhanVien.resx">
       <DependentUpon>fmNhanVien.cs</DependentUpon>
@@ -219,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmQuanLyDiaDiem.resx">
       <DependentUpon>fmQuanLyDiaDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmSuaChiPhi.resx">
+      <DependentUpon>fmSuaChiPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -33,24 +33,15 @@ namespace GUI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.textBoxTongTien = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBoxGia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBoxSoLuongKhachHang = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3MaSoDoan = new System.Windows.Forms.ComboBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayDangKy = new System.Windows.Forms.DateTimePicker();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxMaLoaiKhachHang = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxMaTour = new System.Windows.Forms.ComboBox();
@@ -61,15 +52,13 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,12 +100,9 @@ namespace GUI
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel11);
-            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel9);
             this.panel2.Controls.Add(this.buttonDong);
@@ -127,42 +113,12 @@ namespace GUI
             this.panel2.Size = new System.Drawing.Size(570, 674);
             this.panel2.TabIndex = 2;
             // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.textBoxTongTien);
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Location = new System.Drawing.Point(11, 498);
-            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(534, 42);
-            this.panel10.TabIndex = 4;
-            // 
-            // textBoxTongTien
-            // 
-            this.textBoxTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxTongTien.Location = new System.Drawing.Point(200, 9);
-            this.textBoxTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTongTien.Name = "textBoxTongTien";
-            this.textBoxTongTien.ReadOnly = true;
-            this.textBoxTongTien.Size = new System.Drawing.Size(319, 26);
-            this.textBoxTongTien.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(3, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 28);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Tổng tiền";
-            // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.textBoxGia);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Location = new System.Drawing.Point(11, 311);
+            this.panel8.Location = new System.Drawing.Point(11, 202);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(534, 42);
@@ -175,7 +131,7 @@ namespace GUI
             this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGia.Name = "textBoxGia";
             this.textBoxGia.ReadOnly = true;
-            this.textBoxGia.Size = new System.Drawing.Size(319, 26);
+            this.textBoxGia.Size = new System.Drawing.Size(266, 26);
             this.textBoxGia.TabIndex = 1;
             this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
             // 
@@ -186,47 +142,15 @@ namespace GUI
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label8.Location = new System.Drawing.Point(3, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 28);
+            this.label8.Size = new System.Drawing.Size(125, 28);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Giá";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBoxSoLuongKhachHang);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(11, 202);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(534, 42);
-            this.panel7.TabIndex = 2;
-            // 
-            // textBoxSoLuongKhachHang
-            // 
-            this.textBoxSoLuongKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxSoLuongKhachHang.Location = new System.Drawing.Point(200, 9);
-            this.textBoxSoLuongKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxSoLuongKhachHang.Name = "textBoxSoLuongKhachHang";
-            this.textBoxSoLuongKhachHang.ReadOnly = true;
-            this.textBoxSoLuongKhachHang.Size = new System.Drawing.Size(319, 26);
-            this.textBoxSoLuongKhachHang.TabIndex = 1;
-            this.textBoxSoLuongKhachHang.TextChanged += new System.EventHandler(this.textBoxSoLuongKhachHang_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(3, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 28);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Số lượng";
+            this.label8.Text = "Giá đăng ký";
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.comboBox3MaSoDoan);
-            this.panel6.Location = new System.Drawing.Point(11, 367);
+            this.panel6.Location = new System.Drawing.Point(11, 258);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(534, 50);
@@ -259,7 +183,7 @@ namespace GUI
             // 
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.dateTimePickerNgayDangKy);
-            this.panel11.Location = new System.Drawing.Point(11, 432);
+            this.panel11.Location = new System.Drawing.Point(11, 323);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(534, 51);
@@ -288,45 +212,11 @@ namespace GUI
             this.dateTimePickerNgayDangKy.Size = new System.Drawing.Size(319, 28);
             this.dateTimePickerNgayDangKy.TabIndex = 4;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.comboBoxMaLoaiKhachHang);
-            this.panel5.Location = new System.Drawing.Point(11, 139);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(534, 50);
-            this.panel5.TabIndex = 38;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 28);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Loại khách hàng";
-            // 
-            // comboBoxMaLoaiKhachHang
-            // 
-            this.comboBoxMaLoaiKhachHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMaLoaiKhachHang.Enabled = false;
-            this.comboBoxMaLoaiKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBoxMaLoaiKhachHang.FormattingEnabled = true;
-            this.comboBoxMaLoaiKhachHang.Location = new System.Drawing.Point(200, 13);
-            this.comboBoxMaLoaiKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxMaLoaiKhachHang.Name = "comboBoxMaLoaiKhachHang";
-            this.comboBoxMaLoaiKhachHang.Size = new System.Drawing.Size(319, 28);
-            this.comboBoxMaLoaiKhachHang.TabIndex = 2;
-            this.comboBoxMaLoaiKhachHang.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaLoaiKhachHang_SelectedIndexChanged);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.comboBoxMaTour);
-            this.panel4.Location = new System.Drawing.Point(11, 248);
+            this.panel4.Location = new System.Drawing.Point(11, 139);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(534, 50);
@@ -395,7 +285,7 @@ namespace GUI
             this.buttonDong.BackColor = System.Drawing.Color.Gray;
             this.buttonDong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonDong.ForeColor = System.Drawing.Color.White;
-            this.buttonDong.Location = new System.Drawing.Point(203, 591);
+            this.buttonDong.Location = new System.Drawing.Point(203, 438);
             this.buttonDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDong.Name = "buttonDong";
             this.buttonDong.Size = new System.Drawing.Size(138, 49);
@@ -432,15 +322,25 @@ namespace GUI
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(3, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 28);
+            this.label2.Size = new System.Drawing.Size(124, 28);
             this.label2.TabIndex = 0;
-            this.label2.Text = "ID";
+            this.label2.Text = "Mã đăng ký";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(472, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "VND";
             // 
             // fmChiTietDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 708);
+            this.ClientSize = new System.Drawing.Size(571, 574);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fmChiTietDangKy";
@@ -451,18 +351,12 @@ namespace GUI
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -489,23 +383,15 @@ namespace GUI
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxMaTour;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxMaLoaiKhachHang;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayDangKy;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox3MaSoDoan;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBoxSoLuongKhachHang;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBoxTongTien;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -27,7 +27,6 @@ namespace DAO
                 var getListDangKy = (from tbDangKy in tourdulich.dangkies
                                    join tbKhachHang in tourdulich.khachhangs on tbDangKy.maSoKhachHang equals tbKhachHang.maSoKhachHang
                                    join tbTour in tourdulich.tours on tbDangKy.maTour equals tbTour.maSoTour
-                                   join tbLoaiKhachHang in tourdulich.loaikhachhangs on tbDangKy.maLoaiKhachHang equals tbLoaiKhachHang.maLoaiKhachHang
                                    join tbDoan in tourdulich.doanduliches on tbDangKy.maSoDoan equals tbDoan.maSoDoan
                                    where tbDangKy.trangThai == 1
                                    select new
@@ -35,7 +34,6 @@ namespace DAO
                                        id = tbDangKy.id,
                                        tenKhachHang = tbKhachHang.hoTenKhachHang,
                                        tenGoiTour = tbTour.tenGoiTour,
-                                       tenLoaiKhachHang= tbLoaiKhachHang.tenLoaiKhachHang,
                                        ngayDangKy = tbDangKy.ngayDangKy,
                                        tenGoiDoan = tbDoan.tenGoiDoan
                                    });
@@ -53,7 +51,6 @@ namespace DAO
                 var getListDangKy = (from tbDangKy in tourdulich.dangkies
                                      join tbKhachHang in tourdulich.khachhangs on tbDangKy.maSoKhachHang equals tbKhachHang.maSoKhachHang
                                      join tbTour in tourdulich.tours on tbDangKy.maTour equals tbTour.maSoTour
-                                     join tbLoaiKhachHang in tourdulich.loaikhachhangs on tbDangKy.maLoaiKhachHang equals tbLoaiKhachHang.maLoaiKhachHang
                                      join tbDoan in tourdulich.doanduliches on tbDangKy.maSoDoan equals tbDoan.maSoDoan
                                      where tbDangKy.trangThai == 1
                                      select new
@@ -61,7 +58,6 @@ namespace DAO
                                          id = tbDangKy.id,
                                          tenKhachHang = tbKhachHang.hoTenKhachHang,
                                          tenGoiTour = tbTour.tenGoiTour,
-                                         tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang,
                                          ngayDangKy = tbDangKy.ngayDangKy,
                                          tenGoiDoan = tbDoan.tenGoiDoan
                                      }).Where(t=>t.tenKhachHang.Contains(searchValue));
@@ -79,7 +75,6 @@ namespace DAO
                 var getListDangKy = (from tbDangKy in tourdulich.dangkies
                                      join tbKhachHang in tourdulich.khachhangs on tbDangKy.maSoKhachHang equals tbKhachHang.maSoKhachHang
                                      join tbTour in tourdulich.tours on tbDangKy.maTour equals tbTour.maSoTour
-                                     join tbLoaiKhachHang in tourdulich.loaikhachhangs on tbDangKy.maLoaiKhachHang equals tbLoaiKhachHang.maLoaiKhachHang
                                      join tbDoan in tourdulich.doanduliches on tbDangKy.maSoDoan equals tbDoan.maSoDoan
                                      where tbDangKy.id == id
                                      select new
@@ -87,10 +82,8 @@ namespace DAO
                                          id = tbDangKy.id,
                                          tenKhachHang = tbKhachHang.hoTenKhachHang,
                                          tenGoiTour = tbTour.tenGoiTour,
-                                         tenLoaiKhachHang = tbLoaiKhachHang.tenLoaiKhachHang,
                                          ngayDangKy = tbDangKy.ngayDangKy,
                                          tenGoiDoan = tbDoan.tenGoiDoan,
-                                         soLuongKhachHang = tbDangKy.soLuongKhachHang,
                                          giaTourDangKy = tbDangKy.giaTourDangKy
                                      });
 
@@ -130,7 +123,6 @@ namespace DAO
                     dangky objDangKyOld = tourdulich.dangkies.Where(t => t.id == id).SingleOrDefault();
                     objDangKyOld.maSoKhachHang = objDangKy.maSoKhachHang;
                     objDangKyOld.maTour = objDangKy.maTour;
-                    objDangKyOld.maLoaiKhachHang = objDangKy.maLoaiKhachHang;
                     objDangKyOld.ngayDangKy = objDangKy.ngayDangKy;
                     objDangKyOld.maSoDoan = objDangKy.maSoDoan;
                     objDangKyOld.soLuongKhachHang = objDangKy.soLuongKhachHang;

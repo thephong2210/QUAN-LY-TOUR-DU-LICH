@@ -76,7 +76,7 @@
     <Compile Include="D_KH.cs" />
     <Compile Include="D_chiphi.cs" />
     <Compile Include="D_loaihinhdulich.cs" />
-    <Compile Include="D_LoaiKH.cs" />
+    <Compile Include="D_LoaiChiPhi.cs" />
     <Compile Include="D_nhanvien.cs" />
     <Compile Include="D_tour.cs" />
     <Compile Include="giatour.cs">
@@ -85,10 +85,10 @@
     <Compile Include="khachhang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="loaihinhdulich.cs">
+    <Compile Include="loaichiphi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="loaikhachhang.cs">
+    <Compile Include="loaihinhdulich.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">

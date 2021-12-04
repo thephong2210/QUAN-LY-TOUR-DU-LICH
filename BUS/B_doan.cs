@@ -17,6 +17,10 @@ namespace BUS
         {
             return dDoan.GetAllDoan();
         }
+        public List<doandulich> GetOneDoan(int maSoDoan)
+        {
+            return dDoan.GetOneDoan(maSoDoan);
+        }
 
         public List<doandulich> GetListDoanWithMaTour(int maSoTour)
         {

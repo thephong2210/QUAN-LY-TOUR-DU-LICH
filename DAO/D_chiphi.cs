@@ -11,7 +11,7 @@ namespace DAO
         tourdulichEntities tourdulich;
 
         //Dùng load combobox 
-        public List<chiphi> GetListLoaiChiPhi()
+        public List<chiphi> GetListChiPhi() //get all
         {
             using (tourdulich = new tourdulichEntities())
             {
@@ -23,11 +23,11 @@ namespace DAO
 
         }
 
-        public List<chiphi> GetListLoaiChiPhiWithMaDoan(int maSoDoan)
+        public List<chiphi> GetListChiPhiVoiMa(int maChiPhi) 
         {
             using (tourdulich = new tourdulichEntities())
             {
-                var getList = tourdulich.chiphis.Where(t => t.trangThai == 1).Where(t => t.maSoDoan == maSoDoan);
+                var getList = tourdulich.chiphis.Where(t => t.trangThai == 1).Where(t=>t.maChiPhi == maChiPhi);
 
                 return getList.ToList<chiphi>();
 
@@ -35,7 +35,37 @@ namespace DAO
 
         }
 
-        public bool ThemLoaiChiPhi(chiphi objName)
+        public List<chiphi> GetListChiPhiWithMaDoan(int maSoDoan) //get list ứng với mã đoàn
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getList = tourdulich.chiphis.Where(t => t.trangThai == 1).Where(t => t.maSoDoan == maSoDoan);
+               
+                return getList.ToList<chiphi>();
+
+            }
+
+        }
+
+        public List<dynamic> GetListChiPhiMaDoanOnView(int maSoDoan) //get list ứng với mã đoàn
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getList = (from tbChiPhi in tourdulich.chiphis
+                               where (tbChiPhi.trangThai == 1) && (tbChiPhi.maSoDoan == maSoDoan)
+                               select new
+                               {
+                                   maChiPhi = tbChiPhi.maChiPhi,
+                                   tenChiPhi = tbChiPhi.tenChiPhi,
+                                   tongChiPhi = tbChiPhi.tongChiPhi
+                               });
+                return getList.ToList<dynamic>();
+
+            }
+
+        }
+
+        public bool ThemChiPhi(chiphi objName)
         {
             using (tourdulich = new tourdulichEntities())
             {
@@ -56,7 +86,7 @@ namespace DAO
 
         }
 
-        public bool XoaLoaiChiPhi(int maLoai)
+        public bool XoaChiPhi(int maLoai)
         {
             using (tourdulich = new tourdulichEntities())
             {
@@ -77,7 +107,7 @@ namespace DAO
             }
         }
 
-        public bool SuaLoaiChiPhi(chiphi objLoai, int maLoai)
+        public bool SuaChiPhi(chiphi objLoai, int maLoai)
         {
 
             using (tourdulich = new tourdulichEntities())
@@ -87,10 +117,10 @@ namespace DAO
                 {
                     chiphi objOldLoai = tourdulich.chiphis.Where(t => t.maChiPhi == maLoai).SingleOrDefault();
 
-                    objOldLoai.tenChiPhi = objLoai.tenChiPhi;
-                    objOldLoai.maSoDoan = objLoai.maSoDoan;
+                    //objOldLoai.tenChiPhi = objLoai.tenChiPhi;
+                    //objOldLoai.maSoDoan = objLoai.maSoDoan;
                     objOldLoai.tongChiPhi = objLoai.tongChiPhi;
-                    objOldLoai.trangThai = objLoai.trangThai;
+                    //objOldLoai.trangThai = objLoai.trangThai;
 
                     tourdulich.SaveChanges();
                     return true;
@@ -102,6 +132,9 @@ namespace DAO
                 }
             }
         }
+
+
+      
 
 
     }

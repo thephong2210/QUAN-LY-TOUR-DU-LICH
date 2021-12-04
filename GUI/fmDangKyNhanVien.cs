@@ -49,31 +49,41 @@ namespace GUI
         {
             comboBoxTenDoan.DataSource = b_doan.GetAllDoan();
             comboBoxTenDoan.DisplayMember = "tenGoiDoan";
+            comboBoxTenDoan.ValueMember = "maSoDoan";
         }
 
         public void LoadComboboxNhanVien()
         {
             comboBoxTenNhanVien.DataSource = b_nhanvien.GetAllNhanVien();
             comboBoxTenNhanVien.DisplayMember = "tenNhanVien";
+            comboBoxTenNhanVien.DisplayMember = "maNhanVien";
         }
 
         public void GetInfoChiTietCuaDoan() //Max 5 nhân viên/đoàn
         {
             List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
+            
+            //Set maxDate và minDate về mặc định trước khi change để không lỗi
+            dateTimePickerNgayBatDau.MaxDate = new DateTime(2500, 12, 20);
+            dateTimePickerNgayBatDau.MinDate = new DateTime(1753, 1, 1);
+            dateTimePickerNgayKetThuc.MaxDate = new DateTime(2500, 12, 20);
+            dateTimePickerNgayKetThuc.MinDate = new DateTime(1753, 1, 1);
 
             if (!String.IsNullOrWhiteSpace(comboBoxTenDoan.Text))
             {
                 foreach (var itemmaSoDoan in listDoanDuLich)
                 {
-                    if (itemmaSoDoan.tenGoiDoan.Equals(comboBoxTenDoan.Text))
+                    if (itemmaSoDoan.maSoDoan.Equals(comboBoxTenDoan.SelectedValue))
                     {
                         //số lượng nhân viên còn lại của đoàn
                         labelSoLuongConLai.Text = (5 - Convert.ToInt32(itemmaSoDoan.SoLuongNhanVien)).ToString();
-                        dateTimePickerNgayBatDau.MinDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKhoiHanh);
-                        dateTimePickerNgayBatDau.MaxDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKetThuc);
 
-                        dateTimePickerNgayKetThuc.MaxDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKetThuc);
-                        dateTimePickerNgayKetThuc.MinDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKhoiHanh);
+                        
+                        dateTimePickerNgayBatDau.MaxDate = DateTime.Parse(itemmaSoDoan.thoiGianKetThuc.ToString("yyyy-MM-dd"));
+                        dateTimePickerNgayBatDau.MinDate = DateTime.Parse(itemmaSoDoan.thoiGianKhoiHanh.ToString("yyyy-MM-dd"));
+                        
+                        dateTimePickerNgayKetThuc.MaxDate = DateTime.Parse(itemmaSoDoan.thoiGianKetThuc.ToString("yyyy-MM-dd"));
+                        dateTimePickerNgayKetThuc.MinDate = DateTime.Parse(itemmaSoDoan.thoiGianKhoiHanh.ToString("yyyy-MM-dd"));
                     }
                 }
             }
@@ -97,27 +107,20 @@ namespace GUI
         public bool CheckNhanVienDangKy() //check nhân viên này có đang trong đoàn khác không
         {
             List<thamgiadoan> listThamGiaDoan = b_dangkynhanvien.GetAllDangKy();
-            List<nhanvien> listNhanVien = b_nhanvien.GetAllNhanVien();
+           
 
             foreach (var items in listThamGiaDoan)
             {
-
-                foreach (var itemNhanVien in listNhanVien)
+                if (items.maNhanVien.Equals(comboBoxTenNhanVien.SelectedValue))
                 {
-                        
-                    if (itemNhanVien.maNhanVien == items.maNhanVien)
+                    System.Diagnostics.Debug.WriteLine(dateTimePickerNgayBatDau.Value.Date + "-" + items.thoiGianKetThuc.Date);
+                    if (dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date)
                     {
-                        if (itemNhanVien.tenNhanVien.Equals(comboBoxTenNhanVien.Text))
-                        {
-                            System.Diagnostics.Debug.WriteLine(dateTimePickerNgayBatDau.Value.Date + "-" + items.thoiGianKetThuc.Date);
-                            if (dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date)
-                            {
-                                return false;
-                            }
-                        }
-                       
+                        return false;
                     }
                 }
+
+
             }
 
             return true;
@@ -144,23 +147,10 @@ namespace GUI
                             {
                                 thamgiadoan objThamGiaDoan = new thamgiadoan();
 
-                                foreach (var itemNhanVien in listNhanVien)
-                                {
-                                    if (itemNhanVien.tenNhanVien.Equals(comboBoxTenNhanVien.Text))
-                                    {
-                                        objThamGiaDoan.maNhanVien = itemNhanVien.maNhanVien;
-                                    }
-                                }
-
-                                foreach (var itemmaSoDoan in listDoanDuLich)
-                                {
-                                    if (itemmaSoDoan.tenGoiDoan.Equals(comboBoxTenDoan.Text))
-                                    {
-                                        objThamGiaDoan.maSoDoan = itemmaSoDoan.maSoDoan;
-                                        maDoanEdit = itemmaSoDoan.maSoDoan;
-                                    }
-                                }
-
+                                objThamGiaDoan.maNhanVien = Convert.ToInt32(comboBoxTenNhanVien.SelectedValue);
+                                objThamGiaDoan.maSoDoan = Convert.ToInt32(comboBoxTenDoan.SelectedValue);
+                                maDoanEdit = Convert.ToInt32(comboBoxTenDoan.SelectedValue);
+                             
                                 objThamGiaDoan.thoiGianBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
                                 objThamGiaDoan.thoiGianKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
 

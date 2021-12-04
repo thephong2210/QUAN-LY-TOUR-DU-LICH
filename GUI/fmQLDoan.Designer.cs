@@ -47,14 +47,6 @@ namespace GUI
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBoxChiPhi = new System.Windows.Forms.ListBox();
-            this.buttonXoaTatCa = new System.Windows.Forms.Button();
-            this.buttonXoaOne = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonThemDDTQ = new System.Windows.Forms.Button();
-            this.textBoxChiPhi = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,7 +76,6 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel14.SuspendLayout();
@@ -110,7 +101,7 @@ namespace GUI
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 814F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1381, 814);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1381, 668);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
             // panel2
@@ -125,7 +116,7 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(423, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 810);
+            this.panel2.Size = new System.Drawing.Size(955, 664);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -133,7 +124,7 @@ namespace GUI
             // 
             this.panel4.Controls.Add(this.buttonXoa);
             this.panel4.Controls.Add(this.buttonXemChiTiet);
-            this.panel4.Location = new System.Drawing.Point(13, 692);
+            this.panel4.Location = new System.Drawing.Point(13, 515);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(933, 92);
             this.panel4.TabIndex = 28;
@@ -229,7 +220,7 @@ namespace GUI
             this.dataGridViewQuanLyDoan.RowTemplate.Height = 30;
             this.dataGridViewQuanLyDoan.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewQuanLyDoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewQuanLyDoan.Size = new System.Drawing.Size(931, 581);
+            this.dataGridViewQuanLyDoan.Size = new System.Drawing.Size(931, 395);
             this.dataGridViewQuanLyDoan.TabIndex = 24;
             this.dataGridViewQuanLyDoan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewQuanLyDoan_CellContentClick);
             // 
@@ -306,7 +297,6 @@ namespace GUI
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.buttonTaoMoi);
             this.panel1.Controls.Add(this.panel14);
@@ -317,106 +307,8 @@ namespace GUI
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(414, 810);
+            this.panel1.Size = new System.Drawing.Size(414, 664);
             this.panel1.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.listBoxChiPhi);
-            this.panel5.Controls.Add(this.buttonXoaTatCa);
-            this.panel5.Controls.Add(this.buttonXoaOne);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.buttonThemDDTQ);
-            this.panel5.Controls.Add(this.textBoxChiPhi);
-            this.panel5.Location = new System.Drawing.Point(10, 448);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(385, 254);
-            this.panel5.TabIndex = 45;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 7.5F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(89, 15);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(234, 17);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Định dạng: (tên chi phí);(tổng chi phí)";
-            // 
-            // listBoxChiPhi
-            // 
-            this.listBoxChiPhi.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.listBoxChiPhi.FormattingEnabled = true;
-            this.listBoxChiPhi.ItemHeight = 23;
-            this.listBoxChiPhi.Location = new System.Drawing.Point(9, 71);
-            this.listBoxChiPhi.Name = "listBoxChiPhi";
-            this.listBoxChiPhi.Size = new System.Drawing.Size(363, 119);
-            this.listBoxChiPhi.TabIndex = 25;
-            // 
-            // buttonXoaTatCa
-            // 
-            this.buttonXoaTatCa.BackColor = System.Drawing.Color.Brown;
-            this.buttonXoaTatCa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonXoaTatCa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoaTatCa.Location = new System.Drawing.Point(268, 207);
-            this.buttonXoaTatCa.Name = "buttonXoaTatCa";
-            this.buttonXoaTatCa.Size = new System.Drawing.Size(104, 32);
-            this.buttonXoaTatCa.TabIndex = 24;
-            this.buttonXoaTatCa.Text = "Xóa tất cả";
-            this.buttonXoaTatCa.UseVisualStyleBackColor = false;
-            this.buttonXoaTatCa.Click += new System.EventHandler(this.buttonXoaTatCa_Click);
-            // 
-            // buttonXoaOne
-            // 
-            this.buttonXoaOne.BackColor = System.Drawing.Color.Brown;
-            this.buttonXoaOne.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonXoaOne.ForeColor = System.Drawing.Color.White;
-            this.buttonXoaOne.Location = new System.Drawing.Point(8, 207);
-            this.buttonXoaOne.Name = "buttonXoaOne";
-            this.buttonXoaOne.Size = new System.Drawing.Size(97, 32);
-            this.buttonXoaOne.TabIndex = 23;
-            this.buttonXoaOne.Text = "Xóa";
-            this.buttonXoaOne.UseVisualStyleBackColor = false;
-            this.buttonXoaOne.Click += new System.EventHandler(this.buttonXoaOne_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(9, 7);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 25);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Chi phí";
-            // 
-            // buttonThemDDTQ
-            // 
-            this.buttonThemDDTQ.BackColor = System.Drawing.Color.YellowGreen;
-            this.buttonThemDDTQ.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonThemDDTQ.ForeColor = System.Drawing.Color.White;
-            this.buttonThemDDTQ.Location = new System.Drawing.Point(292, 34);
-            this.buttonThemDDTQ.Name = "buttonThemDDTQ";
-            this.buttonThemDDTQ.Size = new System.Drawing.Size(80, 32);
-            this.buttonThemDDTQ.TabIndex = 21;
-            this.buttonThemDDTQ.Text = "Thêm";
-            this.buttonThemDDTQ.UseVisualStyleBackColor = false;
-            this.buttonThemDDTQ.Click += new System.EventHandler(this.buttonThemDDTQ_Click);
-            // 
-            // textBoxChiPhi
-            // 
-            this.textBoxChiPhi.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.textBoxChiPhi.Location = new System.Drawing.Point(9, 34);
-            this.textBoxChiPhi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxChiPhi.Name = "textBoxChiPhi";
-            this.textBoxChiPhi.Size = new System.Drawing.Size(277, 32);
-            this.textBoxChiPhi.TabIndex = 20;
             // 
             // panel6
             // 
@@ -459,7 +351,7 @@ namespace GUI
             this.buttonTaoMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(177)))), ((int)(((byte)(65)))));
             this.buttonTaoMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
             this.buttonTaoMoi.ForeColor = System.Drawing.Color.White;
-            this.buttonTaoMoi.Location = new System.Drawing.Point(115, 719);
+            this.buttonTaoMoi.Location = new System.Drawing.Point(114, 548);
             this.buttonTaoMoi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonTaoMoi.Name = "buttonTaoMoi";
             this.buttonTaoMoi.Size = new System.Drawing.Size(181, 59);
@@ -473,10 +365,10 @@ namespace GUI
             this.panel14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel14.Controls.Add(this.label8);
             this.panel14.Controls.Add(this.textBoxChiTiet);
-            this.panel14.Location = new System.Drawing.Point(10, 343);
+            this.panel14.Location = new System.Drawing.Point(10, 375);
             this.panel14.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(385, 101);
+            this.panel14.Size = new System.Drawing.Size(385, 126);
             this.panel14.TabIndex = 44;
             // 
             // label8
@@ -503,7 +395,7 @@ namespace GUI
             this.textBoxChiTiet.Multiline = true;
             this.textBoxChiTiet.Name = "textBoxChiTiet";
             this.textBoxChiTiet.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxChiTiet.Size = new System.Drawing.Size(216, 90);
+            this.textBoxChiTiet.Size = new System.Drawing.Size(216, 103);
             this.textBoxChiTiet.TabIndex = 7;
             // 
             // panel12
@@ -511,7 +403,7 @@ namespace GUI
             this.panel12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel12.Controls.Add(this.label6);
             this.panel12.Controls.Add(this.dateTimePickerNgayKetThuc);
-            this.panel12.Location = new System.Drawing.Point(10, 276);
+            this.panel12.Location = new System.Drawing.Point(10, 308);
             this.panel12.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(385, 63);
@@ -547,7 +439,7 @@ namespace GUI
             this.panel11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.dateTimePickerNgayBatDau);
-            this.panel11.Location = new System.Drawing.Point(10, 213);
+            this.panel11.Location = new System.Drawing.Point(10, 245);
             this.panel11.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(385, 59);
@@ -585,7 +477,7 @@ namespace GUI
             this.panel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.comboBoxTour);
-            this.panel9.Location = new System.Drawing.Point(10, 147);
+            this.panel9.Location = new System.Drawing.Point(10, 179);
             this.panel9.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(385, 62);
@@ -625,7 +517,7 @@ namespace GUI
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.Controls.Add(this.label3);
             this.panel8.Controls.Add(this.textBoxTenDoan);
-            this.panel8.Location = new System.Drawing.Point(10, 74);
+            this.panel8.Location = new System.Drawing.Point(10, 106);
             this.panel8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(385, 69);
@@ -695,7 +587,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 882);
+            this.ClientSize = new System.Drawing.Size(1381, 736);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel7);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -712,8 +604,6 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -775,13 +665,5 @@ namespace GUI
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button buttonThemDDTQ;
-        private System.Windows.Forms.TextBox textBoxChiPhi;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button buttonXoaTatCa;
-        private System.Windows.Forms.Button buttonXoaOne;
-        private System.Windows.Forms.ListBox listBoxChiPhi;
-        private System.Windows.Forms.Label label7;
     }
 }

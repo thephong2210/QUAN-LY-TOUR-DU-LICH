@@ -41,12 +41,14 @@ namespace GUI
         {
             comboBoxDiaDiem.DataSource = bDiaDiemDen.GetListDiaDiemDen();
             comboBoxDiaDiem.DisplayMember = "tenDiaDiemDen";
+            comboBoxDiaDiem.ValueMember = "maDiaDiemDen";
         }
 
         public void LoadComboboxLoaiHinhDuLich()
         {
             comboBoxLoaiHinhDuLich.DataSource = bLoaiHinhDuLich.GetListLoaiHinhDL();
             comboBoxLoaiHinhDuLich.DisplayMember = "tenLoaiHinhDuLich";
+            comboBoxLoaiHinhDuLich.ValueMember = "maLoaiHinhDuLich";
         }
 
         private void LoadDiaDiemThamQuan()
@@ -107,7 +109,6 @@ namespace GUI
         {
             textBoxTenTour.Text = "";
             textBoxDacDiem.Text = "";
-            textBoxGia.Text = "";
             ChangeAllCheckBoxValues_DDThamQuan(false);
         }
 
@@ -136,13 +137,10 @@ namespace GUI
             List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
             List<loaihinhdulich> listLHDL = bLoaiHinhDuLich.GetListLoaiHinhDL();
             List<tour> listTour = bTour.GetAllTour();
-            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
 
-            if (!String.IsNullOrEmpty(textBoxTenTour.Text))
+            if (!String.IsNullOrWhiteSpace(textBoxTenTour.Text))
             {
-                if (!String.IsNullOrEmpty(textBoxGia.Text))
-                {
-                    if (!String.IsNullOrEmpty(textBoxDacDiem.Text))
+                if (!String.IsNullOrWhiteSpace(textBoxDacDiem.Text))
                     {
                         if (CheckThoiGianDangKy())
                         {
@@ -150,39 +148,19 @@ namespace GUI
                             {
                                 //Khai báo object
                                 tour objTour = new tour();
-                                giatour objGiaTour = new giatour();
                                 diadiemtour objDiaDiemTour = new diadiemtour();
 
                                 objTour.tenGoiTour = textBoxTenTour.Text;
                                 objTour.dacDiem = textBoxDacDiem.Text;
 
-                                //Lấy maDiaDiem
-                                foreach (var itemDD in listDiaDiemDen)
-                                {
-                                    if (itemDD.tenDiaDiemDen.Equals(comboBoxDiaDiem.Text))
-                                    {
-                                        objTour.maDiaDiemDen = itemDD.maDiaDiemDen;
-                                    }
-                                }
+                                objTour.maDiaDiemDen = Convert.ToInt32(comboBoxDiaDiem.SelectedValue);
+                                objTour.maLoaiHinhDuLich = Convert.ToInt32(comboBoxLoaiHinhDuLich.SelectedValue);
 
-                                //Lấy maLoaiHinhDuLich
-                                foreach (var itemLHDL in listLHDL)
-                                {
-                                    if (itemLHDL.tenLoaiHinhDuLich.Equals(comboBoxLoaiHinhDuLich.Text))
-                                    {
-                                        objTour.maLoaiHinhDuLich = itemLHDL.maLoaiHinhDuLich;
-                                    }
-                                }
 
                                 objTour.thoiGianBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
                                 objTour.thoiGianKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
 
-                                //Lấy thông tin giá tour để thêm vào giatour
-                                objGiaTour.gia = float.Parse(textBoxGia.Text);
-                                objGiaTour.maGiaTour = GetMaxMaSoTour(listTour) + 1; //Mã tour mới
-                                objGiaTour.dieuKien = "mới tạo";
-
-                                objTour.idGiaTour = GetMaxIDGiaTour(listGiaTour) + 1;
+                                objTour.idGiaTour = null; //tour mới
 
                                 objTour.trangThai = 1;
 
@@ -205,19 +183,14 @@ namespace GUI
                                             }
                                         }
 
-                                        if (bGiaTour.ThemGiaTour(objGiaTour))
-                                        {
-                                            LoadDanhSachTour();
+                                        LoadDanhSachTour();
 
-                                            System.Diagnostics.Debug.WriteLine("Thêm giá tour thành công!");
-                                            MessageBox.Show("Thêm tour thành công!", "Thông báo");
+                                        System.Diagnostics.Debug.WriteLine("Thêm giá tour thành công!");
+                                        MessageBox.Show("Thêm tour thành công!", "Thông báo");
 
-                                            ClearFields();
-
-                                        }
+                                        ClearFields();
 
                                     }
-
                                 }
                                 catch (Exception ex)
                                 {
@@ -240,12 +213,6 @@ namespace GUI
                         MessageBox.Show("Vui lòng nhập đặc điểm tour!", "Thông báo");
                         textBoxDacDiem.Focus();
                     }
-                }   
-                else
-                {
-                    MessageBox.Show("Vui lòng nhập giá tour!", "Thông báo");
-                    textBoxGia.Focus();
-                }
             }
             else
             {

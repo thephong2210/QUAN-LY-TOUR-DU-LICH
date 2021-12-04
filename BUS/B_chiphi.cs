@@ -9,27 +9,27 @@ namespace BUS
 {
     public class B_chiphi
     {
-        D_chiphi d_LoaiChiPhi = new D_chiphi();
+        D_chiphi d_ChiPhi = new D_chiphi();
 
         public List<chiphi> GetListLoaiChiPhi()
         {
-            return d_LoaiChiPhi.GetListLoaiChiPhi();
+            return d_ChiPhi.GetListChiPhi();
         }
         
 
         public bool ThemLoaiChiPhi(chiphi objLoai)
         {
-            return d_LoaiChiPhi.ThemLoaiChiPhi(objLoai);
+            return d_ChiPhi.ThemChiPhi(objLoai);
         }
 
         public bool XoaLoaiChiPhi(int maLoai)
         {
-            return d_LoaiChiPhi.XoaLoaiChiPhi(maLoai);
+            return d_ChiPhi.XoaChiPhi(maLoai);
         }
 
         public bool SuaLoaiChiPhi(chiphi objLoai,int maLoai)
         {
-            return d_LoaiChiPhi.SuaLoaiChiPhi(objLoai, maLoai);
+            return d_ChiPhi.SuaChiPhi(objLoai, maLoai);
         }
 
     }

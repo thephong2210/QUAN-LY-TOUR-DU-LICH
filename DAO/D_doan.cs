@@ -14,6 +14,14 @@ namespace DAO
                 return getAllTour.ToList<doandulich>();
             }
         }
+
+        public List<doandulich> GetOneDoan(int maSoDoan)
+        {
+            {
+                var getAllTour = tourdulich.doanduliches.Where(t => t.trangThai == 1).Where(t=>t.maSoDoan == maSoDoan);
+                return getAllTour.ToList<doandulich>();
+            }
+        }
         public List<dynamic> GetListDoan()
         {
 
@@ -117,11 +125,9 @@ namespace DAO
 
                                  select new
                                  {
-                                     id = tbKH.maSoKhachHang,
+                                     id = tbDangKy.id,
                                      ten = tbKH.hoTenKhachHang,
-                                     soLuong = tbDangKy.soLuongKhachHang
-
-
+                                    
                                  });
 
                 return getKHDoan.ToList<dynamic>();
@@ -141,7 +147,7 @@ namespace DAO
                                  where tbThamGia.trangThai == 1
                                  select new
                                  {
-                                     id = tbNV.maNhanVien,
+                                     id = tbThamGia.maThamGia,
                                      ten = tbNV.tenNhanVien
 
                                  });

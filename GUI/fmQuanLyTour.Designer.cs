@@ -47,9 +47,6 @@ namespace GUI
             this.panel14 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDacDiem = new System.Windows.Forms.TextBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.textBoxGia = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayKetThuc = new System.Windows.Forms.DateTimePicker();
@@ -91,7 +88,6 @@ namespace GUI
             this.panel4.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -170,7 +166,6 @@ namespace GUI
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel15);
             this.panel4.Controls.Add(this.panel14);
-            this.panel4.Controls.Add(this.panel13);
             this.panel4.Controls.Add(this.panel12);
             this.panel4.Controls.Add(this.panel11);
             this.panel4.Controls.Add(this.panel10);
@@ -188,7 +183,7 @@ namespace GUI
             // 
             this.panel15.Controls.Add(this.checkedListBoxDDThamQuan);
             this.panel15.Controls.Add(this.label12);
-            this.panel15.Location = new System.Drawing.Point(11, 514);
+            this.panel15.Location = new System.Drawing.Point(11, 484);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(371, 165);
@@ -221,10 +216,10 @@ namespace GUI
             // 
             this.panel14.Controls.Add(this.label8);
             this.panel14.Controls.Add(this.textBoxDacDiem);
-            this.panel14.Location = new System.Drawing.Point(11, 375);
+            this.panel14.Location = new System.Drawing.Point(11, 323);
             this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(371, 76);
+            this.panel14.Size = new System.Drawing.Size(371, 98);
             this.panel14.TabIndex = 39;
             // 
             // label8
@@ -247,39 +242,8 @@ namespace GUI
             this.textBoxDacDiem.Multiline = true;
             this.textBoxDacDiem.Name = "textBoxDacDiem";
             this.textBoxDacDiem.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDacDiem.Size = new System.Drawing.Size(212, 55);
+            this.textBoxDacDiem.Size = new System.Drawing.Size(212, 81);
             this.textBoxDacDiem.TabIndex = 7;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.textBoxGia);
-            this.panel13.Controls.Add(this.label7);
-            this.panel13.Location = new System.Drawing.Point(11, 323);
-            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(371, 48);
-            this.panel13.TabIndex = 38;
-            // 
-            // textBoxGia
-            // 
-            this.textBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxGia.Location = new System.Drawing.Point(146, 11);
-            this.textBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGia.Name = "textBoxGia";
-            this.textBoxGia.Size = new System.Drawing.Size(212, 30);
-            this.textBoxGia.TabIndex = 18;
-            this.textBoxGia.TextChanged += new System.EventHandler(this.textBoxGia_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(3, 11);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 28);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Giá";
             // 
             // panel12
             // 
@@ -348,7 +312,7 @@ namespace GUI
             // 
             this.panel10.Controls.Add(this.label4);
             this.panel10.Controls.Add(this.comboBoxDiaDiem);
-            this.panel10.Location = new System.Drawing.Point(11, 455);
+            this.panel10.Location = new System.Drawing.Point(11, 425);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(371, 55);
@@ -700,7 +664,7 @@ namespace GUI
             this.MinimumSize = new System.Drawing.Size(1453, 904);
             this.Name = "fmQuanLyTour";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý tour";
+            this.Text = "Quản lý tour | Tour App";
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -711,8 +675,6 @@ namespace GUI
             this.panel15.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -767,8 +729,6 @@ namespace GUI
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel11;
@@ -784,7 +744,6 @@ namespace GUI
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
-        private System.Windows.Forms.TextBox textBoxGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;

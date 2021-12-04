@@ -29,10 +29,9 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -66,15 +65,20 @@ namespace GUI
             this._passengerDgv = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tên = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.buttonThemDKKH = new System.Windows.Forms.Button();
+            this.buttonThemDKNV = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this._tableCell_Three.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._employeeDgv)).BeginInit();
             this._tableCell_One.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -88,17 +92,6 @@ namespace GUI
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1215, 54);
             this.panel7.TabIndex = 20;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
-            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
             // 
             // label10
             // 
@@ -116,6 +109,7 @@ namespace GUI
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel13.Controls.Add(this.label6);
             this.panel13.Controls.Add(this.button1);
             this.panel13.Controls.Add(this.textBoxTongChiPhi);
             this.panel13.Controls.Add(this.label5);
@@ -155,7 +149,7 @@ namespace GUI
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 34);
             this.button1.TabIndex = 36;
-            this.button1.Text = "Chi tiết chi phí";
+            this.button1.Text = "Bảng chi phí";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -169,8 +163,10 @@ namespace GUI
             this.textBoxTongChiPhi.Location = new System.Drawing.Point(958, 113);
             this.textBoxTongChiPhi.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textBoxTongChiPhi.Name = "textBoxTongChiPhi";
-            this.textBoxTongChiPhi.Size = new System.Drawing.Size(232, 30);
+            this.textBoxTongChiPhi.Size = new System.Drawing.Size(188, 30);
             this.textBoxTongChiPhi.TabIndex = 35;
+            this.textBoxTongChiPhi.TextChanged += new System.EventHandler(this.textBoxTongChiPhi_TextChanged);
+            this.textBoxTongChiPhi.Leave += new System.EventHandler(this.textBoxTongChiPhi_Leave);
             // 
             // label5
             // 
@@ -402,7 +398,7 @@ namespace GUI
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 451);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 455);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // _tableCell_Three
@@ -415,14 +411,15 @@ namespace GUI
             this._tableCell_Three.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._tableCell_Three.Name = "_tableCell_Three";
             this._tableCell_Three.Padding = new System.Windows.Forms.Padding(14, 13, 14, 0);
-            this._tableCell_Three.Size = new System.Drawing.Size(602, 447);
+            this._tableCell_Three.Size = new System.Drawing.Size(602, 451);
             this._tableCell_Three.TabIndex = 10;
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.flowLayoutPanel3.Controls.Add(this.buttonThemDKNV);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(14, 401);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(14, 405);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -448,8 +445,8 @@ namespace GUI
             this._employeeDgv.ReadOnly = true;
             this._employeeDgv.RowHeadersVisible = false;
             this._employeeDgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._employeeDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
@@ -460,7 +457,7 @@ namespace GUI
             this._employeeDgv.RowTemplate.Height = 32;
             this._employeeDgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._employeeDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._employeeDgv.Size = new System.Drawing.Size(574, 434);
+            this._employeeDgv.Size = new System.Drawing.Size(574, 438);
             this._employeeDgv.TabIndex = 9;
             // 
             // IDNV
@@ -491,14 +488,15 @@ namespace GUI
             this._tableCell_One.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._tableCell_One.Name = "_tableCell_One";
             this._tableCell_One.Padding = new System.Windows.Forms.Padding(14, 13, 14, 0);
-            this._tableCell_One.Size = new System.Drawing.Size(601, 447);
+            this._tableCell_One.Size = new System.Drawing.Size(601, 451);
             this._tableCell_One.TabIndex = 8;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.flowLayoutPanel1.Controls.Add(this.buttonThemDKKH);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 401);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 405);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -516,8 +514,7 @@ namespace GUI
             this._passengerDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._passengerDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Tên,
-            this.soLuong});
+            this.Tên});
             this._passengerDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._passengerDgv.Location = new System.Drawing.Point(14, 13);
             this._passengerDgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -525,8 +522,8 @@ namespace GUI
             this._passengerDgv.ReadOnly = true;
             this._passengerDgv.RowHeadersVisible = false;
             this._passengerDgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._passengerDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -537,7 +534,7 @@ namespace GUI
             this._passengerDgv.RowTemplate.Height = 32;
             this._passengerDgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._passengerDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._passengerDgv.Size = new System.Drawing.Size(573, 434);
+            this._passengerDgv.Size = new System.Drawing.Size(573, 438);
             this._passengerDgv.TabIndex = 5;
             // 
             // ID
@@ -558,20 +555,62 @@ namespace GUI
             this.Tên.Name = "Tên";
             this.Tên.ReadOnly = true;
             // 
-            // soLuong
+            // pictureBox3
             // 
-            this.soLuong.DataPropertyName = "soLuong";
-            this.soLuong.FillWeight = 71.66747F;
-            this.soLuong.HeaderText = "Số lượng";
-            this.soLuong.MinimumWidth = 6;
-            this.soLuong.Name = "soLuong";
-            this.soLuong.ReadOnly = true;
+            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
+            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // buttonThemDKKH
+            // 
+            this.buttonThemDKKH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThemDKKH.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonThemDKKH.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDKKH.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDKKH.Location = new System.Drawing.Point(436, 5);
+            this.buttonThemDKKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThemDKKH.Name = "buttonThemDKKH";
+            this.buttonThemDKKH.Size = new System.Drawing.Size(134, 39);
+            this.buttonThemDKKH.TabIndex = 37;
+            this.buttonThemDKKH.Text = "Thêm";
+            this.buttonThemDKKH.UseVisualStyleBackColor = false;
+            this.buttonThemDKKH.Click += new System.EventHandler(this.buttonThemDKKH_Click);
+            // 
+            // buttonThemDKNV
+            // 
+            this.buttonThemDKNV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThemDKNV.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonThemDKNV.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDKNV.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDKNV.Location = new System.Drawing.Point(437, 5);
+            this.buttonThemDKNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThemDKNV.Name = "buttonThemDKNV";
+            this.buttonThemDKNV.Size = new System.Drawing.Size(134, 39);
+            this.buttonThemDKNV.TabIndex = 38;
+            this.buttonThemDKNV.Text = "Thêm";
+            this.buttonThemDKNV.UseVisualStyleBackColor = false;
+            this.buttonThemDKNV.Click += new System.EventHandler(this.buttonThemDKNV_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1150, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "VND";
             // 
             // fmChitietDoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 747);
+            this.ClientSize = new System.Drawing.Size(1215, 751);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel7);
@@ -582,14 +621,16 @@ namespace GUI
             this.Load += new System.EventHandler(this.fmChitietDoan_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this._tableCell_Three.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._employeeDgv)).EndInit();
             this._tableCell_One.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -631,6 +672,8 @@ namespace GUI
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tên;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
+        private System.Windows.Forms.Button buttonThemDKNV;
+        private System.Windows.Forms.Button buttonThemDKKH;
+        private System.Windows.Forms.Label label6;
     }
 }

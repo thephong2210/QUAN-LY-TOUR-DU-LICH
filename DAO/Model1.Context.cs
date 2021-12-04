@@ -34,9 +34,9 @@ namespace DAO
         public virtual DbSet<giatour> giatours { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
         public virtual DbSet<loaihinhdulich> loaihinhduliches { get; set; }
-        public virtual DbSet<loaikhachhang> loaikhachhangs { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }
         public virtual DbSet<thamgiadoan> thamgiadoans { get; set; }
         public virtual DbSet<tour> tours { get; set; }
+        public virtual DbSet<loaichiphi> loaichiphis { get; set; }
     }
 }

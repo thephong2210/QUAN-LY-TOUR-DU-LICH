@@ -49,7 +49,6 @@ namespace GUI
             this.buttonSua = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.buttonThemGia = new System.Windows.Forms.Button();
-            this.comboBoxGia = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBoxLoaiHinhDuLich = new System.Windows.Forms.ComboBox();
@@ -298,7 +297,6 @@ namespace GUI
             // panel8
             // 
             this.panel8.Controls.Add(this.buttonThemGia);
-            this.panel8.Controls.Add(this.comboBoxGia);
             this.panel8.Controls.Add(this.label13);
             this.panel8.Location = new System.Drawing.Point(0, 187);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -310,26 +308,15 @@ namespace GUI
             // buttonThemGia
             // 
             this.buttonThemGia.BackColor = System.Drawing.Color.OliveDrab;
+            this.buttonThemGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemGia.ForeColor = System.Drawing.Color.White;
-            this.buttonThemGia.Location = new System.Drawing.Point(464, 7);
+            this.buttonThemGia.Location = new System.Drawing.Point(270, 7);
             this.buttonThemGia.Name = "buttonThemGia";
-            this.buttonThemGia.Size = new System.Drawing.Size(75, 28);
+            this.buttonThemGia.Size = new System.Drawing.Size(269, 35);
             this.buttonThemGia.TabIndex = 3;
-            this.buttonThemGia.Text = "Thêm";
+            this.buttonThemGia.Text = "Xem bảng giá tour";
             this.buttonThemGia.UseVisualStyleBackColor = false;
             this.buttonThemGia.Click += new System.EventHandler(this.buttonThemGia_Click);
-            // 
-            // comboBoxGia
-            // 
-            this.comboBoxGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBoxGia.FormattingEnabled = true;
-            this.comboBoxGia.Location = new System.Drawing.Point(270, 7);
-            this.comboBoxGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxGia.Name = "comboBoxGia";
-            this.comboBoxGia.Size = new System.Drawing.Size(188, 28);
-            this.comboBoxGia.TabIndex = 2;
-            this.comboBoxGia.SelectedIndexChanged += new System.EventHandler(this.comboBoxGia_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -338,9 +325,9 @@ namespace GUI
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label13.Location = new System.Drawing.Point(3, 7);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 28);
+            this.label13.Size = new System.Drawing.Size(100, 28);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Giá hiện tại:";
+            this.label13.Text = "Bảng giá:";
             // 
             // panel7
             // 
@@ -539,6 +526,5 @@ namespace GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox checkedListBoxDDThamQuan;
         private System.Windows.Forms.Button buttonThemGia;
-        private System.Windows.Forms.ComboBox comboBoxGia;
     }
 }

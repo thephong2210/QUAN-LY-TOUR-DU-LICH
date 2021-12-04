@@ -223,7 +223,7 @@ namespace GUI
 
         private void fmQuanLyDiaDiem_Load(object sender, EventArgs e)
         {
-
+            LoadDanhSachDiaDiem();
         }
 
         private void textBoxDiaDiemThamQuan_TextChanged(object sender, EventArgs e)

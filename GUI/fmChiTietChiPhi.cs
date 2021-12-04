@@ -17,183 +17,205 @@ namespace GUI
     public partial class fmChiTietChiPhi : Form
     {
         D_chiphi DChiPhi = new D_chiphi();
+        D_LoaiChiPhi DLoaiChiPhi = new D_LoaiChiPhi();
 
-        public fmChiTietChiPhi(int maDoan, fmChitietDoan fmCTDoan) // ??
+        public fmChiTietChiPhi(int maDoan, fmChitietDoan fmCTDoan) //gọi fmChiTietDoan để load tổng số chi phí
         {
             InitializeComponent();
             fmMain = fmCTDoan;
             this.maDoan = maDoan;
 
-            HienThiChiTietChiPhi();
+            HienThiBangChiPhi();
+            LoadComboboxLoaiChiPhi();
+            textBoxMaSoDoan.Text = maDoan.ToString();
         }
 
         private fmChitietDoan fmMain;
-        public int maDoan { get; set; } //Set data sẽ lấy từ form quản lý tour
+        public int maDoan { get; set; } //Set data
 
-        // Hiển thị chi tiết nhân viết
-        private void HienThiChiTietChiPhi()
+        public void HienThiBangChiPhi()
         {
-            List<chiphi> listChiPhi = DChiPhi.GetListLoaiChiPhiWithMaDoan(maDoan);
+            dataGridViewLoaiCP.DataSource = DChiPhi.GetListChiPhiMaDoanOnView(maDoan);
+            dataGridViewLoaiCP.AutoGenerateColumns = false;
 
-            //Hiển thị
-            textBoxMaSoDoan.Text = maDoan.ToString();
-
-            foreach (var item in listChiPhi)
-            {
-                listBoxChiPhi.Items.Add(item.tenChiPhi + ";" + item.tongChiPhi);
-            }
-
+            dataGridViewLoaiCP.Columns["tongChiPhi"].DefaultCellStyle.Format = "#,##0";
         }
 
-        public bool CheckTextChiPhi()
+        // Hiển thị chi tiết
+        public void LoadComboboxLoaiChiPhi()
         {
-            Regex regex = new Regex(@"[a-zA-Z][;][0-9]");
-
-            if (regex.IsMatch(textBoxChiPhi.Text))
-            {
-                return true;
-            }
-
-            return false;
+            comboBoxLoaiChiPhi.DataSource = DLoaiChiPhi.GetLoaiChiPhi();
+            comboBoxLoaiChiPhi.DisplayMember = "tenLoaiChiPhi";
+            comboBoxLoaiChiPhi.ValueMember = "maLoaiChiPhi";
+            
         }
 
-        public void ThemChiPhiToListBox()
+        public void ThemChiPhi()
         {
-            string tenChiPhi = textBoxChiPhi.Text;
-
-            if (!String.IsNullOrWhiteSpace(tenChiPhi))
+            if (!String.IsNullOrWhiteSpace(textBoxTongChiPhi.Text))
             {
-                if (CheckTextChiPhi())
+                if (CheckTrungLoaiChiPhi())
                 {
-                    if (listBoxChiPhi.Items.Contains(tenChiPhi))
+                    try
                     {
-                        MessageBox.Show("Chi phí này đã có trong danh sách! Mời nhập chi phí khác!", "Thông báo");
+                        chiphi objChiPhi = new chiphi();
+
+                        objChiPhi.tenChiPhi = comboBoxLoaiChiPhi.Text;
+                        objChiPhi.tongChiPhi = Convert.ToDouble(textBoxTongChiPhi.Text);
+                        objChiPhi.maSoDoan = maDoan;
+                        objChiPhi.trangThai = 1;
+
+                        if (DChiPhi.ThemChiPhi(objChiPhi))
+                        {
+                            HienThiBangChiPhi();
+                            fmMain.LoadChiTietDoan();
+                            MessageBox.Show("Thêm chi phí thành công!", "Thông báo");
+                        }
                     }
-                    else
+                    catch (FormatException ex)
                     {
-                        listBoxChiPhi.Items.Add(textBoxChiPhi.Text);
-                        textBoxChiPhi.Text = "";
-                        textBoxChiPhi.Focus();
+                        MessageBox.Show("Tổng chi phí chỉ được nhập số!", "Thông báo");
+                        System.Diagnostics.Debug.WriteLine(ex);
                     }
+                   
                 }
                 else
                 {
-                    MessageBox.Show("Chi phí không đúng định dạng!\nĐịnh dạng đúng: (tên chi phí);(tổng chi phí)", "Thông báo");
+                    MessageBox.Show("Loại chi phí này đã thêm rồi! Vui lòng thêm loại chi phí khác!", "Thông báo");
                 }
-
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập tên địa điểm tham quan!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tổng chi phí!","Thông báo");
             }
+                
+            
         }
 
-        public void XoaItemListBox()
+        public bool CheckTrungLoaiChiPhi()
         {
-            if (listBoxChiPhi.SelectedIndex != -1)
-            {
-                string removeItem = listBoxChiPhi.SelectedItem.ToString();
-                listBoxChiPhi.Items.Remove(removeItem);
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn địa điểm muốn xóa!", "Thông báo");
-            }
-        }
+            List<chiphi> listChiPhi = DChiPhi.GetListChiPhiWithMaDoan(maDoan);
 
-        public void XoaTatCaItemListBox()
-        {
-            if (listBoxChiPhi.Items.Count != 0)
+            foreach (var item in listChiPhi)
             {
-                var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa tất cả không ?? :D", "Thông báo", MessageBoxButtons.YesNo);
-
-                if (confirmResult == DialogResult.Yes)
+                if (comboBoxLoaiChiPhi.Text.Equals(item.tenChiPhi))
                 {
-                    listBoxChiPhi.Items.Clear();
+                    return false;
                 }
+                
             }
-            else
-            {
-                MessageBox.Show("Danh sách trống!", "Thông báo");
-            }
+
+            return true;
         }
 
-
-
-        // Sửa chi phí
-        public void SuaChiPhi()
-        {
-
-            if (listBoxChiPhi.Items.Count != 0)
-            {
-                List<chiphi> listChiPhi = DChiPhi.GetListLoaiChiPhi();
-
-                //Xóa chi phí cũ
-                foreach (var item in listChiPhi)
-                {
-                    if (item.maSoDoan.Equals(maDoan))
-                    {
-                        DChiPhi.XoaLoaiChiPhi(item.maChiPhi);
-                    }
-                }
-
-
-                //Thêm chi phí mới
-                foreach (string item in listBoxChiPhi.Items)
-                {
-                    chiphi objChiPhi = new chiphi();
-                    string[] words = item.Split(';');
-
-                    objChiPhi.tenChiPhi = words[0];
-                    objChiPhi.tongChiPhi = Convert.ToDouble(words[1]);
-                    objChiPhi.maSoDoan = maDoan; //get maSoDoan new
-                    objChiPhi.trangThai = 1;
-
-                    if (DChiPhi.ThemLoaiChiPhi(objChiPhi))
-                    {
-                        System.Diagnostics.Debug.WriteLine("Thêm chi phí thành công!"); //debug write line
-
-                    }
-                }
-
-
-                fmMain.LoadChiTietDoan(maDoan);
-                MessageBox.Show("Sửa thành công!", "Thông báo");
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng thêm ít nhất 1 chi phí!", "Thông báo");
-            }
-        }
-
-        private void buttonThemDDTQ_Click(object sender, EventArgs e)
-        {
-            ThemChiPhiToListBox();
-        }
 
         private void fmChiTietChiPhi_Load(object sender, EventArgs e)
         {
-            //HienThiChiTietChiPhi();
+            HienThiBangChiPhi();
+        }
+        
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
-        private void buttonXoaOne_Click(object sender, EventArgs e)
+        private void buttonThemKhachHang_Click(object sender, EventArgs e)
         {
-            XoaItemListBox();
-        }
-
-        private void buttonXoaTatCa_Click(object sender, EventArgs e)
-        {
-            XoaTatCaItemListBox();
+            fmLoaiChiPhi fmLoaiCP = new fmLoaiChiPhi(this);
+            fmLoaiCP.ShowDialog();
         }
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            SuaChiPhi();
+
         }
 
-        private void buttonDong_Click(object sender, EventArgs e)
+        private void buttonThem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            ThemChiPhi();
+        }
+
+        private void buttonSua_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridViewLoaiCP.SelectedRows.Count != -1)
+            {
+                foreach (DataGridViewRow row in dataGridViewLoaiCP.SelectedRows)
+                {
+                    if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
+                    {
+                        string id = row.Cells[0].Value.ToString();
+
+                        fmSuaChiPhi fmSCP = new fmSuaChiPhi(int.Parse(id), this, fmMain);
+                        System.Diagnostics.Debug.WriteLine(int.Parse(id));
+
+                        fmSCP.ShowDialog();
+
+                    }
+                   
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng muốn sửa!", "Thông báo");
+            }
+
+
+        }
+
+        public void XoaChiPhi()
+        {
+            if (dataGridViewLoaiCP.SelectedRows.Count != -1)
+            {
+                foreach (DataGridViewRow row in dataGridViewLoaiCP.SelectedRows)
+                {
+                    if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
+                    {
+                        int id = Convert.ToInt32(row.Cells[0].Value.ToString());
+
+                        if (DChiPhi.XoaChiPhi(id))
+                        {
+                            HienThiBangChiPhi();
+                            fmMain.LoadChiTietDoan();
+                            MessageBox.Show("Xóa thành công!", "Thông báo");
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng muốn xóa!", "Thông báo");
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa không ?? :D", "Xác nhận xóa", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                XoaChiPhi();
+            }
+                
+        }
+
+        private void textBoxTongChiPhi_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxTongChiPhi.Text = string.Format("{0:#,##0}", double.Parse(textBoxTongChiPhi.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số!", "Thông báo");
+                textBoxTongChiPhi.Focus();
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+
         }
     }
 
