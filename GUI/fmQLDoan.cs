@@ -50,6 +50,12 @@ namespace GUI
         {
             List<tour> listTour = bTour.GetAllTour();
 
+            //Set maxDate và minDate về mặc định trước khi change để không lỗi
+            dateTimePickerNgayBatDau.MaxDate = new DateTime(2500, 12, 20);
+            dateTimePickerNgayBatDau.MinDate = new DateTime(1753, 1, 1);
+            dateTimePickerNgayKetThuc.MaxDate = new DateTime(2500, 12, 20);
+            dateTimePickerNgayKetThuc.MinDate = new DateTime(1753, 1, 1);
+
             foreach (var items in listTour)
             {
                 if (items.tenGoiTour.Equals(comboBoxTour.Text))
@@ -70,6 +76,7 @@ namespace GUI
             DateTime ngayBatDau = DateTime.Parse(dateTimePickerNgayBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
             DateTime ngayKetThuc = DateTime.Parse(dateTimePickerNgayKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
             String chiTiet = textBoxChiTiet.Text;
+
             doandulich objDoan = new doandulich();
             objDoan.tenGoiDoan = tenDoan;
             objDoan.maSoTour = maTour;
@@ -88,43 +95,22 @@ namespace GUI
             {
                 if (CheckThoiGianDangKy())
                 {
-                    if (listBoxChiPhi.Items.Count != 0)
+                    if (b_Doan.ThemDoan(createDoan()))
                     {
-                        List<doandulich> listDoanAll = b_Doan.GetAllDoan();
-                        b_Doan.ThemDoan(createDoan());
-
-                        foreach (string item in listBoxChiPhi.Items)
-                        {
-                            chiphi objChiPhi = new chiphi();
-                            string[] words = item.Split(';');
-
-                            objChiPhi.tenChiPhi = words[0];
-                            objChiPhi.tongChiPhi = Convert.ToDouble(words[1]);
-                            objChiPhi.maSoDoan = GetMaxMaSoDoan(listDoanAll) + 1; //get maSoDoan new
-                            objChiPhi.trangThai = 1;
-
-                            if (b_chiphi.ThemLoaiChiPhi(objChiPhi))
-                            {
-                                System.Diagnostics.Debug.WriteLine("Thêm chi phí thành công!"); //debug write line
-
-                            }
-                        }
-
-
                         LoadDanhSachDoan();
                         ClearFields();
                         MessageBox.Show("Thêm thành công!", "Thông báo");
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng thêm ít nhất 1 chi phí!", "Thông báo");
+                        MessageBox.Show("Thêm KHÔNG thành công!", "Thông báo");
                     }
+                    
                 }
                 else
                 {
                     MessageBox.Show("Ngày bắt đầu phải NHỎ HƠN ngày kết thúc!", "Thông báo");
                 }
-                
             }
             else
             {
@@ -138,8 +124,6 @@ namespace GUI
         {
             textBoxTenDoan.Text = "";
             textBoxChiTiet.Text = "";
-            textBoxChiPhi.Text = "";
-            listBoxChiPhi.Items.Clear();
         }
 
         public bool CheckThoiGianDangKy() //ngày bắt đầu < ngày kết thúc
@@ -150,36 +134,6 @@ namespace GUI
             }
             return false;
 
-        }
-
-        public bool CheckTextChiPhi()
-        {
-            Regex regex = new Regex(@"[a-zA-Z][;][0-9]");
-
-            if (regex.IsMatch(textBoxChiPhi.Text))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        //Dùng cho chức năng thêm chi phí
-        public int GetMaxMaSoDoan(List<doandulich> list)
-        {
-            if (list.Count == 0)
-            {
-                return 1;
-            }
-            int maxMaSoDoann = 0;
-            foreach (doandulich type in list)
-            {
-                if (type.maSoDoan > maxMaSoDoann)
-                {
-                    maxMaSoDoann = type.maSoDoan;
-                }
-            }
-            return maxMaSoDoann;
         }
 
         public void XoaDoan()
@@ -207,10 +161,6 @@ namespace GUI
             foreach (DataGridViewRow row in dataGridViewQuanLyDoan.SelectedRows)
             {
                 String maDoan = row.Cells[0].Value.ToString();
-                //_tourGroupNameLb.Text = row.Cells[1].Value.ToString();
-                //_tourNameLb.Text = row.Cells[2].Value.ToString();
-                //_departDateLb.Text = row.Cells[3].Value.ToString();
-                //_returnDateLb.Text = row.Cells[4].Value.ToString();
 
                 fmChitietDoan fmChitietDoan = new fmChitietDoan(int.Parse(maDoan), this);
                 fmChitietDoan.ShowDialog();
@@ -271,80 +221,7 @@ namespace GUI
         {
           
         }
-        public void ThemChiPhiToListBox()
-        {
-            string tenChiPhi = textBoxChiPhi.Text;
-
-            if (!String.IsNullOrWhiteSpace(tenChiPhi))
-            {
-                if (CheckTextChiPhi())
-                {
-                    if (listBoxChiPhi.Items.Contains(tenChiPhi))
-                    {
-                        MessageBox.Show("Chi phí này đã có trong danh sách! Mời nhập chi phí khác!", "Thông báo");
-                    }
-                    else
-                    {
-                        listBoxChiPhi.Items.Add(textBoxChiPhi.Text);
-                        textBoxChiPhi.Text = "";
-                        textBoxChiPhi.Focus();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Chi phí không đúng định dạng!\nĐịnh dạng đúng: (tên chi phí);(tổng chi phí)", "Thông báo");
-                }
-                
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập tên địa điểm tham quan!", "Thông báo");
-            }
-        }
-
-        public void XoaItemListBox()
-        {
-            if (listBoxChiPhi.SelectedIndex != -1)
-            {
-                string removeItem = listBoxChiPhi.SelectedItem.ToString();
-                listBoxChiPhi.Items.Remove(removeItem);
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn địa điểm muốn xóa!", "Thông báo");
-            }
-        }
-
-        public void XoaTatCaItemListBox()
-        {
-            if (listBoxChiPhi.Items.Count != 0)
-            {
-                var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa tất cả không ?? :D", "Thông báo", MessageBoxButtons.YesNo);
-
-                if (confirmResult == DialogResult.Yes)
-                {
-                    listBoxChiPhi.Items.Clear();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Danh sách trống!", "Thông báo");
-            }
-        }
-        private void buttonThemDDTQ_Click(object sender, EventArgs e)
-        {
-            ThemChiPhiToListBox();
-        }
-
-        private void buttonXoaOne_Click(object sender, EventArgs e)
-        {
-            XoaItemListBox();
-        }
-
-        private void buttonXoaTatCa_Click(object sender, EventArgs e)
-        {
-            XoaTatCaItemListBox();
-        }
+        
 
         private void label5_Click(object sender, EventArgs e)
         {

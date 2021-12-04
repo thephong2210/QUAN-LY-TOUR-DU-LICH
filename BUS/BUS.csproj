@@ -48,7 +48,7 @@
     <Compile Include="B_KH.cs" />
     <Compile Include="B_chiphi.cs" />
     <Compile Include="B_loaihinhdulich.cs" />
-    <Compile Include="B_LoaiKH.cs" />
+    <Compile Include="B_LoaiChiPhi.cs" />
     <Compile Include="B_nhanvien.cs" />
     <Compile Include="B_tour.cs" />
     <Compile Include="B_diadiemden.cs" />

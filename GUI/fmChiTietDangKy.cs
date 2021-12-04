@@ -16,7 +16,7 @@ namespace GUI
     public partial class fmChiTietDangKy : Form
     {
         B_KH b_khachhang = new B_KH();
-        B_LoaiKH b_loaikhachhang = new B_LoaiKH();
+        B_LoaiChiPhi b_loaikhachhang = new B_LoaiChiPhi();
         B_tour b_tour = new B_tour();
         B_doan b_doan = new B_doan();
         B_DangKy b_dangky = new B_DangKy();
@@ -33,11 +33,9 @@ namespace GUI
         public void RefreshData()
         {
             LoadDoanTheoTour();
-            LoadComboboxMaLoaiKhachHang();
             LoadComboboxMaSoKhachHang();
             LoadComboboxMaTour();
             HienThiChiTietDangKy();
-            TinhTongTien();
         }
         private void fmChiTietDangKy_Load(object sender, EventArgs e)
         {
@@ -54,12 +52,6 @@ namespace GUI
         {
             comboBoxMaTour.DataSource = b_tour.GetAllTour();
             comboBoxMaTour.DisplayMember = "tenGoiTour";
-        }
-
-        public void LoadComboboxMaLoaiKhachHang()
-        {
-            comboBoxMaLoaiKhachHang.DataSource = b_loaikhachhang.GetLoaikhachhangs();
-            comboBoxMaLoaiKhachHang.DisplayMember = "tenLoaiKhachHang";
         }
 
         public void LoadDoanTheoTour()
@@ -89,32 +81,16 @@ namespace GUI
             //comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][1].ToString());
             comboBoxMaSoKhachHang.SelectedIndex = comboBoxMaSoKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][1].ToString());
             comboBoxMaTour.SelectedIndex = comboBoxMaTour.FindStringExact(dataTableDetailsDangKy.Rows[0][2].ToString());
-            comboBoxMaLoaiKhachHang.SelectedIndex = comboBoxMaLoaiKhachHang.FindStringExact(dataTableDetailsDangKy.Rows[0][3].ToString());
-            dateTimePickerNgayDangKy.Value = Convert.ToDateTime(dataTableDetailsDangKy.Rows[0][4]);
-            comboBox3MaSoDoan.SelectedIndex = comboBox3MaSoDoan.FindStringExact(dataTableDetailsDangKy.Rows[0][5].ToString());
-            textBoxSoLuongKhachHang.Text = dataTableDetailsDangKy.Rows[0][6].ToString();
-            textBoxGia.Text = dataTableDetailsDangKy.Rows[0][7].ToString();
+           
+            dateTimePickerNgayDangKy.Value = Convert.ToDateTime(dataTableDetailsDangKy.Rows[0][3]);
+            comboBox3MaSoDoan.SelectedIndex = comboBox3MaSoDoan.FindStringExact(dataTableDetailsDangKy.Rows[0][4].ToString());
+            
+            textBoxGia.Text = dataTableDetailsDangKy.Rows[0][5].ToString();
 
 
         }
 
-        private void TinhTongTien()
-        {
-            int giaTour = 0;
-            int soLuongKH = 0;
-            if (!String.IsNullOrWhiteSpace(textBoxSoLuongKhachHang.Text) && !String.IsNullOrWhiteSpace(textBoxGia.Text))
-            {
-                giaTour = Int32.Parse(textBoxGia.Text);
-                soLuongKH = Int32.Parse(textBoxSoLuongKhachHang.Text);
-                textBoxTongTien.Text = (giaTour * soLuongKH).ToString();
-            }
-            else
-            {
-                textBoxTongTien.Text = "";
-            }
-
-        }
-
+        
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -155,12 +131,20 @@ namespace GUI
 
         private void textBoxSoLuongKhachHang_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+       
         }
 
         private void textBoxGia_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+            try
+            {
+                textBoxGia.Text = string.Format("{0:#,##0}", double.Parse(textBoxGia.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số!", "Thông báo");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
         }
     }
 }

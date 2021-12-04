@@ -15,7 +15,7 @@ namespace GUI
     public partial class fmDangKy : Form
     {
         B_KH b_khachhang = new B_KH();
-        B_LoaiKH b_loaikhachhang = new B_LoaiKH();
+        B_LoaiChiPhi b_loaikhachhang = new B_LoaiChiPhi();
         B_tour b_tour = new B_tour();
         B_doan b_doan = new B_doan();
         B_DangKy b_dangky = new B_DangKy();
@@ -29,7 +29,6 @@ namespace GUI
         public void RefreshData()
         {
             LoadDanhSachDangKyTour();
-            LoadComboboxMaLoaiKhachHang();
             LoadComboboxMaSoKhachHang();
             LoadComboboxMaTour();
             LoadGiaTheoTour();
@@ -41,7 +40,7 @@ namespace GUI
             LoadDoanTheoTour();
             LoadNgayDangKyTheoDoan();
             GetSoLuongConLaiCuaDoan();
-            TinhTongTien();
+
         }
 
         public void LoadDanhSachDangKyTour()
@@ -54,30 +53,32 @@ namespace GUI
         {
             comboBoxMaSoKhachHang.DataSource = b_khachhang.GetKhachHang();
             comboBoxMaSoKhachHang.DisplayMember = "hoTenKhachHang";
+            comboBoxMaSoKhachHang.ValueMember = "maSoKhachHang";
         }
 
         public void LoadComboboxMaTour()
         {
             comboBoxMaTour.DataSource = b_tour.GetAllTour();
             comboBoxMaTour.DisplayMember = "tenGoiTour";
-        }
-
-        public void LoadComboboxMaLoaiKhachHang()
-        {
-            comboBoxMaLoaiKhachHang.DataSource = b_loaikhachhang.GetLoaikhachhangs();
-            comboBoxMaLoaiKhachHang.DisplayMember = "tenLoaiKhachHang";
+            comboBoxMaTour.ValueMember = "maSoTour";
         }
 
         public void LoadNgayDangKyTheoDoan() 
         {
             List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
 
+            //Set maxDate và minDate về mặc định trước khi change để không lỗi
+            dateTimePickerNgayDangKy.MaxDate = new DateTime(2500, 12, 20);
+            dateTimePickerNgayDangKy.MinDate = new DateTime(1753, 1, 1);
+
             foreach (var itemmaSoDoan in listDoanDuLich)
             {
-                if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
+                if (itemmaSoDoan.maSoDoan.Equals(comboBox3MaSoDoan.SelectedValue))
                 {
-                    dateTimePickerNgayDangKy.MinDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKhoiHanh);
-                    dateTimePickerNgayDangKy.MaxDate = Convert.ToDateTime(itemmaSoDoan.thoiGianKetThuc);
+                    dateTimePickerNgayDangKy.MaxDate = itemmaSoDoan.thoiGianKetThuc;
+                    dateTimePickerNgayDangKy.MinDate = itemmaSoDoan.thoiGianKhoiHanh;
+                    
+
                 }
             }
         }
@@ -85,7 +86,6 @@ namespace GUI
         public void DangKyTour()
         {
             List<khachhang> listKhachHang = b_khachhang.GetKhachHang();
-            List<loaikhachhang> listLoaiKhachHang = b_loaikhachhang.GetLoaikhachhangs();
             List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
             List<tour> listTour = b_tour.GetAllTour();
             List<giatour> listGiaTour = b_giatour.GetGiaTour();
@@ -93,7 +93,7 @@ namespace GUI
            
             try
             {
-                if (CheckSoLuongToiDaDoan(comboBox3MaSoDoan.Text))
+                if (CheckSoLuongToiDaDoan())
                 {
                     if (!String.IsNullOrWhiteSpace(comboBox3MaSoDoan.Text))
                     {
@@ -103,17 +103,12 @@ namespace GUI
                             doandulich objDoan = new doandulich();
                             tour objTour = new tour();
 
-                            foreach (var itemmaSoKhachHang in listKhachHang)
-                            {
-                                if (itemmaSoKhachHang.hoTenKhachHang.Equals(comboBoxMaSoKhachHang.Text))
-                                {
-                                    objDangKy.maSoKhachHang = itemmaSoKhachHang.maSoKhachHang;
-                                }
-                            }
+                            objDangKy.maSoKhachHang = Convert.ToInt32(comboBoxMaSoKhachHang.SelectedValue);
+                           
 
                             foreach (var itemmaTour in listTour)
                             {
-                                if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
+                                if (itemmaTour.maSoTour.Equals(comboBoxMaTour.SelectedValue))
                                 {
                                     objDangKy.maTour = itemmaTour.maSoTour;
                                    
@@ -128,38 +123,14 @@ namespace GUI
                                 }
                             }
 
-                            foreach (var itemmaLoaiKhachHang in listLoaiKhachHang)
-                            {
-                                if (comboBoxMaLoaiKhachHang.Text.Equals("DAO.loaikhachhang"))
-                                {
-                                    if (itemmaLoaiKhachHang.tenLoaiKhachHang.Equals("Cá nhân"))
-                                    {
-                                        objDangKy.maLoaiKhachHang = itemmaLoaiKhachHang.maLoaiKhachHang;
-                                    }
-                                }
-                                else
-                                {
-                                    if (itemmaLoaiKhachHang.tenLoaiKhachHang.Equals(comboBoxMaLoaiKhachHang.Text))
-                                    {
-                                        objDangKy.maLoaiKhachHang = itemmaLoaiKhachHang.maLoaiKhachHang;
-                                    }
-                                }
-
-
-                            }
+                            
                             objDangKy.ngayDangKy = DateTime.Parse(dateTimePickerNgayDangKy.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
 
-                            foreach (var itemmaSoDoan in listDoanDuLich)
-                            {
-                                if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
-                                {
-                                    objDangKy.maSoDoan = itemmaSoDoan.maSoDoan;
-                                    maDoanEdit = itemmaSoDoan.maSoDoan;
-                                }
-                            }
-
-                            objDangKy.soLuongKhachHang = Int32.Parse(textBoxSoLuongKhachHang.Text);
-                            objDoan.soLuongKhachHang = Int32.Parse(textBoxSoLuongKhachHang.Text);
+                            objDangKy.maSoDoan = Convert.ToInt32(comboBox3MaSoDoan.SelectedValue);
+                            maDoanEdit = Convert.ToInt32(comboBox3MaSoDoan.SelectedValue);
+                            
+                            objDangKy.soLuongKhachHang = 1;
+                            objDoan.soLuongKhachHang = 1;
                             
                             objDangKy.trangThai = 1;
 
@@ -198,14 +169,14 @@ namespace GUI
 
         }
 
-        public bool CheckSoLuongToiDaDoan(string comboBoxDoanString) //check soLuongKhachHang cua doan <= 45
+        public bool CheckSoLuongToiDaDoan() //check soLuongKhachHang cua doan <= 45
         {
             List<doandulich> listDoanDuLich = b_doan.GetAllDoan();
-            int soLuongKHDangKy = Convert.ToInt32(textBoxSoLuongKhachHang.Text);
+            int soLuongKHDangKy = 1;
 
             foreach (var itemmaSoDoan in listDoanDuLich)
             {
-                if (itemmaSoDoan.tenGoiDoan.Equals(comboBoxDoanString))
+                if (itemmaSoDoan.maSoDoan.Equals(comboBox3MaSoDoan.SelectedValue))
                 {
                     if ((itemmaSoDoan.soLuongKhachHang + soLuongKHDangKy) <= 45) return true;
                 }
@@ -272,10 +243,11 @@ namespace GUI
 
             foreach (var itemmaTour in listTour)
             {
-                if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
+                if (itemmaTour.maSoTour.Equals(comboBoxMaTour.SelectedValue))
                 {
                     comboBox3MaSoDoan.DataSource = b_doan.GetListDoanWithMaTour(itemmaTour.maSoTour);
                     comboBox3MaSoDoan.DisplayMember = "tenGoiDoan";
+                    comboBox3MaSoDoan.ValueMember = "maSoDoan";
                 }
             }
         }
@@ -289,7 +261,7 @@ namespace GUI
                 foreach (var itemmaSoDoan in listDoanDuLich)
                 {
 
-                    if (itemmaSoDoan.tenGoiDoan.Equals(comboBox3MaSoDoan.Text))
+                    if (itemmaSoDoan.maSoDoan.Equals(comboBox3MaSoDoan.SelectedValue))
                     {
                         labelSoLuongConLai.Text = (45 - Convert.ToInt32(itemmaSoDoan.soLuongKhachHang)).ToString();
                     }
@@ -312,14 +284,15 @@ namespace GUI
             foreach (var itemmaTour in listTour)
             {
                 
-                    if (itemmaTour.tenGoiTour.Equals(comboBoxMaTour.Text))
+                    if (itemmaTour.maSoTour.Equals(comboBoxMaTour.SelectedValue))
                     {
                         foreach (var itemGiaTour in listGiaTour)
                         {
                             if (itemGiaTour.id.Equals(itemmaTour.idGiaTour))
                             {
                                 textBoxGiaTour.Text = itemGiaTour.gia.ToString();
-                            }
+                                textBoxGiaTour.Text = itemGiaTour.gia.ToString();
+                        }
                         }
                     }
                 
@@ -368,22 +341,7 @@ namespace GUI
 
         }
 
-        private void comboBoxMaLoaiKhachHang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxMaLoaiKhachHang.Text.Equals("Cá nhân") || comboBoxMaLoaiKhachHang.Text.Equals("DAO.loaikhachhang"))
-            {
-                textBoxSoLuongKhachHang.Text = "1";
-                textBoxSoLuongKhachHang.Enabled = false;
-            }
-            else
-            {
-                textBoxSoLuongKhachHang.Text = "";
-                textBoxSoLuongKhachHang.Enabled = true;
-            }
-
-            
-        }
-
+        
         private void comboBoxMaTour_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadGiaTheoTour();
@@ -394,29 +352,23 @@ namespace GUI
 
         private void textBoxSoLuongKhachHang_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+      
         }
 
-        private void TinhTongTien()
-        {
-            int giaTour = 0;
-            int soLuongKH = 0;
-            if (!String.IsNullOrWhiteSpace(textBoxSoLuongKhachHang.Text) && !String.IsNullOrWhiteSpace(textBoxGiaTour.Text))
-            {
-                giaTour = Int32.Parse(textBoxGiaTour.Text);
-                soLuongKH = Int32.Parse(textBoxSoLuongKhachHang.Text);
-                textBoxTongTien.Text = (giaTour*soLuongKH).ToString();
-            }
-            else
-            {
-                textBoxTongTien.Text = "";
-            }
-
-        }
+     
 
         private void textBoxGiaTour_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+            try
+            {
+                textBoxGiaTour.Text = string.Format("{0:#,##0}", double.Parse(textBoxGiaTour.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào ô giá!", "Thông báo");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+
         }
         public void TimKiemTheoTenNV()
         {
@@ -445,24 +397,32 @@ namespace GUI
             fmKH.ShowDialog();
         }
 
-        private void buttonThemLoaiKhachHang_Click(object sender, EventArgs e)
-        {
-            fmLoaiKhachHang fmLoaiKH = new fmLoaiKhachHang(this);
-            fmLoaiKH.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         
-
         private void comboBox3MaSoDoan_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadGiaTheoTour();
             GetSoLuongConLaiCuaDoan();
             LoadNgayDangKyTheoDoan();
+        }
+
+        private void dateTimePickerNgayDangKy_ValueChanged(object sender, EventArgs e)
+        {
+            LoadNgayDangKyTheoDoan();
+        }
+
+        private void textBoxGiaTour_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxGiaTour.Text = string.Format("{0:#,##0}", double.Parse(textBoxGiaTour.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào ô giá!", "Thông báo");
+                textBoxGiaTour.Focus();
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+
         }
     }
 }

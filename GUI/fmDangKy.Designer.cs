@@ -36,25 +36,17 @@ namespace GUI
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbThemMoiKH = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.textBoxTongTien = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelSoLuongConLai = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.textBoxGiaTour = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.textBoxSoLuongKhachHang = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerNgayDangKy = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3MaSoDoan = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonThemLoaiKhachHang = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxMaLoaiKhachHang = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxMaTour = new System.Windows.Forms.ComboBox();
@@ -69,7 +61,6 @@ namespace GUI
             this.dataGridViewDangKy = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenGoiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenGoiDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayDangKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,19 +69,15 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.labelSoLuongConLai = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -174,12 +161,9 @@ namespace GUI
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.labelSoLuongConLai);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.panel13);
             this.panel4.Controls.Add(this.panel12);
-            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel11);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.panel9);
             this.panel4.Controls.Add(this.buttonTaoMoi);
@@ -189,43 +173,34 @@ namespace GUI
             this.panel4.Size = new System.Drawing.Size(484, 696);
             this.panel4.TabIndex = 38;
             // 
-            // panel13
+            // labelSoLuongConLai
             // 
-            this.panel13.Controls.Add(this.textBoxTongTien);
-            this.panel13.Controls.Add(this.label8);
-            this.panel13.Location = new System.Drawing.Point(11, 530);
-            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(451, 50);
-            this.panel13.TabIndex = 37;
+            this.labelSoLuongConLai.AutoSize = true;
+            this.labelSoLuongConLai.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.labelSoLuongConLai.ForeColor = System.Drawing.Color.Black;
+            this.labelSoLuongConLai.Location = new System.Drawing.Point(236, 295);
+            this.labelSoLuongConLai.Name = "labelSoLuongConLai";
+            this.labelSoLuongConLai.Size = new System.Drawing.Size(126, 23);
+            this.labelSoLuongConLai.TabIndex = 39;
+            this.labelSoLuongConLai.Text = "soLuongConLai";
             // 
-            // textBoxTongTien
+            // label12
             // 
-            this.textBoxTongTien.Enabled = false;
-            this.textBoxTongTien.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTongTien.Location = new System.Drawing.Point(221, 11);
-            this.textBoxTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTongTien.MaxLength = 2;
-            this.textBoxTongTien.Name = "textBoxTongTien";
-            this.textBoxTongTien.Size = new System.Drawing.Size(212, 30);
-            this.textBoxTongTien.TabIndex = 27;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 28);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Tổng tiền";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(91, 295);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(139, 23);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Số lượng còn lại:";
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.label6);
             this.panel12.Controls.Add(this.textBoxGiaTour);
             this.panel12.Controls.Add(this.label7);
-            this.panel12.Location = new System.Drawing.Point(11, 304);
+            this.panel12.Location = new System.Drawing.Point(11, 174);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(451, 50);
@@ -239,9 +214,10 @@ namespace GUI
             this.textBoxGiaTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGiaTour.MaxLength = 2;
             this.textBoxGiaTour.Name = "textBoxGiaTour";
-            this.textBoxGiaTour.Size = new System.Drawing.Size(212, 30);
+            this.textBoxGiaTour.Size = new System.Drawing.Size(166, 30);
             this.textBoxGiaTour.TabIndex = 27;
             this.textBoxGiaTour.TextChanged += new System.EventHandler(this.textBoxGiaTour_TextChanged);
+            this.textBoxGiaTour.Leave += new System.EventHandler(this.textBoxGiaTour_Leave);
             // 
             // label7
             // 
@@ -254,43 +230,11 @@ namespace GUI
             this.label7.TabIndex = 17;
             this.label7.Text = "Giá tour hiện tại";
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.textBoxSoLuongKhachHang);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Location = new System.Drawing.Point(11, 185);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(451, 51);
-            this.panel8.TabIndex = 38;
-            // 
-            // textBoxSoLuongKhachHang
-            // 
-            this.textBoxSoLuongKhachHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSoLuongKhachHang.Location = new System.Drawing.Point(221, 11);
-            this.textBoxSoLuongKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxSoLuongKhachHang.MaxLength = 2;
-            this.textBoxSoLuongKhachHang.Name = "textBoxSoLuongKhachHang";
-            this.textBoxSoLuongKhachHang.Size = new System.Drawing.Size(212, 30);
-            this.textBoxSoLuongKhachHang.TabIndex = 26;
-            this.textBoxSoLuongKhachHang.TextChanged += new System.EventHandler(this.textBoxSoLuongKhachHang_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(5, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 28);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Số lượng";
-            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.dateTimePickerNgayDangKy);
-            this.panel11.Location = new System.Drawing.Point(11, 465);
+            this.panel11.Location = new System.Drawing.Point(11, 335);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(451, 51);
@@ -317,12 +261,13 @@ namespace GUI
             this.dateTimePickerNgayDangKy.Name = "dateTimePickerNgayDangKy";
             this.dateTimePickerNgayDangKy.Size = new System.Drawing.Size(212, 28);
             this.dateTimePickerNgayDangKy.TabIndex = 4;
+            this.dateTimePickerNgayDangKy.ValueChanged += new System.EventHandler(this.dateTimePickerNgayDangKy_ValueChanged);
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.comboBox3MaSoDoan);
-            this.panel5.Location = new System.Drawing.Point(11, 373);
+            this.panel5.Location = new System.Drawing.Point(11, 243);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(451, 50);
@@ -351,58 +296,11 @@ namespace GUI
             this.comboBox3MaSoDoan.TabIndex = 2;
             this.comboBox3MaSoDoan.SelectedIndexChanged += new System.EventHandler(this.comboBox3MaSoDoan_SelectedIndexChanged);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.buttonThemLoaiKhachHang);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.comboBoxMaLoaiKhachHang);
-            this.panel3.Location = new System.Drawing.Point(11, 122);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(451, 50);
-            this.panel3.TabIndex = 35;
-            // 
-            // buttonThemLoaiKhachHang
-            // 
-            this.buttonThemLoaiKhachHang.BackColor = System.Drawing.Color.SeaGreen;
-            this.buttonThemLoaiKhachHang.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
-            this.buttonThemLoaiKhachHang.ForeColor = System.Drawing.Color.White;
-            this.buttonThemLoaiKhachHang.Location = new System.Drawing.Point(393, 9);
-            this.buttonThemLoaiKhachHang.Name = "buttonThemLoaiKhachHang";
-            this.buttonThemLoaiKhachHang.Size = new System.Drawing.Size(55, 28);
-            this.buttonThemLoaiKhachHang.TabIndex = 18;
-            this.buttonThemLoaiKhachHang.Text = "Thêm";
-            this.buttonThemLoaiKhachHang.UseVisualStyleBackColor = false;
-            this.buttonThemLoaiKhachHang.Click += new System.EventHandler(this.buttonThemLoaiKhachHang_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 28);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Loại khách hàng";
-            // 
-            // comboBoxMaLoaiKhachHang
-            // 
-            this.comboBoxMaLoaiKhachHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMaLoaiKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBoxMaLoaiKhachHang.FormattingEnabled = true;
-            this.comboBoxMaLoaiKhachHang.Location = new System.Drawing.Point(221, 9);
-            this.comboBoxMaLoaiKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxMaLoaiKhachHang.Name = "comboBoxMaLoaiKhachHang";
-            this.comboBoxMaLoaiKhachHang.Size = new System.Drawing.Size(166, 28);
-            this.comboBoxMaLoaiKhachHang.TabIndex = 2;
-            this.comboBoxMaLoaiKhachHang.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaLoaiKhachHang_SelectedIndexChanged);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.comboBoxMaTour);
-            this.panel2.Location = new System.Drawing.Point(11, 250);
+            this.panel2.Location = new System.Drawing.Point(11, 120);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(451, 50);
@@ -544,7 +442,6 @@ namespace GUI
             this.dataGridViewDangKy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.tenKhachHang,
-            this.tenLoaiKhachHang,
             this.tenGoiTour,
             this.tenGoiDoan,
             this.ngayDangKy});
@@ -573,14 +470,6 @@ namespace GUI
             this.tenKhachHang.MinimumWidth = 6;
             this.tenKhachHang.Name = "tenKhachHang";
             this.tenKhachHang.ReadOnly = true;
-            // 
-            // tenLoaiKhachHang
-            // 
-            this.tenLoaiKhachHang.DataPropertyName = "tenLoaiKhachHang";
-            this.tenLoaiKhachHang.HeaderText = "Loại khách hàng";
-            this.tenLoaiKhachHang.MinimumWidth = 6;
-            this.tenLoaiKhachHang.Name = "tenLoaiKhachHang";
-            this.tenLoaiKhachHang.ReadOnly = true;
             // 
             // tenGoiTour
             // 
@@ -660,27 +549,15 @@ namespace GUI
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label12
+            // label6
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(91, 425);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(139, 23);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Số lượng còn lại:";
-            // 
-            // labelSoLuongConLai
-            // 
-            this.labelSoLuongConLai.AutoSize = true;
-            this.labelSoLuongConLai.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.labelSoLuongConLai.ForeColor = System.Drawing.Color.Black;
-            this.labelSoLuongConLai.Location = new System.Drawing.Point(236, 425);
-            this.labelSoLuongConLai.Name = "labelSoLuongConLai";
-            this.labelSoLuongConLai.Size = new System.Drawing.Size(126, 23);
-            this.labelSoLuongConLai.TabIndex = 39;
-            this.labelSoLuongConLai.Text = "soLuongConLai";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(390, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "VND";
             // 
             // fmDangKy
             // 
@@ -706,18 +583,12 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -749,9 +620,6 @@ namespace GUI
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox3MaSoDoan;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxMaLoaiKhachHang;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxMaTour;
@@ -763,26 +631,19 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBoxSoLuongKhachHang;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiDoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayDangKy;
         private System.Windows.Forms.DataGridView dataGridViewDangKy;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox textBoxGiaTour;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayDangKy;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBoxTongTien;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button buttonThemLoaiKhachHang;
         private System.Windows.Forms.Button buttonThemKhachHang;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelSoLuongConLai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiDoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngayDangKy;
+        private System.Windows.Forms.Label label6;
     }
 }

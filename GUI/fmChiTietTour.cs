@@ -71,24 +71,6 @@ namespace GUI
             dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][3]);
             dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][4]);
 
-
-            //Load combobox gia hien tai cua tour
-            List<giatour> listGiaTour = bGiaTour.GetGiaTour();
-            int idGiaTour = Convert.ToInt32(dataTableDetailsTour.Rows[0][7]);
-
-            foreach (var item in listGiaTour)
-            {
-                if (item.maGiaTour == maSoTour)
-                {
-                    comboBoxGia.Items.Add(item.gia.ToString());
-                    if (idGiaTour == item.id)
-                    {
-                        comboBoxGia.SelectedIndex = comboBoxGia.FindStringExact(item.gia.ToString());
-                    }
-                }
-            }
-
-           
         }
 
       
@@ -206,19 +188,7 @@ namespace GUI
 
                             objTour.thoiGianBatDau = DateTime.Parse(dateTimePickerThoiGianBatDau.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
                             objTour.thoiGianKetThuc = DateTime.Parse(dateTimePickerThoiGianKetThuc.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
-
-                            //Lấy idGiaTour
-                            foreach (var itemGiaTour in listGiaTour)
-                            {
-                                if (itemGiaTour.maGiaTour == maSoTour)
-                                {
-                                    if (itemGiaTour.gia.Equals(Double.Parse(comboBoxGia.Text)))
-                                    {
-                                        objTour.idGiaTour = itemGiaTour.id;
-                                    }
-                                }
-                            }
-
+                            
                             objTour.trangThai = 1;
 
 

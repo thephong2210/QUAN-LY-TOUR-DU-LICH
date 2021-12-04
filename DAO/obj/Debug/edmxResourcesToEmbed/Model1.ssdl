@@ -17,7 +17,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="maSoKhachHang" Type="int" Nullable="false" />
     <Property Name="maTour" Type="int" Nullable="false" />
-    <Property Name="maLoaiKhachHang" Type="int" Nullable="false" />
     <Property Name="ngayDangKy" Type="date" Nullable="false" />
     <Property Name="maSoDoan" Type="int" Nullable="false" />
     <Property Name="soLuongKhachHang" Type="int" />
@@ -70,6 +69,7 @@
     <Property Name="maGiaTour" Type="int" Nullable="false" />
     <Property Name="gia" Type="float" Nullable="false" />
     <Property Name="dieuKien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ngayThem" Type="datetime" />
   </EntityType>
   <EntityType Name="khachhang">
     <Key>
@@ -84,20 +84,20 @@
     <Property Name="quocTich" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="trangThai" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="loaichiphi">
+    <Key>
+      <PropertyRef Name="maLoaiChiPhi" />
+    </Key>
+    <Property Name="maLoaiChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenLoaiChiPhi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="trangThai" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="loaihinhdulich">
     <Key>
       <PropertyRef Name="maLoaiHinhDuLich" />
     </Key>
     <Property Name="maLoaiHinhDuLich" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tenLoaiHinhDuLich" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="trangThai" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="loaikhachhang">
-    <Key>
-      <PropertyRef Name="maLoaiKhachHang" />
-    </Key>
-    <Property Name="maLoaiKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tenLoaiKhachHang" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="trangThai" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="nhanvien">
@@ -143,8 +143,8 @@
     <EntitySet Name="doandulich" EntityType="Self.doandulich" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="giatour" EntityType="Self.giatour" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loaichiphi" EntityType="Self.loaichiphi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="loaihinhdulich" EntityType="Self.loaihinhdulich" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="loaikhachhang" EntityType="Self.loaikhachhang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="thamgiadoan" EntityType="Self.thamgiadoan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tour" EntityType="Self.tour" Schema="dbo" store:Type="Tables" />

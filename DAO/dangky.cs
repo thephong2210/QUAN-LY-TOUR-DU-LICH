@@ -17,7 +17,6 @@ namespace DAO
         public int id { get; set; }
         public int maSoKhachHang { get; set; }
         public int maTour { get; set; }
-        public int maLoaiKhachHang { get; set; }
         public System.DateTime ngayDangKy { get; set; }
         public int maSoDoan { get; set; }
         public Nullable<int> soLuongKhachHang { get; set; }

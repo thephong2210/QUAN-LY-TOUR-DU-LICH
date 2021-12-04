@@ -79,12 +79,12 @@ namespace GUI
                 return false;
             }
      
-            if (Regex.IsMatch(textBoxDiaChi.Text, @"[""!#$%&'()*+,-.:;<=>?@[\\\]^_`{|}~]"))
-            {
-                MessageBox.Show("Vui lòng nhập địa chỉ không chứa kí tự đặc biệt", "Thông báo");
-                textBoxDiaChi.Focus();
-                return false;
-            }
+            //if (Regex.IsMatch(textBoxDiaChi.Text, @"[""!#$%&'()*+,-.:;<=>?@[\\\]^_`{|}~]"))
+            //{
+            //    MessageBox.Show("Vui lòng nhập địa chỉ không chứa kí tự đặc biệt", "Thông báo");
+            //    textBoxDiaChi.Focus();
+            //    return false;
+            //}
 
             if (radioButtonNam.Checked == false && radioButtonNu.Checked == false)
             {
@@ -141,7 +141,7 @@ namespace GUI
                     {
                         LoadDSKH();
                         ClearField();
-                        fmDK.LoadComboboxMaLoaiKhachHang();
+                        fmDK.LoadComboboxMaSoKhachHang();
                         MessageBox.Show("Thêm khách hàng thành công", "Thông báo");
                         
                     }
@@ -165,7 +165,7 @@ namespace GUI
                     int maKhachHang = Convert.ToInt32(row.Cells[0].Value.ToString());
                     b_KH.XoaKhachHang(maKhachHang);
                     LoadDSKH();
-                    fmDK.LoadComboboxMaLoaiKhachHang();
+                    fmDK.LoadComboboxMaSoKhachHang();
                     MessageBox.Show("Xóa thành công", "Thông báo");
 
                 }

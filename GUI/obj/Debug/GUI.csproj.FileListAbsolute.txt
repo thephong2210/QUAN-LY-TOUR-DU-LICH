@@ -186,7 +186,6 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietNhanVien.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietTour.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmKhachHang.resources
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmLoaiKhachHang.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmNhanVien.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQLDoan.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmQuanLyTour.resources
@@ -202,3 +201,9 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmChiTietChiPhi.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmGiaTour.resources
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDangKyNhanVien.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmLoaiChiPhi.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmSuaChiPhi.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDangKyMini.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmDangKyNhanVienMini.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmThemNhanVien.resources
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.fmThemKhachHang.resources

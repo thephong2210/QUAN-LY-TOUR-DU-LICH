@@ -20,6 +20,16 @@ namespace DAO
             }
         }
 
+        //get list tour với maSoTour
+        public List<tour> GetOneTour(int maSoTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getAllTour = tourdulich.tours.Where(t => t.trangThai == 1).Where(t => t.maSoTour == maSoTour);
+                return getAllTour.ToList<tour>();
+            }
+        }
+
         //Load on datagridview
         public List<dynamic> GetListTour()
         {
@@ -131,9 +141,32 @@ namespace DAO
                     objTourOld.thoiGianBatDau = objTour.thoiGianBatDau;
                     objTourOld.thoiGianKetThuc = objTour.thoiGianKetThuc;
                     objTourOld.maDiaDiemDen = objTour.maDiaDiemDen;
-                    objTourOld.idGiaTour = objTour.idGiaTour;
+                    //objTourOld.idGiaTour = objTour.idGiaTour; //không sửa id giá tour
                     objTourOld.trangThai = objTour.trangThai;
 
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool SuaGiaTour(tour objTour, int maSoTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tour objTourOld = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    objTourOld.idGiaTour = objTour.idGiaTour; 
+                    
                     tourdulich.SaveChanges();
                     return true;
                 }

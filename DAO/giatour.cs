@@ -18,5 +18,6 @@ namespace DAO
         public int maGiaTour { get; set; }
         public double gia { get; set; }
         public string dieuKien { get; set; }
+        public Nullable<System.DateTime> ngayThem { get; set; }
     }
 }

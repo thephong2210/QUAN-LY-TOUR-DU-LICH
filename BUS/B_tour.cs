@@ -17,6 +17,11 @@ namespace BUS
             return dTour.GetAllTour();
         }
 
+        public List<tour> GetOneTour(int maSoTour)
+        {
+            return dTour.GetOneTour(maSoTour);
+        }
+
         public List<dynamic> GetListTour()
         {
             return dTour.GetListTour();
@@ -40,6 +45,11 @@ namespace BUS
         public bool SuaTour(tour objTour, int maSoTour)
         {
             return dTour.SuaTour(objTour, maSoTour);
+        }
+
+        public bool SuaGiaTour(tour objTour, int maSoTour)
+        {
+            return dTour.SuaGiaTour(objTour, maSoTour);
         }
 
         public bool XoaTour(int maSoTour)

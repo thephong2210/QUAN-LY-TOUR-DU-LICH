@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,6 +18,7 @@ namespace GUI
     public partial class fmGiaTour : Form
     {
         B_giatour bGiaTour = new B_giatour();
+        B_tour bTour = new B_tour();
 
         public fmGiaTour(int maSoTour, fmChiTietTour fmCTTour) // ??
         {
@@ -37,6 +39,8 @@ namespace GUI
 
             dataGridViewGiaTour.DataSource = bGiaTour.GetGiaTourWithMaTour(maSoTour);
             dataGridViewGiaTour.AutoGenerateColumns = false;
+
+            dataGridViewGiaTour.Columns["gia"].DefaultCellStyle.Format = "#,##0";
         }
 
         public void ThemGiaTour()
@@ -45,17 +49,30 @@ namespace GUI
             {
                 if (!String.IsNullOrWhiteSpace(textBoxGia.Text))
                 {
-                    giatour objGiaTour = new giatour();
-                    objGiaTour.gia = Convert.ToInt32(textBoxGia.Text);
-                    objGiaTour.maGiaTour = maSoTour;
-                    objGiaTour.dieuKien = textBoxNoiDungGia.Text;
-
-                    if (bGiaTour.ThemGiaTour(objGiaTour))
+                    try
                     {
-                        fmMain.HienThiChiTietTour();
-                        HienThiChiTiet();
-                        ClearFields();
-                        MessageBox.Show("Thêm thành công!", "Thông báo");
+                        giatour objGiaTour = new giatour();
+                        objGiaTour.gia = Convert.ToDouble(textBoxGia.Text);
+                        objGiaTour.maGiaTour = maSoTour;
+                        objGiaTour.dieuKien = textBoxNoiDungGia.Text;
+                        objGiaTour.ngayThem = DateTime.Parse(dateTimePickerNgay.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
+
+                        if (bGiaTour.ThemGiaTour(objGiaTour))
+                        {
+                            fmMain.HienThiChiTietTour();
+                            HienThiChiTiet();
+                            ClearFields();
+                            MessageBox.Show("Thêm thành công!", "Thông báo");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm KHÔNG thành công!", "Thông báo");
+                        }
+                    }
+                    catch (FormatException ex)
+                    {
+                        MessageBox.Show("Giá tour phải là số!", "Thông báo");
+                        System.Diagnostics.Debug.WriteLine(ex);
                     }
                     
                 }
@@ -130,6 +147,65 @@ namespace GUI
         private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
         {
             TimKiemGiaTour();
+        }
+
+        private void fmGiaTour_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ApDungGia()
+        {
+            if (dataGridViewGiaTour.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridViewGiaTour.SelectedRows)
+                {
+                    if (!String.Equals(row.Cells[0].Value.ToString(), "System.Windows.Forms.DataGridViewTextBoxColumn"))
+                    {
+                        int idGiaTour = Convert.ToInt32(row.Cells[0].Value.ToString());
+                        int maSoTour = Convert.ToInt32(textBoxMaTour.Text);
+
+                        tour objTour = new tour();
+                        objTour.idGiaTour = idGiaTour;
+                        
+
+                        if (bTour.SuaGiaTour(objTour, maSoTour))
+                        {
+                            MessageBox.Show("Áp dụng giá thành công!", "Thông báo");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Áp dụng giá KHÔNG thành công!", "Thông báo");
+                        }
+
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn giá muốn áp dụng!", "Thông báo");
+            }
+                
+        }
+
+        private void buttonApDungGia_Click(object sender, EventArgs e)
+        {
+            ApDungGia();
+        }
+
+        private void textBoxGia_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxGia.Text = string.Format("{0:#,##0}", double.Parse(textBoxGia.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào ô giá!","Thông báo");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+            
         }
     }
 }

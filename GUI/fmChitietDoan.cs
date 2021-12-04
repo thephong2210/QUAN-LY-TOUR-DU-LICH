@@ -19,6 +19,7 @@ namespace GUI
         B_tour bTour = new B_tour();
         B_doan b_Doan = new B_doan();
         B_chiphi b_chiphi = new B_chiphi();
+        D_giatour DGiaTour = new D_giatour();
         public static int madoan;
         public fmQLDoan fmMain;
         public fmChitietDoan(int maDoan, fmQLDoan fmQLD)
@@ -26,10 +27,10 @@ namespace GUI
             madoan = maDoan;
             fmMain = fmQLD;
             InitializeComponent();
-            LoadChiTietDoan(maDoan);
+            LoadChiTietDoan();
             LoadComboBoxTour();
 
-
+            
         }
         private void LoadComboBoxTour()
         {
@@ -38,8 +39,9 @@ namespace GUI
             comboBoxTour.ValueMember = "maSoTour";
         }
 
-        public void LoadChiTietDoan(int madoan)
+        public void LoadChiTietDoan()
         {
+           
             List<chiphi> listChiPhi = b_chiphi.GetListLoaiChiPhi();
             double tongChiPhi = 0;
 
@@ -66,6 +68,10 @@ namespace GUI
 
             _passengerDgv.DataSource = d_Doan.GetKhachHangOfDoan(madoan);
             _employeeDgv.DataSource = d_Doan.GetNhanVienOfDoan(madoan);
+
+            _passengerDgv.AutoGenerateColumns = false;
+            _employeeDgv.AutoGenerateColumns = false;
+
         }
         private void SuaDoan()
         {
@@ -125,7 +131,7 @@ namespace GUI
 
         private void fmChitietDoan_Load(object sender, EventArgs e)
         {
-            LoadChiTietDoan(madoan);
+            LoadChiTietDoan();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -138,6 +144,56 @@ namespace GUI
            
         }
 
+        private void buttonThemDKKH_Click(object sender, EventArgs e)
+        {
+            int maSoTour = Convert.ToInt32(comboBoxTour.SelectedValue);
+            double giaTourHienTai = 0;
+            List<tour> listTour = bTour.GetOneTour(maSoTour);
+            List<giatour> listGiaTour = DGiaTour.GetGiaTourWithMaTour(maSoTour);
 
+            foreach (var item in listGiaTour)
+            {
+                if (listTour[0].idGiaTour.Equals(item.id))
+                {
+                    giaTourHienTai = item.gia;
+                }   
+            } 
+            
+            fmDangKyMini fmDKmini = new fmDangKyMini(madoan, maSoTour, giaTourHienTai, this);
+            fmDKmini.ShowDialog();
+        }
+
+        private void buttonThemDKNV_Click(object sender, EventArgs e)
+        {
+            fmDangKyNhanVienMini fmDKmini = new fmDangKyNhanVienMini(madoan, this);
+            fmDKmini.ShowDialog();
+        }
+
+        private void textBoxTongChiPhi_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxTongChiPhi.Text = string.Format("{0:#,##0}", double.Parse(textBoxTongChiPhi.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số!", "Thông báo");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+
+        }
+
+        private void textBoxTongChiPhi_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxTongChiPhi.Text = string.Format("{0:#,##0}", double.Parse(textBoxTongChiPhi.Text));
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số!", "Thông báo");
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+        }
     }
 }
