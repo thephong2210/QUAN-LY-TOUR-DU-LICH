@@ -51,6 +51,10 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\roslyn\VBCSCompiler.exe
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\roslyn\VBCSCompiler.exe.config
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\Antlr3.Runtime.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\BUS.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.SqlServer.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\Microsoft.Web.Infrastructure.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\Newtonsoft.Json.dll
@@ -62,6 +66,11 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\System.Web.WebPages.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\System.Web.WebPages.Razor.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\WebGrease.dll
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\BUS.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.dll.config
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.xml
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.SqlServer.xml
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\System.Web.Helpers.xml
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\System.Web.Mvc.xml
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\System.Web.Optimization.xml
@@ -77,12 +86,3 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\obj\Debug\WebAdmin.csproj.CopyComplete
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\obj\Debug\WebAdmin.dll
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\obj\Debug\WebAdmin.pdb
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\BUS.dll
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.dll
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.dll
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\BUS.pdb
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.pdb
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\DAO.dll.config
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.xml
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.SqlServer.dll
-D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\WebAdmin\bin\EntityFramework.SqlServer.xml
