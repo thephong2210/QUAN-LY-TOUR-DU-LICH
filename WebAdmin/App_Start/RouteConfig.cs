@@ -16,7 +16,7 @@ namespace WebAdmin
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Tour", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "NhanVien", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

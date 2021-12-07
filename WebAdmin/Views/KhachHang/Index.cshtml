@@ -1,7 +1,8 @@
-﻿@{
-    ViewBag.Title = "Tour";
+﻿@using DAO
+@{
+    ViewBag.Title = "Khách hàng";
 
-    List<TourView> listTour = ViewBag.listTemp;
+    List<khachhang> listResults = ViewBag.listTemp;
 }
 
 <div class="app-wrapper">
@@ -11,7 +12,7 @@
 
             <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Quản lý tour</h1>
+                    <h1 class="app-page-title mb-0">Quản lý khách hàng</h1>
                 </div>
                 <div class="col-auto">
                     <div class="page-utilities">
@@ -61,25 +62,27 @@
                                 <table class="table app-table-hover mb-0 text-left">
                                     <thead>
                                         <tr>
-                                            <th class="cell">Mã số tour</th>
-                                            <th class="cell">Tên gọi tour</th>
-                                            <th class="cell">Tên loại hình du lịch</th>
-                                            <th class="cell">Tên địa điểm đến</th>
-                                            <th class="cell">Thời gian bắt đầu</th>
-                                            <th class="cell">Thời gian kết thúc</th>
+                                            <th class="cell">Mã khách hàng</th>
+                                            <th class="cell">Tên khách hàng</th>
+                                            <th class="cell">CMND</th>
+                                            <th class="cell">Địa chỉ</th>
+                                            <th class="cell">Giới tính</th>
+                                            <th class="cell">Số điện thoại</th>
+                                            <th class="cell">Quốc tịch</th>
                                             <th class="cell"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in listTour)
+                                        @foreach (var item in listResults)
                                         {
                                         <tr>
-                                            <td class="cell">@item.maSoTour</td>
-                                            <td class="cell"><span class="truncate">@item.tenGoiTour</span></td>
-                                            <td class="cell">@item.tenLoaiHinhDuLich</td>
-                                            <td class="cell">@item.tenDiaDiem</td>
-                                            <td class="cell"><span>@item.thoiGianBatDau</span></td>
-                                            <td class="cell"><span>@item.thoiGianKetThuc</span></td>
+                                            <td class="cell">@item.maSoKhachHang</td>
+                                            <td class="cell"><span class="truncate">@item.hoTenKhachHang</span></td>
+                                            <td class="cell">@item.soCMND</td>
+                                            <td class="cell">@item.diaChi</td>
+                                            <td class="cell">@item.gioiTinh</td>
+                                            <td class="cell">@item.SDT</td>
+                                            <td class="cell">@item.quocTich</td>
                                             <td class="cell">
                                                 <a class="btn btn-secondary" href="#"><i class="fas fa-eye"></i> Xem</a>
                                                 <a class="btn btn-warning" href="#"><i class="fas fa-pencil-alt"></i> Sửa</a>
@@ -117,7 +120,6 @@
 
         </div><!--//container-fluid-->
     </div><!--//app-content-->
-
 
 
 </div><!--//app-wrapper-->   
