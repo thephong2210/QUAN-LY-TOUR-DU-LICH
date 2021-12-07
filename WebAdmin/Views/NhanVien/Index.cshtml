@@ -1,0 +1,332 @@
+﻿@using DAO
+@{
+    ViewBag.Title = "Nhân viên";
+
+    List<nhanvien> listResults = ViewBag.listTemp;
+}
+
+<div class="app-wrapper">
+
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+            <div class="row g-3 mb-4 align-items-center justify-content-between">
+                <div class="col-auto">
+                    <h1 class="app-page-title mb-0">Quản lý nhân viên</h1>
+                </div>
+
+                <div class="col-auto">
+                    <div class="page-utilities">
+                        <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                            <div class="col-auto">
+                                <form class="table-search-form row gx-1 align-items-center">
+                                    <div class="col-auto">
+                                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn app-btn-secondary">Search</button>
+                                    </div>
+                                </form>
+
+                            </div><!--//col-->
+                            <div class="col-auto">
+
+                                <select class="form-select w-auto">
+                                    <option selected value="option-1">All</option>
+                                    <option value="option-2">This week</option>
+                                    <option value="option-3">This month</option>
+                                    <option value="option-4">Last 3 months</option>
+
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="fas fa-plus"></i> Thêm mới</a>
+                            </div>
+                        </div><!--//row-->
+                    </div><!--//table-utilities-->
+                </div><!--//col-auto-->
+            </div><!--//row-->
+
+
+
+            <div class="tab-content" id="orders-table-tab-content">
+                <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+                    <div class="app-card app-card-orders-table shadow-sm mb-5">
+                        <div class="app-card-body">
+                            <div class="table-responsive">
+                                <table class="table app-table-hover mb-0 text-left">
+                                    <thead>
+                                        <tr>
+                                            <th class="cell">Mã nhân viên</th>
+                                            <th class="cell">Tên nhân viên</th>
+                                            <th class="cell">Nhiệm vụ</th>
+                                            <th class="cell"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in listResults)
+                                        {
+                                            <tr>
+                                                <td class="cell">@item.maNhanVien</td>
+                                                <td class="cell"><span class="truncate">@item.tenNhanVien</span></td>
+                                                <td class="cell">@item.nhiemVu</td>
+                                                <td class="cell">
+                                                    <!--<a class="btn btn-secondary" href="#"><i class="fas fa-eye"></i> Xem</a>*-->
+                                                    <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.maNhanVien)"><i class="fas fa-pencil-alt"></i> Sửa</a>
+                                                    <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.maNhanVien)"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div><!--//table-responsive-->
+
+                        </div><!--//app-card-body-->
+                    </div><!--//app-card-->
+                    <nav class="app-pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav><!--//app-pagination-->
+                </div><!--//tab-pane-->
+            </div><!--//tab-content-->
+
+        </div><!--//container-fluid-->
+    </div><!--//app-content-->
+    <!-- Modal Add -->
+    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i> Thêm nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Tên nhân viên</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenNhanVien" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Nhiệm vụ</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputNhiemVu" required />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" id="btnAdd" class="btn app-btn-primary" onclick="return Add()" value="Thêm" style="color: white;float:left;" />
+                                <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="EditModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-pen"></i> Sửa nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Mã nhân viên</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaNhanVienEdit" required readonly />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tên nhân viên</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenNhanVienEdit" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Nhiệm vụ</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputNhiemVuEdit" required />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btnUpdate" class="btn btn-warning" style="color: white;" onclick="Update()">Sửa</button>
+                                <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete -->
+    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Bạn có chắc muốn xóa nhân viên mã <span id="maNhanVienDeleteModal" style="font-weight: 500;" ></span> không?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="Delete()" style="color: white;">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function Add() {
+            var tenNhanVien = $('#inputTenNhanVien').val();
+            var nhiemVu = $('#inputNhiemVu').val();
+
+            if (tenNhanVien == '' || nhiemVu == '') {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+                var objNhanVien = {
+                    tenNhanVien: tenNhanVien,
+                    nhiemVu: nhiemVu,
+                    trangThai: 1
+                };
+                $.ajax({
+                    url: "/NhanVien/Create",
+                    data: JSON.stringify(objNhanVien),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $('#AddModal').modal('hide');
+                        swal({
+                            title: "Thêm thành công!",
+                            icon: "success",
+                            timer: 2000
+                        })
+                        window.setTimeout(function () { location.reload() }, 2000)
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+            }
+        }
+
+        function Update() {
+            var _maNhanVien = $('#inputMaNhanVienEdit').val();
+            var tenNhanVien = $('#inputTenNhanVienEdit').val();
+            var nhiemVu = $('#inputNhiemVuEdit').val();
+
+            if (tenNhanVien == '' || nhiemVu == '') {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+                var objNhanVien = {
+                    maNhanVien: _maNhanVien,
+                    tenNhanVien: tenNhanVien,
+                    nhiemVu: nhiemVu,
+                    trangThai: 1
+                };
+                $.ajax({
+                    url: "/NhanVien/Update",
+                    data: JSON.stringify(objNhanVien),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $('#EditModal').modal('hide');
+                        swal({
+                            title: "Sửa thành công nhân viên mã " + _maNhanVien + "!",
+                            icon: "success",
+                            timer: 2500
+                        })
+                        window.setTimeout(function () { location.reload() }, 2500)
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+            }
+        }
+
+        //Truyền data id vào modal
+        function GetIDUpdate(maNhanVien) {
+            $('#inputMaNhanVienEdit').val(maNhanVien);
+            var _maNhanVien = maNhanVien;
+
+            $.ajax({
+                url: "/NhanVien/GetOneNhanVien?maNhanVien=" + _maNhanVien,
+                type: "GET",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#inputTenNhanVienEdit').val(result[0].tenNhanVien);
+                    $('#inputNhiemVuEdit').val(result[0].nhiemVu);
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+        }
+
+        function GetIDDelete(maNhanVien) {
+            $('#maNhanVienDeleteModal').html(maNhanVien);
+        }
+
+        function Delete() {
+            var _maNhanVien = $('#maNhanVienDeleteModal').html();
+
+            console.log(_maNhanVien);
+
+            var postData = {
+                maNhanVien: _maNhanVien
+            };
+          
+            $.ajax({
+                url: "/NhanVien/Delete",
+                data: JSON.stringify(postData),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#DeleteModal').modal('hide');
+                    swal({
+                        title: "Xóa thành công nhân viên mã " + _maNhanVien + "!",
+                        icon: "success",
+                        timer: 2500
+                    })
+                    window.setTimeout(function () { location.reload() }, 2500)
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+        }
+
+
+    </script>
+
+</div><!--//app-wrapper-->   

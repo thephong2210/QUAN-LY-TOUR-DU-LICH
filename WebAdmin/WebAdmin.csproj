@@ -126,6 +126,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DiaDiemController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LoaiHinhDuLichController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\nhanviensController.cs" />
     <Compile Include="Controllers\DoanDuLichController.cs" />
     <Compile Include="Controllers\TourController.cs" />
@@ -156,6 +160,7 @@
     <Content Include="Content\js\charts-demo.js" />
     <Content Include="Content\js\index-charts.js" />
     <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\sweetalert.min.js" />
     <Content Include="Content\plugins\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\plugins\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\plugins\bootstrap\css\bootstrap-grid.rtl.css" />
@@ -1853,10 +1858,6 @@
     <Folder Include="Content\images\background\" />
     <Folder Include="Content\images\profiles\" />
     <Folder Include="Content\images\users\" />
-    <Folder Include="Views\DiaDiem\" />
-    <Folder Include="Views\KhachHang\" />
-    <Folder Include="Views\LoaiHinhDuLich\" />
-    <Folder Include="Views\NhanVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2032,6 +2033,10 @@
     <Content Include="Views\TongQuan\Index.cshtml" />
     <Content Include="Views\Tour\Index.cshtml" />
     <Content Include="Views\DoanDuLich\Index.cshtml" />
+    <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\LoaiHinhDuLich\Index.cshtml" />
+    <Content Include="Views\KhachHang\Index.cshtml" />
+    <Content Include="Views\DiaDiem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
