@@ -81,7 +81,16 @@ namespace DAO
             }
         }
 
-        
+
+        public List<khachhang> GetListDetailsKhachHang2(int maSoKhachHang)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getKhachHang = tourdulich.khachhangs.Where(t => t.trangThai == 1).Where(t=>t.maSoKhachHang == maSoKhachHang);
+
+                return getKhachHang.ToList<khachhang>();
+            }
+        }
 
 
         public bool ThemKhachHang(khachhang objKhachHang)

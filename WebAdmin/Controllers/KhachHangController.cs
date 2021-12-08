@@ -11,17 +11,49 @@ namespace WebAdmin.Controllers
 {
     public class KhachHangController : Controller
     {
+        private D_KH d_khachhang = new D_KH();
         // GET: khachhang
         public ActionResult Index()
         {
-            B_KH b_KH = new B_KH();
-            List<khachhang> listResults = b_KH.GetKhachHang();
+            List<khachhang> listResults = d_khachhang.GetKhachHang();
 
             ViewBag.listTemp = listResults;
 
             return View();
         }
 
+        [HttpGet]
+        [Route("GetOneKhachHang")]
+        public JsonResult GetOneKhachHang(int maKH)
+        {
+            var getKH = d_khachhang.GetListDetailsKhachHang2(maKH);
+            return Json(getKH, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public JsonResult Create(khachhang objKH)
+        {
+
+            return Json(d_khachhang.ThemKhachHang(objKH), JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public JsonResult Update(khachhang objKH, int maKH)
+        {
+            return Json(d_khachhang.SuaKhachHang(objKH, maKH), JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+        public JsonResult Delete(int maKH)
+        {
+            return Json(d_khachhang.XoaKhachHang(maKH), JsonRequestBehavior.AllowGet);
+
+        }
 
     }
 }

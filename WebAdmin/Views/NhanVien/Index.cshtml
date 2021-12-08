@@ -64,7 +64,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in listResults)
+                                        @foreach (var item in listResults.OrderByDescending(t => t.maNhanVien))
                                         {
                                             <tr>
                                                 <td class="cell">@item.maNhanVien</td>

@@ -130,7 +130,6 @@
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiHinhDuLichController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
-    <Compile Include="Controllers\nhanviensController.cs" />
     <Compile Include="Controllers\DoanDuLichController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Controllers\TongQuanController.cs" />
@@ -1847,11 +1846,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\nhanviens\Create.cshtml" />
-    <Content Include="Views\nhanviens\Delete.cshtml" />
-    <Content Include="Views\nhanviens\Details.cshtml" />
-    <Content Include="Views\nhanviens\Edit.cshtml" />
-    <Content Include="Views\nhanviens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
