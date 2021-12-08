@@ -23,6 +23,18 @@ namespace DAO
 
         }
 
+        public List<loaihinhdulich> GetOneLoaiHinhDL(int maLHDL)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListTenLHDL = tourdulich.loaihinhduliches.Where(t => t.trangThai == 1).Where(t=>t.maLoaiHinhDuLich == maLHDL);
+
+                return getListTenLHDL.ToList<loaihinhdulich>();
+
+            }
+
+        }
+
         public List<loaihinhdulich> TimKiemTenLoaiHinhDuLich(string searchValue)
         {
             using (tourdulich = new tourdulichEntities())
@@ -87,7 +99,6 @@ namespace DAO
                     loaihinhdulich objOldLoaiHinhDuLich = tourdulich.loaihinhduliches.Where(t => t.maLoaiHinhDuLich == maLoaiHinhDuLich).SingleOrDefault();
                     
                     objOldLoaiHinhDuLich.tenLoaiHinhDuLich = objLoaiHinhDuLich.tenLoaiHinhDuLich;
-                    objOldLoaiHinhDuLich.trangThai = objLoaiHinhDuLich.trangThai;
 
                     tourdulich.SaveChanges();
                     return true;
