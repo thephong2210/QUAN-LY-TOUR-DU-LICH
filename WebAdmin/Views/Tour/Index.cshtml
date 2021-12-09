@@ -38,13 +38,8 @@
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <a class="btn app-btn-secondary" href="#">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download me-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                        <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-                                    </svg>
-                                    Download CSV
-                                </a>
+                                <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="fas fa-plus"></i> Thêm mới</a>
+
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
@@ -71,21 +66,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in listTour)
+                                        @foreach (var item in listTour.OrderByDescending(t => t.maSoTour))
                                         {
-                                        <tr>
-                                            <td class="cell">@item.maSoTour</td>
-                                            <td class="cell"><span class="truncate">@item.tenGoiTour</span></td>
-                                            <td class="cell">@item.tenLoaiHinhDuLich</td>
-                                            <td class="cell">@item.tenDiaDiem</td>
-                                            <td class="cell"><span>@item.thoiGianBatDau</span></td>
-                                            <td class="cell"><span>@item.thoiGianKetThuc</span></td>
-                                            <td class="cell">
-                                                <a class="btn btn-secondary" href="#"><i class="fas fa-eye"></i> Xem</a>
-                                                <a class="btn btn-warning" href="#"><i class="fas fa-pencil-alt"></i> Sửa</a>
-                                                <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i> Xóa</a>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td class="cell">@item.maSoTour</td>
+                                                <td class="cell"><span class="truncate">@item.tenGoiTour</span></td>
+                                                <td class="cell">@item.tenLoaiHinhDuLich</td>
+                                                <td class="cell">@item.tenDiaDiem</td>
+                                                <td class="cell"><span>@item.thoiGianBatDau</span></td>
+                                                <td class="cell"><span>@item.thoiGianKetThuc</span></td>
+                                                <td class="cell">
+                                                    <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.maSoTour)"><i class="fas fa-pencil-alt"></i> Sửa</a>
+                                                    <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.maSoTour)"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                                </td>
+                                            </tr>
                                         }
 
                                     </tbody>
@@ -110,13 +104,378 @@
 
                 </div><!--//tab-pane-->
 
-                
+
             </div><!--//tab-content-->
 
 
 
         </div><!--//container-fluid-->
     </div><!--//app-content-->
+    <!-- Modal Add -->
+    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i> Thêm tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Tên gọi tour</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenGoiTour" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Đặc điểm</label>
+                                    <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputDacDiemTour" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" aria-label="Default select example" id="dropdownLoaiHinhDuLich" style="border-color: #6e6e6f;">
+                                        <option selected>--Chọn loại hình du lịch --</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="datetime-local" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" >
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="datetime-local" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" >
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen" style="border-color: #6e6e6f;" >
+                                        <option selected>--Chọn địa điểm đến --</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                    <label for="vehicle1"> I have a bike</label><br>
+                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                    <label for="vehicle2"> I have a car</label><br>
+                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                                    <label for="vehicle3"> I have a boat</label><br><br>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" id="btnAdd" class="btn app-btn-primary" onclick="return Add()" value="Thêm" style="color: white;float:left;" />
+                                <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="EditModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-pen"></i> Sửa địa điểm đến</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Mã địa điểm đến</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaDiaDiemDenEdit" required readonly />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tên địa điểm đến</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenDiaDiemDenEdit" required />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" id="btnAdd" class="btn btn-warning" onclick="return Update()" value="Sửa" style="color: white;float:left;" />
+                                <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete -->
+    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Bạn có chắc muốn xóa địa điểm mã <span id="maDiaDiemDenDeleteModal" style="font-weight: 500;"></span> không?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="Delete()" style="color: white;">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DiaDiemThamQuan -->
+    <div class="modal fade" id="DiaDiemThamQuanModal" tabindex="-1" aria-labelledby="DiaDiemThamQuanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Địa điểm tham quan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Mã địa điểm đến</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaDiaDiemDen_ModalDDTQ" required readonly />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tên địa điểm đến</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenDiaDiemDen_ModalDDTQ" required readonly />
+                                </div>
+                                <hr />
+                                <div class="mb-3">
+                                    <label class="form-label">Tên địa điểm tham quan</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenDDTQ_ModalDDTQ" />
+                                        <button class="btn btn-success" style="color: white;" onclick="AddToListDDTQ()">Thêm</button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" multiple aria-label="select example" id="listDiaDiemThamQuan">
+                                    </select>
+                                    @*<div style="margin-top: 10px;">
+                                            <button class="btn btn-danger" style="color: white;float: left;">Xóa</button>
+                                            <button class="btn btn-danger" style="color: white;float: right;">Xóa tất cả</button>
+                                        </div>*@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    @*<button class="btn btn-warning" id="btnDelete" onclick="Delete()" style="color: white;">Cập nhật</button>*@
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function Add() {
+            var _tenDiaDiemDen = $('#inputTenDiaDiemDen').val();
+
+            if (_tenDiaDiemDen == '') {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+                var objDiaDiemDen = {
+                    tenDiaDiemDen: _tenDiaDiemDen,
+                    trangThai: 1
+                };
+
+                $.ajax({
+                    url: "/DiaDiem/Create",
+                    data: JSON.stringify(objDiaDiemDen),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $('#AddModal').modal('hide');
+                        swal({
+                            title: "Thêm thành công!",
+                            icon: "success",
+                            timer: 2000
+                        })
+                        window.setTimeout(function () { location.reload() }, 2000)
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+            }
+        }
+
+        function Update() {
+            var _maDiaDiemDen = $('#inputMaDiaDiemDenEdit').val();
+
+            var _tenDiaDiemDen = $('#inputTenDiaDiemDenEdit').val();
+
+
+            if (_tenDiaDiemDen == '') {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+                var objDiaDiemDen = {
+                    maDiaDiemDen: _maDiaDiemDen,
+                    tenDiaDiemDen: _tenDiaDiemDen,
+                    trangThai: 1
+                };
+                $.ajax({
+                    url: "/DiaDiem/Update",
+                    data: JSON.stringify(objDiaDiemDen),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $('#EditModal').modal('hide');
+                        swal({
+                            title: "Sửa thành công địa điểm mã " + _maDiaDiemDen + "!",
+                            icon: "success",
+                            timer: 2500
+                        })
+                        window.setTimeout(function () { location.reload() }, 2500)
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+            }
+        }
+
+        //Truyền data id vào modal
+        function GetIDUpdate(maDiaDiemDen) {
+            $('#inputMaDiaDiemDenEdit').val(maDiaDiemDen);
+            var _maDiaDiemDen = maDiaDiemDen;
+
+            $.ajax({
+                url: "/DiaDiem/GetOneDiaDiemDen?maDiaDiemDen=" + _maDiaDiemDen,
+                type: "GET",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#inputTenDiaDiemDenEdit').val(result[0].tenDiaDiemDen);
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+        }
+
+        function GetIDDiaDiemThamQuan(maDiaDiemDen) {
+            $('#inputMaDiaDiemDen_ModalDDTQ').val(maDiaDiemDen);
+            var _maDiaDiemDen = maDiaDiemDen;
+
+            document.getElementById("listDiaDiemThamQuan").options.length = 0;
+
+            $.ajax({
+                url: "/DiaDiem/GetOneDiaDiemDen?maDiaDiemDen=" + _maDiaDiemDen,
+                type: "GET",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#inputTenDiaDiemDen_ModalDDTQ').val(result[0].tenDiaDiemDen);
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            $.ajax({
+                url: "/DiaDiem/GetDetailsDDTQ?maDiaDiemDen=" + _maDiaDiemDen,
+                type: "GET",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $.each(result, function (index) {
+                        $('#listDiaDiemThamQuan').append($('<option>', {
+                            value: result[index].maDiaDiem,
+                            text: result[index].tenDiaDiem
+                        }));
+
+                    })
+
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+        }
+
+        function AddToListDDTQ() {
+            var _tenDDTQ = $('#inputTenDDTQ_ModalDDTQ').val();
+            var _maDiaDiemDen = $('#inputMaDiaDiemDen_ModalDDTQ').val();
+
+            var postData = {
+                tenDiaDiem: _tenDDTQ,
+                maDiaDiemDen: _maDiaDiemDen
+            };
+
+            $.ajax({
+                url: "/DiaDiem/CreateDDTQ",
+                type: "POST",
+                data: JSON.stringify(postData),
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#listDiaDiemThamQuan').append($('<option>', {
+                        value: _tenDDTQ,
+                        text: _tenDDTQ
+                    }));
+
+                    swal({
+                        title: "Thêm thành công địa điểm tham quan!",
+                        icon: "success",
+                        timer: 2500
+                    })
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+        }
+
+        function GetIDDelete(maDiaDiemDen) {
+            $('#maDiaDiemDenDeleteModal').html(maDiaDiemDen);
+        }
+
+        function Delete() {
+            var _maDiaDiemDen = $('#maDiaDiemDenDeleteModal').html();
+
+            var postData = {
+                maDiaDiemDen: _maDiaDiemDen
+            };
+
+            $.ajax({
+                url: "/DiaDiem/Delete",
+                data: JSON.stringify(postData),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#DeleteModal').modal('hide');
+                    swal({
+                        title: "Xóa thành công địa điểm mã " + _maDiaDiemDen + "!",
+                        icon: "success",
+                        timer: 2500
+                    })
+                    window.setTimeout(function () { location.reload() }, 2500)
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+        }
+
+
+    </script>
 
 
 

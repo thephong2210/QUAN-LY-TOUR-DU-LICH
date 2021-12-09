@@ -11,15 +11,66 @@ namespace WebAdmin.Controllers
 {
     public class DiaDiemController : Controller
     {
+        //Địa điểm đến
         // GET: diadiem
+        D_diadiemden d_diadiem = new D_diadiemden();
         public ActionResult Index()
         {
-            B_diadiemden b_diadiem = new B_diadiemden();
-            List<diadiemden> listResults = b_diadiem.GetListDiaDiemDen();
+            List<diadiemden> listResults = d_diadiem.GetListDiaDiemDen();
 
             ViewBag.listTemp = listResults;
 
             return View();
+        }
+
+        [HttpGet]
+        [Route("GetOneDiaDiemDen")]
+        public JsonResult GetOneDiaDiemDen(int maDiaDiemDen)
+        {
+            var getDDD = d_diadiem.GetOneDiaDiemDen(maDiaDiemDen);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        [Route("GetDetailsDDTQ")]
+        public JsonResult GetDetailsDDTQ(int maDiaDiemDen)
+        {
+            var getDDD = d_diadiem.GetListDetailsDiaDiemThamQuan(maDiaDiemDen);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateDDTQ")]
+        public JsonResult CreateDDTQ(diadiemthamquan objDDTQ)
+        {
+            var getDDD = d_diadiem.ThemDiaDiemThamQuan(objDDTQ);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public JsonResult Create(diadiemden objDiaDiemDen)
+        {
+
+            return Json(d_diadiem.ThemDiaDiemDen(objDiaDiemDen), JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public JsonResult Update(diadiemden objDiaDiemDen, int maDiaDiemDen)
+        {
+            return Json(d_diadiem.SuaDiaDiemDen(objDiaDiemDen, maDiaDiemDen), JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+        public JsonResult Delete(int maDiaDiemDen)
+        {
+            return Json(d_diadiem.XoaDiaDiemDen(maDiaDiemDen), JsonRequestBehavior.AllowGet);
+
         }
 
 
