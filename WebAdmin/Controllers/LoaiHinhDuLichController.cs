@@ -23,6 +23,14 @@ namespace WebAdmin.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllLoaiHinhDuLich")]
+        public JsonResult GetAllLoaiHinhDuLich()
+        {
+            var getKH = d_Loaihinhdulich.GetListLoaiHinhDL();
+            return Json(getKH, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         [Route("GetOneLoaiHinhDuLich")]
         public JsonResult GetOneLoaiHinhDuLich(int maLHDL)
         {
