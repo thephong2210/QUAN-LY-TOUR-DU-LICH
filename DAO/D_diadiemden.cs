@@ -23,6 +23,17 @@ namespace DAO
 
         }
 
+        public List<diadiemden> GetOneDiaDiemDen(int maDiaDiemDen)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDiaDiemDen = tourdulich.diadiemdens.Where(t => t.trangThai == 1).Where(t=>t.maDiaDiemDen == maDiaDiemDen);
+
+                return getListDiaDiemDen.ToList<diadiemden>();
+            }
+
+        }
+
         public bool ThemDiaDiemDen(diadiemden objDiaDiemDen)
         {
             using (tourdulich = new tourdulichEntities())
@@ -53,6 +64,29 @@ namespace DAO
                     diadiemden objOld = tourdulich.diadiemdens.Where(t => t.maDiaDiemDen == maDiaDiemDen).SingleOrDefault();
                     objOld.tenDiaDiemDen = objDiaDiemDen.tenDiaDiemDen;
                     objOld.trangThai = objDiaDiemDen.trangThai;
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
+        public bool XoaDiaDiemDen(int maDiaDiemDen)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    diadiemden objOld = tourdulich.diadiemdens.Where(t => t.maDiaDiemDen == maDiaDiemDen).SingleOrDefault();
+                    objOld.trangThai = 0;
 
                     tourdulich.SaveChanges();
                     return true;
