@@ -78,6 +78,7 @@
                                                 <td class="cell">
                                                     <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.maSoTour)"><i class="fas fa-pencil-alt"></i> Sửa</a>
                                                     <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.maSoTour)"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                                    <a class="btn btn-info" style="color: white;" data-bs-toggle="modal" data-bs-target="#BangGiaModal" id="bangGiaButton" onclick="GetIDTourBangGia(@item.maSoTour)"><i class="fas fa-trash-alt"></i> Xem bảng giá</a>
                                                 </td>
                                             </tr>
                                         }
@@ -154,7 +155,7 @@
                             <div class="modal-footer">
                                 <input type="button" id="btnAdd" class="btn app-btn-primary" onclick="return Add()" value="Thêm" style="color: white;float:left;" />
                                 <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
-                                <button onclick="TestFunc()">Test</button>
+                               
                             </div>
                         </div>
                     </div>
@@ -264,10 +265,10 @@
     </div>
 
     
+    
 
     <script>
 
-        
         $(document).ready(function () {
             LoadDiaDiemThamQuan();
         });
@@ -388,81 +389,87 @@
                     button: "Đóng",
                 });
             } else {
-                
-                //Thêm list địa điểm tham quan vào tour
-                //get mã tour mới nhất + 1, sau đó loop để thêm diadiemtour
-                $.ajax({
-                    url: "/Tour/GetTourLatest",
-                    type: "GET",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        var _maSoTourNew = result.maSoTour + 1;
+                if (_thoiGianBatDau > _thoiGianKetThuc) {
+                    swal({
+                        title: "Thời gian bắt đầu phải NHỎ HƠN thời gian kết thúc!",
+                        text: "Vui lòng nhập đúng thông tin!",
+                        icon: "warning",
+                        button: "Đóng",
+                    });
+                } else {
+                    //Thêm list địa điểm tham quan vào tour
+                    //get mã tour mới nhất + 1, sau đó loop để thêm diadiemtour
+                    $.ajax({
+                        url: "/Tour/GetTourLatest",
+                        type: "GET",
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            var _maSoTourNew = result.maSoTour + 1;
 
-                        _listCheckedDDTQ.each(function () {
-                            console.log((this.checked ? $(this).text() : ""));//test get ten DDTQ
+                            _listCheckedDDTQ.each(function () {
+                                console.log((this.checked ? $(this).text() : ""));//test get ten DDTQ
 
-                            var objDiaDiemTour = {
-                                maTour: _maSoTourNew,
-                                tenDiaDiemThamQuan: (this.checked ? $(this).next('label').text() : "")
-                            };
+                                var objDiaDiemTour = {
+                                    maTour: _maSoTourNew,
+                                    tenDiaDiemThamQuan: (this.checked ? $(this).next('label').text() : "")
+                                };
 
-                            $.ajax({
-                                url: "/DiaDiem/CreateDiaDiemTour",
-                                data: JSON.stringify(objDiaDiemTour),
-                                type: "POST",
-                                contentType: "application/json;charset=utf-8",
-                                dataType: "json",
-                                success: function (result) {
-                                    console.log("Thêm địa điểm tour thành công!");
-                                },
-                                error: function (errorMessage) {
-                                    alert(errorMessage.responseText);
-                                }
+                                $.ajax({
+                                    url: "/DiaDiem/CreateDiaDiemTour",
+                                    data: JSON.stringify(objDiaDiemTour),
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        console.log("Thêm địa điểm tour thành công!");
+                                    },
+                                    error: function (errorMessage) {
+                                        alert(errorMessage.responseText);
+                                    }
+                                });
+
                             });
 
-                        });
-                        
-                    },
-                    error: function (errorMessage) {
-                        alert(errorMessage.responseText);
-                    }
-                });
+                        },
+                        error: function (errorMessage) {
+                            alert(errorMessage.responseText);
+                        }
+                    });
 
-                //Thêm tour
-                var objTour = {
-                    tenGoiTour: _tenGoiTour,
-                    dacDiem: _dacDiemTour,
-                    maLoaiHinhDuLich: _dropdownLoaiHinhDuLich,
-                    thoiGianBatDau: _thoiGianBatDau,
-                    thoiGianKetThuc: _thoiGianKetThuc,
-                    maDiaDiemDen: _dropdownDiaDiemDen,
-                    idGiaTour: null,
-                    trangThai: 1
-                };
+                    //Thêm tour
+                    var objTour = {
+                        tenGoiTour: _tenGoiTour,
+                        dacDiem: _dacDiemTour,
+                        maLoaiHinhDuLich: _dropdownLoaiHinhDuLich,
+                        thoiGianBatDau: _thoiGianBatDau,
+                        thoiGianKetThuc: _thoiGianKetThuc,
+                        maDiaDiemDen: _dropdownDiaDiemDen,
+                        idGiaTour: null,
+                        trangThai: 1
+                    };
 
-                $.ajax({
-                    url: "/Tour/Create",
-                    data: JSON.stringify(objTour),
-                    type: "POST",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        $('#AddModal').modal('hide');
-                        swal({
-                            title: "Thêm thành công!",
-                            icon: "success",
-                            timer: 2000
-                        })
-                        window.setTimeout(function () { location.reload() }, 2000)
-                    },
-                    error: function (errorMessage) {
-                        alert(errorMessage.responseText);
-                    }
-                });
-
+                    $.ajax({
+                        url: "/Tour/Create",
+                        data: JSON.stringify(objTour),
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            $('#AddModal').modal('hide');
+                            swal({
+                                title: "Thêm thành công!",
+                                icon: "success",
+                                timer: 2000
+                            })
+                            window.setTimeout(function () { location.reload() }, 2000)
+                        },
+                        error: function (errorMessage) {
+                            alert(errorMessage.responseText);
+                        }
+                    });
+                }
                 
-
             }
         }
 
