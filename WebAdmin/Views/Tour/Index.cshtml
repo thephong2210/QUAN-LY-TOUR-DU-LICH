@@ -38,7 +38,7 @@
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal"><i class="fas fa-plus"></i> Thêm mới</a>
+                                <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
 
                             </div>
                         </div><!--//row-->
@@ -125,40 +125,36 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label">Tên gọi tour</label>
-                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenGoiTour" required />
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenGoiTour" placeholder="Nhập tên gọi tour..." required />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Đặc điểm</label>
-                                    <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputDacDiemTour" required></textarea>
+                                    <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputDacDiemTour" placeholder="Nhập đặc điểm tour..." required></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <select class="form-select" aria-label="Default select example" id="dropdownLoaiHinhDuLich" style="border-color: #6e6e6f;">
-                                        <option selected>--Chọn loại hình du lịch --</option>
+                                        <option value="0" selected>-- Chọn loại hình du lịch --</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" >
+                                    <input class="form-control" type="datetime-local" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" >
+                                    <input class="form-control" type="datetime-local" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
                                     <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen" style="border-color: #6e6e6f;" >
-                                        <option selected>--Chọn địa điểm đến --</option>
+                                        <option value="0" selected>--Chọn địa điểm đến --</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1"> I have a bike</label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2"> I have a car</label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3"> I have a boat</label><br><br>
+                                <div class="mb-3" style="border: 1px solid #6e6e6f; padding: 5px; border-radius: 5px;" id="listDiaDiemThamQuan">
+                                   
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <input type="button" id="btnAdd" class="btn app-btn-primary" onclick="return Add()" value="Thêm" style="color: white;float:left;" />
                                 <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
+                                <button onclick="TestFunc()">Test</button>
                             </div>
                         </div>
                     </div>
@@ -267,12 +263,124 @@
         </div>
     </div>
 
+    
+
     <script>
 
-        function Add() {
-            var _tenDiaDiemDen = $('#inputTenDiaDiemDen').val();
+        
+        $(document).ready(function () {
+            LoadDiaDiemThamQuan();
+        });
 
-            if (_tenDiaDiemDen == '') {
+        function LoadInfoModalAdd() {
+        
+            //Load loại hình du lịch
+            document.getElementById('dropdownLoaiHinhDuLich').options.length = 0; //clear dropdown
+
+            $('#dropdownLoaiHinhDuLich').append($('<option>', {
+                value: 0,
+                text: "-- Chọn loại hình du lịch --"
+            }));
+
+            $.ajax({
+                url: "/LoaiHinhDuLich/GetAllLoaiHinhDuLich",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $.each(result, function (index) {
+                        $('#dropdownLoaiHinhDuLich').append($('<option>', {
+                            value: result[index].maLoaiHinhDuLich,
+                            text: result[index].tenLoaiHinhDuLich
+                        }));
+                    })
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            //Load địa điểm
+            document.getElementById('dropdownDiaDiemDen').options.length = 0; //clear dropdown
+
+            $('#dropdownDiaDiemDen').append($('<option>', {
+                value: 0,
+                text: "-- Chọn địa điểm đến --"
+            }));
+
+            $.ajax({
+                url: "/DiaDiem/GetAllDiaDiemDen",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $.each(result, function (index) {
+                        $('#dropdownDiaDiemDen').append($('<option>', {
+                            value: result[index].maDiaDiemDen,
+                            text: result[index].tenDiaDiemDen
+                        }));
+                    })
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            
+
+        }
+
+        //Load địa điểm tham quan theo địa điểm đến
+        function LoadDiaDiemThamQuan() {
+
+            //Khi dropdown địa điểm đến thay đổi => load danh sach dia diem tham quan trong dia diem den nay
+            $('#dropdownDiaDiemDen').on('change', function () {
+                var _maDiaDiemDen = $('#dropdownDiaDiemDen').val();
+
+                //clear truoc khi load
+                $('#listDiaDiemThamQuan input').remove();
+                $('#listDiaDiemThamQuan label').remove();
+                $('#listDiaDiemThamQuan br').remove();
+
+                $.ajax({
+                    url: "/DiaDiem/GetDetailsDDTQ",
+                    data: { maDiaDiemDen: _maDiaDiemDen },
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $.each(result, function (index) {
+                            $('#listDiaDiemThamQuan').append($('<input type="checkbox" id="' + result[index].maDiaDiem + '" name="listCheckedDDTQ" value="' + result[index].maDiaDiem + '" />'));
+                            $('#listDiaDiemThamQuan').append($('<label class="form-label" for="' + result[index].maDiaDiem + '"> ' + result[index].tenDiaDiem + '</label><br>'));
+
+                        })
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+
+            });
+
+        }
+        
+
+        function Add() {
+            var _tenGoiTour = $('#inputTenGoiTour').val();
+            var _dacDiemTour = $('#inputDacDiemTour').val();
+            var _thoiGianBatDau = $('#inputThoiGianBatDau').val();
+            var _thoiGianKetThuc = $('#inputThoiGianKetThuc').val();
+            var _dropdownLoaiHinhDuLich = $('#dropdownLoaiHinhDuLich').val(); //nếu =0 thì chưa chọn
+            var _dropdownDiaDiemDen = $('#dropdownDiaDiemDen').val();//nếu =0 thì chưa chọn
+            var _listCheckedDDTQ = $('input[name=listCheckedDDTQ]:checked');
+
+            _listCheckedDDTQ.each(function () {
+                console.log((this.checked ? $(this).text() : ""));
+            });
+
+            if (_tenGoiTour == '' || _dacDiemTour == '' ||
+                _thoiGianBatDau == '' || _thoiGianKetThuc == '' ||
+                _dropdownLoaiHinhDuLich == 0 || _dropdownDiaDiemDen == 0 || _listCheckedDDTQ.length == 0) {
                 swal({
                     title: "Không được để trống!",
                     text: "Vui lòng nhập đầy đủ thông tin!",
@@ -280,14 +388,62 @@
                     button: "Đóng",
                 });
             } else {
-                var objDiaDiemDen = {
-                    tenDiaDiemDen: _tenDiaDiemDen,
+                
+                //Thêm list địa điểm tham quan vào tour
+                //get mã tour mới nhất + 1, sau đó loop để thêm diadiemtour
+                $.ajax({
+                    url: "/Tour/GetTourLatest",
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        var _maSoTourNew = result.maSoTour + 1;
+
+                        _listCheckedDDTQ.each(function () {
+                            console.log((this.checked ? $(this).text() : ""));//test get ten DDTQ
+
+                            var objDiaDiemTour = {
+                                maTour: _maSoTourNew,
+                                tenDiaDiemThamQuan: (this.checked ? $(this).next('label').text() : "")
+                            };
+
+                            $.ajax({
+                                url: "/DiaDiem/CreateDiaDiemTour",
+                                data: JSON.stringify(objDiaDiemTour),
+                                type: "POST",
+                                contentType: "application/json;charset=utf-8",
+                                dataType: "json",
+                                success: function (result) {
+                                    console.log("Thêm địa điểm tour thành công!");
+                                },
+                                error: function (errorMessage) {
+                                    alert(errorMessage.responseText);
+                                }
+                            });
+
+                        });
+                        
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+
+                //Thêm tour
+                var objTour = {
+                    tenGoiTour: _tenGoiTour,
+                    dacDiem: _dacDiemTour,
+                    maLoaiHinhDuLich: _dropdownLoaiHinhDuLich,
+                    thoiGianBatDau: _thoiGianBatDau,
+                    thoiGianKetThuc: _thoiGianKetThuc,
+                    maDiaDiemDen: _dropdownDiaDiemDen,
+                    idGiaTour: null,
                     trangThai: 1
                 };
 
                 $.ajax({
-                    url: "/DiaDiem/Create",
-                    data: JSON.stringify(objDiaDiemDen),
+                    url: "/Tour/Create",
+                    data: JSON.stringify(objTour),
                     type: "POST",
                     contentType: "application/json;charset=utf-8",
                     dataType: "json",
@@ -304,6 +460,9 @@
                         alert(errorMessage.responseText);
                     }
                 });
+
+                
+
             }
         }
 

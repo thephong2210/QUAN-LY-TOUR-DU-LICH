@@ -24,6 +24,14 @@ namespace WebAdmin.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllDiaDiemDen")]
+        public JsonResult GetAllDiaDiemDen()
+        {
+            var getDDD = d_diadiem.GetListDiaDiemDen();
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         [Route("GetOneDiaDiemDen")]
         public JsonResult GetOneDiaDiemDen(int maDiaDiemDen)
         {
@@ -45,6 +53,14 @@ namespace WebAdmin.Controllers
         public JsonResult CreateDDTQ(diadiemthamquan objDDTQ)
         {
             var getDDD = d_diadiem.ThemDiaDiemThamQuan(objDDTQ);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateDiaDiemTour")]
+        public JsonResult CreateDiaDiemTour(diadiemtour objDDT)
+        {
+            var getDDD = d_diadiem.ThemDiaDiemTour(objDDT);
             return Json(getDDD, JsonRequestBehavior.AllowGet);
         }
 
