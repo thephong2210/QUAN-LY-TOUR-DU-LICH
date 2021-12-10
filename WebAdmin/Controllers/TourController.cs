@@ -12,6 +12,7 @@ namespace WebAdmin.Controllers
     public class TourController : Controller { 
     
         D_tour d_tour = new D_tour();
+        D_giatour d_giatour = new D_giatour();
         // GET: Tour
         public ActionResult Index()
         {
@@ -67,5 +68,32 @@ namespace WebAdmin.Controllers
             return Json(d_tour.XoaTour(maSoTour), JsonRequestBehavior.AllowGet);
 
         }
+
+        //Giá tour
+        [HttpGet]
+        [Route("GetBangGiaTour")]
+        public JsonResult GetBangGiaTour(int maSoTour)
+        {
+            var getGiaTour = d_giatour.GetGiaTourWithMaTour(maSoTour);
+            return Json(getGiaTour, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateGiaTour")]
+        public JsonResult CreateGiaTour(giatour objGiaTour)
+        {
+            var getGiaTour = d_giatour.ThemGiaTour(objGiaTour);
+            return Json(getGiaTour, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("UpdateGiaTour")]
+        public JsonResult UpdateGiaTour(tour objTour, int maSoTour)
+        {
+            var getTour = d_tour.SuaGiaTour(objTour, maSoTour);
+            return Json(getTour, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

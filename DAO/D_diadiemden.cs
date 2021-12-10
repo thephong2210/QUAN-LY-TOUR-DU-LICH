@@ -34,6 +34,7 @@ namespace DAO
 
         }
 
+       
         public bool ThemDiaDiemDen(diadiemden objDiaDiemDen)
         {
             using (tourdulich = new tourdulichEntities())
@@ -126,6 +127,19 @@ namespace DAO
 
         }
 
+        //get mã DDTQ qua tên DDTQ
+        public List<diadiemthamquan> GetMaDDTQQuaTen(string tenDDTQ)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListTenDDThamQuan = tourdulich.diadiemthamquans.Where(t=>t.tenDiaDiem == tenDDTQ);
+
+                return getListTenDDThamQuan.ToList<diadiemthamquan>();
+
+            }
+
+        }
+
         public List<diadiemthamquan> GetListDetailsDiaDiemThamQuan(int maDiaDiemDenTemp)
         {
             using (tourdulich = new tourdulichEntities())
@@ -187,6 +201,18 @@ namespace DAO
             using (tourdulich = new tourdulichEntities())
             {
                 var getListDiaDiemTour = tourdulich.diadiemtours;
+
+                return getListDiaDiemTour.ToList<diadiemtour>();
+
+            }
+
+        }
+
+        public List<diadiemtour> GetListOneDiaDiemTour(int maSoTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getListDiaDiemTour = tourdulich.diadiemtours.Where(t=>t.maTour == maSoTour);
 
                 return getListDiaDiemTour.ToList<diadiemtour>();
 
