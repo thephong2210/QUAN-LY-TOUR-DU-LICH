@@ -48,6 +48,14 @@ namespace WebAdmin.Controllers
             return Json(getDDD, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [Route("GetMaDDTQ")]
+        public JsonResult GetMaDDTQ(string tenDDTQ)
+        {
+            var getDDD = d_diadiem.GetMaDDTQQuaTen(tenDDTQ);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         [Route("CreateDDTQ")]
         public JsonResult CreateDDTQ(diadiemthamquan objDDTQ)
@@ -61,6 +69,14 @@ namespace WebAdmin.Controllers
         public JsonResult CreateDiaDiemTour(diadiemtour objDDT)
         {
             var getDDD = d_diadiem.ThemDiaDiemTour(objDDT);
+            return Json(getDDD, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("GetOneDiaDiemTour")]
+        public JsonResult GetOneDiaDiemTour(int maTour)
+        {
+            var getDDD = d_diadiem.GetListOneDiaDiemTour(maTour);
             return Json(getDDD, JsonRequestBehavior.AllowGet);
         }
 
