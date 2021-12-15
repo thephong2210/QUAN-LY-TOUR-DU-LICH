@@ -28,6 +28,16 @@ namespace WebAdmin.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        [Route("GetAllTour")]
+        public JsonResult GetAllTour()
+        {
+            var getTour = d_tour.GetAllTour();
+            return Json(getTour, JsonRequestBehavior.AllowGet);
+        }
+
+
         [HttpGet]
         [Route("GetOneTour")]
         public JsonResult GetOneTour(int maSoTour)
