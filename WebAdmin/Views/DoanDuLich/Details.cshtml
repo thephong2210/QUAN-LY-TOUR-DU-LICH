@@ -1,7 +1,10 @@
-﻿@{
+﻿@using DAO;
+@{
     ViewBag.Title = "Đoàn du lịch";
-
     List<DoanView> listResults = ViewBag.listTemp;
+    List<doandulich> listOneDoan = ViewBag.listOneDoan;
+    List<KhachHangCuaDoanView> listKHDK = ViewBag.listKHDK;
+    List<NhanVienCuaDoanView> listNVDK = ViewBag.listNVDK;
 }
 
 <div class="app-wrapper">
@@ -11,35 +14,14 @@
 
             <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Quản lý đoàn</h1>
+                    <h1 class="app-page-title mb-0">Chi tiết đoàn du lịch mã: #@Request["maSoDoan"].ToString() </h1>
                 </div>
                 <div class="col-auto">
                     <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+
                             <div class="col-auto">
-                                <form class="table-search-form row gx-1 align-items-center">
-                                    <div class="col-auto">
-                                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button type="submit" class="btn app-btn-secondary">Search</button>
-                                    </div>
-                                </form>
-
-                            </div><!--//col-->
-                            <div class="col-auto">
-
-                                <select class="form-select w-auto">
-                                    <option selected value="option-1">All</option>
-                                    <option value="option-2">This week</option>
-                                    <option value="option-3">This month</option>
-                                    <option value="option-4">Last 3 months</option>
-
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
-
+                               
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
@@ -47,70 +29,97 @@
             </div><!--//row-->
 
 
-
-            <div class="tab-content" id="orders-table-tab-content">
-                <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
-                    <div class="app-card app-card-orders-table shadow-sm mb-5">
-                        <div class="app-card-body">
-                            <div class="table-responsive">
-                                <table class="table app-table-hover mb-0 text-left">
-                                    <thead>
-                                        <tr>
-                                            <th class="cell">Mã số đoàn</th>
-                                            <th class="cell">Tên đoàn</th>
-                                            <th class="cell">Tên tour</th>
-                                            <th class="cell">Chi tiết</th>
-                                            <th class="cell">Thời gian bắt đầu</th>
-                                            <th class="cell">Thời gian kết thúc</th>
-                                            <th class="cell"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in listResults.OrderByDescending(t => t.ID))
-                                        {
+            <div class="container p-3 my-4 bg-white text-black shadow-sm mb-5 rounded">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Mã số đoàn:</span> @listResults[0].ID</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Tên đoàn:</span> @listResults[0].TenDoan</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Tên tour:</span> @listResults[0].TenTour</div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Chi tiết:</span> @listResults[0].chitiet</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian bắt đầu:</span> @listResults[0].thoiGianKhoiHanh.ToShortDateString()</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian kết thúc:</span> @listResults[0].thoiGianKetThuc.ToShortDateString()</div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Số lượng khách hàng:</span> @listOneDoan[0].soLuongKhachHang</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Số lượng nhân viên:</span> @listOneDoan[0].SoLuongNhanVien</div>
+                    <div class="col text-body"><a class="btn btn-info" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-dollar-sign"></i> Bảng chi phí</a></div>
+                </div>
+                <hr />
+                
+                
+                <div class="row">
+                    <!-- table khách hàng đăng ký -->
+                    <div class="col" style="border-right: 1px dashed #333;">
+                        <h5>Danh sách khách hàng</h5>
+                        <div class="app-card app-card-orders-table shadow-sm mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive border">
+                                    <table class="table table-light table-hover table-striped mb-0 text-left">
+                                        <thead>
                                             <tr>
-                                                <td class="cell">@item.ID</td>
-                                                <td class="cell"><span class="truncate">@item.TenDoan</span></td>
-                                                <td class="cell">@item.TenTour</td>
-                                                <td class="cell">@item.chitiet</td>
-                                                <td class="cell"><span>@item.thoiGianKhoiHanh</span></td>
-                                                <td class="cell"><span>@item.thoiGianKetThuc</span></td>
-                                                <td class="cell">
-                                                    <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.ID)"><i class="fas fa-pencil-alt"></i> Sửa</a>
-                                                    <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.ID)"><i class="fas fa-trash-alt"></i> Xóa</a>
-                                                    <a class="btn btn-secondary" style="color: white; margin-top: 5px;"  id="xemChiTietButton" href="/DoanDuLich/Details?maSoDoan=@item.ID" ><i class="fas fa-eye"></i> Xem chi tiết</a>
-                                                </td>
+                                                <th class="cell">Mã đăng ký</th>
+                                                <th class="cell">Tên khách hàng</th>
                                             </tr>
-                                        }
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in listKHDK.OrderByDescending(t => t.id))
+                                            {
+                                                <tr>
+                                                    <td class="cell">@item.id</td>
+                                                    <td class="cell"><span class="truncate">@item.ten</span></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
 
-                                    </tbody>
-                                </table>
-                            </div><!--//table-responsive-->
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                        <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
 
-                        </div><!--//app-card-body-->
-                    </div><!--//app-card-->
-                    <nav class="app-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav><!--//app-pagination-->
+                    </div>
 
-                </div><!--//tab-pane-->
+                    <!--table nhân viên đăng ký-->
+                    <div class="col">
+                        <h5>Danh sách nhân viên</h5>
+
+                        <div class="app-card app-card-orders-table shadow-sm mb-5">
+                            <div class="app-card-body">
+                                <div class="table-responsive border">
+                                    <table class="table table-light table-hover table-striped mb-0 text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="cell">Mã đăng ký</th>
+                                                <th class="cell">Tên nhân viên</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in listNVDK.OrderByDescending(t => t.id))
+                                            {
+                                                <tr>
+                                                    <td class="cell">@item.id</td>
+                                                    <td class="cell"><span class="truncate">@item.ten</span></td>
+                                                    
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div><!--//table-responsive-->
+
+                            </div><!--//app-card-body-->
+                        </div><!--//app-card-->
+                        <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
+
+                    </div>
+                </div>
+           
+                
+
+            </div>
 
 
-            </div><!--//tab-content-->
-
-
-
-        </div><!--//container-fluid-->
+            </div><!--//container-fluid-->
     </div><!--//app-content-->
     <!-- Modal Add -->
     <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModal" aria-hidden="true">
@@ -173,7 +182,7 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label">Mã số đoàn</label>
-                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaSoDoan_Edit" placeholder="Nhập mã số đoàn..." required readonly/>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaSoDoan_Edit" placeholder="Nhập mã số đoàn..." required readonly />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tên gọi đoàn</label>
@@ -229,7 +238,7 @@
         </div>
     </div>
 
-    
+
     <script>
 
         $(document).ready(function () {
@@ -266,7 +275,7 @@
                 }
             });
 
-            
+
         }
 
         function LoadInfoModalUpdate() {
@@ -298,9 +307,9 @@
             });
 
         }
-       
+
         function RangBuocThoiGianTheoTour_UpdateModalOnChange() {
- 
+
             $('#dropdownTour_Edit').on('change', function () {
                 var _maSoTour = $('#dropdownTour_Edit').val();
 
@@ -342,7 +351,7 @@
                         $('#inputThoiGianKetThuc_Edit').attr("disabled", false);
                         $('#inputThoiGianBatDau_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
                         $('#inputThoiGianKetThuc_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                        
+
                     })
                 },
                 error: function (errorMessage) {
@@ -350,7 +359,7 @@
                 }
             });
 
-           
+
         }
 
         function RangBuocThoiGianTheoTour() {
@@ -410,7 +419,7 @@
                         button: "Đóng",
                     });
                 } else {
-             
+
                     //bắt đầu thêm đoàn du lịch
                     var objDoan = {
                         tenGoiDoan: _tenGoiDoan,
@@ -529,7 +538,7 @@
                     $('#dropdownTour_Edit').val(result[0].maSoTour);
 
                     RangBuocThoiGianTheoTour_UpdateModal(result[0].maSoTour);
-                  
+
                 },
                 error: function (errorMessage) {
                     alert(errorMessage.responseText);
@@ -571,7 +580,7 @@
 
         }
 
-        
+
         function CheckNumberGia(strCheck) {
             var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
             if (numberRegex.test(strCheck)) {
@@ -580,7 +589,7 @@
             return false;
         }
 
-        
+
         //Hàm convert date bang gia
         function FormatDate(inputDate) {
             var str, year, month, day, d, finalDate;
@@ -621,4 +630,4 @@
 
     </script>
 
-</div><!--//app-wrapper-->   
+</div><!--//app-wrapper-->

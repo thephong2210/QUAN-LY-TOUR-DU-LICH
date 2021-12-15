@@ -133,17 +133,21 @@
                                     <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputDacDiemTour" placeholder="Nhập đặc điểm tour..." required></textarea>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Loại hình du lịch</label>
                                     <select class="form-select" aria-label="Default select example" id="dropdownLoaiHinhDuLich" style="border-color: #6e6e6f;">
                                         <option value="0" selected>-- Chọn loại hình du lịch --</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" required>
+                                    <label class="form-label">Thời gian bắt đầu</label>
+                                    <input class="form-control" type="date" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" required>
+                                    <label class="form-label">Thời gian kết thúc</label>
+                                    <input class="form-control" type="date" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Địa điểm</label>
                                     <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen" style="border-color: #6e6e6f;">
                                         <option value="0" selected>--Chọn địa điểm đến --</option>
                                     </select>
@@ -189,17 +193,21 @@
                                     <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputDacDiemTour_Edit" placeholder="Nhập đặc điểm tour..." required></textarea>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Loại hình du lịch</label>
                                     <select class="form-select" aria-label="Default select example" id="dropdownLoaiHinhDuLich_Edit" style="border-color: #6e6e6f;">
                                         <option value="0" selected>-- Chọn loại hình du lịch --</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianBatDau_Edit" name="inputThoiGianBatDau_Edit" style="border-color: #6e6e6f;" required>
+                                    <label class="form-label">Thời gian bắt đầu</label>
+                                    <input class="form-control" type="date" id="inputThoiGianBatDau_Edit" name="inputThoiGianBatDau_Edit" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="datetime-local" id="inputThoiGianKetThuc_Edit" name="inputThoiGianKetThuc_Edit" style="border-color: #6e6e6f;" required>
+                                    <label class="form-label">Thời gian kết thúc</label>
+                                    <input class="form-control" type="date" id="inputThoiGianKetThuc_Edit" name="inputThoiGianKetThuc_Edit" style="border-color: #6e6e6f;" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">Địa điểm</label>
                                     <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen_Edit" style="border-color: #6e6e6f;">
                                         <option value="0" selected>--Chọn địa điểm đến --</option>
                                     </select>
@@ -265,7 +273,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Ngày thêm</label>
-                                    <input type="datetime-local" class="form-control" style="border-color: #6e6e6f;" id="inputNgayThem_ModalBangGia" required />
+                                    <input type="date" class="form-control" style="border-color: #6e6e6f;" id="inputNgayThem_ModalBangGia" required />
                                 </div>
                                 <div class="input-group">
                                     <button class="btn btn-success" style="color: white;" onclick="ThemGiaMoi()">Thêm</button>
@@ -609,6 +617,7 @@
                         trangThai: 1
                     };
 
+
                     $.ajax({
                         url: "/Tour/Create",
                         data: JSON.stringify(objTour),
@@ -695,8 +704,8 @@
                     $('#dropdownDiaDiemDen_Edit').val(result[0].maDiaDiemDen);
                     LoadDiaDiemThamQuan_UpdateModalOnClick(result[0].maDiaDiemDen);
                     //console.log(moment(new Date(1639074900000)).format('yyyy-MM-ddThh:mm'));
-                    //$('#inputThoiGianBatDau_Edit').val(moment(new Date(1639074900000)).format('yyyy-MM-ddThh:mm'));
-                    //$('#inputThoiGianKetThuc_Edit').val(result[0].thoiGianKetThuc);
+                    $('#inputThoiGianBatDau_Edit').val(FormatDateYMD(result[0].thoiGianBatDau));
+                    $('#inputThoiGianKetThuc_Edit').val(FormatDateYMD(result[0].thoiGianKetThuc));
                 },
                 error: function (errorMessage) {
                     alert(errorMessage.responseText);
@@ -946,11 +955,38 @@
             d = new Date(parseInt(str));
 
             year = d.getFullYear();
-            month = d.getMonth();
+            month = d.getMonth()+1;
             day = d.getDate();
+            if (day < 10) {
+                day = "0" + day;
+            }
+            if (month < 10) {
+                month = "0" + month;
+            }
 
             finalDate = day + "-" + month + "-" + year;
    
+            return finalDate;
+        }
+
+        function FormatDateYMD(inputDate) {
+            var str, year, month, day, d, finalDate;
+
+            str = inputDate.replace(/\D/g, "");
+            d = new Date(parseInt(str));
+
+            year = d.getFullYear();
+            month = d.getMonth()+1;
+            day = d.getDate();
+            if (day < 10) {
+                day = "0" + day;
+            }
+            if (month < 10) {
+                month = "0" + month;
+            }
+
+            finalDate = year + "-" + month + "-" + day;
+
             return finalDate;
         }
 

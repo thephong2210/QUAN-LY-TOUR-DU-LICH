@@ -136,6 +136,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\NhanVienCuaDoanView.cs" />
+    <Compile Include="Models\KhachHangCuaDoanView.cs" />
     <Compile Include="Models\DoanView.cs" />
     <Compile Include="Models\TourView.cs" />
     <Compile Include="Models\NhanVienView.cs" />
@@ -2031,6 +2033,7 @@
     <Content Include="Views\LoaiHinhDuLich\Index.cshtml" />
     <Content Include="Views\KhachHang\Index.cshtml" />
     <Content Include="Views\DiaDiem\Index.cshtml" />
+    <Content Include="Views\DoanDuLich\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
