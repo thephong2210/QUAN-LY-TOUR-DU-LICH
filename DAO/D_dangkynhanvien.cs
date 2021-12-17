@@ -18,7 +18,16 @@ namespace DAO
             }
         }
 
-        
+        public List<thamgiadoan> GetLatestDangKyCuaNhanVien(int maNhanVien)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getAllDangKy = tourdulich.thamgiadoans.Where(t => t.trangThai == 1).Where(t=>t.maNhanVien == maNhanVien).OrderByDescending(t=>t.maThamGia);
+                return getAllDangKy.ToList<thamgiadoan>();
+            }
+        }
+
+
         //Load on datagridview
         public List<dynamic> GetListDangKy()
         {

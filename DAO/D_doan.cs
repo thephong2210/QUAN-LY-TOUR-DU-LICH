@@ -151,7 +151,7 @@ namespace DAO
                                  {
                                      id = tbDangKy.id,
                                      ten = tbKH.hoTenKhachHang,
-                                    
+                                     gia = tbDangKy.giaTourDangKy
                                  });
 
                 return getKHDoan.ToList<dynamic>();

@@ -30,6 +30,14 @@ namespace WebAdmin.Controllers
             return Json(getKH, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [Route("GetListKhachHang")]
+        public JsonResult GetListKhachHang()
+        {
+            var getKH = d_khachhang.GetListKhachHang();
+            return Json(getKH, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         [Route("Create")]
         public JsonResult Create(khachhang objKH)

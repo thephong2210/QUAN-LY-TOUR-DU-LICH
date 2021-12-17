@@ -14,6 +14,8 @@ namespace WebAdmin.Controllers
         D_doan d_doan = new D_doan();
         D_DangKy d_dangky = new D_DangKy();
         D_dangkynhanvien d_dangkynhanvien = new D_dangkynhanvien();
+        D_chiphi d_chiphi = new D_chiphi();
+        D_LoaiChiPhi d_loaichiphi = new D_LoaiChiPhi();
         // GET: doandulich
         public ActionResult Index()
         {
@@ -98,6 +100,127 @@ namespace WebAdmin.Controllers
 
         }
 
+        //chi phí
+        [HttpGet]
+        [Route("GetBangChiPhi")]
+        public JsonResult GetBangChiPhi(int maSoDoan)
+        {
+            var getDoan = d_chiphi.GetListChiPhiWithMaDoan(maSoDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("GetListLoaiChiPhi")]
+        public JsonResult GetListLoaiChiPhi()
+        {
+            var getDoan = d_loaichiphi.GetLoaiChiPhi(); 
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateChiPhi")]
+        public JsonResult CreateChiPhi(chiphi objChiPhi)
+        {
+            var getDoan = d_chiphi.ThemChiPhi(objChiPhi);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("DeleteChiPhi")]
+        public JsonResult DeleteChiPhi(int maChiPhi)
+        {
+            var getDoan = d_chiphi.XoaChiPhi(maChiPhi);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateLoaiChiPhi")]
+        public JsonResult CreateLoaiChiPhi(loaichiphi objLoaiChiPhi)
+        {
+            var getDoan = d_loaichiphi.ThemLoaiChiPhi(objLoaiChiPhi);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        //Dang ky khach hang
+        [HttpPost]
+        [Route("CreateDangKyKhachHang")]
+        public JsonResult CreateDangKyKhachHang(dangky objDangKy)
+        {
+            var getDoan = d_dangky.ThemDangKy(objDangKy);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("ThemSoLuongKhachHangDoan")]
+        public JsonResult ThemSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
+        {
+            var getDoan = d_doan.ThemSoLuongKhachHangDoan(objDoan, maSoDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("GiamSoLuongKhachHangDoan")]
+        public JsonResult GiamSoLuongKhachHangDoan(doandulich objDoan, int maSoDoan)
+        {
+            var getDoan = d_doan.GiamSoLuongKhachHangDoan(objDoan, maSoDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("DeleteDangKyKH")]
+        public JsonResult DeleteDangKyKH(int maDangKy)
+        {
+            var getDoan = d_dangky.XoaDangKy(maDangKy);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        //Dang ky nhan vien
+        [HttpGet]
+        [Route("GetLatestDangKyNhanVien")]
+        public JsonResult GetLatestDangKyNhanVien(int maNhanVien)
+        {
+            try {
+                var getDoan = d_dangkynhanvien.GetLatestDangKyCuaNhanVien(maNhanVien).First();
+                return Json(getDoan, JsonRequestBehavior.AllowGet);
+            }
+            catch(InvalidOperationException ex)
+            {
+                return null;
+            }
+
+        }
+
+        [HttpPost]
+        [Route("DeleteDangKyNV")]
+        public JsonResult DeleteDangKyNV(int maDangKy)
+        {
+            var getDoan = d_dangkynhanvien.XoaDangKy(maDangKy);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("CreateDangKyNhanVien")]
+        public JsonResult CreateDangKyNhanVien(thamgiadoan objThamGiaDoan)
+        {
+            var getDoan = d_dangkynhanvien.ThemDangKy(objThamGiaDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("ThemSoLuongNhanVienDoan")]
+        public JsonResult ThemSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
+        {
+            var getDoan = d_doan.ThemSoLuongNhanVienDoan(objDoan, maSoDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [Route("GiamSoLuongNhanVienDoan")]
+        public JsonResult GiamSoLuongNhanVienDoan(doandulich objDoan, int maSoDoan)
+        {
+            var getDoan = d_doan.GiamSoLuongNhanVienDoan(objDoan, maSoDoan);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

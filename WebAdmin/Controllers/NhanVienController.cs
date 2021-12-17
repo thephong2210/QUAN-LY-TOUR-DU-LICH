@@ -31,6 +31,14 @@ namespace WebAdmin.Controllers
             return Json(getNhanVien, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [Route("GetListNhanVien")]
+        public JsonResult GetListNhanVien()
+        {
+            var getNhanVien = d_nhanvien.GetAllNhanVien();
+            return Json(getNhanVien, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         [Route("Create")]
         public JsonResult Create(nhanvien objNhanVien)

@@ -88,6 +88,14 @@ namespace WebAdmin.Controllers
             return Json(getGiaTour, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [Route("GetOneGiaTour")]
+        public JsonResult GetOneGiaTour(int idGiaTour)
+        {
+            var getGiaTour = d_giatour.GetOneGiaTour(idGiaTour);
+            return Json(getGiaTour, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         [Route("CreateGiaTour")]
         public JsonResult CreateGiaTour(giatour objGiaTour)
