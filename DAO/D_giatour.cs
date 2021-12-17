@@ -49,6 +49,17 @@ namespace DAO
               
         }
 
+        public List<giatour> GetOneGiaTour(int idGiaTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getList = tourdulich.giatours.Where(t => t.id == idGiaTour);
+
+                return getList.ToList<giatour>();
+            }
+
+        }
+
         public bool ThemGiaTour(giatour objGiaTour)
         {
             using (tourdulich = new tourdulichEntities())

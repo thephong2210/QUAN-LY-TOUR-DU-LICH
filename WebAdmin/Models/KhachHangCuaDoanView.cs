@@ -6,5 +6,7 @@ namespace WebAdmin
     {
         public int id { get; set; }
         public string ten { get; set; }
+
+        public double? gia { get; set; }
     }
 }

@@ -21,7 +21,7 @@
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
 
                             <div class="col-auto">
-                               
+
                             </div>
                         </div><!--//row-->
                     </div><!--//table-utilities-->
@@ -37,21 +37,26 @@
                 </div>
                 <div class="row" style="margin-top: 10px;">
                     <div class="col text-body"><span style="font-weight: bold; color: black;">Chi tiết:</span> @listResults[0].chitiet</div>
-                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian bắt đầu:</span> @listResults[0].thoiGianKhoiHanh.ToShortDateString()</div>
-                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian kết thúc:</span> @listResults[0].thoiGianKetThuc.ToShortDateString()</div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian bắt đầu:</span><span id="numberThoiGianKhoiHanh">@listResults[0].thoiGianKhoiHanh.ToShortDateString()</span> </div>
+                    <div class="col text-body"><span style="font-weight: bold; color: black;">Thời gian kết thúc:</span><span id="numberThoiGianKetThuc">@listResults[0].thoiGianKetThuc.ToShortDateString() </span></div>
                 </div>
                 <div class="row" style="margin-top: 10px;">
                     <div class="col text-body"><span style="font-weight: bold; color: black;">Số lượng khách hàng:</span> @listOneDoan[0].soLuongKhachHang</div>
                     <div class="col text-body"><span style="font-weight: bold; color: black;">Số lượng nhân viên:</span> @listOneDoan[0].SoLuongNhanVien</div>
-                    <div class="col text-body"><a class="btn btn-info" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-dollar-sign"></i> Bảng chi phí</a></div>
+                    <div class="col text-body"><a class="btn btn-info" style="color: white;" data-bs-toggle="modal" data-bs-target="#BangChiPhiModal" onclick="LoadInfoBangChiPhi(@listResults[0].ID)"><i class="fas fa-dollar-sign"></i> Bảng chi phí</a></div>
                 </div>
                 <hr />
-                
-                
+
+
                 <div class="row">
                     <!-- table khách hàng đăng ký -->
                     <div class="col" style="border-right: 1px dashed #333;">
-                        <h5>Danh sách khách hàng</h5>
+
+                        <div class="d-flex bd-highlight mb-3">
+                            <h5>Danh sách khách hàng</h5>
+                            <a class="btn btn-success ms-auto p-2 bd-highlight" style="color: white;" data-bs-toggle="modal" data-bs-target="#DangKyKhachHangModal" onclick="LoadDropdownKhachHang()"><i class="fas fa-plus"></i> Thêm mới</a>
+
+                        </div>
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive border">
@@ -60,6 +65,8 @@
                                             <tr>
                                                 <th class="cell">Mã đăng ký</th>
                                                 <th class="cell">Tên khách hàng</th>
+                                                <th class="cell">Giá đăng ký</th>
+                                                <th class="cell"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,6 +75,14 @@
                                                 <tr>
                                                     <td class="cell">@item.id</td>
                                                     <td class="cell"><span class="truncate">@item.ten</span></td>
+                                                    <td class="cell">
+                                                        <script>
+var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
+                                                        style: 'currency',
+                                                        currency: 'VND',
+                                                    }));</script>
+                                                    </td>
+                                                    <td class="cell"><button class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#XoaDangKyKHModal" onclick="GetIDDangKyKH(@item.id)"><i class="fa fa-trash"></i></button></td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -76,14 +91,16 @@
 
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
-                        <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
 
                     </div>
 
                     <!--table nhân viên đăng ký-->
                     <div class="col">
-                        <h5>Danh sách nhân viên</h5>
+                        <div class="d-flex bd-highlight mb-3">
+                            <h5>Danh sách nhân viên</h5>
+                            <a class="btn btn-success ms-auto p-2 bd-highlight" style="color: white;" data-bs-toggle="modal" data-bs-target="#DangKyNhanVienModal" onclick="LoadDropdownNhanVien()"><i class="fas fa-plus"></i> Thêm mới</a>
 
+                        </div>
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive border">
@@ -92,6 +109,7 @@
                                             <tr>
                                                 <th class="cell">Mã đăng ký</th>
                                                 <th class="cell">Tên nhân viên</th>
+                                                <th class="cell"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -100,7 +118,7 @@
                                                 <tr>
                                                     <td class="cell">@item.id</td>
                                                     <td class="cell"><span class="truncate">@item.ten</span></td>
-                                                    
+                                                    <td class="cell"><button class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#XoaDangKyNVModal" onclick="GetIDDangKyNV(@item.id)"><i class="fa fa-trash"></i></button></td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -109,71 +127,23 @@
 
                             </div><!--//app-card-body-->
                         </div><!--//app-card-->
-                        <a class="btn btn-success" style="color: white;" data-bs-toggle="modal" data-bs-target="#AddModal" onclick="LoadInfoModalAdd()"><i class="fas fa-plus"></i> Thêm mới</a>
 
                     </div>
                 </div>
-           
-                
+
+
 
             </div>
 
 
-            </div><!--//container-fluid-->
+        </div><!--//container-fluid-->
     </div><!--//app-content-->
-    <!-- Modal Add -->
-    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModal" aria-hidden="true">
+    <!-- Modal BangChiPhi -->
+    <div class="modal fade" id="BangChiPhiModal" tabindex="-1" role="dialog" aria-labelledby="BangChiPhiModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i> Thêm đoàn du lịch</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="app-card app-card-settings shadow-sm p-4">
-                    <div class="app-card-body">
-                        <div class="settings-form">
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Tên gọi đoàn</label>
-                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenGoiDoan" placeholder="Nhập tên gọi đoàn..." required />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Mô tả chi tiết đoàn</label>
-                                    <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputChiTietDoan" placeholder="Nhập chi tiết đoàn..." required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tour</label>
-                                    <select class="form-select" aria-label="Default select example" id="dropdownTour" style="border-color: #6e6e6f;">
-                                        <option value="0" selected>-- Chọn tour --</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Thời gian bắt đầu</label>
-                                    <input class="form-control" type="date" id="inputThoiGianBatDau" name="inputThoiGianBatDau" style="border-color: #6e6e6f;" required disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Thời gian kết thúc</label>
-                                    <input class="form-control" type="date" id="inputThoiGianKetThuc" name="inputThoiGianKetThuc" style="border-color: #6e6e6f;" required disabled>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" id="btnAdd" class="btn app-btn-primary" onclick="return Add()" value="Thêm" style="color: white;float:left;" />
-                                <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Update -->
-    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="EditModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-pencil-alt"></i> Sửa đoàn du lịch</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-dollar-sign"></i> Bảng chi phí</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="app-card app-card-settings shadow-sm p-4">
@@ -182,33 +152,56 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label">Mã số đoàn</label>
-                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaSoDoan_Edit" placeholder="Nhập mã số đoàn..." required readonly />
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaSoDoan" placeholder="Nhập mã số đoàn..." required readonly />
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tên gọi đoàn</label>
-                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputTenGoiDoan_Edit" placeholder="Nhập tên gọi đoàn..." required />
+                                    <label class="form-label">Tên chi phí</label>
+                                    <div class="d-flex bd-highlight mb-3">
+                                        <select class="form-select" aria-label="Default select example" id="dropdownTenChiPhi" style="border-color: #6e6e6f;">
+                                            <option value="0" selected>-- Chọn loại chi phí --</option>
+                                        </select>
+                                        <button class="btn btn-secondary ms-auto p-2 bd-highlight" style="color: white;" data-bs-toggle="modal" data-bs-target="#ThemLoaiChiPhiModal"><i class="fa fa-plus"></i></button>
+                                    </div>
+
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Mô tả chi tiết đoàn</label>
-                                    <textarea rows="3" class="form-control" style="border-color: #6e6e6f;" id="inputChiTietDoan_Edit" placeholder="Nhập chi tiết đoàn..." required></textarea>
+                                    <label class="form-label">Tổng chi phí</label>
+                                    <input class="form-control" type="text" id="inputTongChiPhi" name="inputTongChiPhi" style="border-color: #6e6e6f;" placeholder="Nhập tổng chi phí..." required>
+                                </div>
+                                <div class="input-group">
+                                    <button class="btn btn-success" style="color: white;" onclick="ThemChiPhi()">Thêm</button>
+                                </div>
+                                <div style="background-color: #000000; height: 1px; width: 100%;margin-top: 20px;"></div>
+                                <div class="mb-3">
+                                    <h6 style="text-align: center; margin-top: 10px;">Danh sách chi phí của đoàn</h6>
+                                    <table class="table table-hover" id="tableBangChiPhi">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Mã chi phí</th>
+                                                <th scope="col">Tên chi phí</th>
+                                                <th scope="col">Tổng chi phí</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>mdo</td>
+                                                <td>mdo</td>
+                                                <td>
+                                                    <button class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#XoaChiPhiModal"><i class="fa fa-trash"></i></button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Tour</label>
-                                    <select class="form-select" aria-label="Default select example" id="dropdownTour_Edit" style="border-color: #6e6e6f;">
-                                        <option value="0" selected>-- Chọn tour --</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Thời gian bắt đầu</label>
-                                    <input class="form-control" type="date" id="inputThoiGianBatDau_Edit" name="inputThoiGianBatDau_Edit" style="border-color: #6e6e6f;" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Thời gian kết thúc</label>
-                                    <input class="form-control" type="date" id="inputThoiGianKetThuc_Edit" name="inputThoiGianKetThuc_Edit" style="border-color: #6e6e6f;" required>
+                                    <p style="color: black; font-weight: 500; text-align: -webkit-center;">Tổng: <span id="labelTongCacChiPhi" style="margin-left: 11%;"></span> VND</p>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <input type="button" id="btnUpdate" class="btn btn-warning" onclick="return Update()" value="Sửa" style="color: white;float:left;" />
                                 <button class="btn btn-secondary" data-bs-dismiss="modal" style="color: white;">Đóng</button>
 
                             </div>
@@ -219,8 +212,8 @@
         </div>
     </div>
 
-    <!-- Modal Delete -->
-    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+    <!--Modal XoaChiPhi -->
+    <div class="modal fade" id="XoaChiPhiModal" tabindex="-1" aria-labelledby="XoaChiPhiModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -228,10 +221,135 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <span>Bạn có chắc muốn xóa đoàn mã <span id="maSoDoanDeleteModal" style="font-weight: 500;"></span> không?</span>
+                    <span>Bạn có chắc muốn xóa chi phí mã <span id="maChiPhiDeleteModal" style="font-weight: 500;"></span> không?</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="Delete()" style="color: white;">Xóa</button>
+                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="XoaChiPhi()" style="color: white;">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal ThemLoaiChiPhi -->
+    <div class="modal fade" id="ThemLoaiChiPhiModal" tabindex="-1" aria-labelledby="ThemLoaiChiPhiModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm loại chi phí</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" style="color: black;">Tên loại chi phí</label>
+                        <input class="form-control" type="text" id="inputTenLoaiChiPhi" name="inputTenLoaiChiPhi" style="border-color: #6e6e6f;" placeholder="Nhập tên loại chi phí..." required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnThemLoaiChiPhi" onclick="ThemLoaiChiPhi()" style="color: white;">Thêm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DangKyKhachHang -->
+    <div class="modal fade" id="DangKyKhachHangModal" tabindex="-1" aria-labelledby="DangKyKhachHangModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-plus"></i> Đăng ký khách hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" style=" color: black; font-weight: 500;">Khách hàng</label>
+                        <div class="d-flex bd-highlight mb-3">
+                            <select class="form-select" aria-label="Default select example" id="dropdownKhachHang" style="border-color: #6e6e6f;">
+                                <option value="0" selected>-- Chọn khách hàng --</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: black; font-weight: 500;">Ngày đăng ký</label>
+                        <input class="form-control" type="date" id="inputNgayDangKy" name="inputNgayDangKy" style="border-color: #6e6e6f;" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnDangKyKhachHang" onclick="DangKyKhachHang()" style="color: white;">Thêm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DangKyNhanVien -->
+    <div class="modal fade" id="DangKyNhanVienModal" tabindex="-1" aria-labelledby="DangKyNhanVienModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-plus"></i> Đăng ký nhân viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" style=" color: black; font-weight: 500;">Nhân viên</label>
+                        <div class="d-flex bd-highlight mb-3">
+                            <select class="form-select" aria-label="Default select example" id="dropdownNhanVien" style="border-color: #6e6e6f;">
+                                <option value="0" selected>-- Chọn nhân viên --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: black; font-weight: 500;">Ngày bắt đầu</label>
+                        <input class="form-control" type="date" id="inputNgayBatDau_NV" name="inputNgayBatDau" style="border-color: #6e6e6f;" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: black; font-weight: 500;">Ngày kết thúc</label>
+                        <input class="form-control" type="date" id="inputNgayKetThuc_NV" name="inputNgayKetThuc" style="border-color: #6e6e6f;" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnDangKyNhanVien" onclick="DangKyNhanVien()" style="color: white;">Thêm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal XoaDangKyKhachHang -->
+    <div class="modal fade" id="XoaDangKyKHModal" tabindex="-1" aria-labelledby="XoaDangKyKHModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Bạn có chắc muốn xóa đăng ký khách mã <span id="maDangKyKHDeleteModal" style="font-weight: 500;"></span> không?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="XoaDangKyKhachHang()" style="color: white;">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal XoaDangKyNhanVien -->
+    <div class="modal fade" id="XoaDangKyNVModal" tabindex="-1" aria-labelledby="XoaDangKyNVModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Bạn có chắc muốn xóa đăng ký nhân viên mã <span id="maDangKyNVDeleteModal" style="font-weight: 500;"></span> không?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnDelete" onclick="XoaDangKyNhanVien()" style="color: white;">Xóa</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
@@ -241,32 +359,50 @@
 
     <script>
 
-        $(document).ready(function () {
-            RangBuocThoiGianTheoTour();
-            RangBuocThoiGianTheoTour_UpdateModalOnChange();
-            LoadInfoModalUpdate();
-        });
+       //rang buoc input date ngay dang ky theo ngay cua doan
+        var minNgayDangKy = $('#numberThoiGianKhoiHanh').text();
+        var maxNgayDangKy = $('#numberThoiGianKetThuc').text();
 
-        function LoadInfoModalAdd() {
+        var ArrayminNgayDangKy = minNgayDangKy.split('/');
+        var ArraymaxNgayDangKy = maxNgayDangKy.split('/');
 
-            //Load dropdown tour
-            document.getElementById('dropdownTour').options.length = 0; //clear dropdown
+        var minNgayDangKy_final = (ArrayminNgayDangKy[2] + '-' + ArrayminNgayDangKy[1] + '-' + ArrayminNgayDangKy[0]).replace(/\s/g, '');
+        var maxNgayDangKy_final = (ArraymaxNgayDangKy[2] + '-' + ArraymaxNgayDangKy[1] + '-' + ArraymaxNgayDangKy[0]).replace(/\s/g, '');
 
-            $('#dropdownTour').append($('<option>', {
+        $('#inputNgayDangKy').attr('min', minNgayDangKy_final);
+        $('#inputNgayDangKy').attr('max', maxNgayDangKy_final);
+
+        $('#inputNgayBatDau_NV').attr('min', minNgayDangKy_final);
+        $('#inputNgayBatDau_NV').attr('max', maxNgayDangKy_final);
+
+        $('#inputNgayKetThuc_NV').attr('min', minNgayDangKy_final);
+        $('#inputNgayKetThuc_NV').attr('max', maxNgayDangKy_final);
+
+
+        function LoadInfoBangChiPhi(maSoDoan) {
+            $('#inputMaSoTour_ModalBangGia').val(maSoDoan);
+
+            var _maSoDoan = maSoDoan;
+
+            LoadBangDanhSachChiPhi(_maSoDoan);
+
+            //load dropdown loại chi phí
+            document.getElementById('dropdownTenChiPhi').options.length = 0; //clear dropdown
+
+            $('#dropdownTenChiPhi').append($('<option>', {
                 value: 0,
-                text: "-- Chọn tour --"
+                text: "-- Chọn chi phí --"
             }));
-
             $.ajax({
-                url: "/Tour/GetAllTour",
+                url: "/DoanDuLich/GetListLoaiChiPhi",
                 type: "GET",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (result) {
                     $.each(result, function (index) {
-                        $('#dropdownTour').append($('<option>', {
-                            value: result[index].maSoTour,
-                            text: result[index].tenGoiTour
+                        $('#dropdownTenChiPhi').append($('<option>', {
+                            value: result[index].maLoaiChiPhi,
+                            text: result[index].tenLoaiChiPhi
                         }));
                     })
                 },
@@ -278,132 +414,39 @@
 
         }
 
-        function LoadInfoModalUpdate() {
+        function LoadBangDanhSachChiPhi(maSoDoan) {
+            $('#inputMaSoDoan').val(maSoDoan);
 
-            //Load dropdown tour
-            document.getElementById('dropdownTour_Edit').options.length = 0; //clear dropdown
-
-            $('#dropdownTour_Edit').append($('<option>', {
-                value: 0,
-                text: "-- Chọn tour --"
-            }));
+            $('#tableBangChiPhi tbody tr').remove();
 
             $.ajax({
-                url: "/Tour/GetAllTour",
+                url: "/DoanDuLich/GetBangChiPhi?maSoDoan=" + maSoDoan,
                 type: "GET",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (result) {
+                    var tongChiPhi = 0;
                     $.each(result, function (index) {
-                        $('#dropdownTour_Edit').append($('<option>', {
-                            value: result[index].maSoTour,
-                            text: result[index].tenGoiTour
-                        }));
+                        $('#tableBangChiPhi tbody').append($('<tr><td>' + result[index].maChiPhi + '</td><td>' + result[index].tenChiPhi + '</td><td>' + String(result[index].tongChiPhi).replace(/(.)(?=(\d{3})+$)/g, '$1,') + '</td><td><button class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#XoaChiPhiModal" onclick="GetMaChiPhiDelete(' + result[index].maChiPhi + ')" ><i class="fa fa-trash"></i></button></td></tr>'));
+                        tongChiPhi += result[index].tongChiPhi;
                     })
+
+                    $('#labelTongCacChiPhi').text(String(tongChiPhi).replace(/(.)(?=(\d{3})+$)/g, '$1,'));
+
                 },
                 error: function (errorMessage) {
                     alert(errorMessage.responseText);
                 }
             });
-
         }
 
-        function RangBuocThoiGianTheoTour_UpdateModalOnChange() {
+        function ThemChiPhi() {
+            var _maSoDoan = $('#inputMaSoDoan').val();
+            var _inputTongChiPhi = $('#inputTongChiPhi').val();
+            var _dropdownTenChiPhi = $('#dropdownTenChiPhi').val(); //nếu =0 thì chưa chọn
+            var _dropdownTenChiPhi_text = $('#dropdownTenChiPhi option:selected').text();
 
-            $('#dropdownTour_Edit').on('change', function () {
-                var _maSoTour = $('#dropdownTour_Edit').val();
-
-                $.ajax({
-                    url: "/Tour/GetOneTour",
-                    data: { maSoTour: _maSoTour },
-                    type: "GET",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        $.each(result, function (index) {
-                            $('#inputThoiGianBatDau_Edit').attr("disabled", false);
-                            $('#inputThoiGianKetThuc_Edit').attr("disabled", false);
-                            $('#inputThoiGianBatDau_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                            $('#inputThoiGianKetThuc_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                            $('#inputThoiGianKetThuc_Edit').val("");
-                            $('#inputThoiGianBatDau_Edit').val("");
-                        })
-                    },
-                    error: function (errorMessage) {
-                        alert(errorMessage.responseText);
-                    }
-                });
-
-            });
-        }
-
-        function RangBuocThoiGianTheoTour_UpdateModal(maSoTour) {
-
-            $.ajax({
-                url: "/Tour/GetOneTour",
-                data: { maSoTour: maSoTour },
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    $.each(result, function (index) {
-                        $('#inputThoiGianBatDau_Edit').attr("disabled", false);
-                        $('#inputThoiGianKetThuc_Edit').attr("disabled", false);
-                        $('#inputThoiGianBatDau_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                        $('#inputThoiGianKetThuc_Edit').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-
-                    })
-                },
-                error: function (errorMessage) {
-                    alert(errorMessage.responseText);
-                }
-            });
-
-
-        }
-
-        function RangBuocThoiGianTheoTour() {
-
-            //Khi dropdown địa điểm đến thay đổi => load danh sach dia diem tham quan trong dia diem den nay
-            $('#dropdownTour').on('change', function () {
-                var _maSoTour = $('#dropdownTour').val();
-
-                $.ajax({
-                    url: "/Tour/GetOneTour",
-                    data: { maSoTour: _maSoTour },
-                    type: "GET",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        $.each(result, function (index) {
-                            $('#inputThoiGianBatDau').attr("disabled", false);
-                            $('#inputThoiGianKetThuc').attr("disabled", false);
-                            $('#inputThoiGianBatDau').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                            $('#inputThoiGianKetThuc').attr({ "min": FormatDateYMD(result[index].thoiGianBatDau), "max": FormatDateYMD(result[index].thoiGianKetThuc) });
-                            $('#inputThoiGianKetThuc').val("");
-                            $('#inputThoiGianBatDau').val("");
-                        })
-                    },
-                    error: function (errorMessage) {
-                        alert(errorMessage.responseText);
-                    }
-                });
-
-            });
-
-
-        }
-
-        function Add() {
-            var _tenGoiDoan = $('#inputTenGoiDoan').val();
-            var _chiTietDoan = $('#inputChiTietDoan').val();
-            var _thoiGianBatDau = $('#inputThoiGianBatDau').val();
-            var _thoiGianKetThuc = $('#inputThoiGianKetThuc').val();
-            var _dropdownTour = $('#dropdownTour').val(); //nếu =0 thì chưa chọn
-
-            if (_tenGoiDoan == '' || _chiTietDoan == '' ||
-                _thoiGianBatDau == '' || _thoiGianKetThuc == '' ||
-                _dropdownTour == 0 ) {
+            if (_inputTongChiPhi == '' || _dropdownTenChiPhi == 0) {
                 swal({
                     title: "Không được để trống!",
                     text: "Vui lòng nhập đầy đủ thông tin!",
@@ -411,9 +454,9 @@
                     button: "Đóng",
                 });
             } else {
-                if (_thoiGianBatDau > _thoiGianKetThuc) {
+                if (!CheckNumberGia(_inputTongChiPhi)) {
                     swal({
-                        title: "Thời gian bắt đầu phải NHỎ HƠN thời gian kết thúc!",
+                        title: "Tổng chi phí phải là số!",
                         text: "Vui lòng nhập đúng thông tin!",
                         icon: "warning",
                         button: "Đóng",
@@ -421,31 +464,27 @@
                 } else {
 
                     //bắt đầu thêm đoàn du lịch
-                    var objDoan = {
-                        tenGoiDoan: _tenGoiDoan,
-                        chiTiet: _chiTietDoan,
-                        maSoTour: _dropdownTour,
-                        thoiGianKhoiHanh: _thoiGianBatDau,
-                        thoiGianKetThuc: _thoiGianKetThuc,
-                        soLuongKhachHang: 0,
-                        soLuongNhanVien: 0,
+                    var objChiPhi = {
+                        tenChiPhi: _dropdownTenChiPhi_text,
+                        tongChiPhi: _inputTongChiPhi,
+                        maSoDoan: _maSoDoan,
                         trangThai: 1
                     };
 
                     $.ajax({
-                        url: "/DoanDuLich/Create",
-                        data: JSON.stringify(objDoan),
+                        url: "/DoanDuLich/CreateChiPhi",
+                        data: JSON.stringify(objChiPhi),
                         type: "POST",
                         contentType: "application/json;charset=utf-8",
                         dataType: "json",
                         success: function (result) {
-                            $('#AddModal').modal('hide');
                             swal({
                                 title: "Thêm thành công!",
                                 icon: "success",
                                 timer: 2000
                             })
-                            window.setTimeout(function () { location.reload() }, 2000)
+
+                            LoadBangDanhSachChiPhi(_maSoDoan);
                         },
                         error: function (errorMessage) {
                             alert(errorMessage.responseText);
@@ -456,18 +495,11 @@
             }
         }
 
-        function Update() {
-            var _maSoDoan = $('#inputMaSoDoan_Edit').val();
+        function ThemLoaiChiPhi() {
+            var _maSoDoan = $('#inputMaSoDoan').val();
+            var _tenLoaiChiPhi = $('#inputTenLoaiChiPhi').val();
 
-            var _tenGoiDoan = $('#inputTenGoiDoan_Edit').val();
-            var _chiTietDoan = $('#inputChiTietDoan_Edit').val();
-            var _thoiGianBatDau = $('#inputThoiGianBatDau_Edit').val();
-            var _thoiGianKetThuc = $('#inputThoiGianKetThuc_Edit').val();
-            var _dropdownTour = $('#dropdownTour_Edit').val(); //nếu =0 thì chưa chọn
-
-            if (_tenGoiDoan == '' || _chiTietDoan == '' ||
-                _thoiGianBatDau == '' || _thoiGianKetThuc == '' ||
-                _dropdownTour == 0) {
+            if (_tenLoaiChiPhi == '') {
                 swal({
                     title: "Không được để trống!",
                     text: "Vui lòng nhập đầy đủ thông tin!",
@@ -475,103 +507,418 @@
                     button: "Đóng",
                 });
             } else {
-                if (_thoiGianBatDau > _thoiGianKetThuc) {
+
+                //bắt đầu thêm
+                var objLoaiChiPhi = {
+                    tenLoaiChiPhi: _tenLoaiChiPhi,
+                    trangThai: 1
+                };
+
+                $.ajax({
+                    url: "/DoanDuLich/CreateLoaiChiPhi",
+                    data: JSON.stringify(objLoaiChiPhi),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $('#ThemLoaiChiPhiModal').hide();
+                        swal({
+                            title: "Thêm thành công!",
+                            icon: "success",
+                            timer: 2000
+                        })
+
+                        LoadInfoBangChiPhi(_maSoDoan);
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+            }
+
+        }
+
+        function LoadDropdownKhachHang() {
+
+            //load dropdown
+            document.getElementById('dropdownKhachHang').options.length = 0; //clear dropdown
+
+            $('#dropdownKhachHang').append($('<option>', {
+                value: 0,
+                text: "-- Chọn khách hàng --"
+            }));
+            $.ajax({
+                url: "/KhachHang/GetListKhachHang",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $.each(result, function (index) {
+                        $('#dropdownKhachHang').append($('<option>', {
+                            value: result[index].maSoKhachHang,
+                            text: result[index].hoTenKhachHang
+                        }));
+                    })
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+
+        }
+
+        function LoadDropdownNhanVien() {
+            //load dropdown
+            document.getElementById('dropdownNhanVien').options.length = 0; //clear dropdown
+
+            $('#dropdownNhanVien').append($('<option>', {
+                value: 0,
+                text: "-- Chọn nhân viên --"
+            }));
+            $.ajax({
+                url: "/NhanVien/GetListNhanVien",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $.each(result, function (index) {
+                        $('#dropdownNhanVien').append($('<option>', {
+                            value: result[index].maNhanVien,
+                            text: result[index].tenNhanVien
+                        }));
+                    })
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+        }
+
+        function DangKyKhachHang() {
+            var _maSoDoan = @listResults[0].ID;
+            var _inputNgayDangKy = $('#inputNgayDangKy').val();
+            var _dropdownKhachHang = $('#dropdownKhachHang').val();
+
+
+            if (_inputNgayDangKy == '' || _dropdownKhachHang == 0) {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+
+                //get mã tour theo mã đoàn
+                $.ajax({
+                    url: "/DoanDuLich/GetOneDoan?maSoDoan=" + _maSoDoan,
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        var _maSoTour = result[0].maSoTour;
+                        //get idGiaTour từ mã tour
+                        $.ajax({
+                            url: "/Tour/GetOneTour?maSoTour=" + _maSoTour,
+                            type: "GET",
+                            contentType: "application/json;charset=utf-8",
+                            dataType: "json",
+                            success: function (result) {
+                                var _idGiaTour = result[0].idGiaTour;
+                                //get giaTour từ idGiaTour
+                                $.ajax({
+                                    url: "/Tour/GetOneGiaTour?idGiaTour=" + _idGiaTour,
+                                    type: "GET",
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        var _giaTourDangKy = result[0].gia;
+
+                                        //bắt đầu thêm
+                                        var objDangKy = {
+                                            maSoKhachHang: _dropdownKhachHang,
+                                            maTour: _maSoTour,
+                                            ngayDangKy: _inputNgayDangKy,
+                                            maSoDoan: _maSoDoan,
+                                            soLuongKhachHang: 1,
+                                            giaTourDangKy: _giaTourDangKy,
+                                            trangThai: 1
+                                        };
+
+                                        console.log(objDangKy);
+
+                                        $.ajax({
+                                            url: "/DoanDuLich/CreateDangKyKhachHang",
+                                            data: JSON.stringify(objDangKy),
+                                            type: "POST",
+                                            contentType: "application/json;charset=utf-8",
+                                            dataType: "json",
+                                            success: function (result) {
+                                                $('#DangKyKhachHangModal').hide();
+                                                swal({
+                                                    title: "Thêm thành công!",
+                                                    icon: "success",
+                                                    timer: 2000
+                                                })
+
+                                                window.setTimeout(function () { location.reload() }, 2000)
+                                            },
+                                            error: function (errorMessage) {
+                                                alert(errorMessage.responseText);
+                                            }
+                                        });
+
+                                        //Thêm số lượng khách hàng vào doandulich
+                                        var objDoan = {
+                                            maSoDoan: _maSoDoan,
+                                            soLuongKhachHang: 1,
+                                            trangThai: 1
+                                        };
+
+                                        console.log(objDoan);
+
+                                        $.ajax({
+                                            url: "/DoanDuLich/ThemSoLuongKhachHangDoan",
+                                            data: JSON.stringify(objDoan),
+                                            type: "POST",
+                                            contentType: "application/json;charset=utf-8",
+                                            dataType: "json",
+                                            success: function (result) {
+                                                console.log("Thêm thành công số lượng khách hàng vào doandulich");
+                                            },
+                                            error: function (errorMessage) {
+                                                alert(errorMessage.responseText);
+                                            }
+                                        });
+                                    },
+                                    error: function (errorMessage) {
+                                        alert(errorMessage.responseText);
+                                    }
+                                });
+                            },
+                            error: function (errorMessage) {
+                                alert(errorMessage.responseText);
+                            }
+                        });
+                    },
+                    error: function (errorMessage) {
+                        alert(errorMessage.responseText);
+                    }
+                });
+
+
+            }
+
+        }
+
+        function DangKyNhanVien() {
+            var _maSoDoan = @listResults[0].ID;
+            var _inputNgayBatDau = $('#inputNgayBatDau_NV').val();
+            var _inputNgayKetThuc = $('#inputNgayKetThuc_NV').val();
+            var _dropdownNhanVien = $('#dropdownNhanVien').val();
+
+
+            if (_inputNgayBatDau == '' || _inputNgayKetThuc == '' || _dropdownNhanVien == 0) {
+                swal({
+                    title: "Không được để trống!",
+                    text: "Vui lòng nhập đầy đủ thông tin!",
+                    icon: "warning",
+                    button: "Đóng",
+                });
+            } else {
+                if (_inputNgayBatDau > _inputNgayKetThuc) {
                     swal({
-                        title: "Thời gian bắt đầu phải NHỎ HƠN thời gian kết thúc!",
+                        title: "Ngày bắt đầu phải NHỎ HƠN ngày kết thúc!",
                         text: "Vui lòng nhập đúng thông tin!",
                         icon: "warning",
                         button: "Đóng",
                     });
                 } else {
 
-                    //bắt đầu thêm đoàn du lịch
-                    var objDoan = {
-                        maSoDoan: _maSoDoan,
-                        tenGoiDoan: _tenGoiDoan,
-                        chiTiet: _chiTietDoan,
-                        maSoTour: _dropdownTour,
-                        thoiGianKhoiHanh: _thoiGianBatDau,
-                        thoiGianKetThuc: _thoiGianKetThuc,
-                        trangThai: 1
-                    };
-
                     $.ajax({
-                        url: "/DoanDuLich/Update",
-                        data: JSON.stringify(objDoan),
-                        type: "POST",
+                        url: "/DoanDuLich/GetLatestDangKyNhanVien?maNhanVien=" + _dropdownNhanVien,
+                        type: "GET",
                         contentType: "application/json;charset=utf-8",
                         dataType: "json",
                         success: function (result) {
-                            $('#EditModal').modal('hide');
-                            swal({
-                                title: "Sửa thành công đoàn du lịch mã " + _maSoDoan + "!",
-                                icon: "success",
-                                timer: 2000
-                            })
-                            window.setTimeout(function () { location.reload() }, 2000)
+
+                            if (_inputNgayBatDau < FormatDateYMD(result.thoiGianKetThuc)) {
+                                swal({
+                                    title: "Nhân viên này đã tham gia đoàn khác trong khoảng thời gian này!",
+                                    text: "Vui lòng nhập nhân viên khác hoặc thay đổi ngày bắt đầu!",
+                                    icon: "warning",
+                                    button: "Đóng",
+                                });
+                            } else {
+                                //bắt đầu thêm
+                                var objThamGiaDoan = {
+                                    maNhanVien: _dropdownNhanVien,
+                                    maSoDoan: _maSoDoan,
+                                    thoiGianBatDau: _inputNgayBatDau,
+                                    thoiGianKetThuc: _inputNgayKetThuc,
+                                    trangThai: 1
+                                };
+
+                                $.ajax({
+                                    url: "/DoanDuLich/CreateDangKyNhanVien",
+                                    data: JSON.stringify(objThamGiaDoan),
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        $('#DangKyNhanVienModal').hide();
+                                        swal({
+                                            title: "Thêm thành công!",
+                                            icon: "success",
+                                            timer: 2000
+                                        })
+
+                                        window.setTimeout(function () { location.reload() }, 2000)
+                                    },
+                                    error: function (errorMessage) {
+                                        alert(errorMessage.responseText);
+                                    }
+                                });
+
+                                //Thêm số lượng nhân viên vào doandulich
+                                var objDoan = {
+                                    maSoDoan: _maSoDoan,
+                                    SoLuongNhanVien: 1,
+                                    trangThai: 1
+                                };
+
+                                $.ajax({
+                                    url: "/DoanDuLich/ThemSoLuongNhanVienDoan",
+                                    data: JSON.stringify(objDoan),
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        console.log("Thêm thành công số lượng nhân viên vào doandulich");
+                                    },
+                                    error: function (errorMessage) {
+                                        alert(errorMessage.responseText);
+                                    }
+                                });
+
+
+                            }
+
+
                         },
                         error: function (errorMessage) {
-                            alert(errorMessage.responseText);
+                            //trường hợp null list
+                            //bắt đầu thêm
+                            var objThamGiaDoan = {
+                                maNhanVien: _dropdownNhanVien,
+                                maSoDoan: _maSoDoan,
+                                thoiGianBatDau: _inputNgayBatDau,
+                                thoiGianKetThuc: _inputNgayKetThuc,
+                                trangThai: 1
+                            };
+
+                            $.ajax({
+                                url: "/DoanDuLich/CreateDangKyNhanVien",
+                                data: JSON.stringify(objThamGiaDoan),
+                                type: "POST",
+                                contentType: "application/json;charset=utf-8",
+                                dataType: "json",
+                                success: function (result) {
+                                    $('#DangKyNhanVienModal').hide();
+                                    swal({
+                                        title: "Thêm thành công!",
+                                        icon: "success",
+                                        timer: 2000
+                                    })
+
+                                    window.setTimeout(function () { location.reload() }, 2000)
+                                },
+                                error: function (errorMessage) {
+                                    alert(errorMessage.responseText);
+                                }
+                            });
+
+                            //Thêm số lượng nhân viên vào doandulich
+                            var objDoan = {
+                                maSoDoan: _maSoDoan,
+                                SoLuongNhanVien: 1,
+                                trangThai: 1
+                            };
+
+                            $.ajax({
+                                url: "/DoanDuLich/ThemSoLuongNhanVienDoan",
+                                data: JSON.stringify(objDoan),
+                                type: "POST",
+                                contentType: "application/json;charset=utf-8",
+                                dataType: "json",
+                                success: function (result) {
+                                    console.log("Thêm thành công số lượng nhân viên vào doandulich");
+                                },
+                                error: function (errorMessage) {
+                                    alert(errorMessage.responseText);
+                                }
+                            });
+
+
                         }
                     });
+
+
                 }
 
             }
-        }
-
-        //Truyền data id vào modal (đang lỗi convert date + các địa điểm tham quan)
-        function GetIDUpdate(maSoDoan) {
-
-            $('#inputMaSoDoan_Edit').val(maSoDoan);
-            var _maSoDoan = maSoDoan;
-
-            $.ajax({
-                url: "/DoanDuLich/GetOneDoan?maSoDoan=" + _maSoDoan,
-                type: "GET",
-                contentType: "application/json; charset=UTF-8",
-                dataType: "json",
-                success: function (result) {
-                    $('#inputTenGoiDoan_Edit').val(result[0].tenGoiDoan);
-                    $('#inputChiTietDoan_Edit').val(result[0].chiTiet);
-                    $('#inputThoiGianBatDau_Edit').val(FormatDateYMD(result[0].thoiGianKhoiHanh));
-                    $('#inputThoiGianKetThuc_Edit').val(FormatDateYMD(result[0].thoiGianKetThuc));
-                    $('#dropdownTour_Edit').val(result[0].maSoTour);
-
-                    RangBuocThoiGianTheoTour_UpdateModal(result[0].maSoTour);
-
-                },
-                error: function (errorMessage) {
-                    alert(errorMessage.responseText);
-                }
-            });
 
         }
 
-        function GetIDDelete(maSoDoan) {
-            $('#maSoDoanDeleteModal').html(maSoDoan);
+        //xóa đăng ký khách hàng
+        function GetIDDangKyKH(maThamGia) {
+            $('#maDangKyKHDeleteModal').html(maThamGia);
         }
 
-        function Delete() {
-            var _maSoDoan = $('#maSoDoanDeleteModal').html();
+        function XoaDangKyKhachHang() {
+            var _maSoDoan = @listResults[0].ID;
+            var _maDangKy = $('#maDangKyKHDeleteModal').html();
 
             var postData = {
-                maSoDoan: _maSoDoan
+                maDangKy: _maDangKy
             };
 
             $.ajax({
-                url: "/DoanDuLich/Delete",
+                url: "/DoanDuLich/DeleteDangKyKH",
                 data: JSON.stringify(postData),
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (result) {
-                    $('#DeleteModal').modal('hide');
+                    $('#XoaDangKyKHModal').modal('hide');
                     swal({
-                        title: "Xóa thành công đoàn du lịch mã " + _maSoDoan + "!",
+                        title: "Xóa thành công đăng ký khách mã " + _maDangKy + "!",
                         icon: "success",
                         timer: 2500
                     })
-                    window.setTimeout(function () { location.reload() }, 2500)
+                    window.setTimeout(function () { location.reload() }, 2000)
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            //Giảm số lượng khách hàng doandulich
+            var objDoan = {
+                maSoDoan: _maSoDoan,
+                soLuongKhachHang: 1,
+                trangThai: 1
+            };
+
+            $.ajax({
+                url: "/DoanDuLich/GiamSoLuongKhachHangDoan",
+                data: JSON.stringify(objDoan),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    console.log("Giảm thành công số lượng khách hàng vào doandulich");
                 },
                 error: function (errorMessage) {
                     alert(errorMessage.responseText);
@@ -580,6 +927,96 @@
 
         }
 
+        //xóa đăng ký nhân viên
+        function GetIDDangKyNV(maThamGia) {
+            $('#maDangKyNVDeleteModal').html(maThamGia);
+        }
+
+        function XoaDangKyNhanVien() {
+            var _maSoDoan = @listResults[0].ID;
+            var _maDangKy = $('#maDangKyNVDeleteModal').html();
+
+            var postData = {
+                maDangKy: _maDangKy
+            };
+
+            $.ajax({
+                url: "/DoanDuLich/DeleteDangKyNV",
+                data: JSON.stringify(postData),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#XoaDangKyNVModal').modal('hide');
+                    swal({
+                        title: "Xóa thành công đăng ký nhân viên mã " + _maDangKy + "!",
+                        icon: "success",
+                        timer: 2500
+                    })
+                    window.setTimeout(function () { location.reload() }, 2000)
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            //Giảm số lượng nhân viên doandulich
+            var objDoan = {
+                maSoDoan: _maSoDoan,
+                SoLuongNhanVien: 1,
+                trangThai: 1
+            };
+
+            $.ajax({
+                url: "/DoanDuLich/GiamSoLuongNhanVienDoan",
+                data: JSON.stringify(objDoan),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    console.log("Giảm thành công số lượng nhân viên vào doandulich");
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+        }
+
+
+        function GetIDDelete(maChiPhi) {
+            $('#maChiPhiDeleteModal').html(maChiPhi);
+        }
+
+        function XoaChiPhi() {
+            var _maSoDoan = $('#inputMaSoDoan').val();
+            var _maChiPhi = $('#maChiPhiDeleteModal').html();
+
+            var postData = {
+                maChiPhi: _maChiPhi
+            };
+
+            $.ajax({
+                url: "/DoanDuLich/DeleteChiPhi",
+                data: JSON.stringify(postData),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    $('#XoaChiPhiModal').modal('hide');
+                    swal({
+                        title: "Xóa thành công chi phí mã " + _maChiPhi + "!",
+                        icon: "success",
+                        timer: 2500
+                    })
+                    LoadBangDanhSachChiPhi(_maSoDoan);
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+        }
 
         function CheckNumberGia(strCheck) {
             var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
@@ -589,7 +1026,6 @@
             return false;
         }
 
-
         //Hàm convert date bang gia
         function FormatDate(inputDate) {
             var str, year, month, day, d, finalDate;
@@ -598,7 +1034,7 @@
             d = new Date(parseInt(str));
 
             year = d.getFullYear();
-            month = d.getMonth()+1;
+            month = d.getMonth() + 1;
             day = d.getDate();
 
             finalDate = day + "-" + month + "-" + year;
@@ -613,7 +1049,28 @@
             d = new Date(parseInt(str));
 
             year = d.getFullYear();
-            month = d.getMonth()+1;
+            month = d.getMonth() + 1;
+            day = d.getDate();
+            if (day < 10) {
+                day = "0" + day;
+            }
+            if (month < 10) {
+                month = "0" + month;
+            }
+
+            finalDate = year + "-" + month + "-" + day;
+
+            return finalDate;
+        }
+
+        function FormatDateYMD2(inputDate) {
+            var str, year, month, day, d, finalDate;
+
+            //str = inputDate.replace(/\D/g, "");
+            d = new Date(inputDate);
+
+            year = d.getFullYear();
+            month = d.getMonth() + 1;
             day = d.getDate();
             if (day < 10) {
                 day = "0" + day;
