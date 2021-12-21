@@ -158,6 +158,36 @@ namespace DAO
 
         }
 
+        public bool SuaTour2(tour objTour, int maSoTour)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                try
+                {
+                    tour objTourOld = tourdulich.tours.Where(t => t.maSoTour == maSoTour).SingleOrDefault();
+                    objTourOld.tenGoiTour = objTour.tenGoiTour;
+                    objTourOld.dacDiem = objTour.dacDiem;
+                    objTourOld.maLoaiHinhDuLich = objTour.maLoaiHinhDuLich;
+                    objTourOld.thoiGianBatDau = objTour.thoiGianBatDau;
+                    objTourOld.thoiGianKetThuc = objTour.thoiGianKetThuc;
+                    //objTourOld.maDiaDiemDen = objTour.maDiaDiemDen;  //không sửa ma dia diem
+                    //objTourOld.idGiaTour = objTour.idGiaTour; //không sửa id giá tour
+                    objTourOld.trangThai = objTour.trangThai;
+
+                    tourdulich.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return false;
+                }
+
+
+            }
+
+        }
+
         public bool SuaGiaTour(tour objTour, int maSoTour)
         {
             using (tourdulich = new tourdulichEntities())

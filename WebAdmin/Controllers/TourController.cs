@@ -13,6 +13,7 @@ namespace WebAdmin.Controllers
     
         D_tour d_tour = new D_tour();
         D_giatour d_giatour = new D_giatour();
+        D_diadiemden d_diadiem = new D_diadiemden();
         // GET: Tour
         public ActionResult Index()
         {
@@ -67,7 +68,7 @@ namespace WebAdmin.Controllers
         [Route("Update")]
         public JsonResult Update(tour objTour, int maSoTour)
         {
-            return Json(d_tour.SuaTour(objTour, maSoTour), JsonRequestBehavior.AllowGet);
+            return Json(d_tour.SuaTour2(objTour, maSoTour), JsonRequestBehavior.AllowGet);
 
         }
 
@@ -110,6 +111,15 @@ namespace WebAdmin.Controllers
         {
             var getTour = d_tour.SuaGiaTour(objTour, maSoTour);
             return Json(getTour, JsonRequestBehavior.AllowGet);
+        }
+
+        //diadiemtour
+        [HttpGet]
+        [Route("GetDiaDiemTour")]
+        public JsonResult GetDiaDiemTour(int maSoTour)
+        {
+            var get = d_diadiem.GetListOneDiaDiemTour(maSoTour);
+            return Json(get, JsonRequestBehavior.AllowGet);
         }
 
 

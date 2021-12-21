@@ -208,11 +208,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Địa điểm</label>
-                                    <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen_Edit" style="border-color: #6e6e6f;">
+                                    <select class="form-select" aria-label="Default select example" id="dropdownDiaDiemDen_Edit" style="border-color: #6e6e6f;" >
                                         <option value="0" selected>--Chọn địa điểm đến --</option>
                                     </select>
                                 </div>
-                                <div class="mb-3" style="border: 1px solid #6e6e6f; padding: 5px; border-radius: 5px;" id="listDiaDiemThamQuan_Edit">
+                                <div class="mb-3" style="border: 1px solid #6e6e6f; padding: 5px; border-radius: 5px;" id="listDiaDiemThamQuan_Edit" >
 
                                 </div>
                             </div>
@@ -642,14 +642,19 @@
             }
         }
 
-        //(đang lỗi)
+        //(không update được địa điểm)
         function Update() {
-            var _maDiaDiemDen = $('#inputMaDiaDiemDenEdit').val();
+            var _maSoTour = $('#inputMaSoTour_Edit').val();
 
-            var _tenDiaDiemDen = $('#inputTenDiaDiemDenEdit').val();
-
-
-            if (_tenDiaDiemDen == '') {
+            var _tenGoiTour = $('#inputTenGoiTour_Edit').val();
+            var _dacDiemTour = $('#inputDacDiemTour_Edit').val();
+            var _thoiGianBatDau = $('#inputThoiGianBatDau_Edit').val();
+            var _thoiGianKetThuc = $('#inputThoiGianKetThuc_Edit').val();
+            var _dropdownLoaiHinhDuLich = $('#dropdownLoaiHinhDuLich_Edit').val(); //nếu =0 thì chưa chọn
+            
+            if (_tenGoiTour == '' || _dacDiemTour == '' ||
+                _thoiGianBatDau == '' || _thoiGianKetThuc == '' ||
+                _dropdownLoaiHinhDuLich == 0 ) {
                 swal({
                     title: "Không được để trống!",
                     text: "Vui lòng nhập đầy đủ thông tin!",
@@ -657,30 +662,48 @@
                     button: "Đóng",
                 });
             } else {
-                var objDiaDiemDen = {
-                    maDiaDiemDen: _maDiaDiemDen,
-                    tenDiaDiemDen: _tenDiaDiemDen,
-                    trangThai: 1
-                };
-                $.ajax({
-                    url: "/DiaDiem/Update",
-                    data: JSON.stringify(objDiaDiemDen),
-                    type: "POST",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "json",
-                    success: function (result) {
-                        $('#EditModal').modal('hide');
-                        swal({
-                            title: "Sửa thành công địa điểm mã " + _maDiaDiemDen + "!",
-                            icon: "success",
-                            timer: 2500
-                        })
-                        window.setTimeout(function () { location.reload() }, 2500)
-                    },
-                    error: function (errorMessage) {
-                        alert(errorMessage.responseText);
-                    }
-                });
+                if (_thoiGianBatDau > _thoiGianKetThuc) {
+                    swal({
+                        title: "Thời gian bắt đầu phải NHỎ HƠN thời gian kết thúc!",
+                        text: "Vui lòng nhập đúng thông tin!",
+                        icon: "warning",
+                        button: "Đóng",
+                    });
+                } else {
+                    
+                    //Sửa tour
+                    var objTour = {
+                        maSoTour: _maSoTour,
+                        tenGoiTour: _tenGoiTour,
+                        dacDiem: _dacDiemTour,
+                        maLoaiHinhDuLich: _dropdownLoaiHinhDuLich,
+                        thoiGianBatDau: _thoiGianBatDau,
+                        thoiGianKetThuc: _thoiGianKetThuc,
+                        trangThai: 1
+                    };
+
+
+                    $.ajax({
+                        url: "/Tour/Update",
+                        data: JSON.stringify(objTour),
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            $('#EditModal').modal('hide');
+                            swal({
+                                title: "Sửa thành công!",
+                                icon: "success",
+                                timer: 2000
+                            })
+                            window.setTimeout(function () { location.reload() }, 2000)
+                        },
+                        error: function (errorMessage) {
+                            alert(errorMessage.responseText);
+                        }
+                    });
+                }
+
             }
         }
 
@@ -697,6 +720,7 @@
                 type: "GET",
                 contentType: "application/json; charset=UTF-8",
                 dataType: "json",
+                async: false,
                 success: function (result) {
                     $('#inputTenGoiTour_Edit').val(result[0].tenGoiTour);
                     $('#inputDacDiemTour_Edit').val(result[0].dacDiem);
@@ -706,6 +730,8 @@
                     //console.log(moment(new Date(1639074900000)).format('yyyy-MM-ddThh:mm'));
                     $('#inputThoiGianBatDau_Edit').val(FormatDateYMD(result[0].thoiGianBatDau));
                     $('#inputThoiGianKetThuc_Edit').val(FormatDateYMD(result[0].thoiGianKetThuc));
+
+                   
                 },
                 error: function (errorMessage) {
                     alert(errorMessage.responseText);
@@ -800,6 +826,7 @@
                 type: "GET",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
+                async: false,
                 success: function (result) {
                     var _idGiaTour = result[0].idGiaTour;
                     console.log(_idGiaTour);
@@ -823,6 +850,7 @@
                 type: "GET",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
+                async: false,
                 success: function (result) {
                     $.each(result, function (index) {
                         $('#tableBangGia tbody').append($('<tr><td><input class="form-check-input" type="radio" name="checkBoxGia" value="' + result[index].id + '" id="flexCheckDefault"></td><td>' + result[index].id + '</td><td>' + String(result[index].gia).replace(/(.)(?=(\d{3})+$)/g, '$1,') + '</td><td>' + result[index].dieuKien + '</td><td>' + FormatDate(result[index].ngayThem) + '</td></tr>'));

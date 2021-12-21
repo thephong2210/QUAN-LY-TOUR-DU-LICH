@@ -166,7 +166,32 @@ namespace DAO
         }
 
 
+        //thống kê
 
+        public List<dynamic> GetDoanhSoMoiThangCuaNam(int yearValue)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                
+                var getListDangKy = (from tbDangKy in tourdulich.dangkies
+                                     where tbDangKy.trangThai == 1
+                                     group tbDangKy by new
+                                     {
+                                         Year = yearValue,
+                                         Month = tbDangKy.ngayDangKy.Month
+                                     } into g
+                                     select new
+                                     {
+                                        MonthAndYear = g.Key.Year + "-" + g.Key.Month,
+                                        Total = g.Sum(t=>t.giaTourDangKy)
+                                     });
+
+                return getListDangKy.ToList<dynamic>();
+
+            }
+        }
+
+        
 
 
     }
