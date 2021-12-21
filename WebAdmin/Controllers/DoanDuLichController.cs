@@ -40,6 +40,14 @@ namespace WebAdmin.Controllers
             return Json(getDoan, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [Route("GetAllDoan")]
+        public JsonResult GetAllDoan()
+        {
+            var getDoan = d_doan.GetAllDoan();
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Details(int maSoDoan)
         {
             

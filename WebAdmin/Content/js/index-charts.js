@@ -206,10 +206,6 @@ var barChartConfig = {
 
 
 
-
-
-
-
 // Generate charts on load
 window.addEventListener('load', function(){
 	

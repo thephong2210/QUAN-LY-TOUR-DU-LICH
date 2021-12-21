@@ -627,75 +627,84 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
                             success: function (result) {
                                 var _idGiaTour = result[0].idGiaTour;
                                 //get giaTour từ idGiaTour
-                                $.ajax({
-                                    url: "/Tour/GetOneGiaTour?idGiaTour=" + _idGiaTour,
-                                    type: "GET",
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: "json",
-                                    success: function (result) {
-                                        var _giaTourDangKy = result[0].gia;
+                                if (_idGiaTour == null) {
+                                    swal({
+                                        title: "Vui lòng áp dụng một giá cho tour trước!",
+                                        text: "Chuyển sang quản lý tour để áp dụng giá!",
+                                        icon: "warning",
+                                        button: "Đóng",
+                                    });
+                                } else {
+                                    $.ajax({
+                                        url: "/Tour/GetOneGiaTour?idGiaTour=" + _idGiaTour,
+                                        type: "GET",
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: "json",
+                                        success: function (result) {
+                                            var _giaTourDangKy = result[0].gia;
 
-                                        //bắt đầu thêm
-                                        var objDangKy = {
-                                            maSoKhachHang: _dropdownKhachHang,
-                                            maTour: _maSoTour,
-                                            ngayDangKy: _inputNgayDangKy,
-                                            maSoDoan: _maSoDoan,
-                                            soLuongKhachHang: 1,
-                                            giaTourDangKy: _giaTourDangKy,
-                                            trangThai: 1
-                                        };
+                                            //bắt đầu thêm
+                                            var objDangKy = {
+                                                maSoKhachHang: _dropdownKhachHang,
+                                                maTour: _maSoTour,
+                                                ngayDangKy: _inputNgayDangKy,
+                                                maSoDoan: _maSoDoan,
+                                                soLuongKhachHang: 1,
+                                                giaTourDangKy: _giaTourDangKy,
+                                                trangThai: 1
+                                            };
 
-                                        console.log(objDangKy);
+                                            console.log(objDangKy);
 
-                                        $.ajax({
-                                            url: "/DoanDuLich/CreateDangKyKhachHang",
-                                            data: JSON.stringify(objDangKy),
-                                            type: "POST",
-                                            contentType: "application/json;charset=utf-8",
-                                            dataType: "json",
-                                            success: function (result) {
-                                                $('#DangKyKhachHangModal').hide();
-                                                swal({
-                                                    title: "Thêm thành công!",
-                                                    icon: "success",
-                                                    timer: 2000
-                                                })
+                                            $.ajax({
+                                                url: "/DoanDuLich/CreateDangKyKhachHang",
+                                                data: JSON.stringify(objDangKy),
+                                                type: "POST",
+                                                contentType: "application/json;charset=utf-8",
+                                                dataType: "json",
+                                                success: function (result) {
+                                                    $('#DangKyKhachHangModal').hide();
+                                                    swal({
+                                                        title: "Thêm thành công!",
+                                                        icon: "success",
+                                                        timer: 2000
+                                                    })
 
-                                                window.setTimeout(function () { location.reload() }, 2000)
-                                            },
-                                            error: function (errorMessage) {
-                                                alert(errorMessage.responseText);
-                                            }
-                                        });
+                                                    window.setTimeout(function () { location.reload() }, 2000)
+                                                },
+                                                error: function (errorMessage) {
+                                                    alert(errorMessage.responseText);
+                                                }
+                                            });
 
-                                        //Thêm số lượng khách hàng vào doandulich
-                                        var objDoan = {
-                                            maSoDoan: _maSoDoan,
-                                            soLuongKhachHang: 1,
-                                            trangThai: 1
-                                        };
+                                            //Thêm số lượng khách hàng vào doandulich
+                                            var objDoan = {
+                                                maSoDoan: _maSoDoan,
+                                                soLuongKhachHang: 1,
+                                                trangThai: 1
+                                            };
 
-                                        console.log(objDoan);
+                                            console.log(objDoan);
 
-                                        $.ajax({
-                                            url: "/DoanDuLich/ThemSoLuongKhachHangDoan",
-                                            data: JSON.stringify(objDoan),
-                                            type: "POST",
-                                            contentType: "application/json;charset=utf-8",
-                                            dataType: "json",
-                                            success: function (result) {
-                                                console.log("Thêm thành công số lượng khách hàng vào doandulich");
-                                            },
-                                            error: function (errorMessage) {
-                                                alert(errorMessage.responseText);
-                                            }
-                                        });
-                                    },
-                                    error: function (errorMessage) {
-                                        alert(errorMessage.responseText);
-                                    }
-                                });
+                                            $.ajax({
+                                                url: "/DoanDuLich/ThemSoLuongKhachHangDoan",
+                                                data: JSON.stringify(objDoan),
+                                                type: "POST",
+                                                contentType: "application/json;charset=utf-8",
+                                                dataType: "json",
+                                                success: function (result) {
+                                                    console.log("Thêm thành công số lượng khách hàng vào doandulich");
+                                                },
+                                                error: function (errorMessage) {
+                                                    alert(errorMessage.responseText);
+                                                }
+                                            });
+                                        },
+                                        error: function (errorMessage) {
+                                            alert(errorMessage.responseText);
+                                        }
+                                    });
+                                }
                             },
                             error: function (errorMessage) {
                                 alert(errorMessage.responseText);
@@ -984,10 +993,11 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
         }
 
 
-        function GetIDDelete(maChiPhi) {
+        function GetMaChiPhiDelete(maChiPhi) {
             $('#maChiPhiDeleteModal').html(maChiPhi);
         }
 
+      
         function XoaChiPhi() {
             var _maSoDoan = $('#inputMaSoDoan').val();
             var _maChiPhi = $('#maChiPhiDeleteModal').html();
