@@ -60,6 +60,7 @@
                                             <th class="cell">Mã nhân viên</th>
                                             <th class="cell">Tên nhân viên</th>
                                             <th class="cell">Nhiệm vụ</th>
+                                            <th class="cell">Số lần tham gia</th>
                                             <th class="cell"></th>
                                         </tr>
                                     </thead>
@@ -71,9 +72,37 @@
                                                 <td class="cell"><span class="truncate">@item.tenNhanVien</span></td>
                                                 <td class="cell">@item.nhiemVu</td>
                                                 <td class="cell">
+                                                    <script>
+                                                        $.ajax({
+                                                            url: "/TongQuan/GetSoLanDiTourNhanVien",
+                                                            type: "GET",
+                                                            data: {numberLimit: 50},
+                                                            contentType: "application/json; charset=UTF-8",
+                                                            dataType: "json",
+                                                            async: false,
+                                                            success: function (result) {
+                                                                $.each(result, function (index) {
+                                                                    var maNhanVienResult = result[index].maNhanVien;
+                                                                    var soLanThamGia = result[index].soLanDiTour;
+
+                                                                    if (@item.maNhanVien == maNhanVienResult) {
+                                                                        document.write(soLanThamGia);
+                                                                    }
+                                                                });
+
+                                                            },
+                                                            error: function (errorMessage) {
+                                                                alert(errorMessage.responseText);
+                                                            }
+                                                        });
+
+                                                    </script>
+                                                </td>
+                                                <td class="cell">
                                                     <!--<a class="btn btn-secondary" href="#"><i class="fas fa-eye"></i> Xem</a>*-->
                                                     <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.maNhanVien)"><i class="fas fa-pencil-alt"></i> Sửa</a>
                                                     <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.maNhanVien)"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                                    <a class="btn btn-dark" style="color: white;background: teal;" data-bs-toggle="modal" data-bs-target="#ListDoanModal" onclick="GetIDListDoan(@item.maNhanVien)"> Danh sách đoàn tham gia</a>
                                                 </td>
                                             </tr>
                                         }
@@ -179,11 +208,59 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <span>Bạn có chắc muốn xóa nhân viên mã <span id="maNhanVienDeleteModal" style="font-weight: 500;" ></span> không?</span>
+                    <span>Bạn có chắc muốn xóa nhân viên mã <span id="maNhanVienDeleteModal" style="font-weight: 500;"></span> không?</span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="btnDelete" onclick="Delete()" style="color: white;">Xóa</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ListDoan -->
+    <div class="modal fade" id="ListDoanModal" tabindex="-1" aria-labelledby="ListDoanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Danh sách đoàn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <div class="settings-form">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Mã nhân viên</label>
+                                    <input type="text" class="form-control" style="border-color: #6e6e6f;" id="inputMaNhanVien_ModalListDoan" placeholder="Nhập mã nhân viên..." required readonly />
+                                </div>
+                                <div style="background-color: #000000; height: 1px; width: 100%;margin-top: 20px;"></div>
+                                <div class="mb-3">
+                                    <h6 style="text-align: center; margin-top: 10px;">Danh sách đoàn đã tham gia</h6>
+                                    <table class="table table-hover" id="tableListDoan">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Mã đoàn</th>
+                                                <th scope="col">Tên đoàn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -295,6 +372,58 @@
             $('#maNhanVienDeleteModal').html(maNhanVien);
         }
 
+        function GetIDListDoan(maNhanVien) {
+            $('#tableListDoan tbody tr').remove();
+
+            $('#inputMaNhanVien_ModalListDoan').val(maNhanVien);
+            var _maNhanVien = maNhanVien;
+
+            $.ajax({
+                url: "/DoanDuLich/GetListThamGiaQuaMaNhanVien?maNhanVien=" + _maNhanVien,
+                type: "GET",
+                contentType: "application/json; charset=UTF-8",
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    $.each(result, function (index) {
+                        var _maSoDoanNV = result[index].maSoDoan;
+
+                        $.ajax({
+                            url: "/DoanDuLich/GetAllDoan",
+                            type: "GET",
+                            contentType: "application/json; charset=UTF-8",
+                            dataType: "json",
+                            async: false,
+                            success: function (resultAll) {
+                                $.each(resultAll, function (index) {
+                                    var _maSoDoanAll = resultAll[index].maSoDoan;
+                                    var _tenGoiDoanAll = resultAll[index].tenGoiDoan;
+
+                                    if (_maSoDoanNV == _maSoDoanAll) {
+                                        $('#tableListDoan tbody').append($('<tr><td>' + _maSoDoanAll + '</td><td>' + _tenGoiDoanAll + '</td></tr>'));
+                                    }
+
+                                })
+
+                            },
+                            error: function (errorMessage) {
+                                alert(errorMessage.responseText);
+                            }
+                        });
+
+                    })
+
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+
+
+        }
+
+
         function Delete() {
             var _maNhanVien = $('#maNhanVienDeleteModal').html();
 
@@ -303,7 +432,7 @@
             var postData = {
                 maNhanVien: _maNhanVien
             };
-          
+
             $.ajax({
                 url: "/NhanVien/Delete",
                 data: JSON.stringify(postData),

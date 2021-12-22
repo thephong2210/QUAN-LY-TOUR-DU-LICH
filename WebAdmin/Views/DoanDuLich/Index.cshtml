@@ -1,7 +1,11 @@
-﻿@{
+﻿@using DAO
+@{
     ViewBag.Title = "Đoàn du lịch";
 
     List<DoanView> listResults = ViewBag.listTemp;
+
+    List<ChiPhiAllDoanModel> listChiPhiAllDoan = ViewBag.listChiPhiAllDoan;
+    List<DoanhSoDangKyAllDoan> listTotalGiaVeAllDoan = ViewBag.listTotalGiaVeAllDoan;
 }
 
 <div class="app-wrapper">
@@ -62,25 +66,56 @@
                                             <th class="cell">Chi tiết</th>
                                             <th class="cell">Thời gian bắt đầu</th>
                                             <th class="cell">Thời gian kết thúc</th>
+                                            <th class="cell">Tổng doanh thu (đ)</th>
                                             <th class="cell"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in listResults.OrderByDescending(t => t.ID))
                                         {
-                                            <tr>
-                                                <td class="cell">@item.ID</td>
-                                                <td class="cell"><span class="truncate">@item.TenDoan</span></td>
-                                                <td class="cell">@item.TenTour</td>
-                                                <td class="cell">@item.chitiet</td>
-                                                <td class="cell"><span>@item.thoiGianKhoiHanh</span></td>
-                                                <td class="cell"><span>@item.thoiGianKetThuc</span></td>
-                                                <td class="cell">
-                                                    <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.ID)"><i class="fas fa-pencil-alt"></i> Sửa</a>
-                                                    <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.ID)"><i class="fas fa-trash-alt"></i> Xóa</a>
-                                                    <a class="btn btn-secondary" style="color: white; margin-top: 5px;"  id="xemChiTietButton" href="/DoanDuLich/Details?maSoDoan=@item.ID" ><i class="fas fa-eye"></i> Xem chi tiết</a>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td class="cell">@item.ID</td>
+                                            <td class="cell"><span class="truncate">@item.TenDoan</span></td>
+                                            <td class="cell">@item.TenTour</td>
+                                            <td class="cell">@item.chitiet</td>
+                                            <td class="cell"><span>@item.thoiGianKhoiHanh</span></td>
+                                            <td class="cell"><span>@item.thoiGianKetThuc</span></td>
+
+                                            <td class="cell">
+                                                <span>
+                                                    @foreach (var itemGiaVe in listTotalGiaVeAllDoan)
+                                                    {
+                                                        double calcDoanhThu = 0;
+                                                        //var calcGiaVe = 0;
+                                                        foreach (var itemChiPhi in listChiPhiAllDoan)
+                                                        {
+                                                            if (itemGiaVe.maSoDoan == item.ID)
+                                                            {
+                                                                if (itemGiaVe.maSoDoan == itemChiPhi.maSoDoan)
+                                                                {
+                                                                    calcDoanhThu = itemGiaVe.totalGiaVe - itemChiPhi.totalChiPhi;
+                                                                }
+
+                                                            }
+
+                                                        }
+
+                                                        if (calcDoanhThu != 0)
+                                                        {
+                                                            @Html.Raw(Convert.ToDecimal(calcDoanhThu).ToString("#,##0"));
+                                                        }
+
+
+                                                    }
+                                                </span>
+                                            </td>
+
+                                            <td class="cell">
+                                                <a class="btn btn-warning" style="color: white;" data-bs-toggle="modal" data-bs-target="#EditModal" onclick="GetIDUpdate(@item.ID)"><i class="fas fa-pencil-alt"></i> Sửa</a>
+                                                <a class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#DeleteModal" id="deleteButton" onclick="GetIDDelete(@item.ID)"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                                <a class="btn btn-secondary" style="color: white; margin-top: 5px;" id="xemChiTietButton" href="/DoanDuLich/Details?maSoDoan=@item.ID"><i class="fas fa-eye"></i> Xem chi tiết</a>
+                                            </td>
+                                        </tr>
                                         }
 
                                     </tbody>
@@ -542,9 +577,90 @@
             $('#maSoDoanDeleteModal').html(maSoDoan);
         }
 
+        
+        //change trangThai chi phí của đoàn đã xóa sang 0
+        $.ajax({
+            url: "/DoanDuLich/GetBangChiPhi",
+            data: { maSoDoan: 7012 },
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //console.log(result);
+                $.each(result, function (index) {
+                    console.log(result[index].maChiPhi);
+                //    var maSoDoanCP = result[index].maSoDoan;
+                //    var _maChiPhi = result[index].maChiPhi;
+                //    if (maSoDoanCP == _maSoDoan) {
+
+                //        $.ajax({
+                //            url: "/DoanDuLich/DeleteChiPhi",
+                //            data: { maChiPhi: _maChiPhi },
+                //            type: "POST",
+                //            contentType: "application/json;charset=utf-8",
+                //            dataType: "json",
+                //            success: function (result) {
+                //                console.log("Xóa chi phí của đoàn thành công!");
+                //            },
+                //            error: function (errorMessage) {
+                //                alert(errorMessage.responseText);
+                //            }
+                //        });
+                //    }
+
+                });
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        });
+
         function Delete() {
             var _maSoDoan = $('#maSoDoanDeleteModal').html();
 
+            //change trangThai chi phí của đoàn đã xóa sang 0
+            
+            $.ajax({
+                url: "/DoanDuLich/GetBangChiPhi",
+                data: { maSoDoan: _maSoDoan },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    console.log(result);
+                    $.each(result, function (index) {
+                        var maSoDoanCP = result[index].maSoDoan;
+                        var maChiPhiCP = result[index].maChiPhi;
+                        if (maSoDoanCP == _maSoDoan) {
+                           
+                            var postDataCP = {
+                                maChiPhi: maChiPhiCP
+                            };
+
+                            $.ajax({
+                                url: "/DoanDuLich/DeleteChiPhi",
+                                data: JSON.stringify(postDataCP),
+                                type: "POST",
+                                contentType: "application/json;charset=utf-8",
+                                dataType: "json",
+                                success: function (result) {
+                                    console.log("Xóa chi phí của đoàn thành công!");
+                                },
+                                error: function (errorMessage) {
+                                    alert(errorMessage.responseText);
+                                }
+                            });
+                        }
+
+                    });
+                },
+                error: function (errorMessage) {
+                    alert(errorMessage.responseText);
+                }
+            });
+
+            //xoa doan
             var postData = {
                 maSoDoan: _maSoDoan
             };
@@ -568,6 +684,8 @@
                     alert(errorMessage.responseText);
                 }
             });
+
+            
 
         }
 

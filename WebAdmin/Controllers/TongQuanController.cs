@@ -84,6 +84,8 @@ namespace WebAdmin.Controllers
 
             ViewBag.tongDoanhThuThang = tongDoanhThuThang;
 
+            
+
 
             return View();
         }
@@ -106,6 +108,62 @@ namespace WebAdmin.Controllers
 
             return Json(get, JsonRequestBehavior.AllowGet);
         }
+
+
+        [HttpGet]
+        [Route("TopTourDangKyNhieu")]
+        public JsonResult TopTourDangKyNhieu(int topNumber)
+        {
+            var get = d_dangky.TopTourDangKyNhieu(topNumber);
+
+            return Json(get, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("GetSoLuongDoan")]
+        public JsonResult GetSoLuongDoan()
+        {
+            var get = d_dangky.GetSoLuongDoan();
+
+            return Json(get, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        [Route("GetDoanhSoDangKyAllTour")]
+        public JsonResult GetDoanhSoDangKyAllTour(int numberLimit)
+        {
+            var get = d_dangky.GetDoanhSoDangKyAllTour(numberLimit);
+
+            return Json(get, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        [Route("GetChiPhiAllDoan")]
+        public JsonResult GetChiPhiAllDoan()
+        {
+            var get = d_dangky.GetChiPhiAllDoan().GroupBy(t=>t.maSoTour)
+                                                .Select(t=> new ChiPhiAllDoanModel {
+                                                        maSoDoan = t.First().maSoDoan,
+                                                        maSoTour = t.First().maSoTour,
+                                                        totalChiPhi = t.Sum(c=>c.totalChiPhi)
+                                                });
+
+            return Json(get, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        [Route("GetSoLanDiTourNhanVien")]
+        public JsonResult GetSoLanDiTourNhanVien(int numberLimit)
+        {
+            var get = d_dangky.GetSoLanDiTourNhanVien(numberLimit);
+
+            return Json(get, JsonRequestBehavior.AllowGet);
+        }
+
+
 
 
 

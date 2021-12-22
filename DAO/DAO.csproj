@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoanhSoDangKyAllDoan.cs" />
+    <Compile Include="DoanhSoDangKyAllTour.cs" />
+    <Compile Include="ChiPhiAllDoanModel.cs" />
     <Compile Include="D_dangkynhanvien.cs" />
     <Compile Include="D_DangKy.cs" />
     <Compile Include="chiphi.cs">
