@@ -752,7 +752,7 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
                         dataType: "json",
                         success: function (result) {
 
-                            if (_inputNgayBatDau < FormatDateYMD(result.thoiGianKetThuc)) {
+                            if ((_inputNgayBatDau < FormatDateYMD(result.thoiGianKetThuc)) && (_inputNgayKetThuc > FormatDateYMD(result.thoiGianBatDau)) ) {
                                 swal({
                                     title: "Nhân viên này đã tham gia đoàn khác trong khoảng thời gian này!",
                                     text: "Vui lòng nhập nhân viên khác hoặc thay đổi ngày bắt đầu!",

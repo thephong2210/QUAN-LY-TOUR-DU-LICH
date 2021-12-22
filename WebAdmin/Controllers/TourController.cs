@@ -14,6 +14,7 @@ namespace WebAdmin.Controllers
         D_tour d_tour = new D_tour();
         D_giatour d_giatour = new D_giatour();
         D_diadiemden d_diadiem = new D_diadiemden();
+        D_DangKy d_dangky = new D_DangKy();
         // GET: Tour
         public ActionResult Index()
         {
@@ -25,6 +26,15 @@ namespace WebAdmin.Controllers
             var obj = JsonConvert.DeserializeObject<List<TourView>>(objOld);
 
             ViewBag.listTemp = obj;
+
+            //tổng chi phí
+            var listChiPhiTour = d_dangky.GetChiPhiAllDoan();
+            ViewBag.listChiPhiTour = listChiPhiTour;
+
+            //tổng giá vé (doanh thu = tổng giá vé - tổng chi phí)
+            var listGiaVeTour = d_dangky.GetDoanhSoDangKyAllTour();
+            ViewBag.listGiaVeTour = listGiaVeTour;
+
 
             return View();
         }

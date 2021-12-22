@@ -142,7 +142,19 @@ namespace DAO
         }
 
 
+        //get list thamgiadoan qua maNhanVien
+        public List<thamgiadoan> GetListThamGiaQuaMaNhanVien(int maNhanVien)
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getNVDoan = tourdulich.thamgiadoans.Where(t => t.trangThai == 1).Where(t => t.maNhanVien == maNhanVien);
 
+                return getNVDoan.ToList<thamgiadoan>();
+
+            }
+
+
+        }
 
 
     }
