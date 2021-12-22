@@ -129,7 +129,9 @@ namespace GUI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chức năng đang phát triển!", "Thông báo!");
+            fmThongKe fmThongKe = new fmThongKe();
+            HienThiFormCon(fmThongKe);
+            //MessageBox.Show("Chức năng đang phát triển!", "Thông báo!");
         }
     }
 }
