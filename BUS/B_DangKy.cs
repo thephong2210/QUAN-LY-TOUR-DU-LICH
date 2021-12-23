@@ -46,5 +46,9 @@ namespace BUS
             return d_dangky.XoaDangKy(id);
         }
 
+        public List<chiphi> GetAllChiPhi()
+        {
+            return d_dangky.GetAllChiPhi();
+        }
     }
 }

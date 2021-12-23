@@ -191,8 +191,15 @@ namespace DAO
             }
         }
 
+        public List<chiphi> GetAllChiPhi()
+        {
+            using (tourdulich = new tourdulichEntities())
+            {
+                var getAllChiPhi = tourdulich.chiphis.Where(t => t.trangThai == 1);
+                return getAllChiPhi.ToList<chiphi>();
+            }
+        }
+
         
-
-
     }
 }
