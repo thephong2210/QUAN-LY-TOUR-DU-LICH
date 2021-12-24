@@ -111,7 +111,7 @@ namespace GUI
                 if (items.maNhanVien.Equals(comboBoxTenNhanVien.SelectedValue))
                 {
                     System.Diagnostics.Debug.WriteLine(dateTimePickerNgayBatDau.Value.Date + "-" + items.thoiGianKetThuc.Date);
-                    if (dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date)
+                    if ((dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date) && (dateTimePickerNgayKetThuc.Value.Date > items.thoiGianBatDau.Date) )
                     {
                         return false;
                     }

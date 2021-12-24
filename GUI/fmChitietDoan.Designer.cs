@@ -29,11 +29,13 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxTongChiPhi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,19 +59,22 @@ namespace GUI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._tableCell_Three = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonThemDKNV = new System.Windows.Forms.Button();
             this._employeeDgv = new System.Windows.Forms.DataGridView();
             this.IDNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tableCell_One = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonThemDKKH = new System.Windows.Forms.Button();
             this._passengerDgv = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxTongDoanhThu = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tên = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.buttonThemDKKH = new System.Windows.Forms.Button();
-            this.buttonThemDKNV = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this._tableCell_Three.SuspendLayout();
@@ -78,7 +83,6 @@ namespace GUI
             this._tableCell_One.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel7
@@ -92,6 +96,17 @@ namespace GUI
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1215, 54);
             this.panel7.TabIndex = 20;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
+            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
             // 
             // label10
             // 
@@ -109,6 +124,9 @@ namespace GUI
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel13.Controls.Add(this.label7);
+            this.panel13.Controls.Add(this.textBoxTongDoanhThu);
+            this.panel13.Controls.Add(this.label8);
             this.panel13.Controls.Add(this.label6);
             this.panel13.Controls.Add(this.button1);
             this.panel13.Controls.Add(this.textBoxTongChiPhi);
@@ -138,13 +156,23 @@ namespace GUI
             this.panel13.Size = new System.Drawing.Size(1215, 242);
             this.panel13.TabIndex = 27;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1150, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "VND";
+            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1049, 156);
+            this.button1.Location = new System.Drawing.Point(1057, 187);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 34);
@@ -427,6 +455,21 @@ namespace GUI
             this.flowLayoutPanel3.Size = new System.Drawing.Size(574, 46);
             this.flowLayoutPanel3.TabIndex = 10;
             // 
+            // buttonThemDKNV
+            // 
+            this.buttonThemDKNV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThemDKNV.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonThemDKNV.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDKNV.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDKNV.Location = new System.Drawing.Point(437, 5);
+            this.buttonThemDKNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThemDKNV.Name = "buttonThemDKNV";
+            this.buttonThemDKNV.Size = new System.Drawing.Size(134, 39);
+            this.buttonThemDKNV.TabIndex = 38;
+            this.buttonThemDKNV.Text = "Thêm";
+            this.buttonThemDKNV.UseVisualStyleBackColor = false;
+            this.buttonThemDKNV.Click += new System.EventHandler(this.buttonThemDKNV_Click);
+            // 
             // _employeeDgv
             // 
             this._employeeDgv.AllowUserToAddRows = false;
@@ -445,8 +488,8 @@ namespace GUI
             this._employeeDgv.ReadOnly = true;
             this._employeeDgv.RowHeadersVisible = false;
             this._employeeDgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._employeeDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
@@ -504,6 +547,21 @@ namespace GUI
             this.flowLayoutPanel1.Size = new System.Drawing.Size(573, 46);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // buttonThemDKKH
+            // 
+            this.buttonThemDKKH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonThemDKKH.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonThemDKKH.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDKKH.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDKKH.Location = new System.Drawing.Point(436, 5);
+            this.buttonThemDKKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThemDKKH.Name = "buttonThemDKKH";
+            this.buttonThemDKKH.Size = new System.Drawing.Size(134, 39);
+            this.buttonThemDKKH.TabIndex = 37;
+            this.buttonThemDKKH.Text = "Thêm";
+            this.buttonThemDKKH.UseVisualStyleBackColor = false;
+            this.buttonThemDKKH.Click += new System.EventHandler(this.buttonThemDKKH_Click);
+            // 
             // _passengerDgv
             // 
             this._passengerDgv.AllowUserToAddRows = false;
@@ -514,7 +572,8 @@ namespace GUI
             this._passengerDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._passengerDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Tên});
+            this.Tên,
+            this.gia});
             this._passengerDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._passengerDgv.Location = new System.Drawing.Point(14, 13);
             this._passengerDgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -522,8 +581,8 @@ namespace GUI
             this._passengerDgv.ReadOnly = true;
             this._passengerDgv.RowHeadersVisible = false;
             this._passengerDgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._passengerDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -536,6 +595,39 @@ namespace GUI
             this._passengerDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._passengerDgv.Size = new System.Drawing.Size(573, 438);
             this._passengerDgv.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1150, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 20);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "VND";
+            // 
+            // textBoxTongDoanhThu
+            // 
+            this.textBoxTongDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTongDoanhThu.Enabled = false;
+            this.textBoxTongDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxTongDoanhThu.Location = new System.Drawing.Point(958, 150);
+            this.textBoxTongDoanhThu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textBoxTongDoanhThu.Name = "textBoxTongDoanhThu";
+            this.textBoxTongDoanhThu.Size = new System.Drawing.Size(188, 30);
+            this.textBoxTongDoanhThu.TabIndex = 39;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(741, 150);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(165, 28);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Tổng doanh thu:";
             // 
             // ID
             // 
@@ -555,56 +647,13 @@ namespace GUI
             this.Tên.Name = "Tên";
             this.Tên.ReadOnly = true;
             // 
-            // pictureBox3
+            // gia
             // 
-            this.pictureBox3.Image = global::GUI.Properties.Resources.icons8_view_details_50;
-            this.pictureBox3.Location = new System.Drawing.Point(471, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // buttonThemDKKH
-            // 
-            this.buttonThemDKKH.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonThemDKKH.BackColor = System.Drawing.Color.ForestGreen;
-            this.buttonThemDKKH.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buttonThemDKKH.ForeColor = System.Drawing.Color.White;
-            this.buttonThemDKKH.Location = new System.Drawing.Point(436, 5);
-            this.buttonThemDKKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonThemDKKH.Name = "buttonThemDKKH";
-            this.buttonThemDKKH.Size = new System.Drawing.Size(134, 39);
-            this.buttonThemDKKH.TabIndex = 37;
-            this.buttonThemDKKH.Text = "Thêm";
-            this.buttonThemDKKH.UseVisualStyleBackColor = false;
-            this.buttonThemDKKH.Click += new System.EventHandler(this.buttonThemDKKH_Click);
-            // 
-            // buttonThemDKNV
-            // 
-            this.buttonThemDKNV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonThemDKNV.BackColor = System.Drawing.Color.ForestGreen;
-            this.buttonThemDKNV.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buttonThemDKNV.ForeColor = System.Drawing.Color.White;
-            this.buttonThemDKNV.Location = new System.Drawing.Point(437, 5);
-            this.buttonThemDKNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonThemDKNV.Name = "buttonThemDKNV";
-            this.buttonThemDKNV.Size = new System.Drawing.Size(134, 39);
-            this.buttonThemDKNV.TabIndex = 38;
-            this.buttonThemDKNV.Text = "Thêm";
-            this.buttonThemDKNV.UseVisualStyleBackColor = false;
-            this.buttonThemDKNV.Click += new System.EventHandler(this.buttonThemDKNV_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1150, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 20);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "VND";
+            this.gia.DataPropertyName = "gia";
+            this.gia.HeaderText = "Giá đăng ký";
+            this.gia.MinimumWidth = 6;
+            this.gia.Name = "gia";
+            this.gia.ReadOnly = true;
             // 
             // fmChitietDoan
             // 
@@ -621,6 +670,7 @@ namespace GUI
             this.Load += new System.EventHandler(this.fmChitietDoan_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -630,7 +680,6 @@ namespace GUI
             this._tableCell_One.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._passengerDgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -670,10 +719,14 @@ namespace GUI
         private System.Windows.Forms.TextBox textBoxTongChiPhi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tên;
         private System.Windows.Forms.Button buttonThemDKNV;
         private System.Windows.Forms.Button buttonThemDKKH;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxTongDoanhThu;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tên;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gia;
     }
 }

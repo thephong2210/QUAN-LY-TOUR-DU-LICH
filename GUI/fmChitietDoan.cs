@@ -20,6 +20,8 @@ namespace GUI
         B_doan b_Doan = new B_doan();
         B_chiphi b_chiphi = new B_chiphi();
         D_giatour DGiaTour = new D_giatour();
+        D_DangKy d_dangky = new D_DangKy();
+
         public static int madoan;
         public fmQLDoan fmMain;
         public fmChitietDoan(int maDoan, fmQLDoan fmQLD)
@@ -68,9 +70,13 @@ namespace GUI
 
             _passengerDgv.DataSource = d_Doan.GetKhachHangOfDoan(madoan);
             _employeeDgv.DataSource = d_Doan.GetNhanVienOfDoan(madoan);
+            _passengerDgv.Columns["gia"].DefaultCellStyle.Format = "N2";
+            
 
             _passengerDgv.AutoGenerateColumns = false;
             _employeeDgv.AutoGenerateColumns = false;
+
+            LoadDoanhThuDoan();
 
         }
         private void SuaDoan()
@@ -95,6 +101,40 @@ namespace GUI
             objDoan.chiTiet = chiTiet;
             objDoan.trangThai = 1;
             return objDoan;
+        }
+
+        public void LoadDoanhThuDoan()
+        {
+            var listTotalGiaVeAllDoan = d_dangky.GetDoanhSoDangKyOneDoan(madoan);
+            var listChiPhiAllDoan = d_dangky.GetChiPhiOneDoan_Doan(madoan);
+
+            foreach (var itemGiaVe in listTotalGiaVeAllDoan)
+            {
+                double calcDoanhThu = 0;
+                //var calcGiaVe = 0;
+                foreach (var itemChiPhi in listChiPhiAllDoan)
+                {
+                    if (itemGiaVe.maSoDoan == madoan)
+                    {
+                        if (itemGiaVe.maSoDoan == itemChiPhi.maSoDoan)
+                        {
+                            calcDoanhThu = itemGiaVe.totalGiaVe - itemChiPhi.totalChiPhi;
+                        }
+
+                    }
+
+                }
+
+                if (calcDoanhThu != 0)
+                {
+                    textBoxTongDoanhThu.Text = String.Format("{0:n0}", calcDoanhThu);
+                 
+                }
+
+
+            }
+
+
         }
 
         private void _customerDetail_Click(object sender, EventArgs e)
@@ -188,6 +228,7 @@ namespace GUI
             try
             {
                 textBoxTongChiPhi.Text = string.Format("{0:#,##0}", double.Parse(textBoxTongChiPhi.Text));
+                LoadDoanhThuDoan();
             }
             catch (FormatException ex)
             {

@@ -44,12 +44,19 @@ namespace GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxMaNhanVien = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewDanhSachDoan = new System.Windows.Forms.DataGridView();
+            this.maSoDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhSachDoan)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -90,6 +97,7 @@ namespace GUI
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.buttonDong);
             this.panel2.Controls.Add(this.buttonSua);
             this.panel2.Controls.Add(this.panel5);
@@ -98,7 +106,7 @@ namespace GUI
             this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(539, 398);
+            this.panel2.Size = new System.Drawing.Size(539, 529);
             this.panel2.TabIndex = 2;
             // 
             // buttonDong
@@ -107,7 +115,7 @@ namespace GUI
             this.buttonDong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonDong.ForeColor = System.Drawing.Color.White;
-            this.buttonDong.Location = new System.Drawing.Point(372, 291);
+            this.buttonDong.Location = new System.Drawing.Point(373, 440);
             this.buttonDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDong.Name = "buttonDong";
             this.buttonDong.Size = new System.Drawing.Size(119, 49);
@@ -122,7 +130,7 @@ namespace GUI
             this.buttonSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSua.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSua.ForeColor = System.Drawing.Color.White;
-            this.buttonSua.Location = new System.Drawing.Point(54, 291);
+            this.buttonSua.Location = new System.Drawing.Point(55, 440);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(119, 49);
@@ -135,7 +143,7 @@ namespace GUI
             // 
             this.panel5.Controls.Add(this.textBoxNhiemVu);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(12, 174);
+            this.panel5.Location = new System.Drawing.Point(12, 159);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(512, 42);
@@ -166,7 +174,7 @@ namespace GUI
             // 
             this.panel4.Controls.Add(this.textBoxTenNhanVien);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(12, 98);
+            this.panel4.Location = new System.Drawing.Point(12, 89);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(512, 42);
@@ -223,14 +231,65 @@ namespace GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhân viên";
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.dataGridViewDanhSachDoan);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(12, 220);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(512, 201);
+            this.panel6.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(284, 28);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Danh sách đoàn đã tham gia";
+            // 
+            // dataGridViewDanhSachDoan
+            // 
+            this.dataGridViewDanhSachDoan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDanhSachDoan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewDanhSachDoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDanhSachDoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maSoDoan,
+            this.tenDoan});
+            this.dataGridViewDanhSachDoan.Location = new System.Drawing.Point(8, 38);
+            this.dataGridViewDanhSachDoan.Name = "dataGridViewDanhSachDoan";
+            this.dataGridViewDanhSachDoan.RowHeadersWidth = 51;
+            this.dataGridViewDanhSachDoan.RowTemplate.Height = 24;
+            this.dataGridViewDanhSachDoan.Size = new System.Drawing.Size(489, 150);
+            this.dataGridViewDanhSachDoan.TabIndex = 1;
+            // 
+            // maSoDoan
+            // 
+            this.maSoDoan.FillWeight = 53.47594F;
+            this.maSoDoan.HeaderText = "Mã số đoàn";
+            this.maSoDoan.MinimumWidth = 6;
+            this.maSoDoan.Name = "maSoDoan";
+            this.maSoDoan.ReadOnly = true;
+            // 
+            // tenDoan
+            // 
+            this.tenDoan.FillWeight = 146.5241F;
+            this.tenDoan.HeaderText = "Tên đoàn";
+            this.tenDoan.MinimumWidth = 6;
+            this.tenDoan.Name = "tenDoan";
+            this.tenDoan.ReadOnly = true;
+            // 
             // fmChiTietNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 446);
+            this.ClientSize = new System.Drawing.Size(541, 574);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(559, 493);
             this.Name = "fmChiTietNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết nhân viên | Tour App";
@@ -244,6 +303,9 @@ namespace GUI
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhSachDoan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +327,10 @@ namespace GUI
         private System.Windows.Forms.TextBox textBoxMaNhanVien;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNhiemVu;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridViewDanhSachDoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maSoDoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenDoan;
     }
 }

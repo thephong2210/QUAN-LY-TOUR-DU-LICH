@@ -205,16 +205,7 @@ namespace GUI
 
         private void textBoxTongChiPhi_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                textBoxTongChiPhi.Text = string.Format("{0:#,##0}", double.Parse(textBoxTongChiPhi.Text));
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show("Vui lòng chỉ nhập số!", "Thông báo");
-                textBoxTongChiPhi.Focus();
-                System.Diagnostics.Debug.WriteLine(ex);
-            }
+            
 
         }
     }

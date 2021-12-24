@@ -56,7 +56,7 @@ namespace GUI
         {
             comboBoxTenNhanVien.DataSource = b_nhanvien.GetAllNhanVien();
             comboBoxTenNhanVien.DisplayMember = "tenNhanVien";
-            comboBoxTenNhanVien.DisplayMember = "maNhanVien";
+            comboBoxTenNhanVien.ValueMember = "maNhanVien";
         }
 
         public void GetInfoChiTietCuaDoan() //Max 5 nhân viên/đoàn
@@ -114,7 +114,7 @@ namespace GUI
                 if (items.maNhanVien.Equals(comboBoxTenNhanVien.SelectedValue))
                 {
                     System.Diagnostics.Debug.WriteLine(dateTimePickerNgayBatDau.Value.Date + "-" + items.thoiGianKetThuc.Date);
-                    if (dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date)
+                    if ((dateTimePickerNgayBatDau.Value.Date < items.thoiGianKetThuc.Date) && (dateTimePickerNgayKetThuc.Value.Date > items.thoiGianBatDau.Date))
                     {
                         return false;
                     }
