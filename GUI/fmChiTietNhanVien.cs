@@ -17,6 +17,8 @@ namespace GUI
     public partial class fmChiTietNhanVien : Form
     {
         B_nhanvien bNhanVien = new B_nhanvien();
+        D_dangkynhanvien d_dangkynhanvien = new D_dangkynhanvien();
+        D_doan d_doan = new D_doan();
 
         public fmChiTietNhanVien(int maNhanVien, fmNhanVien fmNV) // ??
         {
@@ -43,6 +45,35 @@ namespace GUI
             textBoxMaNhanVien.Text = maNhanVien.ToString();
             textBoxTenNhanVien.Text = dataTableDetailsNhanVien.Rows[0][1].ToString();
             textBoxNhiemVu.Text = dataTableDetailsNhanVien.Rows[0][2].ToString();
+
+            LoadDanhSachDoanThamGia();
+        }
+
+        public void LoadDanhSachDoanThamGia()
+        {
+            dataGridViewDanhSachDoan.AutoGenerateColumns = false;
+
+            var listThamGiaNV = d_dangkynhanvien.GetListThamGiaQuaMaNhanVien(this.maNhanVien);
+            var listDoan = d_doan.GetAllDoan();
+
+            foreach (var itemThamGiaNV in listThamGiaNV)
+            {
+                var _maSoDoanNV = itemThamGiaNV.maSoDoan;
+
+                foreach (var itemDoan in listDoan)
+                {
+                    var _maSoDoanAll = itemDoan.maSoDoan;
+                    var _tenGoiDoanAll = itemDoan.tenGoiDoan;
+
+                    if (_maSoDoanNV == _maSoDoanAll)
+                    {
+                        dataGridViewDanhSachDoan.Rows.Add(_maSoDoanAll, _tenGoiDoanAll);              
+                    }
+
+                }
+
+            }
+
         }
 
         // Sửa nhân viên

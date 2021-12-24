@@ -223,3 +223,4 @@ D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.exe
 D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.pdb
+D:\Study\HK1_Nam4\XayDungPhanMemMoHinhPhanLop\QuanLyTourWinform\QuanLyTourDuLich\QUAN-LY-TOUR-DU-LICH\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache

@@ -20,6 +20,8 @@ namespace GUI
         B_diadiemden bDiaDiemDen = new B_diadiemden();
         B_loaihinhdulich bLoaiHinhDuLich = new B_loaihinhdulich();
         B_giatour bGiaTour = new B_giatour();
+        D_DangKy d_dangky = new D_DangKy();
+        D_doan d_doan = new D_doan();
 
         public fmChiTietTour(int maSoTour, fmQuanLyTour fmQLT)
         {
@@ -71,9 +73,71 @@ namespace GUI
             dateTimePickerThoiGianBatDau.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][3]);
             dateTimePickerThoiGianKetThuc.Value = Convert.ToDateTime(dataTableDetailsTour.Rows[0][4]);
 
+            LoadTongChiPhiTongDoanhThu();
+
         }
 
+        public void LoadTongChiPhiTongDoanhThu()
+        {
+            var listChiPhiTour = d_dangky.GetChiPhiOneTour(this.maSoTour);
+            var listGiaVeTour = d_dangky.GetDoanhSoDangKyAllTour();
+
+            //tổng chi phí
+            foreach (var itemChiPhi in listChiPhiTour)
+            {
+                if (this.maSoTour == itemChiPhi.maSoTour)
+                {
+                    textBoxTongChiPhi.Text = String.Format("{0:n0}", itemChiPhi.totalChiPhi);
+                }
+                else
+                {
+                    textBoxTongChiPhi.Text = "0";
+                }
+            }
+
+            //tổng doanh thu
+            foreach (var itemGiaVe in listGiaVeTour)
+            {
+                double calcDoanhThu = 0;
+                //var calcGiaVe = 0;
+                foreach (var itemChiPhi in listChiPhiTour)
+                {
+                    if (itemGiaVe.maSoTour == this.maSoTour)
+                    {
+                        if (itemGiaVe.maSoTour == itemChiPhi.maSoTour)
+                        {
+                            calcDoanhThu = itemGiaVe.totalGiaVe - itemChiPhi.totalChiPhi;
+                        }
+
+                    }
+
+                }
+
+                if (calcDoanhThu != 0)
+                {
+                    textBoxTongDoanhThu.Text = String.Format("{0:n0}", calcDoanhThu);
+                }
+                
+
+
+            }
+
+            //danh sách đoàn trong tour
+            var listGetListDoanWithMaTour = d_doan.GetListDoanWithMaTour(this.maSoTour);
+
+            dataGridViewDanhSachDoan.AutoGenerateColumns = false;
+            foreach (var itemListDoan in listGetListDoanWithMaTour)
+            {
+                var _maSoDoan = itemListDoan.maSoDoan;
+                var _tenGoiDoan = itemListDoan.tenGoiDoan;
+
+                dataGridViewDanhSachDoan.Rows.Add(_maSoDoan, _tenGoiDoan);
+            }
+
+
+        }
       
+
         private void LoadDiaDiemThamQuan()
         {
             List<diadiemden> listDiaDiemDen = bDiaDiemDen.GetListDiaDiemDen();
