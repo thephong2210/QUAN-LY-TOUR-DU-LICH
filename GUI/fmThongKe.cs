@@ -17,38 +17,25 @@ namespace GUI
         B_nhanvien bNhanVien = new BUS.B_nhanvien();
         B_doan bDoan = new BUS.B_doan();
         B_tour bTour= new BUS.B_tour();
+        B_DangKy bDangKy = new BUS.B_DangKy();
 
         public fmThongKe()
         {
             InitializeComponent();
-            LoadDataGridView();
             ThongKe();
 
         }
-        public void LoadDataGridView()
-        {
-            dataGridViewNhanVien.DataSource = bNhanVien.GetListNhanVien(); // datagridview đã set kích thước (0,0)
-            dataGridViewNhanVien.AutoGenerateColumns = false;
-
-
-            dataGridViewQuanLyDoan.DataSource = bDoan.GetListDoan(); // datagridview đã set visible = false
-            dataGridViewQuanLyDoan.AutoGenerateColumns = false;
-
-            dataGridViewQuanLyTour.DataSource = bTour.GetListTour();
-            dataGridViewQuanLyTour.AutoGenerateColumns = false;
-
-        }
-
+ 
         public void ThongKe()
         {
-            string soLuongNhanVien = dataGridViewNhanVien.Rows.Count.ToString();
-            labelThongKeNhanVien.Text = soLuongNhanVien.ToString();
+            labelThongKeNhanVien.Text = bNhanVien.GetListNhanVien().Count.ToString();        
+            labelThongKeDoanDuLich.Text = bDoan.GetListDoan().Count.ToString();
+            labelThongKeTour.Text = bTour.GetListTour().Count.ToString();
 
-            string soLuongDoan = dataGridViewQuanLyDoan.Rows.Count.ToString();
-            labelThongKeDoanDuLich.Text = soLuongDoan.ToString();
+            int tongGiaTourDangKy = (int)(from DangKy in bDangKy.GetAllDangKy() select DangKy.giaTourDangKy).Sum();
+            int tongChiPhi = (int)(from ChiPhi in bDangKy.GetAllChiPhi() select ChiPhi.tongChiPhi).Sum();
 
-            string soLuongTour = dataGridViewQuanLyTour.Rows.Count.ToString();
-            labelThongKeTour.Text = soLuongTour.ToString();
+            labelThongKeDoanhThu.Text = (tongGiaTourDangKy - tongChiPhi).ToString() + " đ";
         }
 
         private OleDbConnection GetconnectionString()

@@ -29,22 +29,26 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelDoanhSoMoi_DoanhThu = new System.Windows.Forms.Label();
             this.labelThongKeDoanhThu = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelDoanhSoMoi_Tour = new System.Windows.Forms.Label();
             this.labelThongKeTour = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelDoanhSoMoi_Doan = new System.Windows.Forms.Label();
             this.labelThongKeDoanDuLich = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelDoanhSoMoi_NhanVien = new System.Windows.Forms.Label();
             this.labelThongKeNhanVien = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -53,24 +57,6 @@ namespace GUI
             this.panel7 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
-            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nhiemVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewQuanLyDoan = new System.Windows.Forms.DataGridView();
-            this.maDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenDoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chiTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewQuanLyTour = new System.Windows.Forms.DataGridView();
-            this.maSoTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenGoiTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiHinhDuLich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenDiaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,9 +66,6 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyTour)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -137,6 +120,7 @@ namespace GUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.labelDoanhSoMoi_DoanhThu);
             this.panel1.Controls.Add(this.labelThongKeDoanhThu);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(50, 92);
@@ -145,11 +129,22 @@ namespace GUI
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // labelDoanhSoMoi_DoanhThu
+            // 
+            this.labelDoanhSoMoi_DoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelDoanhSoMoi_DoanhThu.ForeColor = System.Drawing.Color.Lime;
+            this.labelDoanhSoMoi_DoanhThu.Location = new System.Drawing.Point(60, 93);
+            this.labelDoanhSoMoi_DoanhThu.Name = "labelDoanhSoMoi_DoanhThu";
+            this.labelDoanhSoMoi_DoanhThu.Size = new System.Drawing.Size(150, 39);
+            this.labelDoanhSoMoi_DoanhThu.TabIndex = 7;
+            this.labelDoanhSoMoi_DoanhThu.Text = "1";
+            this.labelDoanhSoMoi_DoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelThongKeDoanhThu
             // 
             this.labelThongKeDoanhThu.CausesValidation = false;
             this.labelThongKeDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.labelThongKeDoanhThu.Location = new System.Drawing.Point(44, 72);
+            this.labelThongKeDoanhThu.Location = new System.Drawing.Point(43, 54);
             this.labelThongKeDoanhThu.Name = "labelThongKeDoanhThu";
             this.labelThongKeDoanhThu.Size = new System.Drawing.Size(200, 39);
             this.labelThongKeDoanhThu.TabIndex = 3;
@@ -160,6 +155,7 @@ namespace GUI
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel2.Controls.Add(this.labelDoanhSoMoi_Tour);
             this.panel2.Controls.Add(this.labelThongKeTour);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(392, 92);
@@ -167,10 +163,21 @@ namespace GUI
             this.panel2.Size = new System.Drawing.Size(278, 141);
             this.panel2.TabIndex = 4;
             // 
+            // labelDoanhSoMoi_Tour
+            // 
+            this.labelDoanhSoMoi_Tour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelDoanhSoMoi_Tour.ForeColor = System.Drawing.Color.Lime;
+            this.labelDoanhSoMoi_Tour.Location = new System.Drawing.Point(85, 93);
+            this.labelDoanhSoMoi_Tour.Name = "labelDoanhSoMoi_Tour";
+            this.labelDoanhSoMoi_Tour.Size = new System.Drawing.Size(100, 39);
+            this.labelDoanhSoMoi_Tour.TabIndex = 4;
+            this.labelDoanhSoMoi_Tour.Text = "1";
+            this.labelDoanhSoMoi_Tour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelThongKeTour
             // 
             this.labelThongKeTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.labelThongKeTour.Location = new System.Drawing.Point(89, 72);
+            this.labelThongKeTour.Location = new System.Drawing.Point(83, 54);
             this.labelThongKeTour.Name = "labelThongKeTour";
             this.labelThongKeTour.Size = new System.Drawing.Size(100, 39);
             this.labelThongKeTour.TabIndex = 3;
@@ -192,6 +199,7 @@ namespace GUI
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Window;
+            this.panel3.Controls.Add(this.labelDoanhSoMoi_Doan);
             this.panel3.Controls.Add(this.labelThongKeDoanDuLich);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(731, 92);
@@ -199,10 +207,21 @@ namespace GUI
             this.panel3.Size = new System.Drawing.Size(278, 141);
             this.panel3.TabIndex = 4;
             // 
+            // labelDoanhSoMoi_Doan
+            // 
+            this.labelDoanhSoMoi_Doan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelDoanhSoMoi_Doan.ForeColor = System.Drawing.Color.Lime;
+            this.labelDoanhSoMoi_Doan.Location = new System.Drawing.Point(93, 93);
+            this.labelDoanhSoMoi_Doan.Name = "labelDoanhSoMoi_Doan";
+            this.labelDoanhSoMoi_Doan.Size = new System.Drawing.Size(100, 39);
+            this.labelDoanhSoMoi_Doan.TabIndex = 5;
+            this.labelDoanhSoMoi_Doan.Text = "1";
+            this.labelDoanhSoMoi_Doan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelThongKeDoanDuLich
             // 
             this.labelThongKeDoanDuLich.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.labelThongKeDoanDuLich.Location = new System.Drawing.Point(91, 72);
+            this.labelThongKeDoanDuLich.Location = new System.Drawing.Point(91, 54);
             this.labelThongKeDoanDuLich.Name = "labelThongKeDoanDuLich";
             this.labelThongKeDoanDuLich.Size = new System.Drawing.Size(100, 39);
             this.labelThongKeDoanDuLich.TabIndex = 3;
@@ -213,7 +232,8 @@ namespace GUI
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.label7.Location = new System.Drawing.Point(70, 19);
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label7.Location = new System.Drawing.Point(79, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 26);
             this.label7.TabIndex = 2;
@@ -223,6 +243,7 @@ namespace GUI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.Controls.Add(this.labelDoanhSoMoi_NhanVien);
             this.panel4.Controls.Add(this.labelThongKeNhanVien);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(1066, 92);
@@ -230,11 +251,22 @@ namespace GUI
             this.panel4.Size = new System.Drawing.Size(278, 141);
             this.panel4.TabIndex = 4;
             // 
+            // labelDoanhSoMoi_NhanVien
+            // 
+            this.labelDoanhSoMoi_NhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelDoanhSoMoi_NhanVien.ForeColor = System.Drawing.Color.Lime;
+            this.labelDoanhSoMoi_NhanVien.Location = new System.Drawing.Point(94, 93);
+            this.labelDoanhSoMoi_NhanVien.Name = "labelDoanhSoMoi_NhanVien";
+            this.labelDoanhSoMoi_NhanVien.Size = new System.Drawing.Size(100, 39);
+            this.labelDoanhSoMoi_NhanVien.TabIndex = 6;
+            this.labelDoanhSoMoi_NhanVien.Text = "1";
+            this.labelDoanhSoMoi_NhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelThongKeNhanVien
             // 
             this.labelThongKeNhanVien.AutoEllipsis = true;
             this.labelThongKeNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.labelThongKeNhanVien.Location = new System.Drawing.Point(92, 72);
+            this.labelThongKeNhanVien.Location = new System.Drawing.Point(92, 54);
             this.labelThongKeNhanVien.Name = "labelThongKeNhanVien";
             this.labelThongKeNhanVien.Size = new System.Drawing.Size(100, 39);
             this.labelThongKeNhanVien.TabIndex = 3;
@@ -246,7 +278,8 @@ namespace GUI
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.label9.Location = new System.Drawing.Point(82, 19);
+            this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label9.Location = new System.Drawing.Point(84, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 26);
             this.label9.TabIndex = 2;
@@ -254,16 +287,16 @@ namespace GUI
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(50, 351);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(620, 382);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -316,251 +349,12 @@ namespace GUI
             this.panel8.Size = new System.Drawing.Size(613, 382);
             this.panel8.TabIndex = 6;
             // 
-            // dataGridViewNhanVien
-            // 
-            this.dataGridViewNhanVien.AllowUserToAddRows = false;
-            this.dataGridViewNhanVien.AllowUserToDeleteRows = false;
-            this.dataGridViewNhanVien.AllowUserToResizeRows = false;
-            this.dataGridViewNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewNhanVien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewNhanVien.ColumnHeadersHeight = 40;
-            this.dataGridViewNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maNhanVien,
-            this.tenNhanVien,
-            this.nhiemVu});
-            this.dataGridViewNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridViewNhanVien.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewNhanVien.Enabled = false;
-            this.dataGridViewNhanVien.Location = new System.Drawing.Point(1350, 199);
-            this.dataGridViewNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewNhanVien.MultiSelect = false;
-            this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
-            this.dataGridViewNhanVien.ReadOnly = true;
-            this.dataGridViewNhanVien.RowHeadersWidth = 55;
-            this.dataGridViewNhanVien.RowTemplate.DividerHeight = 1;
-            this.dataGridViewNhanVien.RowTemplate.Height = 30;
-            this.dataGridViewNhanVien.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNhanVien.Size = new System.Drawing.Size(0, 0);
-            this.dataGridViewNhanVien.TabIndex = 23;
-            this.dataGridViewNhanVien.TabStop = false;
-            this.dataGridViewNhanVien.Visible = false;
-            // 
-            // maNhanVien
-            // 
-            this.maNhanVien.DataPropertyName = "maNhanVien";
-            this.maNhanVien.FillWeight = 64.17112F;
-            this.maNhanVien.HeaderText = "Mã số nhân viên";
-            this.maNhanVien.MinimumWidth = 6;
-            this.maNhanVien.Name = "maNhanVien";
-            this.maNhanVien.ReadOnly = true;
-            this.maNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // tenNhanVien
-            // 
-            this.tenNhanVien.DataPropertyName = "tenNhanVien";
-            this.tenNhanVien.FillWeight = 107.1658F;
-            this.tenNhanVien.HeaderText = "Tên nhân viên";
-            this.tenNhanVien.MinimumWidth = 6;
-            this.tenNhanVien.Name = "tenNhanVien";
-            this.tenNhanVien.ReadOnly = true;
-            this.tenNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tenNhanVien.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nhiemVu
-            // 
-            this.nhiemVu.DataPropertyName = "nhiemVu";
-            this.nhiemVu.FillWeight = 107.1658F;
-            this.nhiemVu.HeaderText = "Nhiệm vụ";
-            this.nhiemVu.MinimumWidth = 6;
-            this.nhiemVu.Name = "nhiemVu";
-            this.nhiemVu.ReadOnly = true;
-            this.nhiemVu.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nhiemVu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewQuanLyDoan
-            // 
-            this.dataGridViewQuanLyDoan.AllowUserToAddRows = false;
-            this.dataGridViewQuanLyDoan.AllowUserToDeleteRows = false;
-            this.dataGridViewQuanLyDoan.AllowUserToResizeRows = false;
-            this.dataGridViewQuanLyDoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewQuanLyDoan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewQuanLyDoan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuanLyDoan.ColumnHeadersHeight = 40;
-            this.dataGridViewQuanLyDoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maDoan,
-            this.tenDoan,
-            this.tenTour,
-            this.thoiGianBatDau,
-            this.thoiGianKetThuc,
-            this.chiTiet});
-            this.dataGridViewQuanLyDoan.Location = new System.Drawing.Point(845, 238);
-            this.dataGridViewQuanLyDoan.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dataGridViewQuanLyDoan.MultiSelect = false;
-            this.dataGridViewQuanLyDoan.Name = "dataGridViewQuanLyDoan";
-            this.dataGridViewQuanLyDoan.ReadOnly = true;
-            this.dataGridViewQuanLyDoan.RowHeadersWidth = 55;
-            this.dataGridViewQuanLyDoan.RowTemplate.DividerHeight = 1;
-            this.dataGridViewQuanLyDoan.RowTemplate.Height = 30;
-            this.dataGridViewQuanLyDoan.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewQuanLyDoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewQuanLyDoan.Size = new System.Drawing.Size(56, 26);
-            this.dataGridViewQuanLyDoan.TabIndex = 25;
-            this.dataGridViewQuanLyDoan.Visible = false;
-            // 
-            // maDoan
-            // 
-            this.maDoan.DataPropertyName = "ID";
-            this.maDoan.HeaderText = "Mã đoàn";
-            this.maDoan.MinimumWidth = 6;
-            this.maDoan.Name = "maDoan";
-            this.maDoan.ReadOnly = true;
-            // 
-            // tenDoan
-            // 
-            this.tenDoan.DataPropertyName = "tenDoan";
-            this.tenDoan.HeaderText = "Tên đoàn";
-            this.tenDoan.MinimumWidth = 6;
-            this.tenDoan.Name = "tenDoan";
-            this.tenDoan.ReadOnly = true;
-            // 
-            // tenTour
-            // 
-            this.tenTour.DataPropertyName = "tenTour";
-            this.tenTour.HeaderText = "Tên tour";
-            this.tenTour.MinimumWidth = 6;
-            this.tenTour.Name = "tenTour";
-            this.tenTour.ReadOnly = true;
-            // 
-            // thoiGianBatDau
-            // 
-            this.thoiGianBatDau.DataPropertyName = "thoiGianKhoiHanh";
-            this.thoiGianBatDau.HeaderText = "Thời gian bắt đầu";
-            this.thoiGianBatDau.MinimumWidth = 6;
-            this.thoiGianBatDau.Name = "thoiGianBatDau";
-            this.thoiGianBatDau.ReadOnly = true;
-            // 
-            // thoiGianKetThuc
-            // 
-            this.thoiGianKetThuc.DataPropertyName = "thoiGianKetThuc";
-            this.thoiGianKetThuc.HeaderText = "Thời gian kết thúc";
-            this.thoiGianKetThuc.MinimumWidth = 6;
-            this.thoiGianKetThuc.Name = "thoiGianKetThuc";
-            this.thoiGianKetThuc.ReadOnly = true;
-            // 
-            // chiTiet
-            // 
-            this.chiTiet.DataPropertyName = "chitiet";
-            this.chiTiet.HeaderText = "Ghi chú";
-            this.chiTiet.MinimumWidth = 6;
-            this.chiTiet.Name = "chiTiet";
-            this.chiTiet.ReadOnly = true;
-            // 
-            // dataGridViewQuanLyTour
-            // 
-            this.dataGridViewQuanLyTour.AllowUserToAddRows = false;
-            this.dataGridViewQuanLyTour.AllowUserToDeleteRows = false;
-            this.dataGridViewQuanLyTour.AllowUserToResizeRows = false;
-            this.dataGridViewQuanLyTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewQuanLyTour.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewQuanLyTour.ColumnHeadersHeight = 40;
-            this.dataGridViewQuanLyTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maSoTour,
-            this.tenGoiTour,
-            this.tenLoaiHinhDuLich,
-            this.tenDiaDiem,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            this.dataGridViewQuanLyTour.Location = new System.Drawing.Point(506, 238);
-            this.dataGridViewQuanLyTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewQuanLyTour.MultiSelect = false;
-            this.dataGridViewQuanLyTour.Name = "dataGridViewQuanLyTour";
-            this.dataGridViewQuanLyTour.ReadOnly = true;
-            this.dataGridViewQuanLyTour.RowHeadersWidth = 55;
-            this.dataGridViewQuanLyTour.RowTemplate.DividerHeight = 1;
-            this.dataGridViewQuanLyTour.RowTemplate.Height = 30;
-            this.dataGridViewQuanLyTour.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewQuanLyTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewQuanLyTour.Size = new System.Drawing.Size(51, 26);
-            this.dataGridViewQuanLyTour.TabIndex = 26;
-            this.dataGridViewQuanLyTour.Visible = false;
-            // 
-            // maSoTour
-            // 
-            this.maSoTour.DataPropertyName = "maSoTour";
-            this.maSoTour.FillWeight = 64.17112F;
-            this.maSoTour.HeaderText = "Mã số tour";
-            this.maSoTour.MinimumWidth = 6;
-            this.maSoTour.Name = "maSoTour";
-            this.maSoTour.ReadOnly = true;
-            this.maSoTour.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // tenGoiTour
-            // 
-            this.tenGoiTour.DataPropertyName = "tenGoiTour";
-            this.tenGoiTour.FillWeight = 107.1658F;
-            this.tenGoiTour.HeaderText = "Tên tour";
-            this.tenGoiTour.MinimumWidth = 6;
-            this.tenGoiTour.Name = "tenGoiTour";
-            this.tenGoiTour.ReadOnly = true;
-            this.tenGoiTour.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tenGoiTour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // tenLoaiHinhDuLich
-            // 
-            this.tenLoaiHinhDuLich.DataPropertyName = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.FillWeight = 107.1658F;
-            this.tenLoaiHinhDuLich.HeaderText = "Tên loại hình du lịch";
-            this.tenLoaiHinhDuLich.MinimumWidth = 6;
-            this.tenLoaiHinhDuLich.Name = "tenLoaiHinhDuLich";
-            this.tenLoaiHinhDuLich.ReadOnly = true;
-            this.tenLoaiHinhDuLich.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tenLoaiHinhDuLich.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // tenDiaDiem
-            // 
-            this.tenDiaDiem.DataPropertyName = "tenDiaDiem";
-            this.tenDiaDiem.FillWeight = 107.1658F;
-            this.tenDiaDiem.HeaderText = "Tên địa điểm đến";
-            this.tenDiaDiem.MinimumWidth = 6;
-            this.tenDiaDiem.Name = "tenDiaDiem";
-            this.tenDiaDiem.ReadOnly = true;
-            this.tenDiaDiem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tenDiaDiem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "thoiGianBatDau";
-            this.dataGridViewTextBoxColumn1.FillWeight = 107.1658F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Thời gian bắt đầu";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "thoiGianKetThuc";
-            this.dataGridViewTextBoxColumn2.FillWeight = 107.1658F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Thời gian kết thúc";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // fmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1394, 791);
-            this.Controls.Add(this.dataGridViewQuanLyTour);
-            this.Controls.Add(this.dataGridViewQuanLyDoan);
-            this.Controls.Add(this.dataGridViewNhanVien);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -590,9 +384,6 @@ namespace GUI
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyDoan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuanLyTour)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,23 +411,9 @@ namespace GUI
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridViewNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nhiemVu;
-        private System.Windows.Forms.DataGridView dataGridViewQuanLyDoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenDoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianBatDau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianKetThuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chiTiet;
-        private System.Windows.Forms.DataGridView dataGridViewQuanLyTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maSoTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenGoiTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenLoaiHinhDuLich;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenDiaDiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Label labelDoanhSoMoi_DoanhThu;
+        private System.Windows.Forms.Label labelDoanhSoMoi_Tour;
+        private System.Windows.Forms.Label labelDoanhSoMoi_Doan;
+        private System.Windows.Forms.Label labelDoanhSoMoi_NhanVien;
     }
 }
