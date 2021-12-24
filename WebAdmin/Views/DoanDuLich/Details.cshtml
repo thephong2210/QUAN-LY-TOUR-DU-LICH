@@ -360,9 +360,16 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
     <script>
 
        //rang buoc input date ngay dang ky theo ngay cua doan
-        
-        var minNgayDangKy_final = (@listResults[0].thoiGianKhoiHanh.Year + '-' + @listResults[0].thoiGianKhoiHanh.Month + '-' + @listResults[0].thoiGianKhoiHanh.Day).replace(/\s/g, '');
-        var maxNgayDangKy_final = (@listResults[0].thoiGianKetThuc.Year + '-' + @listResults[0].thoiGianKetThuc.Month + '-' + @listResults[0].thoiGianKetThuc.Day).replace(/\s/g, '');
+        function formatMonth(inputDate) {
+            var month = inputDate;
+            if (month < 10) {
+                month = "0" + month;
+            }
+            return month;
+        }
+
+        var minNgayDangKy_final = (@listResults[0].thoiGianKhoiHanh.Year + '-' + formatMonth(@listResults[0].thoiGianKhoiHanh.Month) + '-' + @listResults[0].thoiGianKhoiHanh.Day).replace(/\s/g, '');
+        var maxNgayDangKy_final = (@listResults[0].thoiGianKetThuc.Year + '-' + formatMonth(@listResults[0].thoiGianKetThuc.Month) + '-' + @listResults[0].thoiGianKetThuc.Day).replace(/\s/g, '');
 
         $('#inputNgayDangKy').attr('min', minNgayDangKy_final);
         $('#inputNgayDangKy').attr('max', maxNgayDangKy_final);
