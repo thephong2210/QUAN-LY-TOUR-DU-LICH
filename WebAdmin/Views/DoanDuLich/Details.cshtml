@@ -360,14 +360,9 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
     <script>
 
        //rang buoc input date ngay dang ky theo ngay cua doan
-        var minNgayDangKy = $('#numberThoiGianKhoiHanh').text();
-        var maxNgayDangKy = $('#numberThoiGianKetThuc').text();
-
-        var ArrayminNgayDangKy = minNgayDangKy.split('/');
-        var ArraymaxNgayDangKy = maxNgayDangKy.split('/');
-
-        var minNgayDangKy_final = (ArrayminNgayDangKy[2] + '-' + ArrayminNgayDangKy[1] + '-' + ArrayminNgayDangKy[0]).replace(/\s/g, '');
-        var maxNgayDangKy_final = (ArraymaxNgayDangKy[2] + '-' + ArraymaxNgayDangKy[1] + '-' + ArraymaxNgayDangKy[0]).replace(/\s/g, '');
+        
+        var minNgayDangKy_final = (@listResults[0].thoiGianKhoiHanh.Year + '-' + @listResults[0].thoiGianKhoiHanh.Month + '-' + @listResults[0].thoiGianKhoiHanh.Day).replace(/\s/g, '');
+        var maxNgayDangKy_final = (@listResults[0].thoiGianKetThuc.Year + '-' + @listResults[0].thoiGianKetThuc.Month + '-' + @listResults[0].thoiGianKetThuc.Day).replace(/\s/g, '');
 
         $('#inputNgayDangKy').attr('min', minNgayDangKy_final);
         $('#inputNgayDangKy').attr('max', maxNgayDangKy_final);
@@ -997,7 +992,7 @@ var gia = @item.gia; document.write(gia.toLocaleString('en-US', {
             $('#maChiPhiDeleteModal').html(maChiPhi);
         }
 
-      
+
         function XoaChiPhi() {
             var _maSoDoan = $('#inputMaSoDoan').val();
             var _maChiPhi = $('#maChiPhiDeleteModal').html();
