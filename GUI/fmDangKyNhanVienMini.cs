@@ -94,7 +94,7 @@ namespace GUI
 
         public bool CheckThoiGianDangKy() //ngày bắt đầu < ngày kết thúc
         {
-            if (dateTimePickerNgayBatDau.Value <= dateTimePickerNgayKetThuc.Value)
+            if (dateTimePickerNgayBatDau.Value < dateTimePickerNgayKetThuc.Value)
             {
                 return true;
             }

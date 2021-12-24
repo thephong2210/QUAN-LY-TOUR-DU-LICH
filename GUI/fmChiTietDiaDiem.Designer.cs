@@ -150,6 +150,7 @@ namespace GUI
             // buttonXoaTatCa
             // 
             this.buttonXoaTatCa.BackColor = System.Drawing.Color.Brown;
+            this.buttonXoaTatCa.Enabled = false;
             this.buttonXoaTatCa.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.buttonXoaTatCa.ForeColor = System.Drawing.Color.White;
             this.buttonXoaTatCa.Location = new System.Drawing.Point(328, 308);
@@ -158,11 +159,13 @@ namespace GUI
             this.buttonXoaTatCa.TabIndex = 22;
             this.buttonXoaTatCa.Text = "Xóa tất cả";
             this.buttonXoaTatCa.UseVisualStyleBackColor = false;
+            this.buttonXoaTatCa.Visible = false;
             this.buttonXoaTatCa.Click += new System.EventHandler(this.buttonXoaTatCa_Click);
             // 
             // buttonXoaDDTQ
             // 
             this.buttonXoaDDTQ.BackColor = System.Drawing.Color.Brown;
+            this.buttonXoaDDTQ.Enabled = false;
             this.buttonXoaDDTQ.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.buttonXoaDDTQ.ForeColor = System.Drawing.Color.White;
             this.buttonXoaDDTQ.Location = new System.Drawing.Point(8, 308);
@@ -171,6 +174,7 @@ namespace GUI
             this.buttonXoaDDTQ.TabIndex = 21;
             this.buttonXoaDDTQ.Text = "Xóa";
             this.buttonXoaDDTQ.UseVisualStyleBackColor = false;
+            this.buttonXoaDDTQ.Visible = false;
             this.buttonXoaDDTQ.Click += new System.EventHandler(this.buttonXoaDDTQ_Click);
             // 
             // listBoxDiaDiemThamQuan

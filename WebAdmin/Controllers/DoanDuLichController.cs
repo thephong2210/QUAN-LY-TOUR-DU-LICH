@@ -29,6 +29,13 @@ namespace WebAdmin.Controllers
 
             ViewBag.listTemp = obj;
 
+            //get doanh thu
+            var listChiPhiAllDoan = d_dangky.GetChiPhiAllDoan_Doan();
+            ViewBag.listChiPhiAllDoan = listChiPhiAllDoan;
+
+            var listTotalGiaVeAllDoan = d_dangky.GetDoanhSoDangKyAllDoan();
+            ViewBag.listTotalGiaVeAllDoan = listTotalGiaVeAllDoan;
+
             return View();
         }
 
@@ -45,6 +52,14 @@ namespace WebAdmin.Controllers
         public JsonResult GetAllDoan()
         {
             var getDoan = d_doan.GetAllDoan();
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("GetListDoanWithMaTour")]
+        public JsonResult GetListDoanWithMaTour(int maSoTour)
+        {
+            var getDoan = d_doan.GetListDoanWithMaTour(maSoTour);
             return Json(getDoan, JsonRequestBehavior.AllowGet);
         }
 
@@ -193,9 +208,19 @@ namespace WebAdmin.Controllers
             }
             catch(InvalidOperationException ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex);
                 return null;
             }
 
+        }
+
+        [HttpGet]
+        [Route("GetListThamGiaQuaMaNhanVien")]
+        public JsonResult GetListThamGiaQuaMaNhanVien(int maNhanVien)
+        {
+            var getDoan = d_dangkynhanvien.GetListThamGiaQuaMaNhanVien(maNhanVien);
+            return Json(getDoan, JsonRequestBehavior.AllowGet);
+            
         }
 
         [HttpPost]
