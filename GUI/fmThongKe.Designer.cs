@@ -48,7 +48,7 @@ namespace GUI
             this.labelThongKeDoanDuLich = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.labelThongKeNhanVien = new System.Windows.Forms.Label();
+            this.labelThongKeKhachHang = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.chartDoanhThuTheoThang = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -263,35 +263,35 @@ namespace GUI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.labelThongKeNhanVien);
+            this.panel4.Controls.Add(this.labelThongKeKhachHang);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(1086, 92);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(278, 141);
             this.panel4.TabIndex = 4;
             // 
-            // labelThongKeNhanVien
+            // labelThongKeKhachHang
             // 
-            this.labelThongKeNhanVien.AutoEllipsis = true;
-            this.labelThongKeNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
-            this.labelThongKeNhanVien.Location = new System.Drawing.Point(0, 54);
-            this.labelThongKeNhanVien.Name = "labelThongKeNhanVien";
-            this.labelThongKeNhanVien.Size = new System.Drawing.Size(275, 39);
-            this.labelThongKeNhanVien.TabIndex = 3;
-            this.labelThongKeNhanVien.Text = "1";
-            this.labelThongKeNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelThongKeNhanVien.Click += new System.EventHandler(this.label8_Click);
+            this.labelThongKeKhachHang.AutoEllipsis = true;
+            this.labelThongKeKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F);
+            this.labelThongKeKhachHang.Location = new System.Drawing.Point(0, 54);
+            this.labelThongKeKhachHang.Name = "labelThongKeKhachHang";
+            this.labelThongKeKhachHang.Size = new System.Drawing.Size(275, 39);
+            this.labelThongKeKhachHang.TabIndex = 3;
+            this.labelThongKeKhachHang.Text = "1";
+            this.labelThongKeKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelThongKeKhachHang.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label9.Location = new System.Drawing.Point(84, 19);
+            this.label9.Location = new System.Drawing.Point(80, 19);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 26);
+            this.label9.Size = new System.Drawing.Size(128, 26);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Nhân viên";
+            this.label9.Text = "Khách hàng";
             // 
             // chartDoanhThuTheoThang
             // 
@@ -591,7 +591,7 @@ namespace GUI
         private System.Windows.Forms.Label labelThongKeDoanDuLich;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label labelThongKeNhanVien;
+        private System.Windows.Forms.Label labelThongKeKhachHang;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThuTheoThang;
         private System.Windows.Forms.Panel panel6;

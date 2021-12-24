@@ -15,6 +15,7 @@ namespace WebAdmin.Controllers
         D_nhanvien d_nhanvien = new D_nhanvien();
         D_DangKy d_dangky = new D_DangKy();
         D_chiphi d_chiphi = new D_chiphi();
+        D_KH d_KH = new D_KH();
         // GET: TongQuan
         public ActionResult Index()
         {
@@ -45,9 +46,9 @@ namespace WebAdmin.Controllers
 
             //-------------------------------------
             //tổng số nhân viên
-            var countNhanVien = d_nhanvien.GetAllNhanVien().Count();
+            var countKhachHang = d_KH.GetKhachHang().Count();
 
-            ViewBag.countNhanVien = countNhanVien;
+            ViewBag.countKhachHang = countKhachHang;
 
             //-------------------------------------
             //Tổng doanh thu = tổng giá tour khách đăng ký (tất cả đoàn) - tổng chi phí (tất cả đoàn)

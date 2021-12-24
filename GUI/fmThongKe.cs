@@ -19,6 +19,7 @@ namespace GUI
         D_tour d_tour= new D_tour();
         D_DangKy d_DangKy = new D_DangKy();
         D_chiphi d_chiphi = new D_chiphi();
+        D_KH d_KH = new D_KH();
 
         public fmThongKe()
         {
@@ -29,7 +30,7 @@ namespace GUI
  
         public void ThongKe()
         {
-            labelThongKeNhanVien.Text = d_nhanvien.GetListNhanVien().Count.ToString();        
+            labelThongKeKhachHang.Text = d_KH.GetKhachHang().Count.ToString();        
             labelThongKeDoanDuLich.Text = d_doan.GetListDoan().Count.ToString();
             labelThongKeTour.Text = d_tour.GetListTour().Count.ToString();
 
@@ -317,6 +318,7 @@ namespace GUI
             var listGetChiPhiAllDoan = d_DangKy.GetChiPhiAllDoan();
 
             dataGridViewTopTourDoanhThu.AutoGenerateColumns = false;
+            dataGridViewTopTourDoanhThu.Columns["doanhThu"].DefaultCellStyle.Format = "N2";
 
             foreach (var itemDoanhSo in listGetDoanhSoDangKyAllTour)
             {
