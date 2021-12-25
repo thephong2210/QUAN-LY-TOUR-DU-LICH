@@ -126,6 +126,7 @@ namespace GUI
             var listGetListDoanWithMaTour = d_doan.GetListDoanWithMaTour(this.maSoTour);
 
             dataGridViewDanhSachDoan.AutoGenerateColumns = false;
+            dataGridViewDanhSachDoan.Rows.Clear();
             foreach (var itemListDoan in listGetListDoanWithMaTour)
             {
                 var _maSoDoan = itemListDoan.maSoDoan;
