@@ -98,42 +98,50 @@ namespace GUI
                 {
                     if (!String.IsNullOrWhiteSpace(comboBox3MaSoDoan.Text))
                     {
-                        try
+                        if (!String.IsNullOrWhiteSpace(textBoxGiaTour.Text))
                         {
-                            dangky objDangKy = new dangky();
-                            doandulich objDoan = new doandulich();
-                            tour objTour = new tour();
-
-                            
-                            objDangKy.maSoKhachHang = Convert.ToInt32(comboBoxMaSoKhachHang.SelectedValue);
-                            objDangKy.maTour = this.maSoTourGet;
-                            objDangKy.giaTourDangKy = this.giaTourDangKyGet;
-
-                            objDangKy.ngayDangKy = DateTime.Parse(dateTimePickerNgayDangKy.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
-                            objDangKy.maSoDoan = this.maSoDoanGet;
-                            maDoanEdit = this.maSoDoanGet;
-
-                            objDangKy.soLuongKhachHang = 1;
-                            objDoan.soLuongKhachHang = 1;
-                            
-                            objDangKy.trangThai = 1;
-
-                            if (b_dangky.ThemDangKy(objDangKy))
+                            try
                             {
-                                if (b_doan.ThemSoLuongKhachHangDoan(objDoan, maDoanEdit))
-                                {
-                                    System.Diagnostics.Debug.WriteLine("Thêm số lượng bên đoàn du lịch thành công!");
-                                }
+                                dangky objDangKy = new dangky();
+                                doandulich objDoan = new doandulich();
+                                tour objTour = new tour();
 
-                                RefreshData();
-                                MessageBox.Show("Đăng ký thành công!", "Thông báo");
+
+                                objDangKy.maSoKhachHang = Convert.ToInt32(comboBoxMaSoKhachHang.SelectedValue);
+                                objDangKy.maTour = this.maSoTourGet;
+                                objDangKy.giaTourDangKy = this.giaTourDangKyGet;
+
+                                objDangKy.ngayDangKy = DateTime.Parse(dateTimePickerNgayDangKy.Value.Date.ToString("yyyy-MM-dd hh:mm:ss.ss"));
+                                objDangKy.maSoDoan = this.maSoDoanGet;
+                                maDoanEdit = this.maSoDoanGet;
+
+                                objDangKy.soLuongKhachHang = 1;
+                                objDoan.soLuongKhachHang = 1;
+
+                                objDangKy.trangThai = 1;
+
+                                if (b_dangky.ThemDangKy(objDangKy))
+                                {
+                                    if (b_doan.ThemSoLuongKhachHangDoan(objDoan, maDoanEdit))
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("Thêm số lượng bên đoàn du lịch thành công!");
+                                    }
+
+                                    RefreshData();
+                                    MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                MessageBox.Show("Thêm không thành công!", "Thông báo");
+                                System.Diagnostics.Debug.WriteLine(e);
                             }
                         }
-                        catch (Exception e)
+                        else
                         {
-                            MessageBox.Show("Thêm không thành công!", "Thông báo");
-                            System.Diagnostics.Debug.WriteLine(e);
+                            MessageBox.Show("Vui lòng áp dụng một giá cho tour trước!", "Thông báo");
                         }
+                        
                     }
                     else
                     {

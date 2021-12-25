@@ -183,7 +183,7 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("Nhân viên này đã tham gia vào một đoàn khác! Vui lòng chọn nhân viên khác!", "Thông báo");
+                        MessageBox.Show("Nhân viên này đã tham gia vào một đoàn! Vui lòng chọn nhân viên khác!", "Thông báo");
                     }
                     
                 }
